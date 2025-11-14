@@ -52,44 +52,6 @@ L'interazione iterativa con l'AI non è solo "dare istruzioni", ma un processo d
 
 ---
 
-## 🔗 Collegamento con il Progetto Sito/Opera Letteraria
-
-**Scenario parallelo**: Costruzione iterativa di un sito web o opera letteraria durante la conferenza.
-
-### Approccio
-
-- **Live iteration**: Mostrare 2-3 volte durante la conferenza l'evoluzione del progetto
-- **Transparenza del processo**: Far vedere i prompt, le modifiche, gli errori
-- **Partecipazione del pubblico**: Raccogliere feedback/richieste di modifica
-
-### Obiettivo didattico
-
-Dimostrare che:
-- Creare con AI = **progettare attraverso il linguaggio**
-- Il valore non è nel primo output, ma nel processo iterativo
-- La competenza sta nel **sapere cosa chiedere** (domain expertise)
-
----
-
-## 📋 Checklist per l'Esperimento Live
-
-**Prima della conferenza**:
-- [ ] Decidere il progetto (sito web? racconto? poesia? landing page?)
-- [ ] Definire obiettivo chiaro (es. "sito per evento culturale")
-- [ ] Preparare primo prompt base
-
-**Durante la conferenza**:
-- [ ] **Iterazione 1** (inizio): Mostrare output grezzo del primo prompt
-- [ ] **Iterazione 2** (metà): Incorporare feedback/miglioramenti
-- [ ] **Iterazione 3** (fine): Risultato finale + recap del processo
-
-**Strumenti**:
-- Claude/ChatGPT per contenuti
-- Midjourney/DALL-E per immagini (opzionale)
-- Screen sharing per mostrare processo live
-
----
-
 ## 🎯 Messaggio Finale
 
 > **"Lavorare con l'AI non è delegare la creazione, ma diventare progettisti più espliciti. Ogni parola del tuo prompt è una scelta di design."**
