@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cap 3 - Applicazioni Pratiche</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.3.1/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.3.1/dist/theme/white.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        .reveal { font-family: 'Fira Code', monospace; }
+        .reveal h1, .reveal h2, .reveal h3 { color: #2c3e50; font-weight: 300; }
+        .reveal .slides section { text-align: left; }
+        .reveal .title-slide { text-align: center; }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+        }
+        
+        .example-box {
+            background: #e8f5e9;
+            padding: 1.5rem;
+            border-left: 4px solid #4caf50;
+            border-radius: 4px;
+            margin: 1rem 0;
+        }
+        
+        .warning-box {
+            background: #fff3e0;
+            padding: 1.5rem;
+            border-left: 4px solid #ff9800;
+            border-radius: 4px;
+            margin: 1rem 0;
+        }
+        
+        .analogy-box {
+            background: #e3f2fd;
+            padding: 1.5rem;
+            border-left: 4px solid #2196f3;
+            border-radius: 4px;
+            margin: 1rem 0;
+        }
+        
+        .time-comparison {
+            display: flex;
+            justify-content: space-around;
+            margin: 1rem 0;
+        }
+        
+        .time-box {
+            text-align: center;
+            padding: 1rem;
+            border-radius: 8px;
+        }
+        
+        .time-old {
+            background: #ffcdd2;
+        }
+        
+        .time-new {
+            background: #c8e6c9;
+        }
+        
+        .time-box .time {
+            font-size: 2em;
+            font-weight: bold;
+        }
+        
+        .emoji-large { font-size: 3em; }
+        .small-text { font-size: 0.8em; }
+        
+        .prompt-box {
+            background: #263238;
+            color: #aed581;
+            padding: 1rem;
+            border-radius: 8px;
+            font-size: 0.85em;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            
+            <!-- Title -->
+            <section class="title-slide">
+                <div class="emoji-large">🛠️</div>
+                <h1>Capitolo 3</h1>
+                <h2>Applicazioni Pratiche</h2>
+                <p><small>L'IA nel mondo reale</small></p>
+            </section>
+            
+            <!-- Intro -->
+            <section>
+                <h2>Dalla teoria alla pratica</h2>
+                <p class="fragment">Abbiamo capito <strong>cos'è</strong> l'IA...</p>
+                <p class="fragment">Ma come la uso <strong>io</strong>, ogni giorno?</p>
+                <div class="highlight-box fragment">
+                    <p>Vi racconto <strong>due esempi veri</strong></p>
+                    <p class="small-text">Cose che ho fatto la settimana scorsa</p>
+                </div>
+            </section>
+            
+            <!-- Esempio 1: Intro -->
+            <section class="title-slide">
+                <div class="emoji-large">🍗🇪🇸</div>
+                <h2>Esempio 1</h2>
+                <h3>Ricetta in Spagnolo</h3>
+            </section>
+            
+            <!-- Esempio 1: Problema -->
+            <section>
+                <h2>Il Problema</h2>
+                <p>Dovevo mandare una ricetta a un'amica spagnola</p>
+                <ul class="fragment">
+                    <li>Ricetta per <strong>2 persone</strong> → lei cucina per <strong>8</strong></li>
+                    <li>Il mio spagnolo? <strong>Dimenticato 30 anni fa</strong></li>
+                </ul>
+                <div class="fragment">
+                    <h3>Senza IA avrei dovuto:</h3>
+                    <ol class="small-text">
+                        <li>Moltiplicare ingredienti a mano</li>
+                        <li>Scrivere procedimento completo</li>
+                        <li>Tradurre in spagnolo</li>
+                        <li>Rendere il tono amichevole</li>
+                    </ol>
+                </div>
+            </section>
+            
+            <!-- Esempio 1: Soluzione -->
+            <section>
+                <h2>La Soluzione</h2>
+                <div class="prompt-box">
+                    Petto di tacchino 250g, pomodori 300g, salsa 200g, olio 26g.<br><br>
+                    Moltiplica tutto per 4, scrivi ricetta in spagnolo:<br>
+                    rosolare tacchino con olio e aglio, toglierlo,<br>
+                    mettere pomodori, rimettere tacchino a fette,<br>
+                    cuocere 30 min.<br><br>
+                    Aggiungi emoticon e battute simpatiche.
+                </div>
+                <p class="fragment"><strong>UN messaggio. Tutto insieme.</strong></p>
+            </section>
+            
+            <!-- Esempio 1: Confronto tempo -->
+            <section>
+                <h2>Risultato</h2>
+                <div class="time-comparison">
+                    <div class="time-box time-old">
+                        <div class="time">15-20 min</div>
+                        <p>Senza IA</p>
+                    </div>
+                    <div class="time-box time-new fragment">
+                        <div class="time">10 sec</div>
+                        <p>Con IA</p>
+                    </div>
+                </div>
+                <div class="example-box fragment">
+                    <p>✅ Ingredienti moltiplicati giusti</p>
+                    <p>✅ Ricetta completa in spagnolo</p>
+                    <p>✅ Tono amichevole + emoticon</p>
+                </div>
+            </section>
+            
+            <!-- Esempio 1: Messaggio -->
+            <section>
+                <h2>Il Messaggio</h2>
+                <div class="highlight-box">
+                    <p>L'IA non serve solo per cose complicate.</p>
+                    <p>Serve per cose <strong>quotidiane</strong>.</p>
+                </div>
+                <ul class="fragment">
+                    <li>🌍 Parente all'estero?</li>
+                    <li>🍝 Ricetta da tradurre?</li>
+                    <li>📊 Dosi da convertire?</li>
+                </ul>
+                <p class="fragment"><strong>Da domani potete farlo anche voi!</strong></p>
+            </section>
+            
+            <!-- Esempio 2: Intro -->
+            <section class="title-slide">
+                <div class="emoji-large">📄🔍</div>
+                <h2>Esempio 2</h2>
+                <h3>Analisi Documenti</h3>
+            </section>
+            
+            <!-- Esempio 2: Problema -->
+            <section>
+                <h2>Il Problema</h2>
+                <p>Documenti lunghi: contratti, preventivi, 50+ pagine</p>
+                <p class="fragment">Cercare errori o contraddizioni?</p>
+                <p class="fragment"><strong>Ore di lettura.</strong></p>
+            </section>
+            
+            <!-- Esempio 2: Soluzione -->
+            <section>
+                <h2>La Soluzione</h2>
+                <div class="prompt-box">
+                    Analizza questo documento.<br>
+                    Trova errori, contraddizioni,<br>
+                    cose che non tornano.
+                </div>
+                <div class="example-box fragment">
+                    <p>L'IA mi segnala:</p>
+                    <ul class="small-text">
+                        <li>"Pagina 12 dice X, pagina 27 dice il contrario"</li>
+                        <li>"Questo numero non torna"</li>
+                        <li>"Questa frase è ambigua"</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <!-- Esempio 2: Warning -->
+            <section>
+                <h2>⚠️ Attenzione!</h2>
+                <div class="warning-box">
+                    <h3>Io poi controllo SEMPRE</h3>
+                    <p>L'IA potrebbe sbagliarsi!</p>
+                </div>
+                <ul class="fragment">
+                    <li>L'IA mi indica <strong>DOVE</strong> guardare</li>
+                    <li>IO decido <strong>SE</strong> ha ragione</li>
+                </ul>
+                <p class="fragment small-text">Non sostituisce l'avvocato. Ma risparmia ore di ricerca.</p>
+            </section>
+            
+            <!-- Esempio 2: Relatable -->
+            <section>
+                <h2>Esempio per Voi</h2>
+                <div class="example-box">
+                    <p><strong>Contratto assicurazione</strong> - 30 pagine di clausole</p>
+                </div>
+                <div class="prompt-box fragment">
+                    Controlla questo contratto.<br>
+                    Ci sono clausole svantaggiose per me?
+                </div>
+                <p class="fragment">L'IA vi segnala i punti sospetti.</p>
+                <p class="fragment"><strong>VOI decidete se preoccuparvi.</strong></p>
+            </section>
+            
+            <!-- Analogia: Intro -->
+            <section class="title-slide">
+                <div class="emoji-large">🚜</div>
+                <h2>L'Analogia Centrale</h2>
+                <h3>IA come Aiutante</h3>
+            </section>
+            
+            <!-- Analogia: Trattore -->
+            <section>
+                <h2>Il Contadino e il Trattore</h2>
+                <p>Una volta: arare un campo = <strong>giorni col bue</strong></p>
+                <p class="fragment">Poi arriva il <strong>trattore</strong>: 2 ore invece di 3 giorni</p>
+                <div class="analogy-box fragment">
+                    <p><strong>Il trattore fa</strong>: forza, velocità, grosso del lavoro</p>
+                    <p><strong>Il contadino fa</strong>: guida, controlla, decide, aggiusta</p>
+                </div>
+                <p class="fragment">Raccolto buono? <strong>Merito del contadino.</strong></p>
+                <p class="fragment small-text">Il trattore è solo uno strumento potente nelle sue mani.</p>
+            </section>
+            
+            <!-- Analogia: Applicazione -->
+            <section>
+                <h2>L'IA è Uguale</h2>
+                <div class="highlight-box">
+                    <p><strong>L'IA fa</strong>: scrivere bozze, tradurre, cercare errori</p>
+                    <p><strong>VOI fate</strong>: verificare, correggere, decidere</p>
+                    <p><strong>VOI siete responsabili</strong> del risultato finale</p>
+                </div>
+                <h3 class="fragment" style="text-align: center;">Non sostituisce il vostro cervello.<br>Lo potenzia.</h3>
+            </section>
+            
+            <!-- Analogia: Cucina -->
+            <section>
+                <h2>Altra Analogia: In Cucina</h2>
+                <div class="analogy-box">
+                    <p>Qualcuno vi taglia le verdure per il minestrone</p>
+                    <p class="small-text">Cipolle, carote, sedano, patate...</p>
+                </div>
+                <p class="fragment"><strong>Grosso del lavoro fatto.</strong></p>
+                <ul class="fragment small-text">
+                    <li>Ma VOI controllate se sono tagliate bene</li>
+                    <li>VOI buttate quelle marce</li>
+                    <li>VOI aggiungete quello che manca</li>
+                </ul>
+                <p class="fragment">Minestrone buono? <strong>Merito vostro.</strong></p>
+            </section>
+            
+            <!-- Messaggio finale -->
+            <section>
+                <h2>Ricordatevi Sempre</h2>
+                <div class="highlight-box">
+                    <p>L'IA vi fa risparmiare tempo e fatica</p>
+                    <p>Ma <strong>NON sostituisce</strong> il vostro giudizio</p>
+                </div>
+                <p class="fragment">È uno <strong>strumento potente</strong></p>
+                <p class="fragment">Va <strong>usato bene</strong> e <strong>controllato sempre</strong></p>
+                <p class="fragment small-text">Come il trattore, come l'avvitatore, come qualsiasi strumento.</p>
+            </section>
+            
+            <!-- Transizione -->
+            <section class="title-slide">
+                <div class="emoji-large">🧪</div>
+                <h2>Ora tocca a voi!</h2>
+                <p>Vi insegno a <strong>chiedere bene</strong> all'IA</p>
+                <p>E a <strong>controllare</strong> i risultati</p>
+                <div class="highlight-box fragment">
+                    <h3 style="color: white; margin: 0;">Passiamo agli esperimenti!</h3>
+                </div>
+            </section>
+            
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.3.1/dist/reveal.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            transition: 'slide'
+        });
+    </script>
+</body>
+</html>
