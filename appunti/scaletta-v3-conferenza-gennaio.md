@@ -1,7 +1,8 @@
-# Scaletta v2 - Conferenza Minerva 9 Gennaio 2025
+# Scaletta v3 - Conferenza Minerva 9 Gennaio 2025
 
 **Data**: Venerdì 9 Gennaio 2025, 10:00-11:30 (90 min)
 **Brainstorm**: 18 Dicembre 2024
+**Update**: Call 18 Dicembre 2024
 
 ---
 
@@ -222,13 +223,54 @@ Collegamento alle domande iniziali:
 
 ---
 
-### 12. ETICA / FUTURO (~? min)
+### 12. MULTIMODALITÀ (~3 min)
+
+**Concetto chiave**: L'AI converte TUTTO in numeri.
+
+> "Fino a poco fa l'AI capiva solo testo. Ora capisce e GENERA tutto: testo, immagini, audio, video.
+>
+> Il trucco? Converte TUTTO in numeri. Testo, immagini, audio - diventano tutti liste di numeri. Una volta che sono numeri, per l'AI è tutto uguale. Poi riconverte i numeri in quello che serve.
+>
+> È come un traduttore che parla 100 lingue: nella sua testa traduce tutto in una lingua segreta intermedia.
+>
+> Per questo ora funziona tutto insieme. Non sono 10 AI diverse - è UNA AI che parla tutte le lingue dei media."
+
+**Schema visivo:**
+
+```
+FOTO 🖼️  ──→ [numeri] ──→ TESTO 📝
+AUDIO 🎵 ──→ [numeri] ──→ TESTO 📝
+TESTO 📝 ──→ [numeri] ──→ IMMAGINE 🖼️
+```
+
+---
+
+### 13. AGENTE PERSONALE (~5 min)
+
+**Obiettivo**: Far capire la differenza tra ChatGPT generico e un agente con contesto personale.
+
+> "Questi tool che vi ho fatto vedere sono fighi. Ma hanno un limite: non vi conoscono.
+>
+> Se io chiedo a ChatGPT 'devo comprare un drone', mi dà una risposta generica. Tipo 'dipende dal budget, dall'uso...'
+>
+> Ma se avessi un assistente che SA che io ho un certo budget, che lo uso per foto aeree del lago, che ho già provato certi modelli... la risposta sarebbe completamente diversa.
+>
+> Stessa cosa per gli investimenti, per le email, per qualsiasi cosa.
+>
+> **Un agente personale è ChatGPT che ha letto il vostro diario.** Conosce il contesto. E questo cambia tutto."
+
+**Behind the scenes** (battuta):
+> "A proposito... questa presentazione? L'ho preparata insieme a un agente personale. Lui conosce Minerva, sa cosa ho fatto l'anno scorso, ricorda le domande che mi avete fatto. Non lo dico per vantarmi - lo dico perché è già realtà."
+
+---
+
+### 14. ETICA / FUTURO (~? min)
 
 DA DEFINIRE
 
 ---
 
-### 13. CHIUSURA / TAKE-HOME MESSAGE (~? min)
+### 15. CHIUSURA / TAKE-HOME MESSAGE (~? min)
 
 DA DEFINIRE - Una frase da portare a casa
 
@@ -242,9 +284,21 @@ DA DEFINIRE - Una frase da portare a casa
 | 9. Demo live | ~20 | Struttura ok |
 | 10. AI vs AGI | ~? | Struttura ok, "creare Dio" da sviluppare |
 | 11. Showcase tool | ~? | Lista ok |
-| 12. Etica/Futuro | ~? | Da definire |
-| 13. Chiusura | ~? | Da definire |
-| **TOTALE** | **~41+ min** | ~45-50 min per resto |
+| 12. Multimodalità | ~3 | ✅ Sviluppato |
+| 13. Agente Personale | ~5 | ✅ Sviluppato |
+| 14. Etica/Futuro | ~? | Da definire |
+| 15. Chiusura | ~? | Da definire |
+| **TOTALE** | **~49+ min** | ~40 min per resto |
+
+---
+
+## Decisioni Call 18 Dicembre
+
+- ~~Comet Browser~~: eliminato (concept figo, pratica inutilizzabile)
+- ~~Sora Social~~: eliminato (non fa ciccia come contenuto)
+- **Multimodalità**: spiegazione "tutto diventa numeri"
+- **Agente Personale**: ponte dopo showcase ("questi tool fighi MA senza il vostro contesto")
+- **Behind the scenes**: battuta veloce nel blocco Agente Personale
 
 ---
 
@@ -253,7 +307,7 @@ DA DEFINIRE - Una frase da portare a casa
 - [ ] Sviluppare "L'uomo cerca di creare Dio" (tema delicato)
 - [ ] Definire blocco Etica/Futuro
 - [ ] Definire Take-home message (1 frase)
-- [ ] Timing preciso showcase tool
+- [ ] Timing preciso showcase tool + AI vs AGI
 - [ ] Preparare demo live (account, link, backup)
 
 ---
