@@ -20,23 +20,11 @@
         }
 
         body {
-            background: var(--color-bg) !important;
+            background: var(--color-bg);
         }
 
         .reveal-viewport {
-            background: var(--color-bg) !important;
-        }
-
-        .reveal {
-            background: var(--color-bg) !important;
-        }
-
-        .reveal .slides {
-            background: transparent;
-        }
-
-        .reveal .slide-background {
-            background: var(--color-bg) !important;
+            background: var(--color-bg);
         }
 
         .reveal {
@@ -147,20 +135,24 @@
 
         /* Chapter title */
         .chapter-slide {
-            display: flex !important;
+            display: flex;
             flex-direction: column;
             justify-content: center;
-            background: var(--color-accent) !important;
+        }
+
+        /* Dark background for chapter slides via data-state */
+        .reveal .slides section[data-background-color="#2d2d2d"] {
+            color: white;
         }
 
         .chapter-slide h2 {
-            color: white !important;
+            color: white;
             font-size: 3.5em;
             margin-bottom: 0.3em;
         }
 
         .chapter-slide p {
-            color: rgba(255,255,255,0.7) !important;
+            color: rgba(255,255,255,0.7);
             font-size: 1.6em;
         }
 
@@ -292,7 +284,7 @@
             </section>
 
             <!-- SLIDE 3: Le vostre leggi -->
-            <section class="chapter-slide">
+            <section class="chapter-slide" data-background-color="#2d2d2d">
                 <h2>Le vostre leggi</h2>
                 <p>Quali regole dareste a un'intelligenza artificiale?</p>
             </section>
@@ -328,19 +320,19 @@
             </section>
 
             <!-- SLIDE 7: Chatbot -->
-            <section class="chapter-slide">
+            <section class="chapter-slide" data-background-color="#2d2d2d">
                 <h2>I Chatbot</h2>
                 <p>ChatGPT · Claude · Gemini</p>
             </section>
 
             <!-- SLIDE 8: Ricerca IA -->
-            <section class="chapter-slide">
+            <section class="chapter-slide" data-background-color="#2d2d2d">
                 <h2>Ricerca con IA</h2>
                 <p>Perplexity · Google AI Mode</p>
             </section>
 
             <!-- SLIDE 9: NotebookLM -->
-            <section class="chapter-slide">
+            <section class="chapter-slide" data-background-color="#2d2d2d">
                 <h2>NotebookLM</h2>
                 <p>Documento → Podcast</p>
             </section>
