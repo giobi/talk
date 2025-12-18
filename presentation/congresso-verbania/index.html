@@ -3,115 +3,29 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Introduzione all'IA - Congresso Verbania</title>
-    
+    <title>Introduzione all'IA - Conferenza 9 Gennaio 2025</title>
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.3.1/dist/reveal.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.3.1/dist/theme/white.css">
-    
-    <!-- Theme used for syntax highlighting of code -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.3.1/plugin/highlight/monokai.css">
-
-    <!-- Monospace font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
 
     <style>
         .reveal {
-            font-family: 'Fira Code', 'JetBrains Mono', 'Source Code Pro', Consolas, Monaco, 'Courier New', monospace;
+            font-family: 'Fira Code', 'JetBrains Mono', monospace;
         }
-
-        /* Beautiful monospace font for code and prompts */
-        .reveal code,
-        .reveal pre,
-        .reveal pre code,
-        .reveal .prompt-box,
-        .reveal .code-block {
-            font-family: 'Fira Code', 'JetBrains Mono', 'Source Code Pro', Consolas, Monaco, 'Courier New', monospace;
-            font-variant-ligatures: normal;
-        }
-
-        .reveal pre {
-            width: 100%;
-            margin: 1rem 0;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .reveal pre code {
-            max-height: 600px;
-            padding: 1.5rem;
-            border-radius: 8px;
-            font-size: 0.85em;
-            line-height: 1.5;
-        }
-
-        .reveal code {
-            background: #f4f4f4;
-            padding: 0.2em 0.5em;
-            border-radius: 4px;
-            font-size: 0.9em;
-            color: #c7254e;
-        }
-
-        .reveal .prompt-box {
-            background: #2c3e50;
-            color: #ecf0f1;
-            padding: 1.5rem;
-            border-radius: 8px;
-            border-left: 4px solid #3498db;
-            font-size: 0.9em;
-            line-height: 1.6;
-            margin: 1rem 0;
-        }
-        
         .reveal h1, .reveal h2, .reveal h3 {
             color: #2c3e50;
             font-weight: 300;
         }
-        
         .reveal .slides section {
             text-align: left;
         }
-        
         .reveal .title-slide {
             text-align: center;
         }
-        
-        .reveal .progress {
-            color: #3498db;
-        }
-        
-        .reveal .controls {
-            color: #3498db;
-        }
-        
-        .timeline-item {
-            margin: 1rem 0;
-            padding: 1rem;
-            background: #f8f9fa;
-            border-left: 4px solid #3498db;
-            border-radius: 4px;
-        }
-        
-        .timeline-year {
-            font-weight: bold;
-            color: #3498db;
-        }
-        
-        .highlight {
-            background: #fff3cd;
-            padding: 0.2em 0.4em;
-            border-radius: 3px;
-        }
-        
-        .fragment.highlight-current-blue.current-fragment {
-            background: #cce5ff;
-        }
-        
-        .smaller-text {
-            font-size: 0.8em;
-        }
-        
         .chapter-title {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
@@ -120,349 +34,473 @@
             text-align: center;
             margin: 1rem 0;
         }
+        .timeline-item {
+            margin: 1rem 0;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            border-radius: 4px;
+        }
+        .timeline-year {
+            font-weight: bold;
+            color: #3498db;
+        }
+        .highlight-box {
+            background: #fff3cd;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #ffc107;
+            margin: 1rem 0;
+        }
+        .quote-box {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+            font-size: 0.95em;
+            line-height: 1.6;
+            margin: 1rem 0;
+        }
+        .smaller-text {
+            font-size: 0.8em;
+        }
+        .tool-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+        .tool-card {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 3px solid #667eea;
+        }
+        .schema-box {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 1.5rem;
+            border-radius: 8px;
+            font-family: 'Fira Code', monospace;
+            font-size: 1.2em;
+            text-align: center;
+        }
     </style>
 </head>
 
 <body>
     <div class="reveal">
         <div class="slides">
-            
+
             <!-- Title Slide -->
             <section class="title-slide">
                 <h1>Introduzione all'Intelligenza Artificiale</h1>
-                <h3>Per l'Università della Terza Età</h3>
+                <h3>Per l'Universita della Terza Eta</h3>
                 <p>
-                    <small>Congresso Verbania</small><br>
-                    <small>90 minuti - Include discussioni e domande</small>
+                    <small>9 Gennaio 2025 - 90 minuti</small><br>
+                    <small>Scaletta v3</small>
                 </p>
             </section>
-            
-            <!-- Agenda -->
+
+            <!-- Agenda v3 -->
             <section>
-                <h2>Programma del Corso</h2>
-                <ol>
-                    <li class="fragment"><strong>Introduzione:</strong> L'IA dal sogno alla realtà (15 min)</li>
-                    <li class="fragment"><strong>Cos'è l'Intelligenza Artificiale?</strong> Spiegazione semplice (20 min)</li>
-                    <li class="fragment"><strong>Applicazioni Pratiche:</strong> L'IA che usiamo ogni giorno (20 min)</li>
-                    <li class="fragment"><strong>Aspetti Etici e Futuro:</strong> Un dibattito aperto (15 min)</li>
-                    <li class="fragment"><strong>Discussione e Domande</strong> (20 min)</li>
+                <h2>Programma</h2>
+                <ol style="font-size: 0.85em;">
+                    <li class="fragment">Gioco di completamento (~3 min)</li>
+                    <li class="fragment">Chi sono + Coinvolgimento (~3 min)</li>
+                    <li class="fragment">Asimov e le origini (~3 min)</li>
+                    <li class="fragment">Da Asimov a ChatGPT (~5 min)</li>
+                    <li class="fragment">Il payoff: come funziona (~5 min)</li>
+                    <li class="fragment">Demo live ChatGPT (~20 min)</li>
+                    <li class="fragment">AI vs AGI (~10 min)</li>
+                    <li class="fragment">Showcase tool + Multimodalita + Agente Personale (~15 min)</li>
+                    <li class="fragment">Etica e chiusura (~? min)</li>
                 </ol>
             </section>
-            
-            <!-- Chapter 1 Title -->
+
+            <!-- BLOCCO 1: GIOCO COMPLETAMENTO -->
             <section>
                 <div class="chapter-title">
-                    <h1>Capitolo 1</h1>
-                    <h2>L'intelligenza artificiale<br>un viaggio dal sogno alla realtà</h2>
+                    <h2>1. Gioco di Completamento</h2>
+                    <p>Un esperimento insieme</p>
                 </div>
             </section>
-            
-            <!-- 1.1 Asimov and AGI -->
+
             <section>
-                <h2>1.1. Dalle "Leggi della Robotica" al sogno dell'AGI</h2>
-                <div class="timeline-item fragment">
-                    <div class="timeline-year">Anni '40</div>
-                    <strong>Isaac Asimov</strong> - Le "Leggi della Robotica"
-                    <ul class="smaller-text">
-                        <li>Prima visione etica dell'IA nella fantascienza</li>
-                        <li>Tecnologia in armonia con l'umanità</li>
-                    </ul>
+                <h2>Completate la frase...</h2>
+                <div class="fragment timeline-item">
+                    <strong>"Mogli e buoi..."</strong>
+                    <p class="smaller-text">Tutti rispondono: "...dei paesi tuoi"</p>
                 </div>
-                <div class="timeline-item fragment">
-                    <div class="timeline-year">Concetto</div>
-                    <strong>AGI - Intelligenza Artificiale Generale</strong>
-                    <ul class="smaller-text">
-                        <li>IA con capacità umane di comprensione</li>
-                        <li>Apprendimento e applicazione universale</li>
-                        <li>Per decenni rimasta pura fantasia</li>
-                    </ul>
+                <div class="fragment timeline-item">
+                    <strong>"Tanto va la gatta..."</strong>
+                    <p class="smaller-text">Tutti rispondono: "...al lardo che ci lascia lo zampino"</p>
+                </div>
+                <div class="fragment timeline-item">
+                    <strong>"Nel mezzo del cammin..."</strong>
+                    <p class="smaller-text">Molti rispondono: "...di nostra vita"</p>
                 </div>
             </section>
-            
-            <!-- 1.2 Theory to Practice -->
+
             <section>
-                <h2>1.2. Dalla teoria alla pratica</h2>
-                <div class="timeline-item fragment">
-                    <div class="timeline-year">Anni '50+</div>
-                    <strong>I primi passi</strong>
-                    <ul class="smaller-text">
-                        <li>IA confinata negli ambienti accademici</li>
-                        <li>Problemi specifici (es. gioco degli scacchi)</li>
-                        <li>AGI ancora molto lontana</li>
-                    </ul>
+                <h2>E queste?</h2>
+                <div class="fragment timeline-item">
+                    <strong>"Volume della sfera..."</strong>
+                    <p class="smaller-text">Pochi: 4/3 πr³</p>
                 </div>
-                <div class="timeline-item fragment">
-                    <div class="timeline-year">Svolta</div>
-                    <strong>Il "momento Sputnik" dell'IA</strong>
-                    <ul class="smaller-text">
-                        <li>Enormi quantità di dati disponibili</li>
-                        <li>Aumento della potenza di calcolo</li>
-                        <li>Machine Learning applicabile efficacemente</li>
-                    </ul>
+                <div class="fragment timeline-item">
+                    <strong>"Config Kubernetes per..."</strong>
+                    <p class="smaller-text">Nessuno (mai visto)</p>
+                </div>
+                <div class="fragment highlight-box">
+                    <strong>Perche alcune le sapete e altre no?</strong><br>
+                    Tenetelo a mente... ci torniamo dopo!
                 </div>
             </section>
-            
-            <!-- 1.3 ChatGPT Era -->
+
             <section>
-                <h2>1.3. L'era del Machine Learning e ChatGPT</h2>
-                <div class="timeline-item fragment">
-                    <div class="timeline-year">Oggi</div>
-                    <strong>L'IA che conosciamo</strong>
-                    <ul class="smaller-text">
-                        <li>Non è AGI, ma "IA specifica" o "ristretta"</li>
-                        <li>Eccelle in compiti ben definiti</li>
-                        <li>Permea la nostra vita quotidiana</li>
-                    </ul>
+                <h2>Altre domande...</h2>
+                <div class="fragment timeline-item">
+                    <strong>"2 + 2 = ?"</strong>
+                    <p class="smaller-text">Tutti: 4</p>
                 </div>
-                <div class="timeline-item fragment highlight">
-                    <div class="timeline-year">2022-2023</div>
-                    <strong>Il fenomeno ChatGPT</strong>
-                    <ul class="smaller-text">
-                        <li>IA accessibile a tutti</li>
-                        <li>Modelli linguistici di grandi dimensioni (LLM)</li>
-                        <li>Passaggio definitivo: teoria → pratica di massa</li>
-                    </ul>
+                <div class="fragment timeline-item">
+                    <strong>"234 × 12 = ?"</strong>
+                    <p class="smaller-text">Pochi (serve calcolare)</p>
+                </div>
+                <div class="fragment timeline-item">
+                    <strong>"Che ore sono?"</strong>
+                    <p class="smaller-text">Guardate l'orologio</p>
+                </div>
+                <div class="fragment timeline-item">
+                    <strong>"Che tempo fa domani?"</strong>
+                    <p class="smaller-text">Guardate il telefono</p>
                 </div>
             </section>
-            
-            <!-- Chapter 2 Title -->
+
+            <!-- BLOCCO 2-3: INTRO + COINVOLGIMENTO -->
             <section>
                 <div class="chapter-title">
-                    <h1>Capitolo 2</h1>
-                    <h2>Cos'è l'Intelligenza Artificiale?</h2>
+                    <h2>2-3. Chi sono</h2>
                 </div>
             </section>
-            
-            <!-- 2.1 Simple Definition -->
+
             <section>
-                <h2>2.1. Definizione semplice</h2>
-                <div class="fragment">
-                    <p style="font-size: 1.5em; text-align: center; background: #e8f4f8; padding: 2rem; border-radius: 10px;">
-                        <strong>L'Intelligenza Artificiale è la capacità di una macchina di eseguire compiti che normalmente richiederebbero intelligenza umana.</strong>
-                    </p>
+                <h2>Un appassionato, non un accademico</h2>
+                <div class="quote-box">
+                    Non sono un professore, non sono un ricercatore.<br><br>
+                    Sono uno che usa l'IA tutti i giorni per lavoro<br>
+                    e che si e appassionato a capire come funziona.
                 </div>
-                <div class="fragment">
-                    <p>Esempi di "intelligenza umana":</p>
+                <div class="fragment" style="margin-top: 2rem;">
+                    <p><strong>Domanda per voi:</strong></p>
                     <ul>
-                        <li class="fragment">Riconoscere volti e oggetti</li>
-                        <li class="fragment">Comprendere e generare linguaggio</li>
-                        <li class="fragment">Prendere decisioni basate su informazioni</li>
-                        <li class="fragment">Imparare dall'esperienza</li>
+                        <li>Alzi la mano chi ha gia usato ChatGPT</li>
+                        <li>Chi ha paura dell'IA?</li>
                     </ul>
                 </div>
             </section>
-            
-            <!-- 2.2 Strong vs Weak AI -->
-            <section>
-                <h2>2.2. IA forte vs IA debole</h2>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
-                    <div class="fragment">
-                        <h3 style="color: #e74c3c;">IA debole (Narrow AI)</h3>
-                        <div style="background: #ffe6e6; padding: 1rem; border-radius: 8px;">
-                            <p><strong>Quella che usiamo oggi</strong></p>
-                            <ul class="smaller-text">
-                                <li>Specializzata in compiti specifici</li>
-                                <li>Non ha coscienza</li>
-                                <li>Esempi: Siri, Google Traduttore</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="fragment">
-                        <h3 style="color: #3498db;">IA forte (AGI)</h3>
-                        <div style="background: #e6f3ff; padding: 1rem; border-radius: 8px;">
-                            <p><strong>Obiettivo futuro</strong></p>
-                            <ul class="smaller-text">
-                                <li>Intelligenza generale come quella umana</li>
-                                <li>Potenzialmente cosciente</li>
-                                <li>Ancora non esiste</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
-            <!-- 2.3 Daily Examples -->
-            <section>
-                <h2>2.3. Esempi dalla vita quotidiana</h2>
-                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
-                    <div class="timeline-item fragment">
-                        <strong>Assistenti vocali</strong>
-                        <p class="smaller-text">Alexa, Siri, Google Assistant</p>
-                    </div>
-                    <div class="timeline-item fragment">
-                        <strong>Raccomandazioni online</strong>
-                        <p class="smaller-text">Netflix, Amazon, Spotify</p>
-                    </div>
-                    <div class="timeline-item fragment">
-                        <strong>Navigazione GPS</strong>
-                        <p class="smaller-text">Google Maps, Waze</p>
-                    </div>
-                    <div class="timeline-item fragment">
-                        <strong>Riconoscimento foto</strong>
-                        <p class="smaller-text">Facebook, Google Foto</p>
-                    </div>
-                    <div class="timeline-item fragment">
-                        <strong>Traduzione automatica</strong>
-                        <p class="smaller-text">Google Traduttore, DeepL</p>
-                    </div>
-                    <div class="timeline-item fragment">
-                        <strong>Shopping online</strong>
-                        <p class="smaller-text">Chatbot di supporto, prezzi dinamici</p>
-                    </div>
-                </div>
-            </section>
-            
-            <!-- Chapter 3 - Applications -->
+
+            <!-- BLOCCO 4: ASIMOV -->
             <section>
                 <div class="chapter-title">
-                    <h1>Capitolo 3</h1>
-                    <h2>Applicazioni Pratiche<br>L'IA che usiamo ogni giorno</h2>
+                    <h2>4. Asimov e le Origini</h2>
+                    <p>Dal sogno alla realta</p>
                 </div>
             </section>
-            
-            <!-- Applications in Daily Life -->
+
             <section>
-                <h2>L'IA nella nostra giornata tipo</h2>
-                <div class="timeline-item fragment">
-                    <div class="timeline-year">Mattino</div>
-                    <ul class="smaller-text">
-                        <li>Sveglia intelligente (analizza i cicli del sonno)</li>
-                        <li>Notizie personalizzate (Google News, Apple News)</li>
-                        <li>Traffico ottimizzato (Google Maps)</li>
-                    </ul>
+                <h2>Isaac Asimov (1920-1992)</h2>
+                <div class="quote-box">
+                    Nel 1942 questo signore si stava gia chiedendo:<br><br>
+                    <strong>"Se costruiamo macchine intelligenti, che regole gli diamo?"</strong><br><br>
+                    Inventa le <em>Tre Leggi della Robotica</em>.<br>
+                    E la parola "robotica"? L'ha inventata lui.
                 </div>
-                <div class="timeline-item fragment">
-                    <div class="timeline-year">Giorno</div>
-                    <ul class="smaller-text">
-                        <li>Email spam filter automatico</li>
-                        <li>Raccomandazioni di acquisto</li>
-                        <li>Assistenti virtuali per appuntamenti</li>
-                    </ul>
-                </div>
-                <div class="timeline-item fragment">
-                    <div class="timeline-year">Sera</div>
-                    <ul class="smaller-text">
-                        <li>Raccomandazioni di film e serie TV</li>
-                        <li>Playlist musicali personalizzate</li>
-                        <li>Casa intelligente (termostato, luci)</li>
-                    </ul>
+                <div class="fragment highlight-box">
+                    <strong>Momento personale:</strong> Libro sull'IA ereditato da papa
                 </div>
             </section>
-            
-            <!-- Chapter 4 - Ethics and Future -->
+
+            <!-- BLOCCO 5: DA ASIMOV A CHATGPT -->
             <section>
                 <div class="chapter-title">
-                    <h1>Capitolo 4</h1>
-                    <h2>Aspetti Etici e Futuro<br>Un dibattito aperto</h2>
+                    <h2>5. Da Asimov a ChatGPT</h2>
+                    <p>70 anni in 5 minuti</p>
                 </div>
             </section>
-            
-            <!-- Ethical Considerations -->
+
             <section>
-                <h2>Considerazioni etiche</h2>
-                <div class="fragment">
-                    <h3 style="color: #e74c3c;">Sfide attuali</h3>
-                    <ul>
-                        <li>Privacy e protezione dei dati</li>
-                        <li>Bias algoritmici e discriminazione</li>
-                        <li>Impatto sul lavoro e l'occupazione</li>
-                        <li>Dipendenza dalla tecnologia</li>
-                    </ul>
-                </div>
-                <div class="fragment">
-                    <h3 style="color: #27ae60;">Opportunità</h3>
-                    <ul>
-                        <li>Miglioramento della qualità della vita</li>
-                        <li>Progresso scientifico e medico</li>
-                        <li>Accessibilità e inclusione</li>
-                        <li>Sostenibilità ambientale</li>
-                    </ul>
-                </div>
-            </section>
-            
-            <!-- Future Perspectives -->
-            <section>
-                <h2>Prospettive future</h2>
+                <h2>La storia in breve</h2>
                 <div class="timeline-item fragment">
-                    <div class="timeline-year">Prossimi 5 anni</div>
-                    <ul class="smaller-text">
-                        <li>IA più integrata nella vita quotidiana</li>
-                        <li>Assistenti personali sempre più capaci</li>
-                        <li>Medicina personalizzata e diagnostica avanzata</li>
-                    </ul>
+                    <div class="timeline-year">Anni '50-'60</div>
+                    <strong>Primi neuroni artificiali</strong> - Funzionano, ma poco
                 </div>
                 <div class="timeline-item fragment">
-                    <div class="timeline-year">Prossimi 10-20 anni</div>
-                    <ul class="smaller-text">
-                        <li>Veicoli autonomi diffusi</li>
-                        <li>IA creativa (arte, musica, scrittura)</li>
-                        <li>Collaborazione uomo-IA più naturale</li>
-                    </ul>
+                    <div class="timeline-year">Anni '70-'90</div>
+                    <strong>Gli "inverni dell'IA"</strong> - Tutti pensano sia un vicolo cieco
                 </div>
-                <div class="timeline-item fragment highlight">
-                    <div class="timeline-year">Futuro più lontano</div>
-                    <ul class="smaller-text">
-                        <li>Possibile AGI (Intelligenza Artificiale Generale)</li>
-                        <li>Nuove forme di creatività e problem-solving</li>
-                        <li>Questioni etiche e filosofiche profonde</li>
-                    </ul>
+                <div class="timeline-item fragment">
+                    <div class="timeline-year">2012</div>
+                    <strong>Svolta</strong> - Rete neurale riconosce foto meglio degli umani
+                </div>
+                <div class="timeline-item fragment">
+                    <div class="timeline-year">2016</div>
+                    <strong>AlphaGo</strong> - Batte il campione mondiale di Go
+                </div>
+                <div class="timeline-item fragment" style="border-left-color: #e74c3c;">
+                    <div class="timeline-year" style="color: #e74c3c;">2017</div>
+                    <strong>"Attention Is All You Need"</strong> - Nasce l'architettura Transformer
+                </div>
+                <div class="timeline-item fragment" style="border-left-color: #27ae60;">
+                    <div class="timeline-year" style="color: #27ae60;">Nov 2022</div>
+                    <strong>ChatGPT</strong> - Il mondo impazzisce
                 </div>
             </section>
-            
-            <!-- Q&A Section -->
+
+            <!-- BLOCCO 6: PAYOFF -->
             <section>
                 <div class="chapter-title">
-                    <h1>Domande e Discussione</h1>
-                    <p style="font-size: 0.8em; opacity: 0.9;">Tempo per domande, chiarimenti e approfondimenti</p>
+                    <h2>6. Il Payoff</h2>
+                    <p>Ecco come avete fatto voi!</p>
                 </div>
             </section>
-            
-            <!-- Discussion Starters -->
+
             <section>
-                <h2>Spunti per la discussione</h2>
+                <h2>Voi fate uguale all'LLM</h2>
+                <div class="quote-box">
+                    I proverbi? Facilissimo. Li avete sentiti mille volte.<br>
+                    Dante? Scuola, ce l'avete ancora in testa.<br>
+                    Volume della sfera? Boh, studiato ma chi se lo ricorda.<br>
+                    Kubernetes? Mai visto in vita vostra.<br><br>
+                    <strong>L'LLM funziona UGUALE.</strong><br>
+                    Completa quello che ha visto tante volte.
+                </div>
+            </section>
+
+            <section>
+                <h2>L'autocomplete del telefono</h2>
+                <div class="quote-box">
+                    Aprite WhatsApp. Scrivete "Buong..."<br><br>
+                    Cosa vi suggerisce? <strong>Buongiorno.</strong> Sempre.<br><br>
+                    Perche? Ha VISTO quella sequenza miliardi di volte.<br>
+                    Non e intelligente. E statistico.<br><br>
+                    <strong>ChatGPT e QUESTO.</strong><br>
+                    Solo che invece di una parola, completa paragrafi interi.
+                </div>
+            </section>
+
+            <section>
+                <h2>E i calcoli? Il meteo?</h2>
+                <div class="quote-box">
+                    2+2? L'avete detto tutti. Anche ChatGPT risponde 4.<br><br>
+                    Ma 347 × 892? <strong>Lui non calcola.</strong><br>
+                    Chiama la calcolatrice. Di nascosto.<br><br>
+                    Le ore? Chiede all'orologio.<br>
+                    Il meteo? Chiede a un servizio meteo.<br><br>
+                    <strong>Proprio come voi.</strong>
+                </div>
+            </section>
+
+            <!-- BLOCCO 9: DEMO LIVE -->
+            <section>
+                <div class="chapter-title">
+                    <h2>9. Demo Live</h2>
+                    <p>ChatGPT in azione</p>
+                </div>
+            </section>
+
+            <section>
+                <h2>Cosa proviamo insieme</h2>
+                <div class="tool-grid">
+                    <div class="tool-card fragment">
+                        <strong>Voi chiedete</strong><br>
+                        <span class="smaller-text">"Per cosa lo usereste?"</span>
+                    </div>
+                    <div class="tool-card fragment">
+                        <strong>Carbonara assurda</strong><br>
+                        <span class="smaller-text">"Cuocio l'acqua nel colapasta"</span>
+                    </div>
+                    <div class="tool-card fragment">
+                        <strong>Verbania</strong><br>
+                        <span class="smaller-text">Poesia sul Lago Maggiore</span>
+                    </div>
+                    <div class="tool-card fragment">
+                        <strong>Lettera al comune</strong><br>
+                        <span class="smaller-text">"Riscrivila piu incazzata"</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- BLOCCO 10: AI vs AGI -->
+            <section>
+                <div class="chapter-title">
+                    <h2>10. AI vs AGI</h2>
+                    <p>Tre livelli di intelligenza</p>
+                </div>
+            </section>
+
+            <section>
+                <h2>I tre livelli</h2>
+                <div class="timeline-item fragment">
+                    <div class="timeline-year">ANI - IA Ristretta</div>
+                    <strong>Bravissima in UNA cosa</strong><br>
+                    <span class="smaller-text">ChatGPT, GPS, Netflix - quella che usiamo oggi</span>
+                </div>
+                <div class="timeline-item fragment" style="border-left-color: #f39c12;">
+                    <div class="timeline-year" style="color: #f39c12;">AGI - IA Generale</div>
+                    <strong>Brava in TUTTO come un umano</strong><br>
+                    <span class="smaller-text">Non esiste ancora</span>
+                </div>
+                <div class="timeline-item fragment" style="border-left-color: #e74c3c;">
+                    <div class="timeline-year" style="color: #e74c3c;">ASI - Super-Intelligenza</div>
+                    <strong>Piu intelligente di tutti gli umani insieme</strong><br>
+                    <span class="smaller-text">Fantascienza (per ora)</span>
+                </div>
+            </section>
+
+            <section>
+                <h2>Il viaggio nel tempo</h2>
+                <div class="quote-box">
+                    Immaginate di prendere un contadino del 1750<br>
+                    e portarlo nel 2024.<br><br>
+                    Auto, aerei, smartphone. <strong>Muore di infarto.</strong><br><br>
+                    Ora, quel contadino torna nel 1750 e prende uno del 1500.<br>
+                    Lo porta nel 1750. Shock? Si, ma sopravvive.<br><br>
+                    <strong>Il progresso ACCELERA.</strong><br>
+                    Non va dritto, va in curva.
+                </div>
+            </section>
+
+            <!-- BLOCCO 11: SHOWCASE TOOL -->
+            <section>
+                <div class="chapter-title">
+                    <h2>11. Showcase Tool</h2>
+                    <p>Oltre ChatGPT</p>
+                </div>
+            </section>
+
+            <section>
+                <h2>Altri strumenti IA</h2>
+                <div class="tool-grid">
+                    <div class="tool-card fragment">
+                        <strong>Perplexity</strong><br>
+                        <span class="smaller-text">Ricerca conversazionale</span>
+                    </div>
+                    <div class="tool-card fragment">
+                        <strong>NotebookLM</strong><br>
+                        <span class="smaller-text">Podcast automatico da documenti</span>
+                    </div>
+                    <div class="tool-card fragment">
+                        <strong>Midjourney</strong><br>
+                        <span class="smaller-text">Generazione immagini</span>
+                    </div>
+                    <div class="tool-card fragment">
+                        <strong>Suno</strong><br>
+                        <span class="smaller-text">Generazione musica</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- BLOCCO 12: MULTIMODALITA -->
+            <section>
+                <div class="chapter-title">
+                    <h2>12. Multimodalita</h2>
+                    <p>Tutto diventa numeri</p>
+                </div>
+            </section>
+
+            <section>
+                <h2>Come funziona</h2>
+                <div class="quote-box">
+                    Fino a poco fa l'AI capiva solo testo.<br>
+                    Ora capisce e GENERA tutto: testo, immagini, audio, video.<br><br>
+                    <strong>Il trucco?</strong><br>
+                    Converte TUTTO in numeri.<br><br>
+                    Testo, immagini, audio - diventano tutti liste di numeri.<br>
+                    Una volta che sono numeri, per l'AI e tutto uguale.
+                </div>
+            </section>
+
+            <section>
+                <h2>Schema visivo</h2>
+                <div class="schema-box">
+                    FOTO 🖼️  ──→ [numeri] ──→ TESTO 📝<br><br>
+                    AUDIO 🎵 ──→ [numeri] ──→ TESTO 📝<br><br>
+                    TESTO 📝 ──→ [numeri] ──→ IMMAGINE 🖼️
+                </div>
+                <div class="fragment highlight-box" style="margin-top: 1.5rem;">
+                    Non sono 10 AI diverse.<br>
+                    E <strong>UNA AI</strong> che parla tutte le lingue dei media.
+                </div>
+            </section>
+
+            <!-- BLOCCO 13: AGENTE PERSONALE -->
+            <section>
+                <div class="chapter-title">
+                    <h2>13. Agente Personale</h2>
+                    <p>La differenza che fa la differenza</p>
+                </div>
+            </section>
+
+            <section>
+                <h2>ChatGPT vs Agente Personale</h2>
+                <div class="quote-box">
+                    Questi tool sono fighi. Ma hanno un limite:<br>
+                    <strong>non vi conoscono.</strong><br><br>
+                    Se chiedo a ChatGPT "devo comprare un drone",<br>
+                    mi da una risposta generica.<br><br>
+                    Ma se avessi un assistente che SA<br>
+                    il mio budget, l'uso che ne faccio, cosa ho gia provato...<br>
+                    la risposta sarebbe completamente diversa.<br><br>
+                    <strong>Un agente personale e ChatGPT<br>
+                    che ha letto il vostro diario.</strong>
+                </div>
+            </section>
+
+            <section>
+                <h2>Behind the scenes</h2>
+                <div class="highlight-box">
+                    A proposito...<br><br>
+                    <strong>Questa presentazione?</strong><br>
+                    L'ho preparata insieme a un agente personale.<br><br>
+                    Lui conosce Minerva, sa cosa ho fatto l'anno scorso,<br>
+                    ricorda le domande che mi avete fatto.<br><br>
+                    Non lo dico per vantarmi.<br>
+                    <strong>Lo dico perche e gia realta.</strong>
+                </div>
+            </section>
+
+            <!-- BLOCCO 14-15: ETICA E CHIUSURA -->
+            <section>
+                <div class="chapter-title">
+                    <h2>14-15. Etica e Chiusura</h2>
+                    <p>Da definire</p>
+                </div>
+            </section>
+
+            <section>
+                <h2>Domande e discussione</h2>
                 <ul>
-                    <li class="fragment">Quale aspetto dell'IA vi incuriosisce di più?</li>
-                    <li class="fragment">Avete già utilizzato strumenti di IA nella vostra vita quotidiana?</li>
-                    <li class="fragment">Quali sono le vostre preoccupazioni principali riguardo all'IA?</li>
-                    <li class="fragment">Come pensate che l'IA possa migliorare la vita delle persone?</li>
-                    <li class="fragment">Ci sono settori dove preferireste che l'IA non fosse utilizzata?</li>
+                    <li class="fragment">Cosa vi ha colpito di piu?</li>
+                    <li class="fragment">Quali sono le vostre preoccupazioni?</li>
+                    <li class="fragment">Come pensate di usare questi strumenti?</li>
                 </ul>
             </section>
-            
-            <!-- Conclusion -->
-            <section>
-                <h2>Conclusioni</h2>
-                <div class="fragment">
-                    <p style="text-align: center; font-size: 1.2em;">
-                        L'intelligenza artificiale non è fantascienza:<br>
-                        è una realtà che ci accompagna ogni giorno.
-                    </p>
-                </div>
-                <div class="fragment">
-                    <p>Punti chiave da ricordare:</p>
-                    <ul>
-                        <li>L'IA attuale è "ristretta" e specializzata</li>
-                        <li>È già presente in molti aspetti della nostra vita</li>
-                        <li>Porta opportunità e sfide</li>
-                        <li>Il futuro dipende dalle scelte che facciamo oggi</li>
-                    </ul>
-                </div>
-            </section>
-            
+
             <!-- Thank You -->
             <section class="title-slide">
-                <h1>Grazie per l'attenzione!</h1>
+                <h1>Grazie!</h1>
                 <p>
                     <strong>Introduzione all'Intelligenza Artificiale</strong><br>
-                    <small>Università della Terza Età - Congresso Verbania</small>
+                    <small>9 Gennaio 2025</small>
                 </p>
                 <br>
                 <p class="smaller-text">
-                    Navigazione: Usa le frecce ← → per muoverti tra le slide<br>
-                    Premi ESC per l'overview, F per schermo intero, S per le note
+                    Navigazione: frecce ← → | ESC overview | F fullscreen
                 </p>
             </section>
-            
+
         </div>
     </div>
 
@@ -470,19 +508,14 @@
     <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.3.1/plugin/notes/notes.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.3.1/plugin/markdown/markdown.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.3.1/plugin/highlight/highlight.js"></script>
-    
+
     <script>
-        // More info about initialization & config:
-        // - https://revealjs.com/initialization/
-        // - https://revealjs.com/config/
         Reveal.initialize({
             hash: true,
             controls: true,
             progress: true,
             center: false,
             transition: 'slide',
-            
-            // Learn about plugins: https://revealjs.com/plugins/
             plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
         });
     </script>
