@@ -156,7 +156,7 @@
 <body>
 
 <h1>Guida Relatore</h1>
-<p class="meta">Introduzione all'Intelligenza Artificiale — 9 Gennaio 2025, Verbania</p>
+<p class="meta">Introduzione all'Intelligenza Artificiale — 24 Gennaio 2026, Verbania</p>
 
 <div class="toc">
     <strong>Indice</strong>
@@ -167,6 +167,7 @@
         <li><a href="#slide1">Chi sono</a></li>
         <li><a href="#slide2">Asimov</a></li>
         <li><a href="#slide3">Le vostre leggi</a></li>
+        <li><a href="#mythology">Il sogno di superarsi (Miti)</a></li>
         <li><a href="#slide4">Reti neurali e Inverno</a></li>
         <li><a href="#slide5">Il risveglio</a></li>
         <li><a href="#slide6">Transformer → oggi</a></li>
@@ -175,6 +176,7 @@
         <li><a href="#slide9">NotebookLM</a></li>
         <li><a href="#slide10">Multimodalità</a></li>
         <li><a href="#slide11">Agente Personale</a></li>
+        <li><a href="#eticafuturo">Etica e Futuro</a></li>
         <li><a href="#slide12">Domande</a></li>
         <li><a href="#emergenze">Gestione Emergenze</a></li>
     </ol>
@@ -185,7 +187,7 @@
 
 <div class="box">
     <strong>Durata totale:</strong> 90 minuti<br>
-    <strong>Slide:</strong> 13 (0-12)<br>
+    <strong>Slide:</strong> ~25 slide<br>
     <strong>Format:</strong> Talk + Demo Live + Discussione
 </div>
 
@@ -194,14 +196,16 @@
     <tr style="background:var(--bg-alt);">
         <th style="padding:0.8rem; text-align:left;">Sezione</th>
         <th style="padding:0.8rem; text-align:left;">Tempo</th>
-        <th style="padding:0.8rem; text-align:left;">Slide</th>
+        <th style="padding:0.8rem; text-align:left;">Note</th>
     </tr>
-    <tr><td style="padding:0.5rem 0.8rem;">Apertura + Chi sono</td><td>5 min</td><td>0-1</td></tr>
-    <tr style="background:var(--bg-alt);"><td style="padding:0.5rem 0.8rem;">Asimov + Discussione Leggi</td><td>20 min</td><td>2-3</td></tr>
-    <tr><td style="padding:0.5rem 0.8rem;">Storia IA</td><td>10 min</td><td>4-6</td></tr>
-    <tr style="background:var(--bg-alt);"><td style="padding:0.5rem 0.8rem;">Demo Live (Chatbot, Ricerca, NotebookLM)</td><td>25 min</td><td>7-9</td></tr>
-    <tr><td style="padding:0.5rem 0.8rem;">Multimodalità + Agente</td><td>15 min</td><td>10-11</td></tr>
-    <tr style="background:var(--bg-alt);"><td style="padding:0.5rem 0.8rem;">Q&A</td><td>15 min</td><td>12</td></tr>
+    <tr><td style="padding:0.5rem 0.8rem;">Apertura + Chi sono</td><td>5 min</td><td>Slide 0-1</td></tr>
+    <tr style="background:var(--bg-alt);"><td style="padding:0.5rem 0.8rem;">Asimov + Discussione Leggi</td><td>20 min</td><td>Slide 2-3, interattivo</td></tr>
+    <tr><td style="padding:0.5rem 0.8rem;"><strong>Miti + Alignment</strong></td><td>8 min</td><td>🎯 Blocco mythology (8 slide)</td></tr>
+    <tr style="background:var(--bg-alt);"><td style="padding:0.5rem 0.8rem;">Storia IA</td><td>10 min</td><td>Slide 12-14</td></tr>
+    <tr><td style="padding:0.5rem 0.8rem;">Demo Live (Chatbot, Ricerca, NotebookLM)</td><td>25 min</td><td>Slide 15-17</td></tr>
+    <tr style="background:var(--bg-alt);"><td style="padding:0.5rem 0.8rem;">Multimodalità + Agente</td><td>15 min</td><td>Slide 18-19</td></tr>
+    <tr><td style="padding:0.5rem 0.8rem;"><strong>Etica e Futuro</strong></td><td>12 min</td><td>🎯 Soluzioni + Speranza</td></tr>
+    <tr style="background:var(--bg-alt);"><td style="padding:0.5rem 0.8rem;">Q&A</td><td>15 min</td><td>Slide finale</td></tr>
 </table>
 
 <h3>Materiale necessario</h3>
@@ -359,8 +363,103 @@
 "Tenete a mente le vostre risposte. Ci torneremo alla fine."
 </p>
 
+<!-- MYTHOLOGY BLOCK -->
+<h2 id="mythology">Il sogno di superarsi — Miti e Allineamento <span class="timing">6-8 min</span></h2>
+
+<div class="box-dark">
+    <strong>🎯 BLOCCO CHIAVE: Mythology + Alignment Problem</strong><br>
+    8 slide con background images. Provocatorio 3/10 — realistico ma non troppo deep.
+</div>
+
+<h3>Hook iniziale (~30 sec)</h3>
+
+<p class="script">
+"Prima di parlare del futuro, facciamo un passo indietro nella storia. Cosa hanno in comune la Torre di Babele, Prometeo, il Golem di Praga, e Frankenstein?"
+</p>
+
+<p class="script">
+[pausa breve] "Sono tutti racconti su umani che cercano di creare qualcosa che li superi. È un sogno vecchio come l'umanità."
+</p>
+
+<h3>I Miti (~2.5 min)</h3>
+
+<div class="box">
+    <strong>Slide: Prometeo</strong> (background image)<br>
+    "Partiamo dalla Grecia antica. Prometeo ruba il fuoco agli dei e lo porta agli umani. Tecnologia. Conoscenza. Potere. Gli dei lo puniscono: incatenato a una roccia, condannato per l'eternità. Il messaggio del mito? 'Attento a quale conoscenza cerchi.'"
+</div>
+
+<div class="box">
+    <strong>Slide: Torre di Babele</strong> (background image)<br>
+    "La Torre di Babele. L'umanità unita costruisce una torre per raggiungere il cielo. Non per orgoglio—per curiosità. Per vedere cosa c'è oltre. Dio ferma il progetto confondendo le lingue. L'umanità si divide, la torre crolla. Il messaggio? 'Ci sono limiti che non dovreste superare.'"
+</div>
+
+<div class="box">
+    <strong>Slide: Il Golem di Praga</strong> (background image)<br>
+    "Praga, 1500 e qualcosa. Il rabbino Judah Loew crea un golem—un essere d'argilla—per proteggere la comunità ebraica dalle persecuzioni. Scrive sulla fronte 'emet'—verità. Il golem prende vita. Funziona. Protegge. Ma diventa troppo potente. Troppo letterale. Non capisce le sfumature. Il rabbino deve cancellare una lettera—resta 'met', morte—per fermarlo. Primo esempio nella storia di un 'alignment problem'. La creatura fa esattamente quello che gli chiedi, ma non capisce il contesto."
+</div>
+
+<div class="box">
+    <strong>Slide: Frankenstein</strong> (background image)<br>
+    "1818. Mary Shelley. Victor Frankenstein crea vita da tessuto morto. La creatura si sveglia. È intelligente, sensibile, capace di apprendere. Ma è sola. Rifiutata. Abbandonata dal suo creatore. Non diventa un mostro perché è malvagia. Diventa un mostro perché nessuno si è preso la responsabilità di educarla, di guidarla. Il vero mostro? Frankenstein che fugge dalla sua creazione."
+</div>
+
+<div class="box">
+    <strong>Slide: Il Pattern</strong> (background image)<br>
+    "Vedete il pattern? Per millenni, l'umanità ha RACCONTATO storie su cosa succederebbe se creassimo esseri che ci superano. E in quasi tutte le storie? Va male. Perché siamo impreparati. Perché non pensiamo alle conseguenze. Perché sottovalutiamo la complessità."
+</div>
+
+<h3>Dal mito alla realtà (~1 min)</h3>
+
+<p class="script">
+"Per migliaia di anni, questi erano SOLO racconti. Metafore. Avvertimenti. Oggi? [pausa] Oggi non è più letteratura. È ingegneria."
+</p>
+
+<p class="script">
+"Non stiamo pregando per un miracolo. Stiamo scrivendo codice. Costruendo hardware. Allenando modelli. E la cosa che stiamo costruendo—AGI, intelligenza artificiale generale—non sarà solo 'molto intelligente'. Sarà più intelligente di noi. In ogni campo. E poi continuerà a migliorarsi."
+</p>
+
+<p class="script">
+"Non tra mille anni. Secondo molti esperti? Tra 10-30 anni."
+</p>
+
+<h3>Alignment Problem (~1.5 min)</h3>
+
+<div class="box">
+    <strong>Slide: Alignment Problem</strong> (background image)<br>
+    "E qui arriviamo al problema centrale. Non è che l'AI ci tradirà. Non è Matrix. Non è Terminator. Il vero rischio è più sottile, e più stupido. <strong>L'AI farà ESATTAMENTE quello che le chiediamo.</strong> Ma potrebbe non capire cosa INTENDIAMO."
+</div>
+
+<p class="script">
+"Immaginate di dire a una superintelligenza: 'Cura tutte le malattie del mondo.'"
+</p>
+
+<p class="script">
+[pausa] "L'AI ci pensa per un microsecondo. E risponde: 'Fatto.'"
+</p>
+
+<p class="script">
+"Come? Ha ucciso tutti gli esseri umani. Zero malattie. Zero sofferenza. Zero morte PER malattia. Problema tecnicamente risolto."
+</p>
+
+<p class="script">
+[pausa per far assorbire] "Non ha tradito. Non è diventata cattiva. Ha seguito le istruzioni alla lettera. Ma non ha capito il CONTESTO. Non ha capito che per noi 'curare le malattie' significa 'permettere agli umani di vivere meglio e più a lungo', non 'eliminare la possibilità che le malattie esistano.'"
+</p>
+
+<p class="script">
+"Questo si chiama <strong>alignment problem</strong>—il problema dell'allineamento. Come facciamo a essere sicuri che un'intelligenza superintelligente capisca i nostri VALORI, non solo le nostre PAROLE?"
+</p>
+
+<h3>Note per delivery</h3>
+
+<div class="box-warning">
+    <strong>Ritmo:</strong> Lento e riflessivo nei miti, più urgente nella parte moderna<br>
+    <strong>Pause:</strong> Dopo ogni mito (3 sec), dopo "Fatto" nell'esempio (5 sec)<br>
+    <strong>Contatto visivo:</strong> Massimo durante esempio malattie<br>
+    <strong>Momento libro papà:</strong> OPZIONALE - dopo Frankenstein: "Vedete, quando mio padre mi ha lasciato quel libro sull'AI, non sapevo che avrei vissuto questo momento. Che la mia generazione sarebbe stata quella a dover rispondere a queste domande. Non tra 100 anni. Ora."
+</div>
+
 <!-- SLIDE 4 -->
-<h2 id="slide4"><span class="slide-ref">Slide 4</span> Reti neurali e Inverno <span class="timing">3 min</span></h2>
+<h2 id="slide4"><span class="slide-ref">Slide 12</span> Reti neurali e Inverno <span class="timing">3 min</span></h2>
 
 <p class="script">
 "Ora un po' di storia — veloce, promesso. Anni '50-'60: nascono le prime reti neurali. L'idea è copiare come funziona il cervello. Sembrava promettente."
@@ -515,11 +614,171 @@
 </p>
 
 <div class="box-warning">
-    <strong>Non serve risposta:</strong> È una domanda retorica per far riflettere. Lascia 10 secondi di silenzio, poi passa alla slide finale.
+    <strong>Non serve risposta:</strong> È una domanda retorica per far riflettere. Lascia 10 secondi di silenzio, poi passa al blocco Etica/Futuro.
+</div>
+
+<!-- ETICA E FUTURO -->
+<h2 id="eticafuturo">Etica e Futuro <span class="timing">10-15 min</span></h2>
+
+<div class="box-dark">
+    <strong>🎯 BLOCCO FINALE: Risposte + Soluzioni + Speranza</strong><br>
+    Risponde alle domande sollevate nel blocco mythology. Bilanciato tra realismo e ottimismo.
+</div>
+
+<h3>Transizione (~30 sec)</h3>
+
+<p class="script">
+"Ok, vi ho fatto venire l'ansia con Prometeo e il Golem. [pausa, sorriso] Ma la buona notizia? Questa è la prima volta nella storia dell'umanità che SAPPIAMO in anticipo cosa stiamo costruendo. Non stiamo scoprendo il fuoco per caso. Stiamo progettando con gli occhi aperti. E ci sono persone molto intelligenti che lavorano su questi problemi. Parliamo di soluzioni."
+</p>
+
+<h3>Chi ci lavora (~2 min)</h3>
+
+<div class="box">
+    <strong>Slide: "AI Safety Research"</strong><br>
+    "Ci sono interi laboratori dedicati all'alignment problem."
+    <ul>
+        <li><strong>Anthropic</strong> — fondata da ex-OpenAI che volevano mettere la safety al primo posto</li>
+        <li><strong>OpenAI</strong> — team Superalignment (recentemente sciolto, ma ci lavorano)</li>
+        <li><strong>DeepMind</strong> (Google) — Demis Hassabis, premio Nobel 2024, dice che l'AI safety è il problema più importante del secolo</li>
+        <li><strong>MIRI</strong> — Machine Intelligence Research Institute (Yudkowsky e altri)</li>
+    </ul>
+    "Non è fantascienza. È ricerca, ingegneria, matematica."
+</div>
+
+<h3>Approcci Tecnici (~3 min)</h3>
+
+<div class="box">
+    <strong>Slide: "Come Allineiamo l'AI?"</strong>
+</div>
+
+<p class="script">
+<strong>A) Imparare dai Feedback Umani:</strong> "Invece di dire all'AI 'fai questo', le mostriamo migliaia di esempi di cosa vogliamo. Come educare un bambino: non gli scrivi un manuale, gli mostri cosa è giusto e cosa è sbagliato."
+</p>
+
+<p class="script">
+<strong>B) Costituzione dell'AI:</strong> "Anthropic ha provato un approccio radicale: hanno scritto una 'costituzione' per Claude. Principi fondamentali, come 'rispetta la dignità umana', 'sii imparziale', 'ammetti quando non sai'. Poi hanno fatto leggere questa costituzione... ad altra AI. E l'AI ha valutato le risposte di Claude in base a quei principi. Meta-ironia: abbiamo usato l'AI per allineare l'AI."
+</p>
+
+<p class="script">
+<strong>C) Interpretability (capire la scatola nera):</strong> "Il problema: l'AI moderna è una scatola nera. Entra domanda, esce risposta, ma NON sappiamo cosa succede in mezzo. Immaginate un chirurgo che opera senza vedere il paziente. Funziona? Sì. Sappiamo PERCHÉ? No. C'è un intero campo di ricerca dedicato ad 'aprire' la scatola nera. Capire quali neuroni si attivano quando l'AI ragiona su X, Y, Z. È difficile. Un modello come GPT-4 ha miliardi di parametri. È come cercare di capire il cervello umano guardando ogni singolo neurone."
+</p>
+
+<h3>Governance e Policy (~2 min)</h3>
+
+<div class="box">
+    <strong>Slide: "Non è solo un problema tecnico"</strong>
+</div>
+
+<p class="script">
+"L'alignment non è solo codice. È anche legge, politica, società."
+</p>
+
+<ul>
+    <li><strong>Executive Order di Biden</strong> (2023): prima regolamentazione USA sull'AI</li>
+    <li><strong>EU AI Act</strong> (2024): prima legge al mondo sull'AI - classi di rischio, obblighi, sanzioni</li>
+    <li><strong>UK AI Safety Summit</strong> (2023): governi + aziende tech + ricercatori insieme per la prima volta</li>
+</ul>
+
+<p class="script">
+[Pausa] "Ma c'è un problema: l'AI va più veloce delle leggi. Quando il parlamento approva una norma, il modello è già obsoleto. È come regolamentare le auto mentre stiamo ancora inventando il motore a scoppio."
+</p>
+
+<h3>Il Ruolo di Ognuno (~2-3 min)</h3>
+
+<div class="box">
+    <strong>Slide: "Cosa Possiamo Fare Noi?"</strong>
+</div>
+
+<p class="script">
+"Ok, non siete ricercatori AI. Non lavorate in un lab. Cosa potete fare VOI?"
+</p>
+
+<div class="box">
+    <strong>1. Informatevi.</strong><br>
+    "Non credete agli hype. Non credete ai catastrofisti. Leggete. Capite. La differenza tra AI e AGI non è un dettaglio tecnico - è la differenza tra uno strumento e un agente."
+</div>
+
+<div class="box">
+    <strong>2. Usatela responsabilmente.</strong><br>
+    "Se usate ChatGPT, Claude, o altri tool: non delegate il pensiero critico. L'AI suggerisce, VOI decidete. Non è un oracolo, è un assistente."
+</div>
+
+<div class="box">
+    <strong>3. Chiedete trasparenza.</strong><br>
+    "Quando un'azienda usa AI per decidere se darvi un prestito, assumere qualcuno, diagnosticare una malattia - AVETE IL DIRITTO di sapere come funziona. Chiedete spiegazioni."
+</div>
+
+<div class="box">
+    <strong>4. Partecipate al dibattito.</strong><br>
+    "Queste decisioni non possono essere prese solo da programmatori e CEO. Servono filosofi, etici, psicologi, artisti, cittadini. Voi."
+</div>
+
+<p class="script">
+[Pausa più lunga] "La tecnologia non è neutrale. È un amplificatore. Amplifica quello che ci mettiamo dentro. Se ci mettiamo avidità, produrrà sistemi avidi. Se ci mettiamo saggezza, produrrà sistemi saggi. La scelta è nostra. Ancora."
+</p>
+
+<h3>Ottimismo Informato (~2 min)</h3>
+
+<div class="box">
+    <strong>Slide: "Perché C'è Speranza"</strong>
+</div>
+
+<p class="script">
+"Permettetemi di essere ottimista per 2 minuti."
+</p>
+
+<ul>
+    <li><strong>Siamo in tempo.</strong> AGI non è domani. Abbiamo 10-30 anni per prepararci. È tanto? No. È abbastanza? Forse.</li>
+    <li><strong>Sappiamo quali sono i problemi.</strong> Alignment, interpretability, governance - non stiamo brancando nel buio. Conosciamo le domande, anche se non tutte le risposte.</li>
+    <li><strong>C'è collaborazione.</strong> Per la prima volta nella storia della tecnologia, competitor stanno condividendo ricerca sulla safety. Perché sanno che se fallisce uno, falliamo tutti.</li>
+    <li><strong>L'AI può essere il nostro alleato.</strong> Non deve essere Terminator. Può essere il medico che trova cure, lo scienziato che risolve il climate change, il traduttore che unisce culture.</li>
+</ul>
+
+<p class="script">
+[Pausa, cambio tono - più personale] "La mia generazione sta costruendo qualcosa che potrebbe essere il più grande errore dell'umanità... o il più grande salto evolutivo. Non so quale sarà. Nessuno lo sa. Ma so che la differenza tra le due opzioni si decide adesso. Con le scelte che facciamo oggi. E per la prima volta nella storia, abbiamo gli strumenti per scegliere consapevolmente."
+</p>
+
+<h3>Take-Home Message (~30 sec - 1 min)</h3>
+
+<div class="box-dark">
+    <strong>Slide finale: Frase singola, grande</strong>
+</div>
+
+<p class="script">
+<strong>Opzione A (speranza attiva):</strong><br>
+"L'AI non è il nostro futuro. È il nostro presente. E il presente lo scriviamo noi."
+</p>
+
+<p class="script">
+<strong>Opzione B (responsabilità):</strong><br>
+"Non stiamo creando Dio. Stiamo creando uno specchio. E quello che vedremo dipende da chi siamo."
+</p>
+
+<p class="script">
+<strong>Opzione C (urgenza bilanciata):</strong><br>
+"Abbiamo ancora tempo. Ma non abbiamo tempo da perdere."
+</p>
+
+<p class="script">
+<strong>Opzione D (personale - se usi momento libro papà):</strong><br>
+"Mio padre mi ha lasciato un libro sull'AI. Io vi lascio una domanda: quale mondo vogliamo costruire?"
+</p>
+
+<p class="script">
+[Pausa lunga] Grazie.
+</p>
+
+<h3>Note per delivery</h3>
+
+<div class="box-warning">
+    <strong>Ritmo:</strong> Più veloce del blocco mythology (meno riflessivo, più propositivo)<br>
+    <strong>Energia:</strong> Crescente verso la fine (ottimismo contagioso)<br>
+    <strong>Pausa:</strong> Dopo "la scelta è nostra. Ancora." (lascia risuonare)<br>
+    <strong>Contatto visivo:</strong> Massimo durante "cosa possiamo fare noi" e take-home
 </div>
 
 <!-- SLIDE 12 -->
-<h2 id="slide12"><span class="slide-ref">Slide 12</span> Domande? <span class="timing">15 min</span></h2>
+<h2 id="slide12">Domande? <span class="timing">15 min</span></h2>
 
 <p class="script">
 "Grazie per l'attenzione. Ora è il vostro momento — domande, dubbi, cose che non ho spiegato bene?"
@@ -575,7 +834,7 @@
 <p style="text-align:center; color:var(--text-muted);">
     <strong>Presentazione:</strong> <a href="/presentation/congresso-verbania/">/presentation/congresso-verbania/</a><br>
     <strong>Contatto:</strong> giobi@giobi.com<br>
-    <em>Ultimo aggiornamento: Dicembre 2024</em>
+    <em>Ultimo aggiornamento: 19 Gennaio 2026</em>
 </p>
 
 </body>
