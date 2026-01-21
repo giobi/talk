@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scaletta v3 - Conferenza 23 Gennaio 2026</title>
+
+    <!-- Monospace font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Fira Code', 'JetBrains Mono', 'Source Code Pro', Consolas, Monaco, 'Courier New', monospace;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.7;
+        }
+
+        .breadcrumb {
+            margin-bottom: 2rem;
+        }
+
+        .breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            opacity: 0.7;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            margin: 0 0 0.5rem 0;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        .header .meta {
+            font-size: 1rem;
+            opacity: 0.95;
+        }
+
+        .header .meta p {
+            margin: 0.3rem 0;
+        }
+
+        .content {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #333;
+            font-size: 1.6rem;
+            margin: 2rem 0 1rem 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #f59e0b;
+        }
+
+        h3 {
+            color: #555;
+            font-size: 1.3rem;
+            margin: 1.5rem 0 0.8rem 0;
+        }
+
+        p {
+            margin: 0.8rem 0;
+        }
+
+        strong {
+            color: #333;
+            font-weight: 600;
+        }
+
+        ul, ol {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+
+        li {
+            margin: 0.5rem 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+        }
+
+        table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.8rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        table td {
+            padding: 0.8rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        table tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        blockquote {
+            background: #f0f0f0;
+            border-left: 4px solid #667eea;
+            margin: 1.5rem 0;
+            padding: 1rem 1.5rem;
+            font-style: italic;
+            color: #555;
+        }
+
+        code {
+            background: #f5f5f5;
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            font-family: inherit;
+            color: #d97706;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px solid #e0e0e0;
+            margin: 2rem 0;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #d4edda;
+            color: #155724;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-left: 0.5rem;
+        }
+
+        .warning {
+            background: #fff3cd;
+            border-left: 4px solid #f59e0b;
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 5px;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1rem;
+            }
+
+            .header h1 {
+                font-size: 1.5rem;
+            }
+
+            .content {
+                padding: 1.5rem;
+            }
+
+            table {
+                font-size: 0.85rem;
+            }
+
+            table th, table td {
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="breadcrumb">
+        <a href="./">← Torna all'evento</a>
+    </div>
+
+    <div class="header">
+        <h1>Scaletta v3 - Conferenza Minerva 23 Gennaio 2026</h1>
+        <div class="meta">
+            <p><strong>Data:</strong> Giovedì 23 Gennaio 2026, 10:00-11:30 (90 min)</p>
+            <p><strong>Brainstorm:</strong> 18 Dicembre 2024</p>
+            <p><strong>Update:</strong> Call 18 Dicembre 2024</p>
+        </div>
+    </div>
+
+    <div class="content">
+        <h2>Struttura Completa</h2>
+
+        <h3>1. APERTURA - Gioco completamento/conoscenza (~3 min)</h3>
+        <p><strong>Obiettivo:</strong> Hook che riprenderai dopo per spiegare come funzionano gli LLM</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Domanda</th>
+                    <th>Risposta pubblico</th>
+                    <th>Cosa dimostra (dopo)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>"Mogli e buoi..."</td>
+                    <td>Tutti</td>
+                    <td>Pattern visto 1000 volte</td>
+                </tr>
+                <tr>
+                    <td>"Tanto va la gatta..."</td>
+                    <td>Tutti</td>
+                    <td>Pattern visto 1000 volte</td>
+                </tr>
+                <tr>
+                    <td>"Nel mezzo del cammin..."</td>
+                    <td>Molti</td>
+                    <td>Scuola</td>
+                </tr>
+                <tr>
+                    <td>"Volume della sfera..."</td>
+                    <td>Pochi (4/3 πr³)</td>
+                    <td>Studiato, dimenticato</td>
+                </tr>
+                <tr>
+                    <td>"Config Kubernetes..."</td>
+                    <td>Nessuno</td>
+                    <td>Mai visto</td>
+                </tr>
+                <tr>
+                    <td>"2 + 2"</td>
+                    <td>Tutti</td>
+                    <td>→ Tool calling (calcolatrice)</td>
+                </tr>
+                <tr>
+                    <td>"234 × 12"</td>
+                    <td>Pochi (2808)</td>
+                    <td>→ Tool calling palese</td>
+                </tr>
+                <tr>
+                    <td>"Assessore sport Verbania"</td>
+                    <td>Nessuno (o 1 locale)</td>
+                    <td>→ Limite conoscenza locale</td>
+                </tr>
+                <tr>
+                    <td>"Che ore sono?"</td>
+                    <td>Guardano orologio</td>
+                    <td>→ Tool calling (tempo reale)</td>
+                </tr>
+                <tr>
+                    <td>"Che tempo fa?"</td>
+                    <td>Guardano telefono</td>
+                    <td>→ Tool calling (API meteo)</td>
+                </tr>
+                <tr>
+                    <td>"Prima pagina oggi?"</td>
+                    <td>Nessuno</td>
+                    <td>→ Tool calling (ricerca web)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr>
+
+        <h3>2. INTRO PERSONALE (~1 min)</h3>
+        <ul>
+            <li>"Sono un appassionato, non uno studioso/accademico"</li>
+            <li>Toglie aspettativa di lezione frontale</li>
+            <li>Crea vicinanza col pubblico</li>
+        </ul>
+
+        <hr>
+
+        <h3>3. COINVOLGIMENTO PUBBLICO (~2 min)</h3>
+        <p><strong>Opzioni interattive:</strong></p>
+        <ul>
+            <li>"Alzi la mano chi ha usato ChatGPT" (capisci il livello)</li>
+            <li>"Alzi la mano chi ha paura dell'IA" (rompi il ghiaccio)</li>
+            <li>Raccogli titoloni/headline che hanno visto</li>
+            <li>Mini-sondaggio: "IA più opportunità o più minaccia?"</li>
+            <li>Opzionale: post-it con paure/domande da ripescare dopo</li>
+        </ul>
+
+        <hr>
+
+        <h3>4. BLOCCO ASIMOV + LIBRO PAPA' (~3 min)</h3>
+        <blockquote>
+            <p>Vi voglio parlare di questo signore qua, quello sulla locandina.</p>
+
+            <p>Isaac Asimov. Nasce nel 1920 in Russia, in un paesino che manco esiste più. A 3 anni la famiglia emigra in America, cresce a Brooklyn.</p>
+
+            <p>Studia chimica, si laurea a Columbia, fa il dottorato in biochimica. Quindi: uno scienziato, non un informatico. I computer ai suoi tempi occupavano stanze intere - pensate che la scheda del vostro microonde oggi ha più potenza di calcolo del computer che trent'anni dopo avrebbe portato l'uomo sulla Luna.</p>
+
+            <p>Ma questo qui aveva una fantasia pazzesca. A 19 anni inizia a scrivere racconti di fantascienza e li vende alle riviste. Nel 1941 scrive una storia che lo rende famoso: "Nightfall", su un pianeta che vede il buio solo una notte ogni duemila anni.</p>
+
+            <p>Ma la cosa per cui ce lo ricordiamo oggi sono i robot. Nel 1940 inizia a scrivere racconti sui robot - poi raccolti nel libro "Io, Robot" - e si inventa una cosa che non esisteva: le <strong>Tre Leggi della Robotica</strong>.</p>
+
+            <p>Pensateci: nel 1942 questo signore si stava già chiedendo: "Se costruiamo macchine intelligenti, che regole gli diamo?"</p>
+
+            <p>Ah, e sapete la parola "robotica"? L'ha inventata lui. Non esisteva prima.</p>
+        </blockquote>
+
+        <p><strong>Momento emotivo:</strong> Mostrare libro sull'IA ereditato da papà (Lele Fasoli)</p>
+
+        <hr>
+
+        <h3>5. DA ASIMOV A CHATGPT (~5 min)</h3>
+
+        <p><strong>1. Il cervello come ispirazione</strong> (30 sec)</p>
+        <blockquote>
+            I ricercatori si sono chiesti: come fa il cervello? Miliardi di neuroni collegati tra loro, ognuno semplice, ma insieme fanno cose incredibili. Proviamo a copiarlo.
+        </blockquote>
+
+        <p><strong>2. Le reti neurali</strong> (1 min)</p>
+        <blockquote>
+            Anni '50-'60: costruiscono i primi "neuroni artificiali". Semplificazioni estreme del cervello. Funzionano, ma poco. Poi si bloccano - non riescono a farle imparare cose complesse.
+            <br><br>
+            Per 20-30 anni: silenzio. Gli "inverni dell'IA" - tutti pensano sia un vicolo cieco.
+        </blockquote>
+
+        <p><strong>3. La svolta: più potenza, più dati</strong> (1 min)</p>
+        <blockquote>
+            Anni 2000-2010: i computer diventano abbastanza potenti. Internet genera montagne di dati. Le reti neurali tornano, e stavolta funzionano.
+            <br><br>
+            2012: una rete neurale riconosce le foto meglio degli umani. Boom.
+        </blockquote>
+
+        <p><strong>4. Il momento "cazzo, funziona"</strong> (1 min)</p>
+        <blockquote>
+            2016: AlphaGo batte il campione mondiale di Go.
+            <br><br>
+            Go non è scacchi - le combinazioni possibili sono più degli atomi nell'universo. Non puoi vincere a forza bruta. La macchina ha dovuto <em>imparare</em>.
+        </blockquote>
+
+        <p><strong>5. Arriviamo a ChatGPT</strong> (1.5 min)</p>
+        <blockquote>
+            2017: un gruppo di ricercatori pubblica un paper con un titolo strano: "Attention Is All You Need". Inventano un'architettura nuova: i <strong>Transformer</strong>.
+            <br><br>
+            Idea base: invece di leggere una frase parola per parola, guardi tutto insieme e capisci cosa è importante.
+            <br><br>
+            2020: GPT-3 - inizia a sembrare magia
+            <br><br>
+            Novembre 2022: ChatGPT - e il mondo impazzisce
+        </blockquote>
+
+        <hr>
+
+        <h3>6. PAYOFF: TRANSFORMER = COMPLETAMENTO (~2 min)</h3>
+        <p>Riprendi il gioco iniziale!</p>
+        <blockquote>
+            "E come avete fatto voi all'inizio?
+            <br><br>
+            I proverbi? Facilissimo. Li avete sentiti mille volte.<br>
+            Dante? Scuola, ce l'avete ancora in testa.<br>
+            Volume della sfera? Boh, l'avete studiato ma chi se lo ricorda.<br>
+            Kubernetes? Mai visto in vita vostra.
+            <br><br>
+            <strong>Ecco, l'LLM funziona uguale.</strong> Completa quello che ha visto tante volte.
+            <br><br>
+            Ma... 2+2? Quello l'avete detto tutti. E anche ChatGPT risponde 4.
+            <br><br>
+            Solo che c'è un trucco: <strong>lui non lo sa davvero.</strong>
+            <br><br>
+            Se gli chiedete 347 per 892, lui non calcola. Chiama la calcolatrice. Di nascosto."
+        </blockquote>
+
+        <hr>
+
+        <h3>7. AUTOCOMPLETE SMARTPHONE (~3 min)</h3>
+        <blockquote>
+            "Ok, ma come funziona 'sta cosa? Ve lo spiego con una roba che fate tutti i giorni.
+            <br><br>
+            Prendete il telefono. Aprite WhatsApp. Scrivete 'Buong...'
+            <br><br>
+            Cosa vi suggerisce? Buongiorno. Sempre.
+            <br><br>
+            Perché? Perché il telefono ha VISTO quella sequenza miliardi di volte. Non è intelligente. È statistico. Ha imparato: dopo 'Buong' la gente scrive 'iorno'.
+            <br><br>
+            Ecco, ChatGPT è QUESTO. Solo che invece di completare una parola, completa paragrafi interi.
+            <br><br>
+            Ha letto libri, articoli, Wikipedia, forum, ricette. Milioni di testi.
+            <br><br>
+            Quando gli chiedete 'scrivi ricetta carbonara', lui 'ricorda' di aver visto 10.000 ricette simili, e vi sputa fuori qualcosa che statisticamente assomiglia a una ricetta vera.
+            <br><br>
+            <strong>Non capisce cos'è il guanciale. Ma sa che nelle ricette della carbonara, il guanciale c'è sempre.</strong>"
+        </blockquote>
+
+        <hr>
+
+        <h3>8. TOOL CALLING (~2 min)</h3>
+        <p>Collegamento alle domande iniziali:</p>
+        <blockquote>
+            "Le ore? Le avete dette a caso, o avete guardato l'orologio?<br>
+            Ecco, anche ChatGPT guarda l'orologio. Non le 'sa'. Le chiede a qualcuno.
+            <br><br>
+            Vedete? Alcune cose le SAPETE perché le avete viste mille volte.<br>
+            Altre le CALCOLATE con uno strumento.<br>
+            Altre le CERCATE in tempo reale.
+            <br><br>
+            ChatGPT fa UGUALE. Non è magia. È un sistema che:<br>
+            - Completa quello che ha letto<br>
+            - Chiama la calcolatrice quando serve<br>
+            - Cerca online quando non sa
+            <br><br>
+            <strong>Proprio come voi.</strong>"
+        </blockquote>
+
+        <hr>
+
+        <h3>9. DEMO LIVE (~20 min)</h3>
+        <p><strong>Accendi proiettore, Twitch streaming, apri ChatGPT</strong></p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Demo</th>
+                    <th>Cosa dimostra</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>E</strong></td>
+                    <td>"Voi per cosa lo usate? Cosa gli chiedete?"</td>
+                    <td>Esplorativo, coinvolgi, scopri il livello</td>
+                </tr>
+                <tr>
+                    <td><strong>Carbonara assurda</strong></td>
+                    <td>"Voglio cuocere l'acqua nel colapasta" / "Uso pastelli invece di spaghetti"</td>
+                    <td>Come reagisce GPT alle cazzate? → <strong>Non fidarti ciecamente</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>Verbania</strong></td>
+                    <td>Poesia su Verbania / Lago Maggiore</td>
+                    <td>Locale, ridono, si sentono coinvolti</td>
+                </tr>
+                <tr>
+                    <td><strong>Lettera</strong></td>
+                    <td>Lettera al comune per le buche</td>
+                    <td>Uso pratico. Poi: "riscrivila più incazzata" / "più formale" → <strong>Puoi guidarlo e raffinare</strong></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr>
+
+        <h3>10. AI vs AGI (~? min)</h3>
+        <p><strong>Ispirazione:</strong> Wait But Why "The AI Revolution" (2015)</p>
+
+        <p><strong>I 3 livelli:</strong></p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Livello</th>
+                    <th>Nome</th>
+                    <th>Cosa fa</th>
+                    <th>Esempio</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>ANI</strong></td>
+                    <td>IA Ristretta</td>
+                    <td>Bravissima in UNA cosa</td>
+                    <td>ChatGPT, GPS, Netflix</td>
+                </tr>
+                <tr>
+                    <td><strong>AGI</strong></td>
+                    <td>IA Generale</td>
+                    <td>Brava in TUTTO come un umano</td>
+                    <td>Non esiste ancora</td>
+                </tr>
+                <tr>
+                    <td><strong>ASI</strong></td>
+                    <td>Super-Intelligenza</td>
+                    <td>Più intelligente di tutti gli umani insieme</td>
+                    <td>Fantascienza (per ora)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p><strong>Concetti chiave:</strong></p>
+
+        <p><strong>1. L'analogia del viaggio nel tempo</strong></p>
+        <blockquote>
+            "Immaginate di prendere un contadino del 1750 e portarlo nel 2024. Auto, aerei, smartphone. Muore di infarto.
+            <br><br>
+            Ora, quel contadino torna nel 1750 e prende uno del 1500 e lo porta nel 1750. Shock? Sì, ma sopravvive. Il mondo è cambiato, ma non così tanto.
+            <br><br>
+            Il progresso ACCELERA. Non va dritto, va in curva."
+        </blockquote>
+
+        <p><strong>2. Il problema del pensiero lineare</strong></p>
+        <ul>
+            <li>Collegare con: popolazione mondiale che si stabilizza, ricchezza che cresce</li>
+            <li>Noi pensiamo che i prossimi 30 anni = ultimi 30 anni. Sbagliato.</li>
+        </ul>
+
+        <p><strong>3. Da calcolatrice a dio</strong></p>
+        <blockquote>
+            "Oggi abbiamo calcolatrici superintelligenti. Fanno UNA cosa benissimo.<br>
+            AGI sarebbe un umano artificiale.<br>
+            ASI? Sarebbe come spiegare internet a una formica."
+        </blockquote>
+
+        <div class="warning">
+            <p><strong>DA SVILUPPARE:</strong> "L'uomo ha sempre cercato di creare Dio" (Prometeo, Golem, Frankenstein, Torre di Babele, "a immagine e somiglianza"). Oggi non più mito, è ingegneria. Chi decide le regole?</p>
+        </div>
+
+        <hr>
+
+        <h3>11. SHOWCASE TOOL (~? min)</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Tool</th>
+                    <th>Cosa mostra</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Perplexity</strong></td>
+                    <td>Ricerca conversazionale</td>
+                </tr>
+                <tr>
+                    <td><strong>Google AI Mode</strong></td>
+                    <td>IA dentro Google</td>
+                </tr>
+                <tr>
+                    <td><strong>NotebookLM</strong></td>
+                    <td>Podcast automatico da documenti</td>
+                </tr>
+                <tr>
+                    <td><strong>Midjourney</strong></td>
+                    <td>Generazione immagini</td>
+                </tr>
+                <tr>
+                    <td><strong>Suno</strong></td>
+                    <td>Generazione musica</td>
+                </tr>
+                <tr>
+                    <td><strong>Gamma</strong></td>
+                    <td>Presentazioni automatiche (opzionale)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr>
+
+        <h3>12. MULTIMODALITÀ (~3 min)</h3>
+        <p><strong>Concetto chiave:</strong> L'AI converte TUTTO in numeri.</p>
+        <blockquote>
+            "Fino a poco fa l'AI capiva solo testo. Ora capisce e GENERA tutto: testo, immagini, audio, video.
+            <br><br>
+            Il trucco? Converte TUTTO in numeri. Testo, immagini, audio - diventano tutti liste di numeri. Una volta che sono numeri, per l'AI è tutto uguale. Poi riconverte i numeri in quello che serve.
+            <br><br>
+            È come un traduttore che parla 100 lingue: nella sua testa traduce tutto in una lingua segreta intermedia.
+            <br><br>
+            Per questo ora funziona tutto insieme. Non sono 10 AI diverse - è UNA AI che parla tutte le lingue dei media."
+        </blockquote>
+
+        <p><strong>Schema visivo:</strong></p>
+        <pre><code>FOTO 🖼️  ──→ [numeri] ──→ TESTO 📝
+AUDIO 🎵 ──→ [numeri] ──→ TESTO 📝
+TESTO 📝 ──→ [numeri] ──→ IMMAGINE 🖼️</code></pre>
+
+        <hr>
+
+        <h3>13. AGENTE PERSONALE (~5 min)</h3>
+        <p><strong>Obiettivo:</strong> Far capire la differenza tra ChatGPT generico e un agente con contesto personale.</p>
+        <blockquote>
+            "Questi tool che vi ho fatto vedere sono fighi. Ma hanno un limite: non vi conoscono.
+            <br><br>
+            Se io chiedo a ChatGPT 'devo comprare un drone', mi dà una risposta generica. Tipo 'dipende dal budget, dall'uso...'
+            <br><br>
+            Ma se avessi un assistente che SA che io ho un certo budget, che lo uso per foto aeree del lago, che ho già provato certi modelli... la risposta sarebbe completamente diversa.
+            <br><br>
+            Stessa cosa per gli investimenti, per le email, per qualsiasi cosa.
+            <br><br>
+            <strong>Un agente personale è ChatGPT che ha letto il vostro diario.</strong> Conosce il contesto. E questo cambia tutto."
+        </blockquote>
+
+        <p><strong>Behind the scenes</strong> (battuta):</p>
+        <blockquote>
+            "A proposito... questa presentazione? L'ho preparata insieme a un agente personale. Lui conosce Minerva, sa cosa ho fatto l'anno scorso, ricorda le domande che mi avete fatto. Non lo dico per vantarmi - lo dico perché è già realtà."
+        </blockquote>
+
+        <hr>
+
+        <h3>14. ETICA / FUTURO (~? min)</h3>
+        <p class="warning"><strong>DA DEFINIRE</strong></p>
+
+        <hr>
+
+        <h3>15. CHIUSURA / TAKE-HOME MESSAGE (~? min)</h3>
+        <p class="warning"><strong>DA DEFINIRE</strong> - Una frase da portare a casa</p>
+
+        <hr>
+
+        <h2>Timing Attuale</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Blocco</th>
+                    <th>Min</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1-8. Apertura → Tool calling</td>
+                    <td>~21</td>
+                    <td>Sviluppato</td>
+                </tr>
+                <tr>
+                    <td>9. Demo live</td>
+                    <td>~20</td>
+                    <td>Struttura ok</td>
+                </tr>
+                <tr>
+                    <td>10. AI vs AGI</td>
+                    <td>~?</td>
+                    <td>Struttura ok, "creare Dio" da sviluppare</td>
+                </tr>
+                <tr>
+                    <td>11. Showcase tool</td>
+                    <td>~?</td>
+                    <td>Lista ok</td>
+                </tr>
+                <tr>
+                    <td>12. Multimodalità</td>
+                    <td>~3</td>
+                    <td><span class="badge">✅ Sviluppato</span></td>
+                </tr>
+                <tr>
+                    <td>13. Agente Personale</td>
+                    <td>~5</td>
+                    <td><span class="badge">✅ Sviluppato</span></td>
+                </tr>
+                <tr>
+                    <td>14. Etica/Futuro</td>
+                    <td>~?</td>
+                    <td>Da definire</td>
+                </tr>
+                <tr>
+                    <td>15. Chiusura</td>
+                    <td>~?</td>
+                    <td>Da definire</td>
+                </tr>
+                <tr>
+                    <td><strong>TOTALE</strong></td>
+                    <td><strong>~49+ min</strong></td>
+                    <td>~40 min per resto</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr>
+
+        <h2>Decisioni Call 18 Dicembre</h2>
+        <ul>
+            <li><del>Comet Browser</del>: eliminato (concept figo, pratica inutilizzabile)</li>
+            <li><del>Sora Social</del>: eliminato (non fa ciccia come contenuto)</li>
+            <li><strong>Multimodalità</strong>: spiegazione "tutto diventa numeri"</li>
+            <li><strong>Agente Personale</strong>: ponte dopo showcase ("questi tool fighi MA senza il vostro contesto")</li>
+            <li><strong>Behind the scenes</strong>: battuta veloce nel blocco Agente Personale</li>
+        </ul>
+
+        <hr>
+
+        <h2>Da Fare (Prossime Sessioni)</h2>
+        <ul>
+            <li>Sviluppare "L'uomo cerca di creare Dio" (tema delicato)</li>
+            <li>Definire blocco Etica/Futuro</li>
+            <li>Definire Take-home message (1 frase)</li>
+            <li>Timing preciso showcase tool + AI vs AGI</li>
+            <li>Preparare demo live (account, link, backup)</li>
+        </ul>
+
+        <hr>
+
+        <h2>File Correlati</h2>
+        <ul>
+            <li><code>capitoli/capitolo-1-introduzione.md</code> (vecchia versione)</li>
+            <li><code>capitoli/capitolo-2-cos-e-ia.md</code> (vecchia versione)</li>
+            <li><code>capitoli/capitolo-3-applicazioni-pratiche.md</code> (vecchia versione)</li>
+            <li><code>log/2025/2025-12-03-minerva-brainstorm-conferenza-gennaio.md</code></li>
+        </ul>
+    </div>
+</body>
+</html>

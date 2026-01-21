@@ -1,6 +1,6 @@
-# Scaletta v3 - Conferenza Minerva 9 Gennaio 2025
+# Scaletta v3 - Conferenza Minerva 23 Gennaio 2026
 
-**Data**: Venerdì 9 Gennaio 2025, 10:00-11:30 (90 min)
+**Data**: Giovedì 23 Gennaio 2026, 10:00-11:30 (90 min)
 **Brainstorm**: 18 Dicembre 2024
 **Update**: Call 18 Dicembre 2024
 
