@@ -261,17 +261,114 @@
         <hr>
 
         <div style="background: #e0f2fe; padding: 2rem; border-radius: 8px; margin-bottom: 2rem;">
-            <h3 style="margin-top: 0;">📝 Esempi di Completamento (Prompt Standard)</h3>
-            <p><strong>Per dimostrare il pattern matching:</strong></p>
+            <h3 style="margin-top: 0;">📝 Esercizio Pattern Matching CON IL PUBBLICO</h3>
+            <p><strong>Setup:</strong> Prendi il microfono, fai un "test audio" tipo "prova prova uno due tre", poi dici l'inizio della frase e il pubblico completa. Serve per far SENTIRE il pattern matching prima di vederlo nell'AI.</p>
+
+            <h4>🎯 Proverbi italiani (garantiti)</h4>
             <ul>
-                <li><strong>"Mogli e buoi..."</strong> → "...dei paesi tuoi" (riconosce proverbio)</li>
-                <li><strong>"2 + 2 = ..."</strong> → "4" (calcolo banale)</li>
-                <li><strong>"C'era una volta..."</strong> → scrive una fiaba completa (pattern narrativo)</li>
-                <li><strong>"Il contrario di caldo è..."</strong> → "freddo" (relazione semantica)</li>
-                <li><strong>"Scrivi una email formale per..."</strong> → genera template standard</li>
+                <li><strong>"Mogli e buoi..."</strong> → pubblico: <em>"...dei paesi tuoi"</em></li>
+                <li><strong>"Chi dorme..."</strong> → pubblico: <em>"...non piglia pesci"</em></li>
+                <li><strong>"Meglio tardi..."</strong> → pubblico: <em>"...che mai"</em></li>
+                <li><strong>"Non tutte le ciambelle..."</strong> → pubblico: <em>"...riescono col buco"</em></li>
+                <li><strong>"Tra il dire e il..."</strong> → pubblico: <em>"...fare c'è di mezzo il mare"</em></li>
+                <li><strong>"Chi va piano..."</strong> → pubblico: <em>"...va sano e va lontano"</em></li>
             </ul>
+
+            <h4>🎯 Frasi celebri / Canzoni</h4>
+            <ul>
+                <li><strong>"Nel mezzo del cammin..."</strong> → pubblico: <em>"...di nostra vita"</em> (Dante)</li>
+                <li><strong>"Volare, oh oh..."</strong> → pubblico: <em>"...cantare oh oh oh oh"</em> (Modugno)</li>
+                <li><strong>"C'era una volta..."</strong> → pubblico: <em>"...in America / il West / etc"</em> (fiabe/film)</li>
+                <li><strong>"Houston, we have a..."</strong> → pubblico: <em>"...problem"</em> (Apollo 13 - sa inglese?)</li>
+            </ul>
+
+            <h4>🎯 Pattern matematici/logici</h4>
+            <ul>
+                <li><strong>"2 + 2 = ..."</strong> → pubblico: <em>"4"</em></li>
+                <li><strong>"Rosso, giallo, verde, rosso, giallo, ..."</strong> → pubblico: <em>"verde"</em></li>
+                <li><strong>"Lunedì, martedì, mercoledì, ..."</strong> → pubblico: <em>"giovedì"</em></li>
+            </ul>
+
             <div class="tip-box">
-                <strong>Messaggio:</strong> L'AI completa pattern che ha visto in training. Non "capisce" il significato - replica strutture statistiche. Utile per capire la differenza tra "rispondere" e "comprendere".
+                <strong>Messaggio dopo l'esercizio:</strong><br>
+                "Vedete? Avete appena fatto pattern matching. Non ci avete pensato - avete completato automaticamente perché avete visto questi pattern migliaia di volte nella vostra vita.<br><br>
+                L'intelligenza artificiale fa ESATTAMENTE questo. Ha visto milioni di testi, ha imparato i pattern, e li completa. La differenza? Voi <strong>capite</strong> cosa significano questi proverbi. L'AI? Sta solo completando una sequenza statistica.<br><br>
+                Ora ve lo faccio vedere con ChatGPT..."
+            </div>
+
+            <hr style="margin: 2rem 0; border-color: #bfdbfe;">
+
+            <h3 style="margin-top: 2rem;">🔗 COLLEGAMENTO ALLE DEMO SUCCESSIVE</h3>
+
+            <h4>📍 Demo 1: Pattern Matching con ChatGPT (Slide 21 - Chatbot)</h4>
+            <p><strong>Cosa fare:</strong> Apri ChatGPT e ripeti ALCUNI degli esempi appena fatti con il pubblico:</p>
+            <ul>
+                <li>Digita: <code>"Mogli e buoi"</code> → GPT completa: <em>"dei paesi tuoi"</em></li>
+                <li>Digita: <code>"C'era una volta"</code> → GPT scrive una fiaba completa</li>
+                <li>Digita: <code>"2 + 2 ="</code> → GPT: <em>"4"</em></li>
+            </ul>
+            <p><strong>Poi fai l'esempio ASSURDO per dimostrare che NON capisce:</strong></p>
+            <ul>
+                <li><code>"Scrivi ricetta carbonara ma voglio cuocere l'acqua nel colapasta"</code></li>
+                <li>→ GPT prova a rispondere seriamente, magari dice "puoi mettere il colapasta su una pentola..." 😂</li>
+                <li><strong>Punto:</strong> "Vedete? Non capisce che è assurdo. Sta solo completando pattern di ricette."</li>
+            </ul>
+
+            <h4>📍 Demo 2: Web Search (Slide 22 - Ricerca con IA)</h4>
+            <p><strong>Collegamento pattern → web search:</strong></p>
+            <ul>
+                <li><strong>Problema pattern semplice:</strong> "Mogli e buoi" è facile perché è nel training. Ma se chiedi "Quali ristoranti sul Lago Maggiore sono aperti a gennaio 2026?" → GPT normale non lo sa (dati vecchi).</li>
+                <li><strong>Perplexity risolve:</strong> Cerca in tempo reale e trova info aggiornate.</li>
+                <li><strong>Demo:</strong> Apri Perplexity, chiedi: <code>"Ristoranti aperti gennaio 2026 Lago Maggiore"</code> → mostra che trova info recenti con fonti.</li>
+            </ul>
+            <p><strong>Messaggio:</strong> "Pattern matching funziona su dati statici. Ma il mondo cambia. Per info aggiornate serve cercare online in tempo reale - e Perplexity fa esattamente questo."</p>
+
+            <h4>📍 Demo 3: Tool Calling - Esempio Meteo (Slide 24 - Multimodalità o prima)</h4>
+            <p><strong>Collegamento pattern → tool calling:</strong></p>
+            <ul>
+                <li><strong>Problema:</strong> Se chiedi "Che tempo fa a Verbania?" a GPT base → completa pattern tipo "generalmente a Verbania in gennaio fa freddo..." (generico).</li>
+                <li><strong>Con tool calling:</strong> GPT chiama API meteo, ottiene dati reali (temperatura, umidità, vento), e ti dà risposta precisa.</li>
+                <li><strong>Demo (se hai accesso a GPT con plugin meteo):</strong> Chiedi meteo Verbania → mostra che dà dati precisi.</li>
+                <li><strong>Alternativa senza demo:</strong> Spiega il concetto: "GPT non 'sa' il meteo. Ma può chiamare strumenti esterni - API meteo, calcolatrici, database - e integrare la risposta. Non è più solo pattern matching, è orchestrazione di strumenti."</li>
+            </ul>
+
+            <h4>📍 Collegamento con Slide 16 (Grande Bluff - Rispondere vs Ragionare)</h4>
+            <table style="width: 100%; border-collapse: collapse; margin-top: 1rem;">
+                <thead style="background: #dbeafe;">
+                    <tr>
+                        <th style="padding: 0.75rem; text-align: left; border: 1px solid #bfdbfe;">Livello</th>
+                        <th style="padding: 0.75rem; text-align: left; border: 1px solid #bfdbfe;">Cosa fa</th>
+                        <th style="padding: 0.75rem; text-align: left; border: 1px solid #bfdbfe;">Esempio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="padding: 0.75rem; border: 1px solid #bfdbfe;"><strong>Rispondere</strong></td>
+                        <td style="padding: 0.75rem; border: 1px solid #bfdbfe;">Pattern matching puro</td>
+                        <td style="padding: 0.75rem; border: 1px solid #bfdbfe;">"Mogli e buoi..." → "...dei paesi tuoi"<br>Esercizio fatto con pubblico</td>
+                    </tr>
+                    <tr style="background: #f0f9ff;">
+                        <td style="padding: 0.75rem; border: 1px solid #bfdbfe;"><strong>Ragionare</strong></td>
+                        <td style="padding: 0.75rem; border: 1px solid #bfdbfe;">Pattern + tool calling + iterazione</td>
+                        <td style="padding: 0.75rem; border: 1px solid #bfdbfe;">Web search (Perplexity), chiamate API meteo, multi-step problem solving</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 0.75rem; border: 1px solid #bfdbfe;"><strong>Comprendere</strong></td>
+                        <td style="padding: 0.75rem; border: 1px solid #bfdbfe;">??? (domanda aperta)</td>
+                        <td style="padding: 0.75rem; border: 1px solid #bfdbfe;">Carbonara nel colapasta → GPT non capisce che è assurdo. Questa è la differenza.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="note-box" style="margin-top: 1.5rem; background: #fef3c7; border-color: #f59e0b;">
+                <strong>🎬 FLOW NARRATIVO COMPLETO:</strong><br><br>
+                1. <strong>Esercizio pubblico</strong> (pattern matching umano) → "Mogli e buoi..."<br>
+                2. <strong>Spiegazione:</strong> "Avete completato automaticamente. L'AI fa lo stesso."<br>
+                3. <strong>Demo ChatGPT</strong> (Slide 21): stessi pattern + carbonara assurda (dimostra che non capisce)<br>
+                4. <strong>Demo Perplexity</strong> (Slide 22): pattern non basta, serve web search per info aggiornate<br>
+                5. <strong>Spiega tool calling</strong> (Slide 24): non è solo pattern, è orchestrazione strumenti<br>
+                6. <strong>Ritorna a Slide 16</strong> (Grande Bluff): "Vedete la differenza tra rispondere, ragionare, comprendere?"<br><br>
+                Il pubblico ha SPERIMENTATO il pattern matching su se stesso, poi l'ha visto nell'AI, poi ha visto come l'AI può andare oltre il pattern (tool calling), e infine ha capito il limite (non comprende davvero).
             </div>
         </div>
 
