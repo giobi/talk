@@ -206,18 +206,31 @@
             letter-spacing: 0.05em;
         }
 
+        /* Metaphor box */
+        .metaphor-box {
+            background: #f0f0f0;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+
+        .metaphor-box p {
+            font-size: 24px;
+            margin: 0.5rem 0;
+            color: var(--color-text);
+        }
+
         /* Highlight box */
         .highlight-box {
-            background: white;
-            padding: 1.5em 2em;
-            border-radius: 8px;
-            margin: 1.5em 0;
-            border-left: 4px solid var(--color-accent);
+            background: rgba(102, 126, 234, 0.1);
+            border-left: 4px solid #667eea;
+            padding: 1.5rem;
+            margin: 2rem 0;
         }
 
         .highlight-box p {
-            margin: 0;
-            font-size: 1.3em;
+            margin: 0.5rem 0;
+            font-size: 24px;
             font-weight: 500;
             color: var(--color-text);
         }
@@ -378,7 +391,7 @@
                 </ul>
             </section>
 
-            <!-- SLIDE 6: Transformer a oggi -->
+            <!-- SLIDE 14: Transformer a oggi -->
             <section>
                 <h2>Transformer<br>→ oggi</h2>
                 <ul>
@@ -388,25 +401,79 @@
                 </ul>
             </section>
 
-            <!-- SLIDE 7: Chatbot -->
+            <!-- SLIDE 15: Il Grande Bluff? -->
+            <section>
+                <h2>Il Grande<br>Bluff?</h2>
+                <ul>
+                    <li class="fragment">Rispondere (if-else) vs Ragionare (iterare) vs Comprendere (?)</li>
+                    <li class="fragment">Esempio: mappa ASCII - capisce lo spazio o replica pattern?</li>
+                    <li class="fragment">Metafora aeroplano 2D: scalare ≠ volare</li>
+                </ul>
+            </section>
+
+            <!-- SLIDE 16: Aeroplano 2D (visual) -->
+            <section>
+                <h2>Scalare<br>≠ Volare</h2>
+                <div class="metaphor-box">
+                    <p class="fragment">Se vedi un aereo di lato (2D), vedi un tubo.</p>
+                    <p class="fragment">Lo lanci sempre più forte → "guarda, vola!"</p>
+                    <p class="fragment">Ma non sta volando. Lo stai catapultando.</p>
+                    <p class="fragment">Volare è altro: aerodinamica, portanza.</p>
+                </div>
+                <div class="highlight-box fragment">
+                    <p><strong>LLM:</strong> Li scaliamo sempre di più → "guarda, sembra intelligente!"</p>
+                    <p>Ma forse stiamo solo catapultando pattern matching.</p>
+                </div>
+            </section>
+
+            <!-- SLIDE 17: Stanza Cinese -->
+            <section>
+                <h2>Stanza Cinese</h2>
+                <div class="metaphor-box">
+                    <p class="fragment"><strong>John Searle, 1980</strong></p>
+                    <p class="fragment">Chiuso in una stanza con un libro di regole.</p>
+                    <p class="fragment">Ricevi foglietti con caratteri cinesi.</p>
+                    <p class="fragment">Consulti il libro: "se vedi X, rispondi Y".</p>
+                    <p class="fragment">Fuori pensano che tu capisca il cinese.</p>
+                    <p class="fragment"><strong>Ma tu stai solo manipolando simboli.</strong></p>
+                </div>
+                <div class="highlight-box fragment">
+                    <p>Manipolare simboli ≠ Capire</p>
+                    <p>Pattern matching ≠ Intelligenza</p>
+                </div>
+            </section>
+
+            <!-- SLIDE 18: Paradosso parametri -->
+            <section class="chapter-slide" data-background-color="#2d2d2d">
+                <h2>Il Paradosso</h2>
+                <p>Usiamo parametri psicologici umani</p>
+                <p>(pensare, capire, ragionare)</p>
+                <p>per valutare qualcosa che psicologico non è.</p>
+                <div class="highlight-box fragment">
+                    <p>Non sappiamo se stiamo costruendo un aereo vero</p>
+                    <p>o un razzo travestito.</p>
+                </div>
+            </section>
+
+            <!-- SLIDE 19: Chatbot -->
             <section class="chapter-slide" data-background-color="#2d2d2d">
                 <h2>I Chatbot</h2>
                 <p>ChatGPT · Claude · Gemini</p>
             </section>
 
-            <!-- SLIDE 8: Ricerca IA -->
+            <!-- SLIDE 20: Ricerca IA -->
             <section class="chapter-slide" data-background-color="#2d2d2d">
                 <h2>Ricerca con IA</h2>
                 <p>Perplexity · Google AI Mode</p>
             </section>
 
-            <!-- SLIDE 9: NotebookLM -->
+            <!-- SLIDE 21: NotebookLM -->
             <section class="chapter-slide" data-background-color="#2d2d2d">
                 <h2>NotebookLM</h2>
                 <p>Documento → Podcast</p>
             </section>
 
-            <!-- SLIDE 10: Multimodalita -->
+            <!-- SLIDE 22: Multimodalita -->
             <section>
                 <h2>Multimodalità</h2>
                 <div class="tool-row fragment">
@@ -424,7 +491,7 @@
                 </div>
             </section>
 
-            <!-- SLIDE 11: Agentic AI -->
+            <!-- SLIDE 23: Agentic AI -->
             <section>
                 <h2>Agente<br>Personale</h2>
                 <ul>
@@ -437,7 +504,7 @@
                 </div>
             </section>
 
-            <!-- SLIDE 12: Q&A -->
+            <!-- SLIDE 24: Q&A -->
             <section class="end-slide">
                 <h1>Domande?</h1>
                 <p>Grazie</p>
