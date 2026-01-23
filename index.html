@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Notes - Presentazioni del Corso</title>
+    <title>Minerva - Appunti AI</title>
 
     <!-- Monospace font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,42 +13,67 @@
     <style>
         body {
             font-family: 'Fira Code', 'JetBrains Mono', 'Source Code Pro', Consolas, Monaco, 'Courier New', monospace;
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 2rem;
             background-color: #f5f5f5;
             color: #333;
         }
-        
+
         .header {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 2rem;
+            padding: 3rem 2rem;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-        
+
         .header h1 {
             margin: 0;
-            font-size: 2.5rem;
+            font-size: 3rem;
             font-weight: 300;
         }
-        
+
+        .header .emoji {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
         .header p {
             margin: 1rem 0 0 0;
             font-size: 1.2rem;
             opacity: 0.9;
         }
-        
-        .presentations {
+
+        .section-header {
+            margin: 3rem 0 1.5rem 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .section-header h2 {
+            margin: 0;
+            font-size: 1.8rem;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .section-header p {
+            margin: 0.5rem 0 0 0;
+            color: #666;
+            font-size: 1rem;
+        }
+
+        .events-grid {
             display: grid;
             gap: 1.5rem;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            margin-bottom: 3rem;
         }
-        
-        .presentation-card {
+
+        .event-card {
             background: white;
             padding: 2rem;
             border-radius: 10px;
@@ -56,25 +81,45 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border-left: 4px solid #667eea;
         }
-        
-        .presentation-card:hover {
+
+        .event-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
         }
-        
-        .presentation-card h3 {
+
+        .event-card.terza-eta {
+            border-left-color: #27ae60;
+        }
+
+        .event-card.emisfera {
+            border-left-color: #f59e0b;
+        }
+
+        .event-card h3 {
             margin: 0 0 1rem 0;
             color: #333;
             font-size: 1.4rem;
+            line-height: 1.4;
         }
-        
-        .presentation-card p {
+
+        .event-card .date {
+            display: inline-block;
+            background: #f0f0f0;
+            color: #666;
+            padding: 0.3rem 0.8rem;
+            border-radius: 5px;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .event-card p {
             color: #666;
             line-height: 1.6;
             margin-bottom: 1.5rem;
         }
-        
-        .presentation-card a {
+
+        .event-card a {
             display: inline-block;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
@@ -84,52 +129,95 @@
             transition: opacity 0.3s ease;
             font-weight: 500;
         }
-        
-        .presentation-card a:hover {
+
+        .event-card.terza-eta a {
+            background: linear-gradient(135deg, #27ae60 0%, #20c997 100%);
+        }
+
+        .event-card.emisfera a {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        }
+
+        .event-card a:hover {
             opacity: 0.9;
         }
-        
-        .info-section {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            margin-top: 2rem;
-        }
-        
-        .info-section h2 {
-            color: #333;
-            margin-bottom: 1rem;
-        }
-        
-        .info-section ul {
-            line-height: 1.8;
-            color: #666;
-        }
-        
+
         .badge {
             display: inline-block;
             background: #e3f2fd;
             color: #1976d2;
             padding: 0.3rem 0.8rem;
             border-radius: 20px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             margin-left: 0.5rem;
+        }
+
+        .badge.completed {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .empty-state {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 10px;
+            text-align: center;
+            color: #999;
+            font-style: italic;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1rem;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .header .emoji {
+                font-size: 2.5rem;
+            }
+
+            .events-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
     <div class="header">
-        <h1>AI Notes</h1>
-        <p>Corso di Introduzione all'Intelligenza Artificiale per l'Università della Terza Età</p>
+        <div class="emoji">🦉</div>
+        <h1>Minerva</h1>
+        <p>Appunti, materiali e risorse sull'Intelligenza Artificiale</p>
     </div>
-    
-    <div class="presentations">
-        <div class="presentation-card" style="border-left-color: #27ae60;">
-            <h3>Conferenza 23 Gennaio 2026 - Villa Giulia <span class="badge" style="background: #d4edda; color: #155724;">v3</span></h3>
-            <p>Intelligenza Artificiale: da Asimov a ChatGPT. Miti, storia, demo live e agenti personali. 90 minuti di esplorazione interattiva presso Villa Giulia.</p>
-            <a href="events/2026-01-23-villa-giulia/" style="background: linear-gradient(135deg, #27ae60 0%, #20c997 100%);">Scopri l'Evento</a>
+
+    <!-- Sezione Terza Età -->
+    <div class="section-header">
+        <h2>🎓 Università della Terza Età</h2>
+        <p>Conferenze divulgative sull'intelligenza artificiale per il pubblico generalista</p>
+    </div>
+
+    <div class="events-grid">
+        <div class="event-card terza-eta">
+            <h3>Intelligenza Artificiale: da Asimov a ChatGPT</h3>
+            <div class="date">23 Gennaio 2026 • Villa Giulia</div>
+            <span class="badge completed">Completata</span>
+            <p>90 minuti di esplorazione: miti, storia dell'IA, demo live e agenti personali. Dai robot di Asimov ai language model di oggi.</p>
+            <a href="events/2026-01-23-villa-giulia/">Materiali →</a>
         </div>
     </div>
+
+    <!-- Sezione Emisfera -->
+    <div class="section-header" style="border-bottom-color: #f59e0b;">
+        <h2>🍕 Pranzi AI @ Emisfera</h2>
+        <p>Sessioni interne da 45 minuti: AI pratica per tutti, dagli amministrativi agli sviluppatori</p>
+    </div>
+
+    <div class="empty-state">
+        Nessun pranzo AI programmato. Prossimamente!
+    </div>
+
 </body>
 </html>
