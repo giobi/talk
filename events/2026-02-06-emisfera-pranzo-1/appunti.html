@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appunti Relatore - Pranzo AI #1 Emisfera</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Fira Code', monospace;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: #f5f5f5;
+            color: #333;
+            line-height: 1.7;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2.2rem;
+        }
+
+        .header p {
+            margin: 0.5rem 0 0 0;
+            opacity: 0.9;
+        }
+
+        .section {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            border-left: 4px solid #f59e0b;
+        }
+
+        .section h2 {
+            margin: 0 0 1.5rem 0;
+            color: #d97706;
+            font-size: 1.6rem;
+        }
+
+        .section h3 {
+            margin: 2rem 0 1rem 0;
+            color: #f59e0b;
+            font-size: 1.3rem;
+        }
+
+        .section h3:first-of-type {
+            margin-top: 0;
+        }
+
+        .timing {
+            display: inline-block;
+            background: #fef3c7;
+            color: #92400e;
+            padding: 0.3rem 0.8rem;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .important {
+            background: #fee2e2;
+            border-left: 4px solid #ef4444;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 5px;
+        }
+
+        .important strong {
+            color: #dc2626;
+        }
+
+        .tip {
+            background: #d1fae5;
+            border-left: 4px solid #10b981;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 5px;
+        }
+
+        .tip strong {
+            color: #059669;
+        }
+
+        .code {
+            background: #1f2937;
+            color: #e5e7eb;
+            padding: 1.5rem;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+
+        ul, ol {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+
+        li {
+            margin-bottom: 0.8rem;
+        }
+
+        .demo-script {
+            background: #dbeafe;
+            border: 2px solid #3b82f6;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        .demo-script h4 {
+            margin: 0 0 1rem 0;
+            color: #1e40af;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        th, td {
+            padding: 0.8rem;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        th {
+            background: #f9fafb;
+            font-weight: 600;
+            color: #374151;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>📚 Appunti Relatore</h1>
+    <p>Pranzo AI #1 @ Emisfera • Brain On-Premise</p>
+    <p style="font-size: 0.9rem; margin-top: 0.5rem;">6 Febbraio 2026 • 45 minuti</p>
+</div>
+
+<!-- Overview -->
+<div class="section">
+    <h2>🎯 Overview</h2>
+
+    <table>
+        <tr>
+            <th>Fase</th>
+            <th>Durata</th>
+            <th>Obiettivo</th>
+        </tr>
+        <tr>
+            <td>Q&A Apertura</td>
+            <td>10 min</td>
+            <td>Capire bisogni, paure, aspettative</td>
+        </tr>
+        <tr>
+            <td>Demo Brain</td>
+            <td>20 min</td>
+            <td>Mostrare sistema in azione</td>
+        </tr>
+        <tr>
+            <td>Brainstorm</td>
+            <td>10 min</td>
+            <td>Casi d'uso Emisfera specifici</td>
+        </tr>
+        <tr>
+            <td>Wrap-up</td>
+            <td>5 min</td>
+            <td>Prossimi passi, volontari MVP</td>
+        </tr>
+    </table>
+
+    <div class="important">
+        <strong>⚠️ IMPORTANTE:</strong> Questo è un pranzo <strong>esplorativo</strong>. Non servono decisioni oggi. Obiettivo: validare interesse e raccogliere feedback per capire se vale la pena sviluppare.
+    </div>
+</div>
+
+<!-- Fase 1: Q&A Apertura -->
+<div class="section">
+    <h2>💬 Fase 1: Q&A Apertura</h2>
+    <div class="timing">⏱️ 10 minuti</div>
+
+    <h3>Setup (1 min)</h3>
+    <p><strong>Script apertura:</strong></p>
+    <p style="font-style: italic; color: #666;">
+        "Ciao a tutti! Questo è il primo pranzo AI, formato 45 minuti senza fronzoli. L'idea è: invece di farvi una presentazione, parto da voi. Voglio capire cosa vorreste fare con l'AI, cosa vi frena, cosa vi incuriosisce. Poi vi mostro una cosa su cui sto lavorando e vediamo se vi serve o è una cagata."
+    </p>
+
+    <h3>Domande da Porre (9 min)</h3>
+    <p>Gira il tavolo, fai parlare tutti brevemente. <strong>Obiettivo: rompere il ghiaccio e capire il terreno.</strong></p>
+
+    <p><strong>Domande trigger:</strong></p>
+    <ul>
+        <li>"Alzi la mano chi usa già ChatGPT o simili" → conta quanti</li>
+        <li>"Cosa vi piacerebbe automatizzare/velocizzare nel vostro lavoro?"</li>
+        <li>"Cosa vi frena dall'usare AI? Privacy? Non fidarsi? Non sapere come?"</li>
+        <li>"Qual è la vostra frustrazione #1 quando cercate informazioni in azienda?"</li>
+    </ul>
+
+    <div class="tip">
+        <strong>💡 TIP:</strong> Prendi appunti mentalmente. Se qualcuno dice "mi servirebbe sapere come risolvere X", richiama quell'esempio durante la demo. Personalizza.
+    </div>
+
+    <p><strong>Aspettative comuni da gestire:</strong></p>
+    <ul>
+        <li><strong>"L'AI mi sostituirà?"</strong> → No, ti aumenta. Chi sa usarla ha vantaggio.</li>
+        <li><strong>"È sicuro mettere dati aziendali su ChatGPT?"</strong> → NO! Per questo parliamo di brain on-premise.</li>
+        <li><strong>"È complicato da usare?"</strong> → Dipende. Oggi vi mostro versione developer, ma l'MVP avrà UI semplice.</li>
+    </ul>
+
+    <div class="important">
+        <strong>⚠️ ATTENZIONE:</strong> Se il pubblico è scettico/timoroso, rassicura subito: "Ottimo, la privacy è sacrosanta. Per questo il sistema che vi mostro tiene TUTTO on-premise su server Emisfera, zero dati fuori."
+    </div>
+</div>
+
+<!-- Fase 2: Demo Brain -->
+<div class="section">
+    <h2>🖥️ Fase 2: Demo Brain</h2>
+    <div class="timing">⏱️ 20 minuti</div>
+
+    <h3>Setup Demo (2 min)</h3>
+    <p>Apri slide, scorri veloce architettura (slide 4) spiegando:</p>
+    <ul>
+        <li>File di testo (markdown) = portabili, searchable, versionabili</li>
+        <li>Moduli = pezzi di knowledge che monti/smonti a piacere</li>
+        <li>Git = backup automatico, mai perdi niente</li>
+    </ul>
+
+    <p><strong>Frase chiave:</strong> <em>"Immaginate questo: invece di chiedere a Marco dov'è la procedura X, chiedete all'agente che ha già letto tutti i file di Marco, più quelli dello storico, più i ticket passati."</em></p>
+
+    <h3>Demo Live: Brain Personale Giobi (8 min)</h3>
+
+    <div class="demo-script">
+        <h4>🎬 Script Demo</h4>
+
+        <p><strong>1. Mostra struttura cartelle (2 min)</strong></p>
+        <div class="code">
+$ tree -L 2 /home/claude/brain/
+brain/
+├── database/
+│   ├── people/
+│   ├── companies/
+│   ├── projects/
+│   └── server/
+├── diary/
+├── log/
+└── tools/
+        </div>
+        <p>Spiega: <em>"Questo è il mio brain personale. Ogni file è markdown. L'agente legge tutto e risponde con contesto."</em></p>
+
+        <p><strong>2. Query semplice (2 min)</strong></p>
+        <p>Lancia Claude Code e chiedi qualcosa tipo:</p>
+        <div class="code">
+"Quali progetti ho attivi ora?"
+        </div>
+        <p>Mostra come l'agente:</p>
+        <ul>
+            <li>Legge database/projects/.index.yaml</li>
+            <li>Filtra per status: active</li>
+            <li>Risponde con lista</li>
+        </ul>
+
+        <p><strong>3. Query complessa (4 min)</strong></p>
+        <p>Chiedi qualcosa che richieda connettere info da più file:</p>
+        <div class="code">
+"Qual è l'ultimo problema che ho avuto con il server minerva.giobi.com
+e come l'ho risolto?"
+        </div>
+        <p>Mostra come l'agente:</p>
+        <ul>
+            <li>Cerca in log/ per "minerva"</li>
+            <li>Trova sessione rilevante</li>
+            <li>Legge server database entry</li>
+            <li>Sintetizza soluzione</li>
+        </ul>
+        <p>Enfatizza: <em>"Questo in 5 secondi. Senza brain? Avrei cercato 20 minuti tra email e log vecchi."</em></p>
+    </div>
+
+    <div class="tip">
+        <strong>💡 TIP:</strong> Se la demo va in errore, non panico. Dì: "Ecco, questo è un esempio di cosa succede quando l'AI non ha contesto giusto. Per questo serve curare bene i moduli." Trasforma bug in teaching moment.
+    </div>
+
+    <h3>Caso d'Uso Emisfera (5 min)</h3>
+
+    <p>Passa alle slide 6-7 (casi d'uso ticket ERP e WordPress) e spiega:</p>
+
+    <p><strong>Scenario 1: Ticket ERP (slide 6)</strong></p>
+    <ul>
+        <li>Cliente: "ERP non esporta fatture"</li>
+        <li>Alice (support) senza brain → 2 ore di debug</li>
+        <li>Alice CON brain → agente legge modulo tecnico-erp, trova fix noto in 2 sec</li>
+    </ul>
+
+    <p><strong>Scenario 2: WordPress Plugin (slide 7)</strong></p>
+    <ul>
+        <li>Marco (dev): "Complianz non mostra banner"</li>
+        <li>Senza brain → prova a caso, chiede su forum</li>
+        <li>CON brain → agente trova 3 fix precedenti simili, soluzione nota</li>
+    </ul>
+
+    <p><strong>Enfasi:</strong> <em>"Ogni volta che risolviamo un problema, lo mettiamo nel modulo. La prossima volta è automatico. Zero spreco di tempo."</em></p>
+
+    <h3>Privacy & On-Premise (3 min)</h3>
+
+    <p>Slide 8. Rassicura:</p>
+    <ul>
+        <li><strong>Server Emisfera</strong> = dati mai su AWS/Google/Microsoft</li>
+        <li><strong>File di testo</strong> = no vendor lock-in, puoi sempre esportare</li>
+        <li><strong>Git</strong> = backup automatico, cronologia completa</li>
+        <li><strong>Permissions</strong> = monti solo moduli autorizzati per te</li>
+    </ul>
+
+    <div class="important">
+        <strong>⚠️ IMPORTANTE:</strong> Se qualcuno chiede "ma l'AI non gira su server OpenAI?", rispondi: "Sì, per ora. Ma il brain è locale. L'AI legge file e risponde, ma i file non escono mai dal server. In futuro potremmo anche usare LLM locale se serve privacy assoluta."
+    </div>
+
+    <h3>Wrap Demo (2 min)</h3>
+    <p>Ricapitola vantaggi:</p>
+    <ul>
+        <li>✅ Zero latency (read locale vs API)</li>
+        <li>✅ Zero vendor lock-in</li>
+        <li>✅ Privacy controllata</li>
+        <li>✅ Knowledge che non si perde mai</li>
+        <li>✅ Nuovi arrivati = onboarding istantaneo</li>
+    </ul>
+</div>
+
+<!-- Fase 3: Brainstorm -->
+<div class="section">
+    <h2>🧠 Fase 3: Brainstorm Applicazioni Emisfera</h2>
+    <div class="timing">⏱️ 10 minuti</div>
+
+    <h3>Setup (1 min)</h3>
+    <p><strong>Script:</strong> <em>"Ok, avete visto il sistema. Ora brainstormiamo: quali moduli servirebbero a voi? Quali problemi ricorrenti avete che un brain condiviso risolverebbe?"</em></p>
+
+    <h3>Domande Trigger (9 min)</h3>
+
+    <p><strong>Fai girare discussione libera, stimola con:</strong></p>
+    <ul>
+        <li>"Quali sono i 3 problemi che vi chiedono più spesso clienti/colleghi?"</li>
+        <li>"Quali procedure aziendali vi dimenticate sempre dove sono scritte?"</li>
+        <li>"C'è qualche software/tool che solo 1-2 persone conoscono bene?"</li>
+        <li>"Quando è arrivato l'ultimo nuovo collega, quanto tempo ci ha messo a essere autonomo?"</li>
+    </ul>
+
+    <div class="demo-script">
+        <h4>Moduli Candidati da Suggerire</h4>
+        <p>Se la discussione langue, proponi:</p>
+        <ul>
+            <li><strong>tecnico-erp</strong> → Tickets, fix noti, procedure ERP</li>
+            <li><strong>tecnico-wordpress</strong> → Plugin comuni, temi, problemi ricorrenti</li>
+            <li><strong>clienti-tier1</strong> → Info clienti importanti (preferenze, SLA, contatti)</li>
+            <li><strong>procedure-admin</strong> → Fatture, bolle, contabilità</li>
+            <li><strong>onboarding</strong> → Come funziona Emisfera (nuovi arrivati)</li>
+            <li><strong>infra-server</strong> → Setup server, DNS, deploy</li>
+        </ul>
+    </div>
+
+    <div class="tip">
+        <strong>💡 TIP:</strong> Prendi appunti su lavagna/foglio. Scrivi moduli che emergono. Alla fine recap: "Ok, abbiamo identificato questi 5 moduli prioritari."
+    </div>
+
+    <p><strong>Domande comuni da gestire:</strong></p>
+
+    <table>
+        <tr>
+            <th>Domanda</th>
+            <th>Risposta</th>
+        </tr>
+        <tr>
+            <td>"Chi mantiene i moduli?"</td>
+            <td>"Chi risolve il problema aggiorna il modulo. 2 minuti per salvare 2 ore future."</td>
+        </tr>
+        <tr>
+            <td>"E se qualcuno scrive cazzate?"</td>
+            <td>"Git = cronologia completa. Review + rollback come codice."</td>
+        </tr>
+        <tr>
+            <td>"Quanto tempo serve popolare?"</td>
+            <td>"Si parte piano. 1 modulo pilota, 10-20 documenti. Poi cresce organicamente."</td>
+        </tr>
+        <tr>
+            <td>"È obbligatorio usarlo?"</td>
+            <td>"No. È opt-in. Chi trova valore lo usa, altri no problem."</td>
+        </tr>
+    </table>
+</div>
+
+<!-- Fase 4: Wrap-up -->
+<div class="section">
+    <h2>🎯 Fase 4: Wrap-up & Prossimi Passi</h2>
+    <div class="timing">⏱️ 5 minuti</div>
+
+    <h3>Recap (2 min)</h3>
+    <p><strong>Riassumi punti chiave emersi:</strong></p>
+    <ul>
+        <li>Brain condiviso risolve problema knowledge dispersa</li>
+        <li>On-premise = privacy controllata</li>
+        <li>Moduli opt-in = flessibilità</li>
+        <li>File di testo = zero vendor lock-in</li>
+    </ul>
+
+    <h3>Prossimi Passi (2 min)</h3>
+
+    <p><strong>Script:</strong></p>
+    <p style="font-style: italic; color: #666;">
+        "Ok, questo era esplorativo. Se vi interessa, il piano è:<br>
+        1. Setup server Emisfera (infra già c'è)<br>
+        2. Creare 2-3 moduli pilota (es: tecnico-erp, procedure-admin)<br>
+        3. Cerco 2-3 volontari per testare MVP nelle prossime settimane<br>
+        4. Raccogliamo feedback e vediamo se ha senso continuare"
+    </p>
+
+    <div class="demo-script">
+        <h4>🙋 Cercare Volontari</h4>
+        <p><strong>Chiedi direttamente:</strong> "Chi sarebbe curioso di testare? Serve solo provare per una settimana, zero commitment."</p>
+        <p><strong>Idealmente cerca:</strong></p>
+        <ul>
+            <li>1 persona support/admin (testa moduli procedure)</li>
+            <li>1 developer (testa moduli tecnici)</li>
+            <li>1 scettico (feedback critico prezioso)</li>
+        </ul>
+    </div>
+
+    <h3>Chiusura (1 min)</h3>
+    <p><strong>Script:</strong> <em>"Grazie! Materiali e slide sono su minerva.giobi.com nella sezione Emisfera. Se vi vengono altre idee, scrivetemi. Buon appetito!"</em></p>
+
+    <div class="tip">
+        <strong>💡 TIP FINALE:</strong> Dopo il pranzo, scrivi subito 3-5 takeaway in un log. Cosa ha funzionato, cosa no, quali moduli sono emersi, chi ha mostrato interesse. Sarà oro per iterare.
+    </div>
+</div>
+
+<!-- Note Tecniche -->
+<div class="section">
+    <h2>⚙️ Note Tecniche di Backup</h2>
+
+    <h3>Setup Pre-Demo</h3>
+    <ul>
+        <li>✅ Verifica connessione internet</li>
+        <li>✅ Claude Code funzionante</li>
+        <li>✅ Brain /home/claude/brain/ popolato e aggiornato</li>
+        <li>✅ Slide aperte in browser (file locale, non servono connessioni)</li>
+        <li>✅ Esempi query preparati (copia-incolla rapido)</li>
+    </ul>
+
+    <h3>Esempi Query Preparate</h3>
+    <div class="code">
+# Query 1: Semplice
+"Quali progetti ho attivi con priority EWAF alta?"
+
+# Query 2: Media
+"Qual è l'ultimo log di sessione sul progetto minerva?"
+
+# Query 3: Complessa
+"Trova tutti i server con status active e dimmi
+quando è stato l'ultimo deploy su ciascuno"
+
+# Query 4: Cross-reference
+"Chi è Emanuela e quali progetti la coinvolgono?"
+    </div>
+
+    <h3>Se la Demo Fallisce</h3>
+    <div class="important">
+        <strong>Piano B:</strong> Mostra solo struttura file + spiega concetto senza query live. Dì: "Vi mostro la logica, poi vi mando video demo registrata." Non è il fine del mondo, il concetto è più importante della demo perfetta.
+    </div>
+</div>
+
+<!-- Materiali Post-Pranzo -->
+<div class="section">
+    <h2>📦 Materiali Post-Pranzo</h2>
+
+    <h3>Da Condividere</h3>
+    <ul>
+        <li>Link slide: <code>minerva.giobi.com/events/2026-02-06-emisfera-pranzo-1/</code></li>
+        <li>Recap email con moduli emersi + call volontari MVP</li>
+        <li>Eventuale video demo registrata (se richiesto)</li>
+    </ul>
+
+    <h3>Follow-up Volontari</h3>
+    <p>Se 2-3 persone si offrono per MVP:</p>
+    <ol>
+        <li>Setup meeting 1-on-1 (15 min) per capire use case specifico</li>
+        <li>Dare accesso server test + istruzioni base</li>
+        <li>Check-in dopo 3 giorni: "Come va? Blocchi? Feedback?"</li>
+        <li>Dopo 1 settimana: raccogliere feedback strutturato</li>
+    </ol>
+</div>
+
+</body>
+</html>

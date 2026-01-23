@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain Emisfera - Pranzo AI #1</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Fira Code', monospace;
+            background: #1a1a1a;
+            color: #e0e0e0;
+            overflow-x: hidden;
+        }
+
+        .slide {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 4rem;
+            text-align: center;
+        }
+
+        .slide h1 {
+            font-size: 3.5rem;
+            margin-bottom: 2rem;
+            color: #f59e0b;
+            font-weight: 700;
+        }
+
+        .slide h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #fbbf24;
+            font-weight: 600;
+        }
+
+        .slide h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #fcd34d;
+            font-weight: 500;
+        }
+
+        .slide p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto 1.5rem;
+        }
+
+        .slide ul {
+            font-size: 1.3rem;
+            line-height: 2;
+            text-align: left;
+            max-width: 700px;
+            margin: 2rem auto;
+            list-style: none;
+        }
+
+        .slide li {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .slide li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #f59e0b;
+            font-weight: bold;
+        }
+
+        .code-block {
+            background: #2d2d2d;
+            border: 2px solid #f59e0b;
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 800px;
+            text-align: left;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .highlight {
+            color: #10b981;
+            font-weight: 600;
+        }
+
+        .warning {
+            color: #ef4444;
+            font-weight: 600;
+        }
+
+        .emoji {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: #9ca3af;
+            font-weight: 400;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 2rem auto;
+        }
+
+        .card {
+            background: #2d2d2d;
+            border: 2px solid #f59e0b;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: left;
+        }
+
+        .card h4 {
+            color: #fbbf24;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .card p {
+            font-size: 1.1rem;
+            margin: 0;
+        }
+
+        .navigation {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            font-size: 1rem;
+            color: #6b7280;
+        }
+
+        @media (max-width: 768px) {
+            .slide h1 { font-size: 2.5rem; }
+            .slide h2 { font-size: 2rem; }
+            .slide p, .slide ul { font-size: 1.1rem; }
+            .grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Slide 1: Intro -->
+<div class="slide">
+    <div class="emoji">🧠</div>
+    <h1>Brain Emisfera</h1>
+    <p class="subtitle">Knowledge On-Premise + Agenti Modulari</p>
+    <p style="margin-top: 3rem; font-size: 1.1rem; color: #9ca3af;">Pranzo AI #1 • 6 Febbraio 2026</p>
+</div>
+
+<!-- Slide 2: Il Problema -->
+<div class="slide">
+    <h2>🤔 Il Problema</h2>
+    <ul>
+        <li>Knowledge aziendale dispersa (email, Slack, teste delle persone)</li>
+        <li>Ogni volta che qualcuno risolve un problema, la soluzione si perde</li>
+        <li>Tool AI cloud-based = <span class="warning">dati sensibili su server esterni</span></li>
+        <li>Vendor lock-in: dipendenza da OpenAI, Google, Microsoft</li>
+        <li>Zero memoria storica: nuovo arrivato riparte da zero</li>
+    </ul>
+</div>
+
+<!-- Slide 3: La Soluzione -->
+<div class="slide">
+    <h2>💡 La Soluzione</h2>
+    <h3>Brain Condiviso On-Premise</h3>
+    <ul>
+        <li><span class="highlight">File di testo</span> (Markdown) → versionabili, searchable, portabili</li>
+        <li><span class="highlight">Moduli opt-in</span> → monti solo quello che ti serve</li>
+        <li><span class="highlight">Git</span> → backup automatico, storia completa</li>
+        <li><span class="highlight">Server Emisfera</span> → dati mai fuori dall'azienda</li>
+        <li><span class="highlight">Agenti AI</span> → leggono il brain, rispondono con contesto</li>
+    </ul>
+</div>
+
+<!-- Slide 4: Architettura -->
+<div class="slide">
+    <h2>🏗️ Architettura</h2>
+    <div class="code-block">
+emisfera-brain/<br>
+├── <span class="highlight">moduli/</span><br>
+│   ├── tecnico-erp/           <span style="color: #9ca3af;"># Tickets, fix, procedure ERP</span><br>
+│   ├── tecnico-wordpress/     <span style="color: #9ca3af;"># Plugin, temi, problemi WP</span><br>
+│   ├── clienti-tier1/         <span style="color: #9ca3af;"># Info clienti importanti</span><br>
+│   └── procedure-admin/       <span style="color: #9ca3af;"># Fatture, bolle, amministrazione</span><br>
+├── <span class="highlight">users/</span><br>
+│   ├── alice/                 <span style="color: #9ca3af;"># Brain personale Alice</span><br>
+│   │   ├── personal/          <span style="color: #9ca3af;"># Privato</span><br>
+│   │   └── .mounts.yaml       <span style="color: #9ca3af;"># → [tecnico-erp, clienti-tier1]</span><br>
+│   └── marco/                 <span style="color: #9ca3af;"># Brain personale Marco</span><br>
+└── index.sqlite               <span style="color: #9ca3af;"># Search + permissions</span>
+    </div>
+</div>
+
+<!-- Slide 5: Moduli Opt-In -->
+<div class="slide">
+    <h2>🔌 Moduli Opt-In</h2>
+    <p>Ogni utente sceglie quali moduli "montare" nel proprio brain</p>
+    <div class="grid">
+        <div class="card">
+            <h4>Alice (Support)</h4>
+            <p>✅ tecnico-erp<br>
+               ✅ clienti-tier1<br>
+               ✅ procedure-admin<br>
+               ❌ tecnico-wordpress</p>
+        </div>
+        <div class="card">
+            <h4>Marco (Developer)</h4>
+            <p>✅ tecnico-wordpress<br>
+               ✅ tecnico-erp<br>
+               ❌ clienti-tier1<br>
+               ❌ procedure-admin</p>
+        </div>
+    </div>
+    <p style="margin-top: 2rem;"><span class="highlight">→ Zero overhead, solo quello che serve</span></p>
+</div>
+
+<!-- Slide 6: Caso d'Uso 1 -->
+<div class="slide">
+    <h2>⚡ Caso d'Uso: Ticket ERP</h2>
+    <div class="code-block">
+<span class="warning">Problema:</span> "L'ERP non esporta le fatture in PDF"<br><br>
+
+<span style="color: #9ca3af;"># Senza brain:</span><br>
+→ Chiedi a Marco (se disponibile)<br>
+→ Cerchi su Google (risultati generici)<br>
+→ Perdi 2 ore a debuggare<br><br>
+
+<span style="color: #10b981;"># Con brain Emisfera:</span><br>
+→ Alice ha montato <span class="highlight">moduli/tecnico-erp/</span><br>
+→ Agente legge <span class="highlight">tickets/2025-01-export-fix.md</span><br>
+→ Risposta in 2 secondi:<br>
+   <span style="color: #fbbf24;">"Bug noto, devi aggiornare libreria PDF a v2.3.<br>
+   Vedi: moduli/tecnico-erp/procedure/update-pdf-lib.md"</span><br><br>
+
+<span class="highlight">→ Zero API call, zero latency, zero costi cloud</span>
+    </div>
+</div>
+
+<!-- Slide 7: Caso d'Uso 2 -->
+<div class="slide">
+    <h2>⚡ Caso d'Uso: WordPress Plugin</h2>
+    <div class="code-block">
+<span class="warning">Problema:</span> "Plugin Complianz non mostra cookie banner"<br><br>
+
+<span style="color: #9ca3af;"># Senza brain:</span><br>
+→ Ticket su support forum (risposta in 24h)<br>
+→ Provi varie soluzioni random<br>
+→ Cliente incazzato<br><br>
+
+<span style="color: #10b981;"># Con brain Emisfera:</span><br>
+→ Marco ha montato <span class="highlight">moduli/tecnico-wordpress/</span><br>
+→ Agente trova 3 fix precedenti per Complianz<br>
+→ Soluzione nota: "Cache plugin in conflitto"<br><br>
+
+<span class="highlight">→ Fix in 5 minuti, cliente felice</span>
+    </div>
+</div>
+
+<!-- Slide 8: Privacy & On-Premise -->
+<div class="slide">
+    <h2>🔒 Privacy & On-Premise</h2>
+    <ul>
+        <li><span class="highlight">Server Emisfera</span> → dati mai su AWS/Azure/GCP</li>
+        <li><span class="highlight">Zero vendor lock-in</span> → file di testo portabili</li>
+        <li><span class="highlight">Git backup</span> → cronologia completa, mai perdi niente</li>
+        <li><span class="highlight">Permissions granulari</span> → monti solo moduli autorizzati</li>
+        <li><span class="highlight">LLM locale opzionale</span> → se serve privacy totale (future)</li>
+    </ul>
+    <p style="margin-top: 2rem; font-size: 1.5rem; color: #10b981;">
+        <strong>Emisfera ha già l'infra. Usiamola!</strong>
+    </p>
+</div>
+
+<!-- Slide 9: Da Dove Partiamo -->
+<div class="slide">
+    <h2>🚀 Da Dove Partiamo</h2>
+    <h3>Rubiamo il rubabile da ABChat</h3>
+    <ul>
+        <li>Sistema autenticazione utenti</li>
+        <li>UI mount/unmount moduli</li>
+        <li>Sync automatico moduli condivisi</li>
+        <li>Agent wrapper (già Claude Code-based)</li>
+        <li>Search unificata con permissions</li>
+    </ul>
+    <p style="margin-top: 2rem; color: #fbbf24;">
+        <strong>MVP in 2-3 settimane con volontari early adopters</strong>
+    </p>
+</div>
+
+<!-- Slide 10: Prossimi Passi -->
+<div class="slide">
+    <h2>🎯 Prossimi Passi</h2>
+    <div class="grid">
+        <div class="card">
+            <h4>Oggi (45 min)</h4>
+            <p>1. Q&A: cosa vi frena con AI?<br>
+               2. Demo brain personale Giobi<br>
+               3. Brainstorm casi d'uso Emisfera<br>
+               4. Chi vuole testare MVP?</p>
+        </div>
+        <div class="card">
+            <h4>Prossime Settimane</h4>
+            <p>1. Setup server Emisfera<br>
+               2. Primi 3 moduli pilota<br>
+               3. 2-3 early adopters<br>
+               4. Feedback loop</p>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 11: Q&A -->
+<div class="slide">
+    <div class="emoji">💬</div>
+    <h1>Q&A + Brainstorm</h1>
+    <h3 style="margin-top: 2rem;">Cosa vorreste fare con AI?</h3>
+    <h3>Cosa vi frena?</h3>
+    <h3 style="margin-top: 3rem; color: #10b981;">Quali moduli servirebbero?</h3>
+</div>
+
+<div class="navigation">Usa ← → per navigare</div>
+
+<script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+
+    function showSlide(n) {
+        slides.forEach(s => s.style.display = 'none');
+        currentSlide = (n + slides.length) % slides.length;
+        slides[currentSlide].style.display = 'flex';
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight' || e.key === ' ') showSlide(currentSlide + 1);
+        if (e.key === 'ArrowLeft') showSlide(currentSlide - 1);
+        if (e.key === 'Home') showSlide(0);
+        if (e.key === 'End') showSlide(slides.length - 1);
+    });
+
+    showSlide(0);
+</script>
+
+</body>
+</html>
