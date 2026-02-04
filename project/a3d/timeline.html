@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A3D - Timeline Evolutiva 2019-2026</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #1a202c;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #2d3748;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #e2e8f0;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .meta {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .meta-item {
+            text-align: center;
+        }
+
+        .meta-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .meta-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .timeline {
+            padding: 3rem 2rem;
+        }
+
+        .phase {
+            margin-bottom: 2.5rem;
+            padding: 2rem;
+            background: #374151;
+            border-radius: 12px;
+            border-left: 4px solid;
+            transition: transform 0.2s;
+        }
+
+        .phase:hover {
+            transform: translateX(8px);
+        }
+
+        .phase-1 {
+            border-color: #3b82f6;
+        }
+
+        .phase-2 {
+            border-color: #8b5cf6;
+        }
+
+        .phase-3 {
+            border-color: #10b981;
+        }
+
+        .phase-4 {
+            border-color: #f59e0b;
+        }
+
+        .phase-5 {
+            border-color: #ef4444;
+        }
+
+        .phase-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .phase-number {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #a0aec0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .phase-duration {
+            font-size: 0.9rem;
+            color: #cbd5e0;
+            background: #1e293b;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+        }
+
+        .phase-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #e2e8f0;
+            margin-bottom: 1rem;
+        }
+
+        .phase-description {
+            color: #cbd5e0;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .deliverables {
+            list-style: none;
+            padding: 0;
+        }
+
+        .deliverables li {
+            padding: 0.5rem 0;
+            color: #a0aec0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .deliverables li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+            color: #cbd5e0;
+        }
+
+        .back-link {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .back-link a {
+            color: #a0aec0;
+            text-decoration: none;
+            padding: 0.8rem 2rem;
+            background: #374151;
+            border-radius: 8px;
+            transition: all 0.2s;
+            display: inline-block;
+        }
+
+        .back-link a:hover {
+            background: #4a5568;
+            color: #e2e8f0;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .meta {
+                gap: 1.5rem;
+            }
+
+            .phase {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>A3D Assessment Platform</h1>
+            <div class="subtitle">Timeline Evolutiva 2019-2026</div>
+            <div class="meta">
+                <div class="meta-item">
+                    <div class="meta-label">Cliente</div>
+                    <div class="meta-value">METI SRL</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Partnership</div>
+                    <div class="meta-value">7 anni</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Tenant</div>
+                    <div class="meta-value">1 → 14+</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Revenue Doc.</div>
+                    <div class="meta-value">€11,790+</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="timeline">
+            <div class="phase phase-1">
+                <div class="phase-header">
+                    <div class="phase-number">Fase 1</div>
+                    <div class="phase-duration">2019</div>
+                </div>
+                <div class="phase-title">🚀 Launch - Nascita Piattaforma</div>
+                <div class="phase-description">
+                    Avvio partnership METI SRL. Primo tenant attivo (METI stesso). Piattaforma assessment competenze con question types fondamentali: Likert, Multiple Choice, Single Choice, Free Text.
+                </div>
+                <ul class="deliverables">
+                    <li>Piattaforma Laravel multi-tenant (isolamento DB per client)</li>
+                    <li>Primo dominio registrato: a3dreport.com (22 gennaio 2019)</li>
+                    <li>Question types: Likert, Multiple, Single, Free</li>
+                    <li>Sistema scoring: Skill → Cluster → Shape matching</li>
+                    <li>PDF report generation (dompdf)</li>
+                    <li>User roles: Admin, Tutor, User</li>
+                </ul>
+            </div>
+
+            <div class="phase phase-2">
+                <div class="phase-header">
+                    <div class="phase-number">Fase 2</div>
+                    <div class="phase-duration">2019-2022</div>
+                </div>
+                <div class="phase-title">📈 Crescita Organica</div>
+                <div class="phase-description">
+                    Espansione graduale tenant base. Dashboard AdminLTE. Acquisizione major clients (Cresco, Vittoria, Unicoop). Stabilizzazione architettura. Secondo dominio a3d.it (2021).
+                </div>
+                <ul class="deliverables">
+                    <li>Crescita tenant: da 1 a ~8-10 clienti attivi</li>
+                    <li>Major clients: Cresco, Vittoria, Unicoop, Railcargo</li>
+                    <li>Dominio a3d.it registrato (15 aprile 2021)</li>
+                    <li>Dashboard AdminLTE (interfaccia funzionale ma datata)</li>
+                    <li>Question types aggiunti: Sort, Order</li>
+                    <li>Revenue documentato 2021-2022: €11,790 (MRR ~€1,965)</li>
+                    <li>Team METI: Stefania (PM), Giobi (lead dev)</li>
+                </ul>
+            </div>
+
+            <div class="phase phase-3">
+                <div class="phase-header">
+                    <div class="phase-number">Fase 3</div>
+                    <div class="phase-duration">2023</div>
+                </div>
+                <div class="phase-title">🎨 Redesign Completo</div>
+                <div class="phase-description">
+                    Abbandono AdminLTE. Redesign UI moderna con Bootstrap 5 + Livewire. Miglioramento UX e reattività. Approccio component-based. Framework consolidato per sviluppi futuri.
+                </div>
+                <ul class="deliverables">
+                    <li>UI completa Bootstrap 5 (moderna, responsive)</li>
+                    <li>Livewire 2 integration (componenti reattivi, zero npm build)</li>
+                    <li>Layout app2023.blade.php (nuovo design system)</li>
+                    <li>WireUI + livewire-alert (UI components library)</li>
+                    <li>Esperienza utente migliorata (navigation, forms, feedback)</li>
+                    <li>Legacy AdminLTE deprecato (codice presente ma non attivo)</li>
+                </ul>
+            </div>
+
+            <div class="phase phase-4">
+                <div class="phase-header">
+                    <div class="phase-number">Fase 4</div>
+                    <div class="phase-duration">2025</div>
+                </div>
+                <div class="phase-title">⚡ High-Velocity Development</div>
+                <div class="phase-description">
+                    Spike di sviluppo intenso (478 commits). Custom features per Cresco (CSV export, Shape v2 groups). Team expansion. UI Google Forms-style. Jobs queue. Tenant crescita 14+.
+                </div>
+                <ul class="deliverables">
+                    <li>478 commits (spike ago-set: 304 commits in 2 mesi)</li>
+                    <li>Cresco custom: CSV export users vs clusters/shapes</li>
+                    <li>Shape v2 groups implementation</li>
+                    <li>UI Google Forms-style (answers visualization)</li>
+                    <li>User tagging system</li>
+                    <li>Jobs queue (background processing)</li>
+                    <li>Team expansion: Luca Citte, Martina Morelli join</li>
+                    <li>Tenant 14+ attivi (crescita +40% vs 2022)</li>
+                </ul>
+            </div>
+
+            <div class="phase phase-5">
+                <div class="phase-header">
+                    <div class="phase-number">Fase 5</div>
+                    <div class="phase-duration">2026</div>
+                </div>
+                <div class="phase-title">🚀 Roadmap Strategica</div>
+                <div class="phase-description">
+                    Evoluzione piattaforma verso scalabilità e organizzazione avanzata. Sistema Campagne (Q2). Laravel Cloud migration (Q2-Q3). Gate/Trapezio logic. Domain consolidation. Visione espansione tenant 20+ entro 2027.
+                </div>
+                <ul class="deliverables">
+                    <li><strong>Q1-Q2</strong>: Sistema Campagne (organizzazione assessment, Shape per Campaign)</li>
+                    <li><strong>Q2-Q3</strong>: Laravel Cloud migration (scalabilità, auto-scaling, monitoring)</li>
+                    <li><strong>Q3-Q4</strong>: Gate/Trapezio logic (assessment condizionali)</li>
+                    <li><strong>Q3-Q4</strong>: Domain consolidation (a3dreport.com → a3d.it)</li>
+                    <li><strong>Ongoing</strong>: Analytics avanzati, AI/ML potential (scoring predittivo)</li>
+                    <li><strong>Infrastructure</strong>: Nuovo server s1.a3d.it (Hetzner + Forge)</li>
+                    <li><strong>Backup strategy</strong>: 3 nodes geografici (Scaleway, Hetzner, Naranjatech)</li>
+                    <li><strong>Visione 2027</strong>: Espansione target 20+ tenant</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="back-link">
+            <a href="index.html">← Torna al sommario materiali</a>
+        </div>
+    </div>
+</body>
+</html>

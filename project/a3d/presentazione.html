@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A3D - Presentazione CDA/Stakeholder</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        .slide {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 4rem;
+            text-align: center;
+        }
+
+        .slide h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .slide h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .slide h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+            opacity: 0.95;
+        }
+
+        .slide p {
+            font-size: 1.5rem;
+            line-height: 1.8;
+            max-width: 900px;
+            margin: 0 auto 1.5rem;
+            opacity: 0.95;
+        }
+
+        .slide ul {
+            font-size: 1.4rem;
+            line-height: 2;
+            text-align: left;
+            max-width: 800px;
+            margin: 2rem auto;
+            list-style: none;
+        }
+
+        .slide li {
+            margin-bottom: 1.2rem;
+            padding-left: 2.5rem;
+            position: relative;
+        }
+
+        .slide li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 3rem auto;
+        }
+
+        .meta-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .meta-label {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-bottom: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .meta-value {
+            font-size: 3rem;
+            font-weight: 700;
+        }
+
+        .timeline {
+            max-width: 900px;
+            margin: 2rem auto;
+        }
+
+        .timeline-item {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 1.5rem 0;
+            text-align: left;
+            border-left: 5px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .timeline-item h4 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item p {
+            font-size: 1.2rem;
+            margin: 0;
+        }
+
+        .highlight {
+            color: #fbbf24;
+            font-weight: 600;
+        }
+
+        .subtitle {
+            font-size: 1.8rem;
+            opacity: 0.9;
+            font-weight: 400;
+            margin-top: -0.5rem;
+        }
+
+        .emoji {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+        }
+
+        .navigation {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            font-size: 1rem;
+            opacity: 0.7;
+        }
+
+        .slide-number {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            font-size: 1rem;
+            opacity: 0.7;
+        }
+
+        .box {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 800px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 2rem auto;
+        }
+
+        @media (max-width: 768px) {
+            .slide h1 { font-size: 2.5rem; }
+            .slide h2 { font-size: 2rem; }
+            .slide p, .slide ul { font-size: 1.2rem; }
+            .meta-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+            .grid-2 { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Slide 1: Title -->
+<div class="slide">
+    <div class="emoji">🦉</div>
+    <h1>A3D Assessment Platform</h1>
+    <p class="subtitle">Storia, Evoluzione e Roadmap 2026</p>
+    <div class="meta-grid">
+        <div class="meta-card">
+            <div class="meta-label">Cliente</div>
+            <div class="meta-value">METI SRL</div>
+        </div>
+        <div class="meta-card">
+            <div class="meta-label">Partnership</div>
+            <div class="meta-value">7 anni</div>
+        </div>
+        <div class="meta-card">
+            <div class="meta-label">Tenant</div>
+            <div class="meta-value">14+</div>
+        </div>
+        <div class="meta-card">
+            <div class="meta-label">Crescita</div>
+            <div class="meta-value">+1400%</div>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 2: Executive Summary -->
+<div class="slide">
+    <h2>📊 Executive Summary</h2>
+    <ul>
+        <li>Partnership strategica METI SRL dal 2019 (7 anni)</li>
+        <li>Piattaforma SaaS multi-tenant per competency assessment</li>
+        <li>Da 1 a 14+ clienti attivi (crescita +1400%)</li>
+        <li>Contratto trimestrale confermato 2026</li>
+        <li>Team 5 persone: PM, lead dev, 3 sviluppatori</li>
+    </ul>
+</div>
+
+<!-- Slide 3: Value Proposition -->
+<div class="slide">
+    <h2>💡 Value Proposition</h2>
+    <div class="box">
+        <h3>Assessment & Competency Evaluation</h3>
+        <p style="text-align: left;">
+            Piattaforma completa per creazione sessioni di assessment personalizzate,
+            calcolo automatico punteggi competenze, generazione report PDF, analytics avanzati.
+        </p>
+    </div>
+    <ul>
+        <li><span class="highlight">Scalabilità:</span> Architettura multi-tenant = costi condivisi</li>
+        <li><span class="highlight">Customizzazione:</span> Features su misura per ogni cliente</li>
+        <li><span class="highlight">Flessibilità:</span> 6 tipi domande, scoring avanzato</li>
+        <li><span class="highlight">Supporto continuo:</span> Evoluzione piattaforma, zero abbandono</li>
+    </ul>
+</div>
+
+<!-- Slide 4: Metriche Business -->
+<div class="slide">
+    <h2>📈 Crescita & Metriche</h2>
+    <div class="timeline">
+        <div class="timeline-item">
+            <h4>2019 - Launch</h4>
+            <p>Partnership avviata, primo tenant attivo (METI)</p>
+        </div>
+        <div class="timeline-item">
+            <h4>2021-2022</h4>
+            <p>Revenue documentato: <span class="highlight">€11,790</span> (MRR ~€1,965)</p>
+        </div>
+        <div class="timeline-item">
+            <h4>2025</h4>
+            <p>Spike sviluppo: <span class="highlight">478 commits</span>, 14+ tenant attivi</p>
+        </div>
+        <div class="timeline-item">
+            <h4>2026</h4>
+            <p>Contratto trimestrale confermato, roadmap approvata</p>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 5: Major Clients -->
+<div class="slide">
+    <h2>🏢 Major Clients</h2>
+    <div class="grid-2">
+        <div class="box">
+            <h3>Cresco</h3>
+            <p>Custom features: CSV export, Shape groups v2. Subdomain dedicato.</p>
+        </div>
+        <div class="box">
+            <h3>Vittoria</h3>
+            <p>190 mention transcript. Alta attività, multi-domain setup.</p>
+        </div>
+        <div class="box">
+            <h3>Unicoop</h3>
+            <p>Assessment formazione continua, report PDF personalizzati.</p>
+        </div>
+        <div class="box">
+            <h3>Altri 11+ Tenant</h3>
+            <p>Railcargo, Berco, Fedegari, Mule, Optima, CISLFP, Sitma, Demo...</p>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 6: Evoluzione Piattaforma -->
+<div class="slide">
+    <h2>🚀 Evoluzione 2019-2026</h2>
+    <div class="timeline">
+        <div class="timeline-item">
+            <h4>2019 - Launch</h4>
+            <p>Nascita piattaforma, primo tenant, domini a3dreport.com</p>
+        </div>
+        <div class="timeline-item">
+            <h4>2019-2022 - Crescita</h4>
+            <p>Espansione organica, major clients (Cresco, Vittoria, Unicoop)</p>
+        </div>
+        <div class="timeline-item">
+            <h4>2023 - Redesign</h4>
+            <p>UI moderna, UX migliorata, framework consolidato</p>
+        </div>
+        <div class="timeline-item">
+            <h4>2025 - High-velocity</h4>
+            <p>478 commits, custom features Cresco, team expansion</p>
+        </div>
+        <div class="timeline-item">
+            <h4>2026 - Roadmap</h4>
+            <p>Sistema Campagne, Laravel Cloud, scalabilità</p>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 7: Highlights 2025 -->
+<div class="slide">
+    <h2>⚡ Highlights 2025</h2>
+    <ul>
+        <li><span class="highlight">Cresco Custom:</span> CSV export (users vs clusters/shapes)</li>
+        <li><span class="highlight">UI Modernizzazione:</span> Google Forms-style visualization</li>
+        <li><span class="highlight">User Tagging System:</span> Analisi gruppo per cohort</li>
+        <li><span class="highlight">Jobs Queue:</span> Background processing operazioni pesanti</li>
+        <li><span class="highlight">Team Expansion:</span> Luca Citte, Martina Morelli join</li>
+        <li><span class="highlight">Infrastructure:</span> Nuovo server + backup geografici</li>
+    </ul>
+</div>
+
+<!-- Slide 8: Roadmap 2026 -->
+<div class="slide">
+    <h2>🎯 Roadmap Strategica 2026</h2>
+    <div class="timeline">
+        <div class="timeline-item">
+            <h4>Q1-Q2: Sistema Campagne</h4>
+            <p>Organizzazione assessment avanzata, tracking competenze nel tempo</p>
+        </div>
+        <div class="timeline-item">
+            <h4>Q2-Q3: Laravel Cloud Migration</h4>
+            <p>Scalabilità automatica, performance migliorate, monitoring integrato</p>
+        </div>
+        <div class="timeline-item">
+            <h4>Q3-Q4: Analytics Avanzati</h4>
+            <p>Gate/Trapezio logic, assessment condizionali, reporting evoluto</p>
+        </div>
+        <div class="timeline-item">
+            <h4>Ongoing: Domain Consolidation</h4>
+            <p>a3dreport.com → a3d.it, semplificazione DNS</p>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 9: Investimenti & ROI -->
+<div class="slide">
+    <h2>💰 Investimenti & ROI</h2>
+    <div class="box">
+        <h3>Modello Economico Multi-Tenant</h3>
+        <p style="text-align: left;">
+            Costi fissi condivisi su 14+ clienti. Zero marginal cost per nuovo tenant.
+            Architettura scalabile pronta per espansione 20+ tenant.
+        </p>
+    </div>
+    <ul>
+        <li><span class="highlight">Server dedicato:</span> Incluso in piano Forge</li>
+        <li><span class="highlight">Backup geografici:</span> ~€8.30/mese (3 location)</li>
+        <li><span class="highlight">Risparmio 2026:</span> €77/anno (eliminato server inutilizzato)</li>
+        <li><span class="highlight">Partnership 7 anni:</span> Stabilità, conoscenza dominio</li>
+    </ul>
+</div>
+
+<!-- Slide 10: Differenziazione -->
+<div class="slide">
+    <h2>🌟 Differenziazione Mercato</h2>
+    <ul>
+        <li><span class="highlight">Customizzazione:</span> Features su misura per tenant (Cresco CSV)</li>
+        <li><span class="highlight">Flessibilità:</span> 6 tipi domande, scoring avanzato, report PDF</li>
+        <li><span class="highlight">Scalabilità:</span> Pronto per crescita oltre 20+ tenant</li>
+        <li><span class="highlight">Supporto:</span> Partnership 7 anni, evoluzione continua</li>
+        <li><span class="highlight">Stabilità:</span> 14+ clienti attivi = affidabilità provata</li>
+    </ul>
+</div>
+
+<!-- Slide 11: Visione Futura -->
+<div class="slide">
+    <h2>🔮 Visione Futura</h2>
+    <div class="timeline">
+        <div class="timeline-item">
+            <h4>2027 - Espansione</h4>
+            <p>Target 20+ tenant, diversificazione settori</p>
+        </div>
+        <div class="timeline-item">
+            <h4>AI/ML Integration</h4>
+            <p>Scoring predittivo, raccomandazioni intelligenti (discussione futura)</p>
+        </div>
+        <div class="timeline-item">
+            <h4>White-label Potential</h4>
+            <p>Branding personalizzato per major clients (valutazione strategica)</p>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 12: Next Steps -->
+<div class="slide">
+    <h2>✅ Next Steps</h2>
+    <div class="box">
+        <h3>Action Points CDA</h3>
+        <ul style="margin: 2rem 0;">
+            <li>Approvazione roadmap 2026</li>
+            <li>Conferma budget Q2-Q4</li>
+            <li>Discussion: nuovi target settori/clienti</li>
+        </ul>
+    </div>
+    <p style="margin-top: 3rem; font-size: 1.3rem; opacity: 0.8;">
+        Grazie per l'attenzione • Q&A
+    </p>
+</div>
+
+<div class="navigation">Usa ← → per navigare</div>
+<div class="slide-number" id="slide-counter"></div>
+
+<script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+
+    function showSlide(n) {
+        slides.forEach(s => s.style.display = 'none');
+        currentSlide = (n + slides.length) % slides.length;
+        slides[currentSlide].style.display = 'flex';
+        document.getElementById('slide-counter').textContent = `${currentSlide + 1} / ${slides.length}`;
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight' || e.key === ' ') showSlide(currentSlide + 1);
+        if (e.key === 'ArrowLeft') showSlide(currentSlide - 1);
+        if (e.key === 'Home') showSlide(0);
+        if (e.key === 'End') showSlide(slides.length - 1);
+    });
+
+    showSlide(0);
+</script>
+
+</body>
+</html>
