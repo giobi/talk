@@ -3,157 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guida Relatore - Introduzione all'IA</title>
+    <title>Guida Relatore - Talk</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        talk: { 50:'#fffbeb',100:'#fef3c7',200:'#fde68a',300:'#fcd34d',400:'#fbbf24',500:'#f59e0b',600:'#d97706',700:'#b45309',800:'#92400e',900:'#78350f' }
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --bg: #f5f0e8;
-            --bg-alt: #e8e0d5;
-            --text: #1a1a1a;
-            --text-muted: #666;
-            --accent: #2d2d2d;
-        }
-        
-        * { box-sizing: border-box; }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-            padding: 2rem;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        
-        h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.02em;
-        }
-        
-        h2 {
-            font-size: 1.8rem;
-            font-weight: 600;
-            margin-top: 3rem;
-            padding-top: 2rem;
-            border-top: 2px solid var(--bg-alt);
-        }
-        
-        h3 {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-top: 2rem;
-            color: var(--accent);
-        }
-        
-        .meta {
-            color: var(--text-muted);
-            margin-bottom: 2rem;
-        }
-        
-        .slide-ref {
-            background: var(--accent);
-            color: white;
-            padding: 0.2em 0.6em;
-            border-radius: 4px;
-            font-size: 0.85em;
-            font-weight: 500;
-        }
-        
-        .timing {
-            background: white;
-            padding: 0.2em 0.6em;
-            border-radius: 4px;
-            font-size: 0.85em;
-            color: var(--text-muted);
-        }
-        
-        .box {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1rem 0;
-        }
-        
-        .box-dark {
-            background: var(--accent);
-            color: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1rem 0;
-        }
-        
-        .box-warning {
-            background: #fff3cd;
-            border-left: 4px solid #ffc107;
-            padding: 1rem 1.5rem;
-            margin: 1rem 0;
-        }
-        
-        .script {
-            font-style: italic;
-            color: var(--text-muted);
-            padding-left: 1rem;
-            border-left: 3px solid var(--bg-alt);
-        }
-        
-        ul, ol {
-            padding-left: 1.5rem;
-        }
-        
-        li {
-            margin: 0.5rem 0;
-        }
-        
-        .checklist {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .checklist li::before {
-            content: "☐ ";
-        }
-        
-        kbd {
-            background: var(--accent);
-            color: white;
-            padding: 0.15em 0.4em;
-            border-radius: 3px;
-            font-family: monospace;
-        }
-        
-        a {
-            color: var(--accent);
-        }
-        
-        .toc {
-            background: white;
-            padding: 1.5rem 2rem;
-            border-radius: 8px;
-            margin: 2rem 0;
-        }
-        
-        .toc ol {
-            columns: 2;
-            column-gap: 2rem;
-        }
-        
-        @media (max-width: 600px) {
-            body { padding: 1rem; }
-            h1 { font-size: 1.8rem; }
-            .toc ol { columns: 1; }
-        }
-        
-        @media print {
-            body { background: white; }
-            .box, .toc { break-inside: avoid; }
-        }
+        body { font-family: 'Inter', sans-serif; }
+        .content { max-width: 48rem; margin: 0 auto; }
+        .slide-block { margin: 2rem 0; padding: 1.5rem; background: white; border-radius: 0.75rem; border: 1px solid #e5e7eb; border-left: 4px solid #6366f1; }
+        .slide-block.interactive { border-left-color: #f59e0b; background: #fffbeb; }
+        .slide-block.visual { border-left-color: #10b981; background: #f0fdf4; }
+        .slide-number { display: inline-block; background: #6366f1; color: white; padding: 0.2rem 0.7rem; border-radius: 0.375rem; font-size: 0.8rem; font-weight: 600; margin-bottom: 0.5rem; }
+        .slide-number.interactive { background: #f59e0b; }
+        .slide-number.visual { background: #10b981; }
+        .note-box { background: #fef3c7; border: 1px solid #f59e0b; padding: 1rem 1.25rem; margin: 0.75rem 0; border-radius: 0.5rem; font-size: 0.9rem; color: #78350f; }
+        .tip-box { background: #d1fae5; border: 1px solid #10b981; padding: 1rem 1.25rem; margin: 0.75rem 0; border-radius: 0.5rem; font-size: 0.9rem; color: #065f46; }
+        .timing { display: inline-block; background: #e0e7ff; color: #4338ca; padding: 0.15rem 0.5rem; border-radius: 0.25rem; font-size: 0.8rem; margin-left: 0.5rem; }
+        .toc { background: #f9fafb; padding: 1.25rem; border-radius: 0.5rem; margin-bottom: 1.5rem; border: 1px solid #e5e7eb; }
+        blockquote { background: #eff6ff; border-left: 4px solid #3b82f6; margin: 1rem 0; padding: 0.75rem 1.25rem; font-style: italic; color: #475569; border-radius: 0 0.375rem 0.375rem 0; }
+        code { background: #f5f5f5; padding: 0.15rem 0.4rem; border-radius: 0.25rem; color: #d97706; font-size: 0.9em; }
+        h2 { color: #1f2937; font-size: 1.4rem; margin: 0 0 0.75rem 0; font-weight: 500; }
+        h3 { color: #374151; font-size: 1.15rem; margin: 1.25rem 0 0.6rem 0; font-weight: 500; }
+        h4 { color: #4b5563; font-size: 1rem; margin: 0.75rem 0 0.4rem 0; font-weight: 500; }
+        hr { border: none; border-top: 1px solid #e5e7eb; margin: 2rem 0; }
+        table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+        th { background: #f1f5f9; padding: 0.6rem; text-align: left; border: 1px solid #e2e8f0; font-weight: 500; }
+        td { padding: 0.6rem; border: 1px solid #e2e8f0; }
+        ul, ol { margin: 0.75rem 0; padding-left: 1.75rem; }
+        li { margin: 0.4rem 0; }
+        p { margin: 0.6rem 0; line-height: 1.7; }
+        strong { color: #1f2937; }
+        .section { background: white; padding: 1.5rem; border-radius: 0.75rem; border: 1px solid #e5e7eb; border-left: 4px solid #f59e0b; margin-bottom: 1.5rem; }
+        .section h2 { margin-top: 0; }
+        .highlight { background: #fef3c7; border-left: 4px solid #f59e0b; padding: 1rem; margin: 1rem 0; border-radius: 0 0.375rem 0.375rem 0; }
+        .highlight p { margin: 0; color: #78350f; }
+        .event-info { background: white; padding: 1.5rem; border-radius: 0.75rem; border: 1px solid #e5e7eb; margin-bottom: 1.5rem; }
+        .event-info h2 { margin-top: 0; }
+        .event-info ul { list-style: none; padding: 0; }
+        .event-info li { padding: 0.5rem 0; border-bottom: 1px solid #f3f4f6; color: #4b5563; }
+        .event-info li:last-child { border-bottom: none; }
+        .event-info li strong { color: #1f2937; display: inline-block; min-width: 100px; }
     </style>
 </head>
-<body>
+<body class="bg-gray-900 min-h-screen">
+    <header class="bg-gray-900 py-12 px-4">
+        <div class="max-w-3xl mx-auto text-center">
+            <a href="./" class="inline-flex items-center gap-2 text-gray-500 hover:text-talk-400 transition text-sm mb-6">
+                <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                <span>tl/</span>
+            </a>
+            <h1 class="text-2xl md:text-3xl font-light text-white mt-4 leading-tight">Guida Relatore</h1>
+            <p class="text-gray-500 text-sm mt-3">Template e consigli per le presentazioni Talk</p>
+        </div>
+    </header>
+    <section class="bg-gray-50 py-10 px-4">
+        <div class="content">
+
 
 <h1>Guida Relatore</h1>
 <p class="meta">Introduzione all'Intelligenza Artificiale — 24 Gennaio 2026, Verbania</p>
@@ -200,11 +118,11 @@
     </tr>
     <tr><td style="padding:0.5rem 0.8rem;">Apertura + Chi sono</td><td>5 min</td><td>Slide 0-1</td></tr>
     <tr style="background:var(--bg-alt);"><td style="padding:0.5rem 0.8rem;">Asimov + Discussione Leggi</td><td>20 min</td><td>Slide 2-3, interattivo</td></tr>
-    <tr><td style="padding:0.5rem 0.8rem;"><strong>Miti + Alignment</strong></td><td>8 min</td><td>🎯 Blocco mythology (8 slide)</td></tr>
+    <tr><td style="padding:0.5rem 0.8rem;"><strong>Miti + Alignment</strong></td><td>8 min</td><td><i data-lucide="target" class="w-4 h-4 inline"></i> Blocco mythology (8 slide)</td></tr>
     <tr style="background:var(--bg-alt);"><td style="padding:0.5rem 0.8rem;">Storia IA</td><td>10 min</td><td>Slide 12-14</td></tr>
     <tr><td style="padding:0.5rem 0.8rem;">Demo Live (Chatbot, Ricerca, NotebookLM)</td><td>25 min</td><td>Slide 15-17</td></tr>
     <tr style="background:var(--bg-alt);"><td style="padding:0.5rem 0.8rem;">Multimodalità + Agente</td><td>15 min</td><td>Slide 18-19</td></tr>
-    <tr><td style="padding:0.5rem 0.8rem;"><strong>Etica e Futuro</strong></td><td>12 min</td><td>🎯 Soluzioni + Speranza</td></tr>
+    <tr><td style="padding:0.5rem 0.8rem;"><strong>Etica e Futuro</strong></td><td>12 min</td><td><i data-lucide="target" class="w-4 h-4 inline"></i> Soluzioni + Speranza</td></tr>
     <tr style="background:var(--bg-alt);"><td style="padding:0.5rem 0.8rem;">Q&A</td><td>15 min</td><td>Slide finale</td></tr>
 </table>
 
@@ -335,7 +253,7 @@
 <h2 id="slide3"><span class="slide-ref">Slide 3</span> Le vostre leggi <span class="timing">15 min</span></h2>
 
 <div class="box-dark">
-    <strong>🎯 MOMENTO CHIAVE: Discussione interattiva</strong><br>
+    <strong><i data-lucide="target" class="w-4 h-4 inline"></i> MOMENTO CHIAVE: Discussione interattiva</strong><br>
     Questa slide è un chapter marker su sfondo scuro. Qui si ferma e si discute.
 </div>
 
@@ -367,7 +285,7 @@
 <h2 id="mythology">Il sogno di superarsi — Miti e Allineamento <span class="timing">6-8 min</span></h2>
 
 <div class="box-dark">
-    <strong>🎯 BLOCCO CHIAVE: Mythology + Alignment Problem</strong><br>
+    <strong><i data-lucide="target" class="w-4 h-4 inline"></i> BLOCCO CHIAVE: Mythology + Alignment Problem</strong><br>
     8 slide con background images. Provocatorio 3/10 — realistico ma non troppo deep.
 </div>
 
@@ -507,7 +425,7 @@
 <h2 id="slide7"><span class="slide-ref">Slide 7</span> I Chatbot <span class="timing">10 min</span></h2>
 
 <div class="box-dark">
-    <strong>🎯 DEMO LIVE: Chatbot</strong><br>
+    <strong><i data-lucide="target" class="w-4 h-4 inline"></i> DEMO LIVE: Chatbot</strong><br>
     Apri ChatGPT o Claude. Mostra un'interazione reale.
 </div>
 
@@ -534,7 +452,7 @@
 <h2 id="slide8"><span class="slide-ref">Slide 8</span> Ricerca con IA <span class="timing">7 min</span></h2>
 
 <div class="box-dark">
-    <strong>🎯 DEMO LIVE: Perplexity</strong><br>
+    <strong><i data-lucide="target" class="w-4 h-4 inline"></i> DEMO LIVE: Perplexity</strong><br>
     Mostra la differenza tra Google tradizionale e ricerca con IA.
 </div>
 
@@ -553,7 +471,7 @@
 <h2 id="slide9"><span class="slide-ref">Slide 9</span> NotebookLM <span class="timing">8 min</span></h2>
 
 <div class="box-dark">
-    <strong>🎯 DEMO LIVE: NotebookLM</strong><br>
+    <strong><i data-lucide="target" class="w-4 h-4 inline"></i> DEMO LIVE: NotebookLM</strong><br>
     Il momento "wow" — documento che diventa podcast.
 </div>
 
@@ -621,7 +539,7 @@
 <h2 id="eticafuturo">Etica e Futuro <span class="timing">10-15 min</span></h2>
 
 <div class="box-dark">
-    <strong>🎯 BLOCCO FINALE: Risposte + Soluzioni + Speranza</strong><br>
+    <strong><i data-lucide="target" class="w-4 h-4 inline"></i> BLOCCO FINALE: Risposte + Soluzioni + Speranza</strong><br>
     Risponde alle domande sollevate nel blocco mythology. Bilanciato tra realismo e ottimismo.
 </div>
 
@@ -837,5 +755,14 @@
     <em>Ultimo aggiornamento: 19 Gennaio 2026</em>
 </p>
 
+
+        </div>
+    </section>
+    <footer class="bg-gray-900 py-8 text-center">
+        <p class="text-gray-600 text-xs font-light">
+            a <a href="https://giobi.com" target="_blank" class="text-gray-500 hover:text-talk-400 transition">giobi.com</a> idea
+        </p>
+    </footer>
+    <script>lucide.createIcons();</script>
 </body>
 </html>
