@@ -4,204 +4,109 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A3D - Materiali Conferenza</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 2rem;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .header {
-            text-align: center;
-            color: white;
-            margin-bottom: 3rem;
-        }
-
-        .header h1 {
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
-            font-weight: 700;
-        }
-
-        .header .subtitle {
-            font-size: 1.3rem;
-            opacity: 0.9;
-        }
-
-        .meta {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin: 2rem 0;
-            flex-wrap: wrap;
-        }
-
-        .meta-item {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 1rem 2rem;
-            border-radius: 10px;
-            backdrop-filter: blur(10px);
-        }
-
-        .meta-label {
-            font-size: 0.9rem;
-            opacity: 0.8;
-            margin-bottom: 0.3rem;
-        }
-
-        .meta-value {
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-
-        .materials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .material-card {
-            background: white;
-            border-radius: 15px;
-            padding: 2rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            text-decoration: none;
-            color: #333;
-            display: block;
-        }
-
-        .material-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .material-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .material-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: #667eea;
-        }
-
-        .material-description {
-            color: #666;
-            line-height: 1.6;
-            font-size: 0.95rem;
-        }
-
-        .footer {
-            text-align: center;
-            color: white;
-            margin-top: 4rem;
-            opacity: 0.8;
-            font-size: 0.9rem;
-        }
-
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2rem;
-            }
-
-            .materials-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .meta {
-                gap: 1rem;
-            }
-
-            .meta-item {
-                padding: 0.8rem 1.5rem;
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        talk: { 50:'#fffbeb',100:'#fef3c7',200:'#fde68a',300:'#fcd34d',400:'#fbbf24',500:'#f59e0b',600:'#d97706',700:'#b45309',800:'#92400e',900:'#78350f' }
+                    }
+                }
             }
         }
-    </style>
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>body { font-family: 'Inter', sans-serif; }</style>
 </head>
-<body>
-    <div class="container">
-        <div class="header">
-            <h1>🦉 A3D Assessment Platform</h1>
-            <div class="subtitle">Storia, Evoluzione e Roadmap 2026</div>
+<body class="bg-gray-900 min-h-screen">
 
-            <div class="meta">
-                <div class="meta-item">
-                    <div class="meta-label">Cliente</div>
-                    <div class="meta-value">METI SRL</div>
+    <!-- Header -->
+    <header class="bg-gray-900 pt-12 pb-16 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <a href="../../" class="inline-flex items-center gap-2 text-gray-500 hover:text-talk-400 transition text-sm mb-8">
+                <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                <span>tl/</span>
+            </a>
+            <h1 class="text-3xl md:text-4xl font-light text-white mt-4 leading-tight">A3D Assessment Platform</h1>
+            <p class="text-gray-400 text-lg mt-3 font-light">Storia, Evoluzione e Roadmap 2026</p>
+
+            <div class="flex items-center justify-center gap-6 mt-8 flex-wrap">
+                <div class="bg-white/10 backdrop-blur px-5 py-3 rounded-xl text-center">
+                    <div class="text-gray-400 text-xs uppercase tracking-wider">Cliente</div>
+                    <div class="text-white text-xl font-semibold mt-1">METI SRL</div>
                 </div>
-                <div class="meta-item">
-                    <div class="meta-label">Partnership</div>
-                    <div class="meta-value">7 anni</div>
+                <div class="bg-white/10 backdrop-blur px-5 py-3 rounded-xl text-center">
+                    <div class="text-gray-400 text-xs uppercase tracking-wider">Partnership</div>
+                    <div class="text-white text-xl font-semibold mt-1">7 anni</div>
                 </div>
-                <div class="meta-item">
-                    <div class="meta-label">Tenant Attivi</div>
-                    <div class="meta-value">14+</div>
+                <div class="bg-white/10 backdrop-blur px-5 py-3 rounded-xl text-center">
+                    <div class="text-gray-400 text-xs uppercase tracking-wider">Tenant Attivi</div>
+                    <div class="text-white text-xl font-semibold mt-1">14+</div>
                 </div>
-                <div class="meta-item">
-                    <div class="meta-label">Target</div>
-                    <div class="meta-value">CDA/Stakeholder</div>
+                <div class="bg-white/10 backdrop-blur px-5 py-3 rounded-xl text-center">
+                    <div class="text-gray-400 text-xs uppercase tracking-wider">Target</div>
+                    <div class="text-white text-xl font-semibold mt-1">CDA</div>
                 </div>
             </div>
         </div>
+    </header>
 
-        <div class="materials-grid">
-            <a href="presentazione.html" class="material-card">
-                <div class="material-icon">🎬</div>
-                <div class="material-title">Presentazione</div>
-                <div class="material-description">
-                    Slide deck reveal.js per CDA e stakeholder METI.
-                    Executive summary, metriche business, value proposition, roadmap strategica 2026.
-                </div>
-            </a>
+    <!-- Materials -->
+    <section class="bg-gray-50 py-12 px-4">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-lg font-medium text-gray-800 flex items-center gap-2 mb-6">
+                <i data-lucide="folder-open" class="w-5 h-5 text-talk-500"></i> Materiali
+            </h2>
+            <div class="grid gap-4 md:grid-cols-2">
 
-            <a href="timeline.html" class="material-card">
-                <div class="material-icon">⏱️</div>
-                <div class="material-title">Timeline Evolutiva</div>
-                <div class="material-description">
-                    Timeline interattiva 2019-2026: dalla nascita alla roadmap futura.
-                    Fasi, deliverable, evoluzione architetturale.
-                </div>
-            </a>
+                <a href="presentazione.html" class="group block bg-white rounded-xl p-6 border border-gray-200 hover:border-indigo-300 hover:shadow-lg transition-all duration-200">
+                    <div class="w-10 h-10 rounded-lg bg-indigo-50 flex items-center justify-center mb-3">
+                        <i data-lucide="presentation" class="w-5 h-5 text-indigo-500"></i>
+                    </div>
+                    <h3 class="font-medium text-gray-800 group-hover:text-indigo-600 transition-colors">Presentazione</h3>
+                    <p class="text-gray-500 text-sm mt-1.5 leading-relaxed">Slide deck per CDA e stakeholder METI. Executive summary, metriche business, value proposition, roadmap 2026.</p>
+                </a>
 
-            <a href="note-relatore.html" class="material-card">
-                <div class="material-icon">📝</div>
-                <div class="material-title">Note Relatore</div>
-                <div class="material-description">
-                    Appunti dettagliati per chi presenta: script, talking points, dati chiave,
-                    domande frequenti, backup info.
-                </div>
-            </a>
+                <a href="timeline.html" class="group block bg-white rounded-xl p-6 border border-gray-200 hover:border-talk-300 hover:shadow-lg transition-all duration-200">
+                    <div class="w-10 h-10 rounded-lg bg-talk-50 flex items-center justify-center mb-3">
+                        <i data-lucide="git-branch" class="w-5 h-5 text-talk-600"></i>
+                    </div>
+                    <h3 class="font-medium text-gray-800 group-hover:text-talk-600 transition-colors">Timeline Evolutiva</h3>
+                    <p class="text-gray-500 text-sm mt-1.5 leading-relaxed">Timeline interattiva 2019-2026: dalla nascita alla roadmap futura. Fasi, deliverable, evoluzione architetturale.</p>
+                </a>
 
-            <a href="dispensa.html" class="material-card">
-                <div class="material-icon">📋</div>
-                <div class="material-title">Dispensa Pubblico</div>
-                <div class="material-description">
-                    Materiale distribuzione per CDA: executive summary 1 pagina,
-                    metriche chiave, contatti, next steps.
-                </div>
-            </a>
+                <a href="note-relatore.html" class="group block bg-white rounded-xl p-6 border border-gray-200 hover:border-amber-300 hover:shadow-lg transition-all duration-200">
+                    <div class="w-10 h-10 rounded-lg bg-amber-50 flex items-center justify-center mb-3">
+                        <i data-lucide="notebook-pen" class="w-5 h-5 text-amber-600"></i>
+                    </div>
+                    <h3 class="font-medium text-gray-800 group-hover:text-amber-600 transition-colors">Note Relatore</h3>
+                    <p class="text-gray-500 text-sm mt-1.5 leading-relaxed">Appunti dettagliati: script, talking points, dati chiave, domande frequenti, backup info.</p>
+                </a>
+
+                <a href="dispensa.html" class="group block bg-white rounded-xl p-6 border border-gray-200 hover:border-emerald-300 hover:shadow-lg transition-all duration-200">
+                    <div class="w-10 h-10 rounded-lg bg-emerald-50 flex items-center justify-center mb-3">
+                        <i data-lucide="file-text" class="w-5 h-5 text-emerald-500"></i>
+                    </div>
+                    <h3 class="font-medium text-gray-800 group-hover:text-emerald-600 transition-colors">Dispensa Pubblico</h3>
+                    <p class="text-gray-500 text-sm mt-1.5 leading-relaxed">Materiale per CDA: executive summary 1 pagina, metriche chiave, contatti, next steps.</p>
+                </a>
+
+            </div>
         </div>
+    </section>
 
-        <div class="footer">
-            <p>Materiali preparati per conferenza CDA/Stakeholder METI • Febbraio 2026</p>
-            <p style="margin-top: 0.5rem;">🦉 Minerva Project • minerva.giobi.com</p>
-        </div>
-    </div>
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-8 text-center">
+        <p class="text-gray-500 text-xs mb-2">Materiali per conferenza CDA/Stakeholder METI &middot; Febbraio 2026</p>
+        <p class="text-gray-600 text-xs font-light">
+            a <a href="https://giobi.com" target="_blank" class="text-gray-500 hover:text-talk-400 transition">giobi.com</a> idea
+        </p>
+    </footer>
+
+    <script>lucide.createIcons();</script>
 </body>
 </html>
