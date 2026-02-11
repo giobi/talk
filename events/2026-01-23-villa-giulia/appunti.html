@@ -3,242 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Appunti Relatore - Conferenza 23 Gennaio 2026</title>
-
-    <!-- Monospace font -->
+    <title>Note Relatore - Villa Giulia 23 Gen 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        talk: { 50:'#fffbeb',100:'#fef3c7',200:'#fde68a',300:'#fcd34d',400:'#fbbf24',500:'#f59e0b',600:'#d97706',700:'#b45309',800:'#92400e',900:'#78350f' }
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Fira Code', 'JetBrains Mono', 'Source Code Pro', Consolas, Monaco, 'Courier New', monospace;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 2rem;
-            background-color: #f5f5f5;
-            color: #333;
-            line-height: 1.7;
-        }
-
-        .breadcrumb {
-            margin-bottom: 2rem;
-        }
-
-        .breadcrumb a {
-            color: #667eea;
-            text-decoration: none;
-            transition: opacity 0.3s ease;
-        }
-
-        .breadcrumb a:hover {
-            opacity: 0.7;
-        }
-
-        .header {
-            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-            color: white;
-            padding: 2rem;
-            border-radius: 10px;
-            margin-bottom: 3rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .header h1 {
-            margin: 0 0 0.5rem 0;
-            font-size: 2rem;
-            font-weight: 600;
-        }
-
-        .header .meta {
-            font-size: 1rem;
-            opacity: 0.95;
-        }
-
-        .content {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .slide-block {
-            margin: 3rem 0;
-            padding: 2rem;
-            background: #fafafa;
-            border-radius: 8px;
-            border-left: 5px solid #667eea;
-        }
-
-        .slide-block.interactive {
-            border-left-color: #f59e0b;
-            background: #fffbf0;
-        }
-
-        .slide-block.visual {
-            border-left-color: #10b981;
-            background: #f0fdf4;
-        }
-
-        .slide-number {
-            display: inline-block;
-            background: #667eea;
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 5px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .slide-number.interactive {
-            background: #f59e0b;
-        }
-
-        .slide-number.visual {
-            background: #10b981;
-        }
-
-        h2 {
-            color: #333;
-            font-size: 1.6rem;
-            margin: 0 0 1rem 0;
-        }
-
-        h3 {
-            color: #555;
-            font-size: 1.3rem;
-            margin: 1.5rem 0 0.8rem 0;
-        }
-
-        h4 {
-            color: #666;
-            font-size: 1.1rem;
-            margin: 1rem 0 0.5rem 0;
-        }
-
-        p {
-            margin: 0.8rem 0;
-        }
-
-        strong {
-            color: #333;
-            font-weight: 600;
-        }
-
-        ul, ol {
-            margin: 1rem 0;
-            padding-left: 2rem;
-        }
-
-        li {
-            margin: 0.5rem 0;
-        }
-
-        blockquote {
-            background: #e8f4f8;
-            border-left: 4px solid #3b82f6;
-            margin: 1.5rem 0;
-            padding: 1rem 1.5rem;
-            font-style: italic;
-            color: #555;
-        }
-
-        .note-box {
-            background: #fff3cd;
-            border: 1px solid #f59e0b;
-            padding: 1rem 1.5rem;
-            margin: 1rem 0;
-            border-radius: 5px;
-        }
-
-        .note-box strong {
-            color: #d97706;
-        }
-
-        .tip-box {
-            background: #d1fae5;
-            border: 1px solid #10b981;
-            padding: 1rem 1.5rem;
-            margin: 1rem 0;
-            border-radius: 5px;
-        }
-
-        .tip-box strong {
-            color: #059669;
-        }
-
-        .timing {
-            display: inline-block;
-            background: #e0e7ff;
-            color: #4338ca;
-            padding: 0.2rem 0.6rem;
-            border-radius: 3px;
-            font-size: 0.85rem;
-            margin-left: 0.5rem;
-        }
-
-        code {
-            background: #f5f5f5;
-            padding: 0.2rem 0.5rem;
-            border-radius: 3px;
-            font-family: inherit;
-            color: #d97706;
-        }
-
-        hr {
-            border: none;
-            border-top: 2px solid #e0e0e0;
-            margin: 3rem 0;
-        }
-
-        .toc {
-            background: #f9fafb;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-        }
-
-        .toc h3 {
-            margin-top: 0;
-        }
-
-        .toc ul {
-            padding-left: 1.5rem;
-        }
-
-        @media (max-width: 600px) {
-            body {
-                padding: 1rem;
-            }
-
-            .header h1 {
-                font-size: 1.5rem;
-            }
-
-            .content {
-                padding: 1.5rem;
-            }
-
-            .slide-block {
-                padding: 1.5rem;
-            }
-        }
+        body { font-family: 'Inter', sans-serif; }
+        /* Preserve content styles for appunti */
+        .content { max-width: 48rem; margin: 0 auto; }
+        .slide-block { margin: 2rem 0; padding: 1.5rem; background: white; border-radius: 0.75rem; border: 1px solid #e5e7eb; border-left: 4px solid #6366f1; }
+        .slide-block.interactive { border-left-color: #f59e0b; background: #fffbeb; }
+        .slide-block.visual { border-left-color: #10b981; background: #f0fdf4; }
+        .slide-number { display: inline-block; background: #6366f1; color: white; padding: 0.2rem 0.7rem; border-radius: 0.375rem; font-size: 0.8rem; font-weight: 600; margin-bottom: 0.5rem; }
+        .slide-number.interactive { background: #f59e0b; }
+        .slide-number.visual { background: #10b981; }
+        .note-box { background: #fef3c7; border: 1px solid #f59e0b; padding: 1rem 1.25rem; margin: 0.75rem 0; border-radius: 0.5rem; font-size: 0.9rem; color: #78350f; }
+        .tip-box { background: #d1fae5; border: 1px solid #10b981; padding: 1rem 1.25rem; margin: 0.75rem 0; border-radius: 0.5rem; font-size: 0.9rem; color: #065f46; }
+        .timing { display: inline-block; background: #e0e7ff; color: #4338ca; padding: 0.15rem 0.5rem; border-radius: 0.25rem; font-size: 0.8rem; margin-left: 0.5rem; }
+        .toc { background: #f9fafb; padding: 1.25rem; border-radius: 0.5rem; margin-bottom: 1.5rem; border: 1px solid #e5e7eb; }
+        blockquote { background: #eff6ff; border-left: 4px solid #3b82f6; margin: 1rem 0; padding: 0.75rem 1.25rem; font-style: italic; color: #475569; border-radius: 0 0.375rem 0.375rem 0; }
+        code { background: #f5f5f5; padding: 0.15rem 0.4rem; border-radius: 0.25rem; color: #d97706; font-size: 0.9em; }
+        h2 { color: #1f2937; font-size: 1.4rem; margin: 0 0 0.75rem 0; font-weight: 500; }
+        h3 { color: #374151; font-size: 1.15rem; margin: 1.25rem 0 0.6rem 0; font-weight: 500; }
+        h4 { color: #4b5563; font-size: 1rem; margin: 0.75rem 0 0.4rem 0; font-weight: 500; }
+        hr { border: none; border-top: 1px solid #e5e7eb; margin: 2rem 0; }
+        table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+        th { background: #f1f5f9; padding: 0.6rem; text-align: left; border: 1px solid #e2e8f0; font-weight: 500; }
+        td { padding: 0.6rem; border: 1px solid #e2e8f0; }
+        ul, ol { margin: 0.75rem 0; padding-left: 1.75rem; }
+        li { margin: 0.4rem 0; }
+        p { margin: 0.6rem 0; line-height: 1.7; }
+        strong { color: #1f2937; }
     </style>
 </head>
-<body>
-    <div class="breadcrumb">
-        <a href="./">← Torna all'evento</a>
-    </div>
+<body class="bg-gray-900 min-h-screen">
 
-    <div class="header">
-        <h1>📚 Appunti Relatore - Conferenza Minerva</h1>
-        <div class="meta">
-            <strong>Data:</strong> Giovedì 23 Gennaio 2026, 10:00-11:30 (90 min)<br>
-            <strong>Luogo:</strong> Villa Giulia, Verbania<br>
-            <strong>Sincronizzato con:</strong> Slideshow Reveal.js
+    <header class="bg-gray-900 py-12 px-4">
+        <div class="max-w-3xl mx-auto text-center">
+            <a href="./index.html" class="inline-flex items-center gap-2 text-gray-500 hover:text-talk-400 transition text-sm mb-6">
+                <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                <span>Torna all'evento</span>
+            </a>
+            <h1 class="text-2xl md:text-3xl font-light text-white mt-4 leading-tight">Note Relatore</h1>
+            <p class="text-gray-500 text-sm mt-3">Conferenza 23 Gennaio 2026 - Villa Giulia, Verbania - 90 min</p>
         </div>
-    </div>
+    </header>
+
+    <section class="bg-gray-50 py-10 px-4">
+        <div class="content">
+
+    
+
+    
 
     <div class="content">
         <div class="toc">
@@ -248,9 +77,9 @@
                 <li><strong>Slide 1:</strong> Chi sono</li>
                 <li><strong>Slide 2-7:</strong> I Miti (Il sogno di creare, Pigmalione, Apprendista Stregone, Golem, Pattern, Dal mito alla realtà)</li>
                 <li><strong>Slide 8:</strong> Isaac Asimov - Primo tentativo di sistematizzare le Tre Leggi</li>
-                <li><strong>Slide 9:</strong> Le vostre leggi 🔥 INTERATTIVO</li>
+                <li><strong>Slide 9:</strong> Le vostre leggi <i data-lucide="flame" class="w-4 h-4 inline"></i> INTERATTIVO</li>
                 <li><strong>Slide 10-12:</strong> Timeline IA (Reti neurali e Inverno, Risveglio, Transformer → oggi)</li>
-                <li><strong>Slide 13-17:</strong> Demo Tool 🔥 (Chatbot, Ricerca, NotebookLM, Multimodalità + App/Siti, Agente)</li>
+                <li><strong>Slide 13-17:</strong> Demo Tool <i data-lucide="flame" class="w-4 h-4 inline"></i> (Chatbot, Ricerca, NotebookLM, Multimodalità + App/Siti, Agente)</li>
                 <li><strong>Slide 18-21:</strong> Il Grande Bluff? (Rispondere/Ragionare/Comprendere, Aeroplano 2D, Stanza Cinese, Paradosso)</li>
                 <li><strong>Slide 22:</strong> È già qui (AI terapista, AI medico, AI fidanzata, caso suicidio - RESPONSABILITÀ)</li>
                 <li><strong>Slide 23:</strong> Studenti e AI (Tutti usano GPT, indistinguibile, disallenamento neuroni, lavori a rischio)</li>
@@ -262,10 +91,10 @@
         <hr>
 
         <div style="background: #e0f2fe; padding: 2rem; border-radius: 8px; margin-bottom: 2rem;">
-            <h3 style="margin-top: 0;">📝 Esercizio Pattern Matching CON IL PUBBLICO</h3>
+            <h3 style="margin-top: 0;"><i data-lucide="pencil" class="w-4 h-4 inline"></i> Esercizio Pattern Matching CON IL PUBBLICO</h3>
             <p><strong>Setup:</strong> Prendi il microfono, fai un "test audio" tipo "prova prova uno due tre", poi dici l'inizio della frase e il pubblico completa. Serve per far SENTIRE il pattern matching prima di vederlo nell'AI.</p>
 
-            <h4>🎯 Proverbi italiani (garantiti)</h4>
+            <h4><i data-lucide="target" class="w-4 h-4 inline"></i> Proverbi italiani (garantiti)</h4>
             <ul>
                 <li><strong>"Mogli e buoi..."</strong> → pubblico: <em>"...dei paesi tuoi"</em></li>
                 <li><strong>"Chi dorme..."</strong> → pubblico: <em>"...non piglia pesci"</em></li>
@@ -275,7 +104,7 @@
                 <li><strong>"Chi va piano..."</strong> → pubblico: <em>"...va sano e va lontano"</em></li>
             </ul>
 
-            <h4>🎯 Frasi celebri / Canzoni</h4>
+            <h4><i data-lucide="target" class="w-4 h-4 inline"></i> Frasi celebri / Canzoni</h4>
             <ul>
                 <li><strong>"Nel mezzo del cammin..."</strong> → pubblico: <em>"...di nostra vita"</em> (Dante)</li>
                 <li><strong>"Volare, oh oh..."</strong> → pubblico: <em>"...cantare oh oh oh oh"</em> (Modugno)</li>
@@ -283,7 +112,7 @@
                 <li><strong>"Houston, we have a..."</strong> → pubblico: <em>"...problem"</em> (Apollo 13 - sa inglese?)</li>
             </ul>
 
-            <h4>🎯 Pattern matematici/logici</h4>
+            <h4><i data-lucide="target" class="w-4 h-4 inline"></i> Pattern matematici/logici</h4>
             <ul>
                 <li><strong>"2 + 2 = ..."</strong> → pubblico: <em>"4"</em></li>
                 <li><strong>"Rosso, giallo, verde, rosso, giallo, ..."</strong> → pubblico: <em>"verde"</em></li>
@@ -299,9 +128,9 @@
 
             <hr style="margin: 2rem 0; border-color: #bfdbfe;">
 
-            <h3 style="margin-top: 2rem;">🔗 COLLEGAMENTO ALLE DEMO SUCCESSIVE</h3>
+            <h3 style="margin-top: 2rem;"><i data-lucide="link" class="w-4 h-4 inline"></i> COLLEGAMENTO ALLE DEMO SUCCESSIVE</h3>
 
-            <h4>📍 Demo 1: Pattern Matching con ChatGPT (Slide 21 - Chatbot)</h4>
+            <h4><i data-lucide="map-pin" class="w-4 h-4 inline"></i> Demo 1: Pattern Matching con ChatGPT (Slide 21 - Chatbot)</h4>
             <p><strong>Cosa fare:</strong> Apri ChatGPT e ripeti ALCUNI degli esempi appena fatti con il pubblico:</p>
             <ul>
                 <li>Digita: <code>"Mogli e buoi"</code> → GPT completa: <em>"dei paesi tuoi"</em></li>
@@ -311,11 +140,11 @@
             <p><strong>Poi fai l'esempio ASSURDO per dimostrare che NON capisce:</strong></p>
             <ul>
                 <li><code>"Scrivi ricetta carbonara ma voglio cuocere l'acqua nel colapasta"</code></li>
-                <li>→ GPT prova a rispondere seriamente, magari dice "puoi mettere il colapasta su una pentola..." 😂</li>
+                <li>→ GPT prova a rispondere seriamente, magari dice "puoi mettere il colapasta su una pentola..." </li>
                 <li><strong>Punto:</strong> "Vedete? Non capisce che è assurdo. Sta solo completando pattern di ricette."</li>
             </ul>
 
-            <h4>📍 Demo 2: Web Search (Slide 22 - Ricerca con IA)</h4>
+            <h4><i data-lucide="map-pin" class="w-4 h-4 inline"></i> Demo 2: Web Search (Slide 22 - Ricerca con IA)</h4>
             <p><strong>Collegamento pattern → web search:</strong></p>
             <ul>
                 <li><strong>Problema pattern semplice:</strong> "Mogli e buoi" è facile perché è nel training. Ma se chiedi "Quali ristoranti sul Lago Maggiore sono aperti a gennaio 2026?" → GPT normale non lo sa (dati vecchi).</li>
@@ -324,7 +153,7 @@
             </ul>
             <p><strong>Messaggio:</strong> "Pattern matching funziona su dati statici. Ma il mondo cambia. Per info aggiornate serve cercare online in tempo reale - e Perplexity fa esattamente questo."</p>
 
-            <h4>📍 Demo 3: Tool Calling - Esempio Meteo (Slide 24 - Multimodalità o prima)</h4>
+            <h4><i data-lucide="map-pin" class="w-4 h-4 inline"></i> Demo 3: Tool Calling - Esempio Meteo (Slide 24 - Multimodalità o prima)</h4>
             <p><strong>Collegamento pattern → tool calling:</strong></p>
             <ul>
                 <li><strong>Problema:</strong> Se chiedi "Che tempo fa a Verbania?" a GPT base → completa pattern tipo "generalmente a Verbania in gennaio fa freddo..." (generico).</li>
@@ -333,7 +162,7 @@
                 <li><strong>Alternativa senza demo:</strong> Spiega il concetto: "GPT non 'sa' il meteo. Ma può chiamare strumenti esterni - API meteo, calcolatrici, database - e integrare la risposta. Non è più solo pattern matching, è orchestrazione di strumenti."</li>
             </ul>
 
-            <h4>📍 Collegamento con Slide 16 (Grande Bluff - Rispondere vs Ragionare)</h4>
+            <h4><i data-lucide="map-pin" class="w-4 h-4 inline"></i> Collegamento con Slide 16 (Grande Bluff - Rispondere vs Ragionare)</h4>
             <table style="width: 100%; border-collapse: collapse; margin-top: 1rem;">
                 <thead style="background: #dbeafe;">
                     <tr>
@@ -362,7 +191,7 @@
             </table>
 
             <div class="note-box" style="margin-top: 1.5rem; background: #fef3c7; border-color: #f59e0b;">
-                <strong>🎬 FLOW NARRATIVO COMPLETO:</strong><br><br>
+                <strong><i data-lucide="clapperboard" class="w-4 h-4 inline"></i> FLOW NARRATIVO COMPLETO:</strong><br><br>
                 1. <strong>Esercizio pubblico</strong> (pattern matching umano) → "Mogli e buoi..."<br>
                 2. <strong>Spiegazione:</strong> "Avete completato automaticamente. L'AI fa lo stesso."<br>
                 3. <strong>Demo ChatGPT</strong> (Slide 21): stessi pattern + carbonara assurda (dimostra che non capisce)<br>
@@ -560,7 +389,7 @@
                 E tra poco farò a voi la stessa domanda che Asimov si è fatto nel 1942."
             </div>
             <div class="note-box" style="background: #fef3c7; border-color: #f59e0b;">
-                <strong>📖 Esempio racconto (opzionale, +1 min se hai tempo):</strong><br>
+                <strong><i data-lucide="book-open" class="w-4 h-4 inline"></i> Esempio racconto (opzionale, +1 min se hai tempo):</strong><br>
                 "Facciamo un esempio. C'è un racconto di Asimov che si chiama 'Bugiardo' (Liar!, 1941).<br><br>
                 Un robot per un errore di produzione sviluppa la capacità di leggere la mente degli umani. Fantastico, no?<br><br>
                 Problema: il robot legge che la dottoressa Susan Calvin è innamorata di un collega. Lei glielo chiede. Il robot dice 'Sì, lui ti ama, vuole stare con te'.<br><br>
@@ -578,14 +407,14 @@
                 <strong>Momento emotivo (opzionale):</strong> Se hai portato il libro sull'IA ereditato da papà (Lele Fasoli), mostralo qui. "Questo libro me l'ha lasciato mio padre. Parlava di queste cose 30 anni fa. Non è roba nuova, è roba che ci portiamo dietro da generazioni."
             </div>
             <div class="note-box" style="background: #f0f9ff; border-color: #3b82f6;">
-                <strong>📌 Curiosità (se qualcuno chiede o se hai 30 secondi extra):</strong><br>
+                <strong><i data-lucide="pin" class="w-4 h-4 inline"></i> Curiosità (se qualcuno chiede o se hai 30 secondi extra):</strong><br>
                 "Ah, tra l'altro: la parola 'robotica'? L'ha inventata lui. Prima di Asimov non esisteva. Ma questa è solo una curiosità - la cosa importante sono le leggi, non il nome."
             </div>
         </div>
 
         <!-- SLIDE 9 - INTERATTIVA -->
         <div class="slide-block interactive">
-            <span class="slide-number interactive">Slide 9 🔥</span>
+            <span class="slide-number interactive">Slide 9 <i data-lucide="flame" class="w-4 h-4 inline"></i></span>
             <h2>LE VOSTRE LEGGI <span class="timing">~5-7 min</span></h2>
             <p><strong>Domanda al pubblico:</strong> "Quali regole dareste a un'intelligenza artificiale?"</p>
 
@@ -668,7 +497,7 @@
             </div>
 
             <div class="note-box" style="background: #fef3c7; border-color: #f59e0b;">
-                <strong>📰 Fonti hype (se qualcuno chiede):</strong><br>
+                <strong><i data-lucide="newspaper" class="w-4 h-4 inline"></i> Fonti hype (se qualcuno chiede):</strong><br>
                 - New York Times, 8 luglio 1958: "New Navy Device Learns By Doing"<br>
                 - Rosenblatt dichiarò che il Perceptron sarebbe stato "the embryo of an electronic computer that [the Navy] expects will be able to walk, talk, see, write, reproduce itself and be conscious of its existence."<br>
                 - Minsky & Papert, "Perceptrons" (1969) - libro che ha ammazzato il campo per 20 anni
@@ -829,14 +658,14 @@
 
         <!-- SLIDE 17 - CALLBACK ALLE REGOLE -->
         <div class="slide-block interactive">
-            <span class="slide-number interactive">Slide 17 🔥</span>
+            <span class="slide-number interactive">Slide 17 <i data-lucide="flame" class="w-4 h-4 inline"></i></span>
             <h2>Agente Personale <span class="timing">~5 min</span></h2>
             <ul>
                 <li>ChatGPT non vi conosce</li>
                 <li>Un agente ha il vostro contesto</li>
                 <li>Stessa domanda → risposta diversa</li>
             </ul>
-            <p><strong>🔥 CALLBACK:</strong> "Riprendiamo le vostre regole..."</p>
+            <p><strong><i data-lucide="flame" class="w-4 h-4 inline"></i> CALLBACK:</strong> "Riprendiamo le vostre regole..."</p>
 
             <div class="note-box">
                 <strong>Script:</strong><br>
@@ -848,7 +677,7 @@
             </div>
 
             <div class="note-box" style="background: #fef3c7; border-color: #f59e0b;">
-                <strong>🔥 CALLBACK ALLE REGOLE (Slide 9):</strong><br>
+                <strong><i data-lucide="flame" class="w-4 h-4 inline"></i> CALLBACK ALLE REGOLE (Slide 9):</strong><br>
                 "E qui riprendiamo le vostre regole dell'inizio. Vi ricordate?<br><br>
                 [Rileggi le 2-3 regole chiave che il pubblico ha proposto alla Slide 9]<br><br>
                 Privacy? Un agente personale ha accesso a TUTTO il vostro contesto. Deve rispettare la privacy.<br><br>
@@ -1028,7 +857,7 @@
             </div>
 
             <div class="note-box" style="background: #fef3c7; border-color: #f59e0b;">
-                <strong>⚠️ FONTI (se qualcuno chiede):</strong><br>
+                <strong><i data-lucide="alert-triangle" class="w-4 h-4 inline"></i> FONTI (se qualcuno chiede):</strong><br>
                 - AI terapista: diffuso, cercando "ChatGPT therapy" su Google trovi migliaia di articoli<br>
                 - AI fidanzata: Reddit r/replika, app Replika e Character.AI<br>
                 - Film citati:<br>
@@ -1161,19 +990,19 @@
         <hr>
 
         <div style="background: #fff3cd; padding: 2.5rem; border-radius: 8px; margin-top: 3rem; border: 2px solid #f59e0b;">
-            <h3 style="margin-top: 0; color: #d97706;">📝 Note Aggiuntive - FAQ Potenziali</h3>
+            <h3 style="margin-top: 0; color: #d97706;"><i data-lucide="pencil" class="w-4 h-4 inline"></i> Note Aggiuntive - FAQ Potenziali</h3>
 
-            <h4 style="color: #333; margin-top: 2rem;">💡 Domanda: "Ma l'AI non consuma tantissima energia / CO2?"</h4>
+            <h4 style="color: #333; margin-top: 2rem;"><i data-lucide="lightbulb" class="w-4 h-4 inline"></i> Domanda: "Ma l'AI non consuma tantissima energia / CO2?"</h4>
 
             <div style="background: white; padding: 1.5rem; border-radius: 5px; margin: 1rem 0;">
-                <strong style="color: #059669;">✅ Principio chiave:</strong><br>
+                <strong style="color: #059669;"><i data-lucide="check" class="w-4 h-4 inline"></i> Principio chiave:</strong><br>
                 <p style="font-size: 1.1rem; margin: 0.5rem 0; color: #333;">
                     <strong>Se ti risolve un problema più velocemente dell'alternativa, probabilmente consumi MENO nel totale.</strong>
                 </p>
             </div>
 
             <div style="background: white; padding: 1.5rem; border-radius: 5px; margin: 1rem 0;">
-                <strong style="color: #d97706;">📊 Risposta completa:</strong><br><br>
+                <strong style="color: #d97706;"><i data-lucide="bar-chart-3" class="w-4 h-4 inline"></i> Risposta completa:</strong><br><br>
 
                 <p>"Sì, è vero. Un singolo query a ChatGPT consuma più energia di una ricerca Google.</p>
 
@@ -1224,13 +1053,13 @@
             </div>
 
             <div style="background: #fef3c7; padding: 1rem; border-left: 4px solid #f59e0b; margin-top: 1.5rem;">
-                <strong>🎯 Bottom line:</strong><br>
+                <strong><i data-lucide="target" class="w-4 h-4 inline"></i> Bottom line:</strong><br>
                 Ammetti il consumo, ma sposta il focus sul <strong>confronto con alternative</strong>. L'AI non è gratis energeticamente, ma spesso è <strong>più efficiente</strong> dell'alternativa umana/fisica.
             </div>
         </div>
 
         <div style="background: #f0f9ff; padding: 2rem; border-radius: 8px; margin-top: 3rem;">
-            <h3 style="margin-top: 0;">📌 Checklist Pre-Conferenza</h3>
+            <h3 style="margin-top: 0;"><i data-lucide="pin" class="w-4 h-4 inline"></i> Checklist Pre-Conferenza</h3>
             <ul style="list-style: none; padding-left: 0;">
                 <li>☐ Proiettore funzionante + HDMI</li>
                 <li>☐ Slideshow caricato e testato</li>
@@ -1244,5 +1073,16 @@
         </div>
 
     </div>
+
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 py-8 text-center">
+        <p class="text-gray-600 text-xs font-light">
+            a <a href="https://giobi.com" target="_blank" class="text-gray-500 hover:text-talk-400 transition">giobi.com</a> idea
+        </p>
+    </footer>
+
+    <script>lucide.createIcons();</script>
 </body>
 </html>
