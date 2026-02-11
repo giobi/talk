@@ -3,227 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minerva - Appunti AI</title>
-
-    <!-- Monospace font -->
+    <title>Talk - Slides, Note & Materiali</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎙️</text></svg>">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        talk: {
+                            50: '#fffbeb',
+                            100: '#fef3c7',
+                            200: '#fde68a',
+                            300: '#fcd34d',
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                            700: '#b45309',
+                            800: '#92400e',
+                            900: '#78350f',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Fira Code', 'JetBrains Mono', 'Source Code Pro', Consolas, Monaco, 'Courier New', monospace;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 2rem;
-            background-color: #f5f5f5;
-            color: #333;
-        }
-
-        .header {
-            text-align: center;
-            margin-bottom: 4rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 3rem 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .header h1 {
-            margin: 0;
-            font-size: 3rem;
-            font-weight: 300;
-        }
-
-        .header .emoji {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .header p {
-            margin: 1rem 0 0 0;
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-
-        .section-header {
-            margin: 3rem 0 1.5rem 0;
-            padding-bottom: 0.5rem;
-            border-bottom: 3px solid #667eea;
-        }
-
-        .section-header h2 {
-            margin: 0;
-            font-size: 1.8rem;
-            color: #333;
-            font-weight: 500;
-        }
-
-        .section-header p {
-            margin: 0.5rem 0 0 0;
-            color: #666;
-            font-size: 1rem;
-        }
-
-        .events-grid {
-            display: grid;
-            gap: 1.5rem;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            margin-bottom: 3rem;
-        }
-
-        .event-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-left: 4px solid #667eea;
-        }
-
-        .event-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        .event-card.terza-eta {
-            border-left-color: #27ae60;
-        }
-
-        .event-card.emisfera {
-            border-left-color: #f59e0b;
-        }
-
-        .event-card h3 {
-            margin: 0 0 1rem 0;
-            color: #333;
-            font-size: 1.4rem;
-            line-height: 1.4;
-        }
-
-        .event-card .date {
-            display: inline-block;
-            background: #f0f0f0;
-            color: #666;
-            padding: 0.3rem 0.8rem;
-            border-radius: 5px;
-            font-size: 0.85rem;
-            margin-bottom: 1rem;
-            font-weight: 500;
-        }
-
-        .event-card p {
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-
-        .event-card a {
-            display: inline-block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 0.8rem 1.5rem;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: opacity 0.3s ease;
-            font-weight: 500;
-        }
-
-        .event-card.terza-eta a {
-            background: linear-gradient(135deg, #27ae60 0%, #20c997 100%);
-        }
-
-        .event-card.emisfera a {
-            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-        }
-
-        .event-card a:hover {
-            opacity: 0.9;
-        }
-
-        .badge {
-            display: inline-block;
-            background: #e3f2fd;
-            color: #1976d2;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            margin-left: 0.5rem;
-        }
-
-        .badge.completed {
-            background: #d4edda;
-            color: #155724;
-        }
-
-        .empty-state {
-            background: white;
-            padding: 3rem 2rem;
-            border-radius: 10px;
-            text-align: center;
-            color: #999;
-            font-style: italic;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        }
-
-        @media (max-width: 600px) {
-            body {
-                padding: 1rem;
-            }
-
-            .header h1 {
-                font-size: 2rem;
-            }
-
-            .header .emoji {
-                font-size: 2.5rem;
-            }
-
-            .events-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+        body { font-family: 'Inter', sans-serif; }
     </style>
 </head>
-<body>
-    <div class="header">
-        <div class="emoji">🦉</div>
-        <h1>Minerva</h1>
-        <p>Appunti, materiali e risorse sull'Intelligenza Artificiale</p>
-    </div>
+<body class="bg-gray-900 min-h-screen">
 
-    <!-- Sezione Terza Età -->
-    <div class="section-header">
-        <h2>🎓 Università della Terza Età</h2>
-        <p>Conferenze divulgative sull'intelligenza artificiale per il pubblico generalista</p>
-    </div>
-
-    <div class="events-grid">
-        <div class="event-card terza-eta">
-            <h3>Intelligenza Artificiale: da Asimov a ChatGPT</h3>
-            <div class="date">23 Gennaio 2026 • Villa Giulia</div>
-            <span class="badge completed">Completata</span>
-            <p>90 minuti di esplorazione: miti, storia dell'IA, demo live e agenti personali. Dai robot di Asimov ai language model di oggi.</p>
-            <a href="events/2026-01-23-villa-giulia/">Materiali →</a>
+    <!-- Hero -->
+    <section class="min-h-[60vh] flex flex-col items-center justify-center relative">
+        <div class="mb-6 text-center">
+            <div class="inline-flex items-baseline gap-0">
+                <span class="text-7xl font-light tracking-tight text-white">tl</span><span class="text-7xl font-extralight text-talk-500">/</span>
+            </div>
+            <p class="text-gray-500 text-sm mt-4 font-light tracking-widest uppercase">slides &middot; note &middot; materiali</p>
         </div>
-    </div>
 
-    <!-- Sezione Emisfera -->
-    <div class="section-header" style="border-bottom-color: #f59e0b;">
-        <h2>🍕 Pranzi AI @ Emisfera</h2>
-        <p>Sessioni interne da 45 minuti: AI pratica per tutti, dagli amministrativi agli sviluppatori</p>
-    </div>
-
-    <div class="events-grid">
-        <div class="event-card emisfera">
-            <h3>Brain Emisfera: Knowledge On-Premise</h3>
-            <div class="date">6 Febbraio 2026 • Emisfera</div>
-            <span class="badge">In programma</span>
-            <p>Sistema modulare per knowledge aziendale: file di testo, moduli opt-in, agenti AI, tutto on-premise. Demo + brainstorm casi d'uso.</p>
-            <a href="events/2026-02-06-emisfera-pranzo-1/">Materiali →</a>
+        <!-- Scroll hint -->
+        <div class="absolute bottom-8 text-gray-600 animate-bounce">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
         </div>
-    </div>
+    </section>
+
+    <!-- Content -->
+    <section class="bg-gray-50 py-16 px-4">
+        <div class="max-w-4xl mx-auto">
+
+            <!-- Terza Eta -->
+            <div class="mb-12">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-1 h-8 bg-emerald-500 rounded-full"></div>
+                    <div>
+                        <h2 class="text-2xl font-medium text-gray-800">Universita della Terza Eta</h2>
+                        <p class="text-gray-500 text-sm mt-1">Conferenze divulgative sull'intelligenza artificiale</p>
+                    </div>
+                </div>
+
+                <div class="grid gap-4 md:grid-cols-2">
+                    <a href="events/2026-01-23-villa-giulia/" class="group block bg-white rounded-xl p-6 border border-gray-200 hover:border-emerald-300 hover:shadow-lg transition-all duration-200">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="text-xs font-medium bg-emerald-100 text-emerald-700 px-2 py-1 rounded-full">Completata</span>
+                            <span class="text-xs text-gray-400">23 Gen 2026</span>
+                        </div>
+                        <h3 class="text-lg font-medium text-gray-800 group-hover:text-emerald-600 transition-colors">Da Asimov a ChatGPT</h3>
+                        <p class="text-gray-500 text-sm mt-2 leading-relaxed">90 min: miti, storia dell'IA, demo live e agenti personali. Villa Giulia.</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Emisfera -->
+            <div class="mb-12">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-1 h-8 bg-talk-500 rounded-full"></div>
+                    <div>
+                        <h2 class="text-2xl font-medium text-gray-800">Pranzi AI @ Emisfera</h2>
+                        <p class="text-gray-500 text-sm mt-1">Sessioni da 45 min: AI pratica per tutti i ruoli</p>
+                    </div>
+                </div>
+
+                <div class="grid gap-4 md:grid-cols-2">
+                    <a href="events/2026-02-06-emisfera-pranzo-1/" class="group block bg-white rounded-xl p-6 border border-gray-200 hover:border-talk-300 hover:shadow-lg transition-all duration-200">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="text-xs font-medium bg-talk-100 text-talk-700 px-2 py-1 rounded-full">In programma</span>
+                            <span class="text-xs text-gray-400">6 Feb 2026</span>
+                        </div>
+                        <h3 class="text-lg font-medium text-gray-800 group-hover:text-talk-600 transition-colors">Brain Emisfera: Knowledge On-Premise</h3>
+                        <p class="text-gray-500 text-sm mt-2 leading-relaxed">Knowledge aziendale modulare, agenti AI, tutto on-premise. Demo + brainstorm.</p>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-8 text-center">
+        <p class="text-gray-600 text-xs font-light">
+            a <a href="https://giobi.com" target="_blank" class="text-gray-500 hover:text-talk-400 transition">giobi.com</a> idea
+        </p>
+    </footer>
 
 </body>
 </html>
