@@ -3,164 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brain Emisfera - Pranzo AI #1</title>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Slide - Pranzo AI #1 Emisfera</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        talk: { 50:'#fffbeb',100:'#fef3c7',200:'#fde68a',300:'#fcd34d',400:'#fbbf24',500:'#f59e0b',600:'#d97706',700:'#b45309',800:'#92400e',900:'#78350f' }
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Fira Code', monospace;
-            background: #1a1a1a;
-            color: #e0e0e0;
-            overflow-x: hidden;
-        }
-
-        .slide {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 4rem;
-            text-align: center;
-        }
-
-        .slide h1 {
-            font-size: 3.5rem;
-            margin-bottom: 2rem;
-            color: #f59e0b;
-            font-weight: 700;
-        }
-
-        .slide h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: #fbbf24;
-            font-weight: 600;
-        }
-
-        .slide h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: #fcd34d;
-            font-weight: 500;
-        }
-
-        .slide p {
-            font-size: 1.3rem;
-            line-height: 1.8;
-            max-width: 800px;
-            margin: 0 auto 1.5rem;
-        }
-
-        .slide ul {
-            font-size: 1.3rem;
-            line-height: 2;
-            text-align: left;
-            max-width: 700px;
-            margin: 2rem auto;
-            list-style: none;
-        }
-
-        .slide li {
-            margin-bottom: 1rem;
-            padding-left: 2rem;
-            position: relative;
-        }
-
-        .slide li:before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            color: #f59e0b;
-            font-weight: bold;
-        }
-
-        .code-block {
-            background: #2d2d2d;
-            border: 2px solid #f59e0b;
-            border-radius: 10px;
-            padding: 2rem;
-            margin: 2rem auto;
-            max-width: 800px;
-            text-align: left;
-            font-size: 1.1rem;
-            line-height: 1.6;
-        }
-
-        .highlight {
-            color: #10b981;
-            font-weight: 600;
-        }
-
-        .warning {
-            color: #ef4444;
-            font-weight: 600;
-        }
-
-        .emoji {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-        }
-
-        .subtitle {
-            font-size: 1.5rem;
-            color: #9ca3af;
-            font-weight: 400;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            max-width: 1000px;
-            margin: 2rem auto;
-        }
-
-        .card {
-            background: #2d2d2d;
-            border: 2px solid #f59e0b;
-            border-radius: 10px;
-            padding: 2rem;
-            text-align: left;
-        }
-
-        .card h4 {
-            color: #fbbf24;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-
-        .card p {
-            font-size: 1.1rem;
-            margin: 0;
-        }
-
-        .navigation {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            font-size: 1rem;
-            color: #6b7280;
-        }
-
-        @media (max-width: 768px) {
-            .slide h1 { font-size: 2.5rem; }
-            .slide h2 { font-size: 2rem; }
-            .slide p, .slide ul { font-size: 1.1rem; }
-            .grid { grid-template-columns: 1fr; }
-        }
+        body { font-family: 'Inter', sans-serif; }
+        .content { max-width: 48rem; margin: 0 auto; }
+        .slide-block { margin: 2rem 0; padding: 1.5rem; background: white; border-radius: 0.75rem; border: 1px solid #e5e7eb; border-left: 4px solid #6366f1; }
+        .slide-block.interactive { border-left-color: #f59e0b; background: #fffbeb; }
+        .slide-block.visual { border-left-color: #10b981; background: #f0fdf4; }
+        .slide-number { display: inline-block; background: #6366f1; color: white; padding: 0.2rem 0.7rem; border-radius: 0.375rem; font-size: 0.8rem; font-weight: 600; margin-bottom: 0.5rem; }
+        .slide-number.interactive { background: #f59e0b; }
+        .slide-number.visual { background: #10b981; }
+        .note-box { background: #fef3c7; border: 1px solid #f59e0b; padding: 1rem 1.25rem; margin: 0.75rem 0; border-radius: 0.5rem; font-size: 0.9rem; color: #78350f; }
+        .tip-box { background: #d1fae5; border: 1px solid #10b981; padding: 1rem 1.25rem; margin: 0.75rem 0; border-radius: 0.5rem; font-size: 0.9rem; color: #065f46; }
+        .timing { display: inline-block; background: #e0e7ff; color: #4338ca; padding: 0.15rem 0.5rem; border-radius: 0.25rem; font-size: 0.8rem; margin-left: 0.5rem; }
+        .toc { background: #f9fafb; padding: 1.25rem; border-radius: 0.5rem; margin-bottom: 1.5rem; border: 1px solid #e5e7eb; }
+        blockquote { background: #eff6ff; border-left: 4px solid #3b82f6; margin: 1rem 0; padding: 0.75rem 1.25rem; font-style: italic; color: #475569; border-radius: 0 0.375rem 0.375rem 0; }
+        code { background: #f5f5f5; padding: 0.15rem 0.4rem; border-radius: 0.25rem; color: #d97706; font-size: 0.9em; }
+        h2 { color: #1f2937; font-size: 1.4rem; margin: 0 0 0.75rem 0; font-weight: 500; }
+        h3 { color: #374151; font-size: 1.15rem; margin: 1.25rem 0 0.6rem 0; font-weight: 500; }
+        h4 { color: #4b5563; font-size: 1rem; margin: 0.75rem 0 0.4rem 0; font-weight: 500; }
+        hr { border: none; border-top: 1px solid #e5e7eb; margin: 2rem 0; }
+        table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+        th { background: #f1f5f9; padding: 0.6rem; text-align: left; border: 1px solid #e2e8f0; font-weight: 500; }
+        td { padding: 0.6rem; border: 1px solid #e2e8f0; }
+        ul, ol { margin: 0.75rem 0; padding-left: 1.75rem; }
+        li { margin: 0.4rem 0; }
+        p { margin: 0.6rem 0; line-height: 1.7; }
+        strong { color: #1f2937; }
+        .section { background: white; padding: 1.5rem; border-radius: 0.75rem; border: 1px solid #e5e7eb; border-left: 4px solid #f59e0b; margin-bottom: 1.5rem; }
+        .section h2 { margin-top: 0; }
+        .highlight { background: #fef3c7; border-left: 4px solid #f59e0b; padding: 1rem; margin: 1rem 0; border-radius: 0 0.375rem 0.375rem 0; }
+        .highlight p { margin: 0; color: #78350f; }
+        .event-info { background: white; padding: 1.5rem; border-radius: 0.75rem; border: 1px solid #e5e7eb; margin-bottom: 1.5rem; }
+        .event-info h2 { margin-top: 0; }
+        .event-info ul { list-style: none; padding: 0; }
+        .event-info li { padding: 0.5rem 0; border-bottom: 1px solid #f3f4f6; color: #4b5563; }
+        .event-info li:last-child { border-bottom: none; }
+        .event-info li strong { color: #1f2937; display: inline-block; min-width: 100px; }
     </style>
 </head>
-<body>
+<body class="bg-gray-900 min-h-screen">
+    <header class="bg-gray-900 py-12 px-4">
+        <div class="max-w-3xl mx-auto text-center">
+            <a href="./index.html" class="inline-flex items-center gap-2 text-gray-500 hover:text-talk-400 transition text-sm mb-6">
+                <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                <span>Torna all'evento</span>
+            </a>
+            <h1 class="text-2xl md:text-3xl font-light text-white mt-4 leading-tight">Slide - Brain Emisfera: Knowledge On-Premise</h1>
+            <p class="text-gray-500 text-sm mt-3">6 Febbraio 2026 - Emisfera</p>
+        </div>
+    </header>
+    <section class="bg-gray-50 py-10 px-4">
+        <div class="content">
+
 
 <!-- Slide 1: Intro -->
 <div class="slide">
-    <div class="emoji">🧠</div>
+    <div class="emoji"><i data-lucide="brain" class="w-4 h-4 inline"></i></div>
     <h1>Brain Emisfera</h1>
     <p class="subtitle">Knowledge On-Premise + Agenti Modulari</p>
     <p style="margin-top: 3rem; font-size: 1.1rem; color: #9ca3af;">Pranzo AI #1 • 6 Febbraio 2026</p>
@@ -180,7 +95,7 @@
 
 <!-- Slide 3: La Soluzione -->
 <div class="slide">
-    <h2>💡 La Soluzione</h2>
+    <h2><i data-lucide="lightbulb" class="w-4 h-4 inline"></i> La Soluzione</h2>
     <h3>Brain Condiviso On-Premise</h3>
     <ul>
         <li><span class="highlight">File di testo</span> (Markdown) → versionabili, searchable, portabili</li>
@@ -193,7 +108,7 @@
 
 <!-- Slide 4: Architettura -->
 <div class="slide">
-    <h2>🏗️ Architettura</h2>
+    <h2><i data-lucide="building" class="w-4 h-4 inline"></i> Architettura</h2>
     <div class="code-block">
 emisfera-brain/<br>
 ├── <span class="highlight">moduli/</span><br>
@@ -217,17 +132,17 @@ emisfera-brain/<br>
     <div class="grid">
         <div class="card">
             <h4>Alice (Support)</h4>
-            <p>✅ tecnico-erp<br>
-               ✅ clienti-tier1<br>
-               ✅ procedure-admin<br>
-               ❌ tecnico-wordpress</p>
+            <p><i data-lucide="check" class="w-4 h-4 inline"></i> tecnico-erp<br>
+               <i data-lucide="check" class="w-4 h-4 inline"></i> clienti-tier1<br>
+               <i data-lucide="check" class="w-4 h-4 inline"></i> procedure-admin<br>
+               <i data-lucide="x" class="w-4 h-4 inline"></i> tecnico-wordpress</p>
         </div>
         <div class="card">
             <h4>Marco (Developer)</h4>
-            <p>✅ tecnico-wordpress<br>
-               ✅ tecnico-erp<br>
-               ❌ clienti-tier1<br>
-               ❌ procedure-admin</p>
+            <p><i data-lucide="check" class="w-4 h-4 inline"></i> tecnico-wordpress<br>
+               <i data-lucide="check" class="w-4 h-4 inline"></i> tecnico-erp<br>
+               <i data-lucide="x" class="w-4 h-4 inline"></i> clienti-tier1<br>
+               <i data-lucide="x" class="w-4 h-4 inline"></i> procedure-admin</p>
         </div>
     </div>
     <p style="margin-top: 2rem;"><span class="highlight">→ Zero overhead, solo quello che serve</span></p>
@@ -235,7 +150,7 @@ emisfera-brain/<br>
 
 <!-- Slide 6: Caso d'Uso 1 -->
 <div class="slide">
-    <h2>⚡ Caso d'Uso: Ticket ERP</h2>
+    <h2><i data-lucide="zap" class="w-4 h-4 inline"></i> Caso d'Uso: Ticket ERP</h2>
     <div class="code-block">
 <span class="warning">Problema:</span> "L'ERP non esporta le fatture in PDF"<br><br>
 
@@ -257,7 +172,7 @@ emisfera-brain/<br>
 
 <!-- Slide 7: Caso d'Uso 2 -->
 <div class="slide">
-    <h2>⚡ Caso d'Uso: WordPress Plugin</h2>
+    <h2><i data-lucide="zap" class="w-4 h-4 inline"></i> Caso d'Uso: WordPress Plugin</h2>
     <div class="code-block">
 <span class="warning">Problema:</span> "Plugin Complianz non mostra cookie banner"<br><br>
 
@@ -277,7 +192,7 @@ emisfera-brain/<br>
 
 <!-- Slide 8: Privacy & On-Premise -->
 <div class="slide">
-    <h2>🔒 Privacy & On-Premise</h2>
+    <h2><i data-lucide="lock" class="w-4 h-4 inline"></i> Privacy & On-Premise</h2>
     <ul>
         <li><span class="highlight">Server Emisfera</span> → dati mai su AWS/Azure/GCP</li>
         <li><span class="highlight">Zero vendor lock-in</span> → file di testo portabili</li>
@@ -292,7 +207,7 @@ emisfera-brain/<br>
 
 <!-- Slide 9: Da Dove Partiamo -->
 <div class="slide">
-    <h2>🚀 Da Dove Partiamo</h2>
+    <h2><i data-lucide="rocket" class="w-4 h-4 inline"></i> Da Dove Partiamo</h2>
     <h3>Rubiamo il rubabile da ABChat</h3>
     <ul>
         <li>Sistema autenticazione utenti</li>
@@ -308,7 +223,7 @@ emisfera-brain/<br>
 
 <!-- Slide 10: Prossimi Passi -->
 <div class="slide">
-    <h2>🎯 Prossimi Passi</h2>
+    <h2><i data-lucide="target" class="w-4 h-4 inline"></i> Prossimi Passi</h2>
     <div class="grid">
         <div class="card">
             <h4>Oggi (45 min)</h4>
@@ -329,7 +244,7 @@ emisfera-brain/<br>
 
 <!-- Slide 11: Q&A -->
 <div class="slide">
-    <div class="emoji">💬</div>
+    <div class="emoji"><i data-lucide="message-circle" class="w-4 h-4 inline"></i></div>
     <h1>Q&A + Brainstorm</h1>
     <h3 style="margin-top: 2rem;">Cosa vorreste fare con AI?</h3>
     <h3>Cosa vi frena?</h3>
@@ -358,5 +273,14 @@ emisfera-brain/<br>
     showSlide(0);
 </script>
 
+
+        </div>
+    </section>
+    <footer class="bg-gray-900 py-8 text-center">
+        <p class="text-gray-600 text-xs font-light">
+            a <a href="https://giobi.com" target="_blank" class="text-gray-500 hover:text-talk-400 transition">giobi.com</a> idea
+        </p>
+    </footer>
+    <script>lucide.createIcons();</script>
 </body>
 </html>
