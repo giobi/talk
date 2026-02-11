@@ -4,217 +4,100 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conferenza 23 Gennaio 2026 - Villa Giulia</title>
-
-    <!-- Monospace font -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        talk: { 50:'#fffbeb',100:'#fef3c7',200:'#fde68a',300:'#fcd34d',400:'#fbbf24',500:'#f59e0b',600:'#d97706',700:'#b45309',800:'#92400e',900:'#78350f' }
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
-
-    <style>
-        body {
-            font-family: 'Fira Code', 'JetBrains Mono', 'Source Code Pro', Consolas, Monaco, 'Courier New', monospace;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem;
-            background-color: #f5f5f5;
-            color: #333;
-        }
-
-        .breadcrumb {
-            margin-bottom: 2rem;
-        }
-
-        .breadcrumb a {
-            color: #667eea;
-            text-decoration: none;
-            transition: opacity 0.3s ease;
-        }
-
-        .breadcrumb a:hover {
-            opacity: 0.7;
-        }
-
-        .header {
-            text-align: center;
-            margin-bottom: 3rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 2.5rem 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .header h1 {
-            margin: 0;
-            font-size: 2.2rem;
-            font-weight: 500;
-            line-height: 1.3;
-        }
-
-        .header .subtitle {
-            margin: 1rem 0 0 0;
-            font-size: 1.3rem;
-            opacity: 0.95;
-            font-weight: 300;
-        }
-
-        .header .date {
-            margin: 1.5rem 0 0 0;
-            font-size: 1rem;
-            opacity: 0.85;
-        }
-
-        .event-info {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2rem;
-        }
-
-        .event-info h2 {
-            margin-top: 0;
-            color: #333;
-            font-size: 1.5rem;
-        }
-
-        .event-info ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .event-info li {
-            padding: 0.8rem 0;
-            color: #666;
-            line-height: 1.6;
-            border-bottom: 1px solid #f0f0f0;
-        }
-
-        .event-info li:last-child {
-            border-bottom: none;
-        }
-
-        .event-info li strong {
-            color: #333;
-            display: inline-block;
-            min-width: 120px;
-        }
-
-        .resources {
-            display: grid;
-            gap: 1.5rem;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        }
-
-        .resource-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-left: 4px solid #667eea;
-        }
-
-        .resource-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        .resource-card h3 {
-            margin: 0 0 1rem 0;
-            color: #333;
-            font-size: 1.4rem;
-        }
-
-        .resource-card p {
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-
-        .resource-card a {
-            display: inline-block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 0.8rem 1.5rem;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: opacity 0.3s ease;
-            font-weight: 500;
-        }
-
-        .resource-card a:hover {
-            opacity: 0.9;
-        }
-
-        .resource-card.speaker {
-            border-left-color: #f59e0b;
-        }
-
-        .resource-card.speaker a {
-            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-        }
-
-        @media (max-width: 600px) {
-            body {
-                padding: 1rem;
-            }
-
-            .header h1 {
-                font-size: 1.6rem;
-            }
-
-            .header .subtitle {
-                font-size: 1.1rem;
-            }
-
-            .resources {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>body { font-family: 'Inter', sans-serif; }</style>
 </head>
-<body>
-    <div class="breadcrumb">
-        <a href="../../">← Torna alla Home</a>
-    </div>
+<body class="bg-gray-900 min-h-screen">
 
-    <div class="header">
-        <h1>Conferenza 23 Gennaio 2026</h1>
-        <div class="subtitle">Intelligenza Artificiale: da Asimov a ChatGPT</div>
-        <div class="date">Villa Giulia, Verbania</div>
-    </div>
-
-    <div class="event-info">
-        <h2>📍 Informazioni Evento</h2>
-        <ul>
-            <li><strong>Data:</strong> Giovedì 23 Gennaio 2026</li>
-            <li><strong>Orario:</strong> 10:00 - 11:30</li>
-            <li><strong>Durata:</strong> 90 minuti (incluse domande e discussioni)</li>
-            <li><strong>Luogo:</strong> Villa Giulia, Verbania</li>
-            <li><strong>Pubblico:</strong> Università della Terza Età</li>
-        </ul>
-    </div>
-
-    <div class="resources">
-        <div class="resource-card">
-            <h3>🎯 Presentazione Slideshow</h3>
-            <p>Percorso completo da Asimov a ChatGPT: miti, storia, demo live e agenti personali. 15 blocchi interattivi con esempi pratici e multimedialità.</p>
-            <a href="./slideshow/">Visualizza Presentazione</a>
+    <!-- Header -->
+    <header class="bg-gray-900 py-16 px-4">
+        <div class="max-w-3xl mx-auto text-center">
+            <a href="../../" class="inline-flex items-center gap-2 text-gray-500 hover:text-talk-400 transition text-sm mb-8">
+                <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                <span>tl/</span>
+            </a>
+            <h1 class="text-3xl md:text-4xl font-light text-white mt-4 leading-tight">Da Asimov a ChatGPT</h1>
+            <p class="text-gray-400 text-lg mt-3 font-light">Intelligenza Artificiale: miti, storia, demo live e agenti personali</p>
+            <div class="flex items-center justify-center gap-4 mt-6 text-sm text-gray-500">
+                <span class="flex items-center gap-1.5"><i data-lucide="calendar" class="w-4 h-4"></i> 23 Gen 2026</span>
+                <span class="flex items-center gap-1.5"><i data-lucide="map-pin" class="w-4 h-4"></i> Villa Giulia, Verbania</span>
+                <span class="flex items-center gap-1.5"><i data-lucide="clock" class="w-4 h-4"></i> 90 min</span>
+            </div>
+            <span class="inline-block mt-4 text-xs font-medium bg-emerald-900/50 text-emerald-400 px-3 py-1 rounded-full">Completata</span>
         </div>
+    </header>
 
-        <div class="resource-card speaker">
-            <h3>📚 Appunti Relatore</h3>
-            <p>Scaletta dettagliata v3 per il docente: timing precisi, script esperimenti, note tecniche, esempi reali e consigli per la gestione del pubblico.</p>
-            <a href="./appunti.html">Consulta Appunti</a>
-        </div>
+    <!-- Content -->
+    <section class="bg-gray-50 py-12 px-4">
+        <div class="max-w-3xl mx-auto">
 
-        <div class="resource-card" style="border-left-color: #10b981;">
-            <h3>📖 Dispensa della Conferenza</h3>
-            <p>Materiale di approfondimento per i partecipanti: spiegazioni dettagliate dei concetti, link utili e risorse per continuare a esplorare i temi trattati.</p>
-            <a href="./dispensa.html" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">Leggi la Dispensa</a>
+            <!-- Info -->
+            <div class="bg-white rounded-xl p-6 border border-gray-200 mb-6">
+                <h2 class="text-lg font-medium text-gray-800 flex items-center gap-2 mb-4">
+                    <i data-lucide="info" class="w-5 h-5 text-talk-500"></i> Informazioni
+                </h2>
+                <dl class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+                    <div><dt class="text-gray-400">Data</dt><dd class="text-gray-700 font-medium">Giovedi 23 Gennaio 2026</dd></div>
+                    <div><dt class="text-gray-400">Orario</dt><dd class="text-gray-700 font-medium">10:00 - 11:30</dd></div>
+                    <div><dt class="text-gray-400">Luogo</dt><dd class="text-gray-700 font-medium">Villa Giulia, Verbania</dd></div>
+                    <div><dt class="text-gray-400">Pubblico</dt><dd class="text-gray-700 font-medium">Universita della Terza Eta</dd></div>
+                </dl>
+            </div>
+
+            <!-- Resources -->
+            <h2 class="text-lg font-medium text-gray-800 flex items-center gap-2 mb-4">
+                <i data-lucide="folder-open" class="w-5 h-5 text-talk-500"></i> Materiali
+            </h2>
+            <div class="grid gap-4 md:grid-cols-3">
+                <a href="./slideshow/" class="group block bg-white rounded-xl p-5 border border-gray-200 hover:border-indigo-300 hover:shadow-lg transition-all duration-200">
+                    <div class="w-10 h-10 rounded-lg bg-indigo-50 flex items-center justify-center mb-3">
+                        <i data-lucide="presentation" class="w-5 h-5 text-indigo-500"></i>
+                    </div>
+                    <h3 class="font-medium text-gray-800 group-hover:text-indigo-600 transition-colors">Slideshow</h3>
+                    <p class="text-gray-500 text-sm mt-1 leading-relaxed">15 blocchi interattivi, demo live, esempi pratici</p>
+                </a>
+
+                <a href="./appunti.html" class="group block bg-white rounded-xl p-5 border border-gray-200 hover:border-talk-300 hover:shadow-lg transition-all duration-200">
+                    <div class="w-10 h-10 rounded-lg bg-talk-50 flex items-center justify-center mb-3">
+                        <i data-lucide="notebook-pen" class="w-5 h-5 text-talk-600"></i>
+                    </div>
+                    <h3 class="font-medium text-gray-800 group-hover:text-talk-600 transition-colors">Note Relatore</h3>
+                    <p class="text-gray-500 text-sm mt-1 leading-relaxed">Scaletta v3, timing, script esperimenti</p>
+                </a>
+
+                <a href="./dispensa.html" class="group block bg-white rounded-xl p-5 border border-gray-200 hover:border-emerald-300 hover:shadow-lg transition-all duration-200">
+                    <div class="w-10 h-10 rounded-lg bg-emerald-50 flex items-center justify-center mb-3">
+                        <i data-lucide="book-open" class="w-5 h-5 text-emerald-500"></i>
+                    </div>
+                    <h3 class="font-medium text-gray-800 group-hover:text-emerald-600 transition-colors">Dispensa</h3>
+                    <p class="text-gray-500 text-sm mt-1 leading-relaxed">Approfondimenti e risorse per i partecipanti</p>
+                </a>
+            </div>
+
         </div>
-    </div>
+    </section>
+
+    <footer class="bg-gray-900 py-8 text-center">
+        <p class="text-gray-600 text-xs font-light">
+            a <a href="https://giobi.com" target="_blank" class="text-gray-500 hover:text-talk-400 transition">giobi.com</a> idea
+        </p>
+    </footer>
+
+    <script>lucide.createIcons();</script>
 </body>
 </html>
