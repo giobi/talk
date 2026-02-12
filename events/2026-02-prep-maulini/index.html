@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prep 1:1 Maulini - Whitenet + AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        talk: { 50:'#fffbeb',100:'#fef3c7',200:'#fde68a',300:'#fcd34d',400:'#fbbf24',500:'#f59e0b',600:'#d97706',700:'#b45309',800:'#92400e',900:'#78350f' }
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>body { font-family: 'Inter', sans-serif; }</style>
+</head>
+<body class="bg-gray-900 min-h-screen">
+
+    <header class="bg-gray-900 py-16 px-4">
+        <div class="max-w-3xl mx-auto text-center">
+            <a href="../../" class="inline-flex items-center gap-2 text-gray-500 hover:text-talk-400 transition text-sm mb-8">
+                <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                <span>tl/</span>
+            </a>
+            <h1 class="text-3xl md:text-4xl font-light text-white mt-4 leading-tight">Prep 1:1 con Maulini</h1>
+            <p class="text-gray-400 text-lg mt-3 font-light">Capire il lavoro quotidiano su Whitenet prima del Pranzo AI</p>
+            <div class="flex items-center justify-center gap-4 mt-6 text-sm text-gray-500">
+                <span class="flex items-center gap-1.5"><i data-lucide="calendar" class="w-4 h-4"></i> Pre-Pranzo AI #2</span>
+                <span class="flex items-center gap-1.5"><i data-lucide="building-2" class="w-4 h-4"></i> Emisfera / Workare</span>
+                <span class="flex items-center gap-1.5"><i data-lucide="clock" class="w-4 h-4"></i> 30 min</span>
+            </div>
+            <span class="inline-block mt-4 text-xs font-medium bg-talk-900/50 text-talk-400 px-3 py-1 rounded-full">Preparazione</span>
+        </div>
+    </header>
+
+    <section class="bg-gray-50 py-12 px-4">
+        <div class="max-w-3xl mx-auto">
+
+            <!-- CONTESTO -->
+            <div class="bg-white rounded-xl p-6 border border-gray-200 mb-6">
+                <h2 class="text-lg font-medium text-gray-800 flex items-center gap-2 mb-4">
+                    <i data-lucide="info" class="w-5 h-5 text-talk-500"></i> Contesto
+                </h2>
+                <p class="text-gray-600 leading-relaxed mb-3">
+                    Maulini ci ha mandato lo ZIP con le sue query Whitenet: <strong>1.563 file SQL</strong>, 8 mesi di lavoro (giu 2025 &ndash; feb 2026). L'analisi automatica ha rivelato pattern molto interessanti. Questo 1:1 serve a <strong>validare le ipotesi</strong> e raccogliere il contesto umano che le query da sole non dicono.
+                </p>
+                <p class="text-gray-600 leading-relaxed">
+                    L'obiettivo finale: costruire una <strong>demo live credibile</strong> per il Pranzo AI, mostrando come l'AI pu&ograve; aiutare concretamente il lavoro quotidiano su Whitenet.
+                </p>
+            </div>
+
+            <!-- NUMERI CHIAVE -->
+            <div class="bg-white rounded-xl p-6 border border-gray-200 mb-6">
+                <h2 class="text-lg font-medium text-gray-800 flex items-center gap-2 mb-4">
+                    <i data-lucide="bar-chart-3" class="w-5 h-5 text-talk-500"></i> Cosa sappiamo gi&agrave; (dall'analisi)
+                </h2>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
+                    <div class="bg-gray-50 rounded-lg p-3 text-center">
+                        <div class="text-2xl font-semibold text-gray-800">1.563</div>
+                        <div class="text-xs text-gray-500 mt-1">file SQL</div>
+                    </div>
+                    <div class="bg-gray-50 rounded-lg p-3 text-center">
+                        <div class="text-2xl font-semibold text-gray-800">215k</div>
+                        <div class="text-xs text-gray-500 mt-1">righe di codice</div>
+                    </div>
+                    <div class="bg-gray-50 rounded-lg p-3 text-center">
+                        <div class="text-2xl font-semibold text-talk-600">90.5%</div>
+                        <div class="text-xs text-gray-500 mt-1">UPDATE (correzioni)</div>
+                    </div>
+                    <div class="bg-gray-50 rounded-lg p-3 text-center">
+                        <div class="text-2xl font-semibold text-gray-800">15+</div>
+                        <div class="text-xs text-gray-500 mt-1">schemi/clienti</div>
+                    </div>
+                </div>
+                <ul class="text-sm text-gray-600 space-y-1">
+                    <li class="flex items-start gap-2"><span class="text-talk-500 mt-0.5"><i data-lucide="chevron-right" class="w-3 h-3"></i></span> Randstad = 45% del volume, Ali Lavoro 13%, Gi Group 12%</li>
+                    <li class="flex items-start gap-2"><span class="text-talk-500 mt-0.5"><i data-lucide="chevron-right" class="w-3 h-3"></i></span> Zero stored procedure &mdash; tutta logica inline ad-hoc</li>
+                    <li class="flex items-start gap-2"><span class="text-talk-500 mt-0.5"><i data-lucide="chevron-right" class="w-3 h-3"></i></span> Record: un singolo file con 78.320 UPDATE identiche</li>
+                    <li class="flex items-start gap-2"><span class="text-talk-500 mt-0.5"><i data-lucide="chevron-right" class="w-3 h-3"></i></span> ~6 script/giorno lavorativo in media</li>
+                </ul>
+            </div>
+
+            <!-- DOMANDE PER MAULINI -->
+            <div class="bg-white rounded-xl p-6 border border-gray-200 mb-6">
+                <h2 class="text-lg font-medium text-gray-800 flex items-center gap-2 mb-6">
+                    <i data-lucide="message-circle-question" class="w-5 h-5 text-talk-500"></i> Domande per Maulini
+                </h2>
+
+                <!-- Blocco 1 -->
+                <div class="mb-8">
+                    <h3 class="text-sm font-semibold text-talk-700 uppercase tracking-wide mb-3 flex items-center gap-2">
+                        <i data-lucide="repeat" class="w-4 h-4"></i> Il workflow quotidiano
+                    </h3>
+                    <ol class="space-y-3 text-gray-700">
+                        <li class="flex gap-3">
+                            <span class="flex-shrink-0 w-6 h-6 rounded-full bg-talk-100 text-talk-700 text-xs font-medium flex items-center justify-center">1</span>
+                            <div>
+                                <p class="font-medium">Come ti arriva il lavoro?</p>
+                                <p class="text-sm text-gray-500 mt-0.5">Ticket Helpdesk? Email? Chiamata? Chi chiede le correzioni &mdash; i clienti (Randstad, Ali...) o il team interno?</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="flex-shrink-0 w-6 h-6 rounded-full bg-talk-100 text-talk-700 text-xs font-medium flex items-center justify-center">2</span>
+                            <div>
+                                <p class="font-medium">Che tool usi per scrivere le query?</p>
+                                <p class="text-sm text-gray-500 mt-0.5">PL/SQL Developer? SQL Developer? Toad? Un editor di testo? Esegui direttamente o c'&egrave; un processo di approvazione?</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="flex-shrink-0 w-6 h-6 rounded-full bg-talk-100 text-talk-700 text-xs font-medium flex items-center justify-center">3</span>
+                            <div>
+                                <p class="font-medium">Il pattern SELECT &rarr; UPDATE &rarr; SELECT &egrave; sempre cos&igrave;?</p>
+                                <p class="text-sm text-gray-500 mt-0.5">Vediamo che quasi sempre prima guardi i dati, poi correggi, poi verifichi. Abitudine tua o procedura obbligatoria?</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="flex-shrink-0 w-6 h-6 rounded-full bg-talk-100 text-talk-700 text-xs font-medium flex items-center justify-center">4</span>
+                            <div>
+                                <p class="font-medium">Quanto tempo per una correzione tipica?</p>
+                                <p class="text-sm text-gray-500 mt-0.5">Dal ticket alla query eseguita: 5 minuti? Mezz'ora? Qual &egrave; la parte che ti porta via pi&ugrave; tempo?</p>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+
+                <!-- Blocco 2 -->
+                <div class="mb-8">
+                    <h3 class="text-sm font-semibold text-talk-700 uppercase tracking-wide mb-3 flex items-center gap-2">
+                        <i data-lucide="database" class="w-4 h-4"></i> Capire le query
+                    </h3>
+                    <ol start="5" class="space-y-3 text-gray-700">
+                        <li class="flex gap-3">
+                            <span class="flex-shrink-0 w-6 h-6 rounded-full bg-talk-100 text-talk-700 text-xs font-medium flex items-center justify-center">5</span>
+                            <div>
+                                <p class="font-medium">Le 78.000 UPDATE identiche &mdash; da dove arrivano i dati?</p>
+                                <p class="text-sm text-gray-500 mt-0.5">Chi genera quella lista di codici cliente? Un Excel? Un export? Le generi tu a mano o c'&egrave; uno script?</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="flex-shrink-0 w-6 h-6 rounded-full bg-talk-100 text-talk-700 text-xs font-medium flex items-center justify-center">6</span>
+                            <div>
+                                <p class="font-medium">Le tabelle HD_APPO_{ticket}: le crei a mano?</p>
+                                <p class="text-sm text-gray-500 mt-0.5">Vediamo tabelle staging create da Excel del cliente. Come importi i dati? Copi-incolli? Usi un tool? Quanto ci metti?</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="flex-shrink-0 w-6 h-6 rounded-full bg-talk-100 text-talk-700 text-xs font-medium flex items-center justify-center">7</span>
+                            <div>
+                                <p class="font-medium">Il ricalcolo CIG: lo scrivi ogni volta o hai un template?</p>
+                                <p class="text-sm text-gray-500 mt-0.5">Query da 200 righe con 5 livelli di nesting. Parti da zero o copi da una versione precedente?</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="flex-shrink-0 w-6 h-6 rounded-full bg-talk-100 text-talk-700 text-xs font-medium flex items-center justify-center">8</span>
+                            <div>
+                                <p class="font-medium">Quante di queste query sono "sempre uguali" vs "ogni volta diversa"?</p>
+                                <p class="text-sm text-gray-500 mt-0.5">Stima a spanne: 50/50? 80% ripetitive? Ci interessa capire quanto &egrave; standardizzabile.</p>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+
+                <!-- Blocco 3 -->
+                <div class="mb-8">
+                    <h3 class="text-sm font-semibold text-talk-700 uppercase tracking-wide mb-3 flex items-center gap-2">
+                        <i data-lucide="shield-alert" class="w-4 h-4"></i> Rischi e sicurezza
+                    </h3>
+                    <ol start="9" class="space-y-3 text-gray-700">
+                        <li class="flex gap-3">
+                            <span class="flex-shrink-0 w-6 h-6 rounded-full bg-talk-100 text-talk-700 text-xs font-medium flex items-center justify-center">9</span>
+                            <div>
+                                <p class="font-medium">Non vediamo COMMIT/ROLLBACK: come funziona?</p>
+                                <p class="text-sm text-gray-500 mt-0.5">Il tool fa auto-commit? C'&egrave; un modo per fare rollback se sbagli? Ti &egrave; mai capitato di dover annullare?</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="flex-shrink-0 w-6 h-6 rounded-full bg-talk-100 text-talk-700 text-xs font-medium flex items-center justify-center">10</span>
+                            <div>
+                                <p class="font-medium">Hai mai fatto un casino grosso? Come l'hai risolto?</p>
+                                <p class="text-sm text-gray-500 mt-0.5">Non per giudicare &mdash; per capire quanto margine di errore c'&egrave; e se una validazione automatica avrebbe aiutato.</p>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+
+                <!-- Blocco 4 -->
+                <div>
+                    <h3 class="text-sm font-semibold text-talk-700 uppercase tracking-wide mb-3 flex items-center gap-2">
+                        <i data-lucide="sparkles" class="w-4 h-4"></i> La domanda chiave
+                    </h3>
+                    <ol start="11" class="space-y-3 text-gray-700">
+                        <li class="flex gap-3">
+                            <span class="flex-shrink-0 w-6 h-6 rounded-full bg-talk-500 text-white text-xs font-medium flex items-center justify-center">11</span>
+                            <div>
+                                <p class="font-medium">Se potessi delegare UNA cosa a un assistente, quale sarebbe?</p>
+                                <p class="text-sm text-gray-500 mt-0.5">Non pensare a "l'AI" in astratto. Pensa alla cosa pi&ugrave; noiosa, ripetitiva, che ti fa perdere tempo ogni settimana.</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="flex-shrink-0 w-6 h-6 rounded-full bg-talk-500 text-white text-xs font-medium flex items-center justify-center">12</span>
+                            <div>
+                                <p class="font-medium">Ti va di fare la demo insieme al pranzo?</p>
+                                <p class="text-sm text-gray-500 mt-0.5">L'idea: dare una tua query vera a Claude e fargli fare l'analisi in diretta. Tu spieghi cosa fa, l'AI mostra cosa pu&ograve; fare. Sarebbe molto pi&ugrave; efficace con te come "esperto di dominio".</p>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- COSA MOSTRARE -->
+            <div class="bg-white rounded-xl p-6 border border-gray-200 mb-6">
+                <h2 class="text-lg font-medium text-gray-800 flex items-center gap-2 mb-4">
+                    <i data-lucide="monitor" class="w-5 h-5 text-talk-500"></i> Cosa mostrare a Maulini (durante il 1:1)
+                </h2>
+                <p class="text-gray-600 text-sm mb-4">Fagli vedere che hai gi&agrave; analizzato le sue query &mdash; crea credibilit&agrave; e lo coinvolge.</p>
+                <ul class="space-y-2 text-gray-700 text-sm">
+                    <li class="flex items-start gap-2"><span class="text-talk-500 mt-0.5"><i data-lucide="check" class="w-4 h-4"></i></span> I numeri aggregati (1.563 file, 215k righe, 90% UPDATE)</li>
+                    <li class="flex items-start gap-2"><span class="text-talk-500 mt-0.5"><i data-lucide="check" class="w-4 h-4"></i></span> Il breakdown per schema/cliente (Randstad 45%...)</li>
+                    <li class="flex items-start gap-2"><span class="text-talk-500 mt-0.5"><i data-lucide="check" class="w-4 h-4"></i></span> Il file da 78k righe: "questo lo puoi fare con una riga parametrica"</li>
+                    <li class="flex items-start gap-2"><span class="text-talk-500 mt-0.5"><i data-lucide="check" class="w-4 h-4"></i></span> La query CIG da 200 righe: "l'AI la spiega e la documenta"</li>
+                    <li class="flex items-start gap-2"><span class="text-talk-500 mt-0.5"><i data-lucide="check" class="w-4 h-4"></i></span> Quick demo: dai una sua query a Claude, mostra l'analisi live</li>
+                </ul>
+            </div>
+
+            <!-- NOTES -->
+            <div class="bg-talk-50 rounded-xl p-6 border border-talk-200">
+                <h2 class="text-lg font-medium text-talk-800 flex items-center gap-2 mb-3">
+                    <i data-lucide="lightbulb" class="w-5 h-5 text-talk-600"></i> Note per Giobi
+                </h2>
+                <ul class="space-y-2 text-talk-900 text-sm">
+                    <li><strong>Tono:</strong> Informale, tra colleghi. Non &egrave; un'intervista &mdash; &egrave; "fammi capire cosa fai che ti do una mano".</li>
+                    <li><strong>Non promettere nulla:</strong> Stai esplorando. "Vediamo se ha senso" &gt; "ti risolvo tutto".</li>
+                    <li><strong>Ascolta i pain point:</strong> Le query dicono il "cosa", Maulini dice il "perch&eacute;" e il "quanto mi rompe".</li>
+                    <li><strong>Obiettivo nascosto:</strong> Coinvolgerlo come co-presenter al pranzo. La demo funziona 10x meglio se chi spiega il dominio &egrave; l'esperto, non il dev.</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 py-8 px-4 text-center">
+        <p class="text-gray-600 text-sm">tl/ &mdash; <a href="../../" class="text-talk-500 hover:text-talk-400 transition">talk.giobi.com</a></p>
+    </footer>
+
+    <script>lucide.createIcons();</script>
+</body>
+</html>
