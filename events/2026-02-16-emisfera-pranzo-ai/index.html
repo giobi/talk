@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pranzo AI - VS Code & GitHub Copilot - Emisfera 16/02/2026</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Inter font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+        }
+    </style>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        talk: {
+                            50: '#fffbeb',
+                            100: '#fef3c7',
+                            200: '#fde68a',
+                            300: '#fcd34d',
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                            700: '#b45309',
+                            800: '#92400e',
+                            900: '#78350f'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-gray-900 text-white">
+        <div class="max-w-4xl mx-auto px-6 py-8">
+            <div class="flex items-center gap-2 text-sm text-gray-400 mb-4">
+                <a href="https://talk.giobi.com" class="hover:text-talk-500 transition">talk.giobi.com</a>
+                <span>/</span>
+                <span>2026-02-16</span>
+            </div>
+
+            <h1 class="text-4xl font-semibold mb-2">Pranzo AI - VS Code & GitHub Copilot</h1>
+            <p class="text-xl text-gray-300">Emisfera - Introduzione pratica all'AI in ufficio</p>
+            <p class="text-gray-400 mt-4">16 febbraio 2026</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-6 py-12">
+        <!-- Info Evento -->
+        <section class="bg-white rounded-lg shadow-sm p-8 mb-8">
+            <h2 class="text-2xl font-semibold mb-6 text-gray-800">Info Evento</h2>
+
+            <div class="space-y-4">
+                <div class="flex gap-3">
+                    <i data-lucide="calendar" class="text-talk-600 w-5 h-5 mt-0.5"></i>
+                    <div>
+                        <strong class="text-gray-800">Data:</strong>
+                        <span class="text-gray-600 ml-2">16 febbraio 2026</span>
+                    </div>
+                </div>
+
+                <div class="flex gap-3">
+                    <i data-lucide="map-pin" class="text-talk-600 w-5 h-5 mt-0.5"></i>
+                    <div>
+                        <strong class="text-gray-800">Luogo:</strong>
+                        <span class="text-gray-600 ml-2">Emisfera - Conference Room</span>
+                    </div>
+                </div>
+
+                <div class="flex gap-3">
+                    <i data-lucide="user" class="text-talk-600 w-5 h-5 mt-0.5"></i>
+                    <div>
+                        <strong class="text-gray-800">Relatore:</strong>
+                        <span class="text-gray-600 ml-2">Giobi Fasoli</span>
+                    </div>
+                </div>
+
+                <div class="flex gap-3">
+                    <i data-lucide="users" class="text-talk-600 w-5 h-5 mt-0.5"></i>
+                    <div>
+                        <strong class="text-gray-800">Partecipanti:</strong>
+                        <span class="text-gray-600 ml-2">Team Emisfera (Monica, Gabriele, Maulini, altri)</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Materiali -->
+        <section class="bg-white rounded-lg shadow-sm p-8 mb-8">
+            <h2 class="text-2xl font-semibold mb-6 text-gray-800">Materiali</h2>
+
+            <div class="space-y-4">
+                <a href="dispensa.html" class="flex items-center gap-3 p-4 bg-talk-50 hover:bg-talk-100 rounded-lg transition group">
+                    <i data-lucide="book-open" class="text-talk-600 w-6 h-6"></i>
+                    <div class="flex-1">
+                        <div class="font-medium text-gray-800 group-hover:text-talk-700">Dispensa completa</div>
+                        <div class="text-sm text-gray-600">Punti chiave, esempi pratici, FAQ</div>
+                    </div>
+                    <i data-lucide="arrow-right" class="text-talk-600 w-5 h-5"></i>
+                </a>
+
+                <a href="https://www.youtube.com/watch?v=WB0lKQn7HkQ" target="_blank" class="flex items-center gap-3 p-4 bg-red-50 hover:bg-red-100 rounded-lg transition group">
+                    <i data-lucide="video" class="text-red-600 w-6 h-6"></i>
+                    <div class="flex-1">
+                        <div class="font-medium text-gray-800 group-hover:text-red-700">Registrazione video</div>
+                        <div class="text-sm text-gray-600">YouTube - Durata completa sessione</div>
+                    </div>
+                    <i data-lucide="external-link" class="text-red-600 w-5 h-5"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- Argomenti Trattati -->
+        <section class="bg-white rounded-lg shadow-sm p-8 mb-8">
+            <h2 class="text-2xl font-semibold mb-6 text-gray-800">Argomenti Trattati</h2>
+
+            <div class="grid md:grid-cols-2 gap-4">
+                <div class="p-4 bg-gray-50 rounded-lg">
+                    <div class="flex items-center gap-2 mb-2">
+                        <i data-lucide="shield-check" class="text-talk-600 w-5 h-5"></i>
+                        <h3 class="font-medium text-gray-800">GDPR e AI in Ufficio</h3>
+                    </div>
+                    <p class="text-sm text-gray-600">Come usare l'AI rispettando la privacy e i dati sensibili</p>
+                </div>
+
+                <div class="p-4 bg-gray-50 rounded-lg">
+                    <div class="flex items-center gap-2 mb-2">
+                        <i data-lucide="brain" class="text-talk-600 w-5 h-5"></i>
+                        <h3 class="font-medium text-gray-800">Allucinazioni vs Contesto</h3>
+                    </div>
+                    <p class="text-sm text-gray-600">Come ridurre errori fornendo contesto strutturato</p>
+                </div>
+
+                <div class="p-4 bg-gray-50 rounded-lg">
+                    <div class="flex items-center gap-2 mb-2">
+                        <i data-lucide="code" class="text-talk-600 w-5 h-5"></i>
+                        <h3 class="font-medium text-gray-800">VS Code + GitHub Copilot</h3>
+                    </div>
+                    <p class="text-sm text-gray-600">Setup pratico locale per chattare con i tuoi file</p>
+                </div>
+
+                <div class="p-4 bg-gray-50 rounded-lg">
+                    <div class="flex items-center gap-2 mb-2">
+                        <i data-lucide="folder" class="text-talk-600 w-5 h-5"></i>
+                        <h3 class="font-medium text-gray-800">Organizzazione File .md</h3>
+                    </div>
+                    <p class="text-sm text-gray-600">Strutturare appunti per dare contesto all'AI</p>
+                </div>
+
+                <div class="p-4 bg-gray-50 rounded-lg">
+                    <div class="flex items-center gap-2 mb-2">
+                        <i data-lucide="database" class="text-talk-600 w-5 h-5"></i>
+                        <h3 class="font-medium text-gray-800">Query SQL & Database</h3>
+                    </div>
+                    <p class="text-sm text-gray-600">Generare query, verifiche, documentazione schema</p>
+                </div>
+
+                <div class="p-4 bg-gray-50 rounded-lg">
+                    <div class="flex items-center gap-2 mb-2">
+                        <i data-lucide="git-branch" class="text-talk-600 w-5 h-5"></i>
+                        <h3 class="font-medium text-gray-800">Git e Versionamento</h3>
+                    </div>
+                    <p class="text-sm text-gray-600">Storico permanente di tutte le modifiche</p>
+                </div>
+
+                <div class="p-4 bg-gray-50 rounded-lg">
+                    <div class="flex items-center gap-2 mb-2">
+                        <i data-lucide="mail" class="text-talk-600 w-5 h-5"></i>
+                        <h3 class="font-medium text-gray-800">Input/Output Estesi</h3>
+                    </div>
+                    <p class="text-sm text-gray-600">Email, ticketing, web, database, automazioni</p>
+                </div>
+
+                <div class="p-4 bg-gray-50 rounded-lg">
+                    <div class="flex items-center gap-2 mb-2">
+                        <i data-lucide="smile" class="text-talk-600 w-5 h-5"></i>
+                        <h3 class="font-medium text-gray-800">Personalizzazione</h3>
+                    </div>
+                    <p class="text-sm text-gray-600">Identity file, tono, comportamenti custom</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quote Highlight -->
+        <section class="bg-gradient-to-br from-talk-500 to-talk-600 rounded-lg shadow-lg p-8 mb-8 text-white">
+            <div class="flex gap-4">
+                <i data-lucide="quote" class="w-12 h-12 opacity-50"></i>
+                <div>
+                    <p class="text-xl italic mb-4">"Il segreto è il contesto gigantesco. Quando gli dici 'query tra dettagli per i clienti', lui sa già negli appunti dove andrà a beccare il cliente, che database ha, che magagne ci sono."</p>
+                    <p class="text-talk-100">— Giobi Fasoli</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Next Steps -->
+        <section class="bg-white rounded-lg shadow-sm p-8">
+            <h2 class="text-2xl font-semibold mb-6 text-gray-800">Prossimi Passi</h2>
+
+            <div class="space-y-3">
+                <div class="flex items-start gap-3">
+                    <i data-lucide="check-circle" class="text-emerald-600 w-5 h-5 mt-0.5"></i>
+                    <p class="text-gray-700">Scaricare e installare VS Code</p>
+                </div>
+
+                <div class="flex items-start gap-3">
+                    <i data-lucide="check-circle" class="text-emerald-600 w-5 h-5 mt-0.5"></i>
+                    <p class="text-gray-700">Creare account GitHub (personale o aziendale)</p>
+                </div>
+
+                <div class="flex items-start gap-3">
+                    <i data-lucide="check-circle" class="text-emerald-600 w-5 h-5 mt-0.5"></i>
+                    <p class="text-gray-700">Attivare GitHub Copilot (licenze disponibili)</p>
+                </div>
+
+                <div class="flex items-start gap-3">
+                    <i data-lucide="check-circle" class="text-emerald-600 w-5 h-5 mt-0.5"></i>
+                    <p class="text-gray-700">Creare cartella appunti e iniziare a strutturare contesto</p>
+                </div>
+
+                <div class="flex items-start gap-3">
+                    <i data-lucide="check-circle" class="text-emerald-600 w-5 h-5 mt-0.5"></i>
+                    <p class="text-gray-700">Prossimi pranzi AI: approfondimenti tematici</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 mt-16">
+        <div class="max-w-4xl mx-auto px-6 py-8 text-center text-sm">
+            <p>talk.giobi.com — slides . note . materiali</p>
+            <p class="mt-2">© 2026 Giobi Fasoli</p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

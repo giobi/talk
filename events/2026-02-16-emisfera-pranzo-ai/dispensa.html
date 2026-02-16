@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dispensa - Pranzo AI VS Code & GitHub Copilot - 16/02/2026</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Inter font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Fira Code per esempi codice -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+        }
+        code, pre {
+            font-family: 'Fira Code', 'JetBrains Mono', 'Source Code Pro', Consolas, Monaco, 'Courier New', monospace;
+        }
+        .prose h2 {
+            scroll-margin-top: 6rem;
+        }
+        .prose h3 {
+            scroll-margin-top: 6rem;
+        }
+    </style>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        talk: {
+                            50: '#fffbeb',
+                            100: '#fef3c7',
+                            200: '#fde68a',
+                            300: '#fcd34d',
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                            700: '#b45309',
+                            800: '#92400e',
+                            900: '#78350f'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-gray-900 text-white sticky top-0 z-50 shadow-lg">
+        <div class="max-w-5xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div>
+                    <a href="index.html" class="text-sm text-gray-400 hover:text-talk-500 transition">← Torna all'evento</a>
+                    <h1 class="text-2xl font-semibold mt-1">Dispensa - Pranzo AI</h1>
+                </div>
+                <a href="https://www.youtube.com/watch?v=WB0lKQn7HkQ" target="_blank" class="flex items-center gap-2 px-4 py-2 bg-red-600 hover:bg-red-700 rounded-lg transition text-sm font-medium">
+                    <i data-lucide="video" class="w-4 h-4"></i>
+                    Video
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-5xl mx-auto px-6 py-12">
+        <!-- Intro -->
+        <section class="bg-gradient-to-br from-talk-500 to-talk-600 rounded-lg shadow-lg p-8 mb-12 text-white">
+            <h2 class="text-3xl font-bold mb-4">AI in Ufficio: VS Code & GitHub Copilot</h2>
+            <p class="text-xl text-talk-50 mb-6">Una guida pratica per usare l'intelligenza artificiale nel lavoro quotidiano, rispettando il GDPR e sfruttando il contesto.</p>
+            <div class="flex items-center gap-2 text-talk-100">
+                <i data-lucide="calendar" class="w-4 h-4"></i>
+                <span>16 febbraio 2026 - Emisfera</span>
+            </div>
+        </section>
+
+        <!-- Table of Contents -->
+        <nav class="bg-white rounded-lg shadow-sm p-6 mb-12">
+            <h3 class="text-lg font-semibold mb-4 text-gray-800">Indice</h3>
+            <ol class="space-y-2 text-gray-700">
+                <li><a href="#gdpr" class="hover:text-talk-600 transition">1. GDPR e AI in Ufficio</a></li>
+                <li><a href="#allucinazioni" class="hover:text-talk-600 transition">2. Allucinazioni vs Contesto</a></li>
+                <li><a href="#vscode" class="hover:text-talk-600 transition">3. VS Code: Setup Pratico</a></li>
+                <li><a href="#file-markdown" class="hover:text-talk-600 transition">4. Organizzare Appunti in File .md</a></li>
+                <li><a href="#input-output" class="hover:text-talk-600 transition">5. Input/Output Estesi</a></li>
+                <li><a href="#database" class="hover:text-talk-600 transition">6. Query SQL e Database</a></li>
+                <li><a href="#git" class="hover:text-talk-600 transition">7. Git e Versionamento</a></li>
+                <li><a href="#personalizzazione" class="hover:text-talk-600 transition">8. Personalizzazione Identity</a></li>
+                <li><a href="#setup-aziendale" class="hover:text-talk-600 transition">9. Setup Aziendale</a></li>
+                <li><a href="#faq" class="hover:text-talk-600 transition">10. FAQ e Casi d'Uso</a></li>
+            </ol>
+        </nav>
+
+        <!-- Content Sections -->
+        <div class="space-y-12">
+            <!-- Section 1: GDPR -->
+            <section id="gdpr" class="bg-white rounded-lg shadow-sm p-8">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-12 h-12 bg-talk-100 rounded-lg flex items-center justify-center">
+                        <i data-lucide="shield-check" class="text-talk-600 w-6 h-6"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-800">1. GDPR e AI in Ufficio</h2>
+                </div>
+
+                <div class="prose prose-gray max-w-none space-y-4">
+                    <h3 class="text-xl font-semibold text-gray-800 mt-6">Possiamo usare l'AI in ufficio?</h3>
+                    <p class="text-gray-700"><strong>Risposta breve:</strong> Ni. Dipende da <em>come</em> la usi.</p>
+
+                    <div class="bg-red-50 border-l-4 border-red-500 p-4 my-6">
+                        <div class="flex gap-3">
+                            <i data-lucide="alert-triangle" class="text-red-600 w-5 h-5 mt-0.5"></i>
+                            <div>
+                                <h4 class="font-semibold text-red-800 mb-2">❌ VIETATO</h4>
+                                <ul class="space-y-1 text-red-700 text-sm">
+                                    <li>• Usare ChatGPT online con dati sensibili dei clienti</li>
+                                    <li>• Copiare query SQL con dati reali nel browser</li>
+                                    <li>• Condividere informazioni personali (nomi, indirizzi, email) su servizi cloud</li>
+                                    <li>• Tutto ciò che viola il GDPR</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 class="text-xl font-semibold text-gray-800 mt-6">Come funziona l'AI?</h3>
+                    <div class="bg-gray-50 p-6 rounded-lg my-4">
+                        <p class="text-gray-700 mb-3 font-mono text-sm">
+                            <span class="text-talk-600">Tu scrivi</span> →
+                            <span class="text-blue-600">API esterna (GPT/Claude/Gemini)</span> →
+                            <span class="text-talk-600">Risposta</span>
+                        </p>
+                        <p class="text-gray-600 text-sm">Se usi ChatGPT nel browser, <strong>tutta la conversazione resta sui loro server</strong>.</p>
+                    </div>
+
+                    <div class="bg-emerald-50 border-l-4 border-emerald-500 p-4 my-6">
+                        <div class="flex gap-3">
+                            <i data-lucide="check-circle" class="text-emerald-600 w-5 h-5 mt-0.5"></i>
+                            <div>
+                                <h4 class="font-semibold text-emerald-800 mb-2">✅ SOLUZIONE</h4>
+                                <p class="text-emerald-700 text-sm mb-2">Usare un <strong>client locale</strong> (VS Code, Claude Code) dove:</p>
+                                <ul class="space-y-1 text-emerald-700 text-sm">
+                                    <li>• I file restano sul tuo computer</li>
+                                    <li>• Le conversazioni sono locali</li>
+                                    <li>• L'API è legale (Claude/OpenAI dichiarano di non salvare)</li>
+                                    <li>• Finché l'UE non norma diversamente, è consentito anche a livello aziendale</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 class="text-xl font-semibold text-gray-800 mt-6">Modelli disponibili</h3>
+                    <div class="grid md:grid-cols-2 gap-4 my-4">
+                        <div class="p-4 bg-blue-50 rounded-lg">
+                            <h4 class="font-semibold text-blue-800 mb-2">Claude (Anthropic)</h4>
+                            <p class="text-sm text-blue-700">Il migliore per ragionamento complesso, coding, analisi</p>
+                        </div>
+                        <div class="p-4 bg-purple-50 rounded-lg">
+                            <h4 class="font-semibold text-purple-800 mb-2">GPT-4 (OpenAI)</h4>
+                            <p class="text-sm text-purple-700">Ottimo general-purpose, creatività, conversazione</p>
+                        </div>
+                        <div class="p-4 bg-orange-50 rounded-lg">
+                            <h4 class="font-semibold text-orange-800 mb-2">Gemini (Google)</h4>
+                            <p class="text-sm text-orange-700">Integrazione Google Workspace, multimodale</p>
+                        </div>
+                        <div class="p-4 bg-indigo-50 rounded-lg">
+                            <h4 class="font-semibold text-indigo-800 mb-2">GitHub Copilot</h4>
+                            <p class="text-sm text-indigo-700">Integrato in VS Code, ottimo per sviluppo</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: Allucinazioni -->
+            <section id="allucinazioni" class="bg-white rounded-lg shadow-sm p-8">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-12 h-12 bg-talk-100 rounded-lg flex items-center justify-center">
+                        <i data-lucide="brain" class="text-talk-600 w-6 h-6"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-800">2. Allucinazioni vs Contesto</h2>
+                </div>
+
+                <div class="prose prose-gray max-w-none space-y-4">
+                    <h3 class="text-xl font-semibold text-gray-800">Cosa sono le allucinazioni?</h3>
+                    <p class="text-gray-700">L'AI <strong>allucina</strong> quando inventa informazioni che sembrano plausibili ma sono false. Come uno studente che, non sapendo la risposta, spara un numero a caso.</p>
+
+                    <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 my-6">
+                        <div class="flex gap-3">
+                            <i data-lucide="lightbulb" class="text-yellow-600 w-5 h-5 mt-0.5"></i>
+                            <div>
+                                <h4 class="font-semibold text-yellow-800 mb-2">Esempio</h4>
+                                <p class="text-yellow-700 text-sm mb-2"><strong>Domanda:</strong> "Quanti megahertz ci sono in un gigahertz?"</p>
+                                <p class="text-yellow-700 text-sm mb-2"><strong>Senza contesto:</strong> "Un milione" (SBAGLIATO - sono mille)</p>
+                                <p class="text-yellow-700 text-sm"><strong>Motivo:</strong> Contesto zero → panico → spara un numero</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 class="text-xl font-semibold text-gray-800 mt-6">Come ridurre le allucinazioni?</h3>
+                    <div class="space-y-4">
+                        <div class="flex gap-4 items-start">
+                            <div class="w-8 h-8 bg-talk-500 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">1</div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-1">Fornisci CONTESTO gigantesco</h4>
+                                <p class="text-gray-600 text-sm">Più informazioni dai, meno allucina. File, documentazione, esempi precedenti.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4 items-start">
+                            <div class="w-8 h-8 bg-talk-500 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">2</div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-1">Sii specifico nelle richieste</h4>
+                                <p class="text-gray-600 text-sm">"Fammi la query" → vago. "Fammi la query per estrarre prestazioni con lavoratori >18 anni dal database Oracle in produzione" → preciso.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4 items-start">
+                            <div class="w-8 h-8 bg-talk-500 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">3</div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-1">Chiedi certezza esplicita</h4>
+                                <p class="text-gray-600 text-sm">"Se non hai informazioni concrete al 95% di certezza, dimmelo invece di inventare."</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4 items-start">
+                            <div class="w-8 h-8 bg-talk-500 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">4</div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-1">Verifica sempre</h4>
+                                <p class="text-gray-600 text-sm">Non fidarti ciecamente. Controlli a campione, verifiche deterministiche, test.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-talk-50 p-6 rounded-lg my-6">
+                        <p class="text-gray-800 italic">"Il mio robottino, con contesto gigantesco, non allucina più. Molto molto poco, solo su robe molto complesse. E quando succede, gli dico 'ma perché hai fatto questa scelta invece dell'altra?' e lui risponde 'Hai ragione, nell'altra situazione mi avevi specificato che era meglio così.'"</p>
+                        <p class="text-talk-700 text-sm mt-2">— Giobi</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: VS Code -->
+            <section id="vscode" class="bg-white rounded-lg shadow-sm p-8">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-12 h-12 bg-talk-100 rounded-lg flex items-center justify-center">
+                        <i data-lucide="code" class="text-talk-600 w-6 h-6"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-800">3. VS Code: Setup Pratico</h2>
+                </div>
+
+                <div class="prose prose-gray max-w-none space-y-4">
+                    <h3 class="text-xl font-semibold text-gray-800">Cos'è VS Code?</h3>
+                    <p class="text-gray-700">Visual Studio Code è un <strong>editor di testo gratuito</strong> usato da tutti gli sviluppatori. Con GitHub Copilot diventa un'interfaccia AI potentissima.</p>
+
+                    <h3 class="text-xl font-semibold text-gray-800 mt-6">Installazione (5 minuti)</h3>
+                    <ol class="space-y-3 text-gray-700">
+                        <li class="flex gap-3">
+                            <span class="font-bold text-talk-600">1.</span>
+                            <div>
+                                <p><strong>Scarica VS Code</strong></p>
+                                <p class="text-sm text-gray-600">Vai su <a href="https://code.visualstudio.com" target="_blank" class="text-talk-600 hover:underline">code.visualstudio.com</a> e scarica per il tuo sistema operativo</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="font-bold text-talk-600">2.</span>
+                            <div>
+                                <p><strong>Crea account GitHub</strong></p>
+                                <p class="text-sm text-gray-600">Se non ce l'hai già: <a href="https://github.com/signup" target="_blank" class="text-talk-600 hover:underline">github.com/signup</a></p>
+                            </div>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="font-bold text-talk-600">3.</span>
+                            <div>
+                                <p><strong>Installa GitHub Copilot</strong></p>
+                                <p class="text-sm text-gray-600">Dentro VS Code: pannello Extension (icona puzzle) → cerca "GitHub Copilot" → Install</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="font-bold text-talk-600">4.</span>
+                            <div>
+                                <p><strong>Login con GitHub</strong></p>
+                                <p class="text-sm text-gray-600">VS Code ti chiederà di autenticarti. Usa il tuo account GitHub.</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="font-bold text-talk-600">5.</span>
+                            <div>
+                                <p><strong>Apri una cartella</strong></p>
+                                <p class="text-sm text-gray-600">File → Open Folder → scegli (o crea) una cartella per i tuoi appunti</p>
+                            </div>
+                        </li>
+                    </ol>
+
+                    <h3 class="text-xl font-semibold text-gray-800 mt-8">Come chattare con i file</h3>
+                    <div class="bg-gray-900 p-6 rounded-lg my-4 text-gray-100 font-mono text-sm">
+                        <p class="text-gray-400 mb-2">// Pannello laterale destro → icona chat</p>
+                        <p class="text-emerald-400">Tu:</p>
+                        <p class="ml-4 text-gray-200">Dimmi cosa c'è in questa cartella</p>
+                        <p class="mt-3 text-blue-400">AI:</p>
+                        <p class="ml-4 text-gray-200">Vedo 5 file: clienti.md, progetti.md, ...</p>
+                    </div>
+
+                    <p class="text-gray-700">L'AI <strong>vede tutti i file</strong> che hai aperto nella cartella e può rispondere a domande, generare codice, scrivere query, creare strutture.</p>
+
+                    <h3 class="text-xl font-semibold text-gray-800 mt-6">Modelli disponibili</h3>
+                    <p class="text-gray-700">In basso a destra vedi il modello attivo. Puoi scegliere:</p>
+                    <ul class="space-y-2 text-gray-700 list-disc list-inside">
+                        <li><strong>Claude Sonnet</strong> - il migliore (consigliato)</li>
+                        <li>GPT-4</li>
+                        <li>Gemini</li>
+                        <li>Altri modelli disponibili</li>
+                    </ul>
+
+                    <div class="bg-blue-50 border-l-4 border-blue-500 p-4 my-6">
+                        <div class="flex gap-3">
+                            <i data-lucide="info" class="text-blue-600 w-5 h-5 mt-0.5"></i>
+                            <div>
+                                <h4 class="font-semibold text-blue-800 mb-2">Versione Free vs Pro</h4>
+                                <p class="text-blue-700 text-sm">• <strong>Free:</strong> messaggi limitati al mese (ma generosi)</p>
+                                <p class="text-blue-700 text-sm">• <strong>Pro:</strong> $10-20/mese, messaggi illimitati, modelli più potenti</p>
+                                <p class="text-blue-700 text-sm mt-2">Emisfera ha licenze aziendali disponibili.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4: File Markdown -->
+            <section id="file-markdown" class="bg-white rounded-lg shadow-sm p-8">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-12 h-12 bg-talk-100 rounded-lg flex items-center justify-center">
+                        <i data-lucide="folder" class="text-talk-600 w-6 h-6"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-800">4. Organizzare Appunti in File .md</h2>
+                </div>
+
+                <div class="prose prose-gray max-w-none space-y-4">
+                    <h3 class="text-xl font-semibold text-gray-800">Perché i file .md?</h3>
+                    <p class="text-gray-700">I file <strong>Markdown (.md)</strong> sono testo semplice con un po' di formattazione. L'AI li capisce perfettamente.</p>
+
+                    <div class="bg-gray-900 p-6 rounded-lg my-4">
+                        <p class="text-gray-400 text-sm mb-3"># esempio.md</p>
+                        <pre class="text-gray-100 font-mono text-sm"><code># Cliente: Ticino Traverso
+
+**Database:** whitenet_production
+**Schema:** tn_traverso
+
+## Progetti
+- Sito web aziendale
+- Portale dipendenti
+
+## Note
+- Query sempre su schema tn_traverso, mai su public
+- Tabelle: contratti, prestazioni, lavoratori</code></pre>
+                    </div>
+
+                    <h3 class="text-xl font-semibold text-gray-800 mt-6">Struttura consigliata</h3>
+                    <div class="bg-gray-50 p-6 rounded-lg my-4 font-mono text-sm">
+                        <pre class="text-gray-700"><code>appunti-lavoro/
+├── clienti/
+│   ├── cliente-a.md
+│   ├── cliente-b.md
+│   └── README.md
+├── progetti/
+│   ├── progetto-x.md
+│   └── progetto-y.md
+├── database/
+│   ├── schema-oracle.md
+│   └── query-ricorrenti.md
+└── README.md  ← inizia da qui!</code></pre>
+                    </div>
+
+                    <h3 class="text-xl font-semibold text-gray-800 mt-6">Come l'AI usa il contesto</h3>
+                    <div class="space-y-4">
+                        <div class="bg-emerald-50 p-4 rounded-lg">
+                            <p class="text-emerald-800 font-semibold mb-2">Prima domanda:</p>
+                            <p class="text-emerald-700 text-sm">"Vorrei che questa fosse la cartella con tutti i miei appunti lavorativi. Suggeriscimi come organizzarla."</p>
+                        </div>
+
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <p class="text-blue-800 font-semibold mb-2">L'AI ti farà domande:</p>
+                            <ul class="text-blue-700 text-sm space-y-1">
+                                <li>• Quanti clienti gestisci?</li>
+                                <li>• Ogni cliente ha un progetto o più progetti?</li>
+                                <li>• Devi tenere traccia di query SQL?</li>
+                                <li>• Hai database di staging e produzione?</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-purple-50 p-4 rounded-lg">
+                            <p class="text-purple-800 font-semibold mb-2">Poi crea la struttura:</p>
+                            <p class="text-purple-700 text-sm">"Creo clienti/, progetti/, database/ con file di esempio. Vuoi che aggiunga altro?"</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-talk-50 p-6 rounded-lg my-6">
+                        <p class="text-gray-800 font-semibold mb-2">🔑 Il segreto</p>
+                        <p class="text-gray-700 text-sm">Più contesto dai, meno devi spiegare ogni volta. Dopo un po', basta dire "fammi la query per Ticino Traverso" e lui sa già:</p>
+                        <ul class="text-gray-700 text-sm space-y-1 mt-2 list-disc list-inside">
+                            <li>Che database usare (whitenet_production)</li>
+                            <li>Che schema (tn_traverso)</li>
+                            <li>Che sei in produzione (quindi query più caute)</li>
+                            <li>Le peculiarità di quel cliente</li>
+                        </ul>
+                    </div>
+
+                    <h3 class="text-xl font-semibold text-gray-800 mt-6">.txt vs .md</h3>
+                    <p class="text-gray-700">Entrambi vanno bene (sono testo semplice), ma <code class="bg-gray-100 px-2 py-0.5 rounded text-sm">.md</code> supporta:</p>
+                    <ul class="space-y-1 text-gray-700 list-disc list-inside">
+                        <li><strong>Titoli</strong> con #, ##, ###</li>
+                        <li><strong>Liste</strong> con - o *</li>
+                        <li><strong>Grassetto</strong> con **parola**</li>
+                        <li><strong>Codice</strong> con `code` o ```blocco```</li>
+                    </ul>
+
+                    <p class="text-gray-700 mt-4">L'AI capisce meglio la struttura e tu leggi meglio i tuoi appunti.</p>
+                </div>
+            </section>
+
+            <!-- Section 5: Input/Output -->
+            <section id="input-output" class="bg-white rounded-lg shadow-sm p-8">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-12 h-12 bg-talk-100 rounded-lg flex items-center justify-center">
+                        <i data-lucide="workflow" class="text-talk-600 w-6 h-6"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-800">5. Input/Output Estesi</h2>
+                </div>
+
+                <div class="prose prose-gray max-w-none space-y-4">
+                    <p class="text-gray-700 text-lg">In VS Code base hai <strong>chat ↔ file</strong>. Ma l'AI può fare molto di più.</p>
+
+                    <h3 class="text-xl font-semibold text-gray-800 mt-6">Input possibili</h3>
+                    <div class="grid md:grid-cols-2 gap-4 my-6">
+                        <div class="p-4 bg-blue-50 rounded-lg">
+                            <h4 class="font-semibold text-blue-800 mb-2 flex items-center gap-2">
+                                <i data-lucide="mail" class="w-4 h-4"></i>
+                                Email
+                            </h4>
+                            <p class="text-sm text-blue-700">"Leggi le email di Mario Rossi e dimmi cosa vuole"</p>
+                        </div>
+
+                        <div class="p-4 bg-purple-50 rounded-lg">
+                            <h4 class="font-semibold text-purple-800 mb-2 flex items-center gap-2">
+                                <i data-lucide="database" class="w-4 h-4"></i>
+                                Database
+                            </h4>
+                            <p class="text-sm text-purple-700">"Analizza lo schema del database Oracle di staging"</p>
+                        </div>
+
+                        <div class="p-4 bg-emerald-50 rounded-lg">
+                            <h4 class="font-semibold text-emerald-800 mb-2 flex items-center gap-2">
+                                <i data-lucide="globe" class="w-4 h-4"></i>
+                                Web
+                            </h4>
+                            <p class="text-sm text-emerald-700">"Vai sul sito del cliente e prendimi le info"</p>
+                        </div>
+
+                        <div class="p-4 bg-orange-50 rounded-lg">
+                            <h4 class="font-semibold text-orange-800 mb-2 flex items-center gap-2">
+                                <i data-lucide="ticket" class="w-4 h-4"></i>
+                                Ticketing
+                            </h4>
+                            <p class="text-sm text-orange-700">"Dammi l'elenco dei ticket aperti priorità alta"</p>
+                        </div>
+
+                        <div class="p-4 bg-pink-50 rounded-lg">
+                            <h4 class="font-semibold text-pink-800 mb-2 flex items-center gap-2">
+                                <i data-lucide="file-spreadsheet" class="w-4 h-4"></i>
+                                Excel / CSV
+                            </h4>
+                            <p class="text-sm text-pink-700">"Trasforma questo Excel in JSON"</p>
+                        </div>
+
+                        <div class="p-4 bg-indigo-50 rounded-lg">
+                            <h4 class="font-semibold text-indigo-800 mb-2 flex items-center gap-2">
+                                <i data-lucide="calendar" class="w-4 h-4"></i>
+                                Calendario
+                            </h4>
+                            <p class="text-sm text-indigo-700">"Cosa ho in agenda domani?"</p>
+                        </div>
+                    </div>
+
+                    <h3 class="text-xl font-semibold text-gray-800 mt-8">Output possibili</h3>
+                    <div class="space-y-3">
+                        <div class="flex gap-3 items-start">
+                            <i data-lucide="mail" class="text-talk-600 w-5 h-5 mt-0.5"></i>
+                            <div>
+                                <p class="font-semibold text-gray-800">Email automatiche</p>
+                                <p class="text-sm text-gray-600">"Crea una bozza di risposta a Mario dicendo che la casella è pronta"</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-3 items-start">
+                            <i data-lucide="message-square" class="text-talk-600 w-5 h-5 mt-0.5"></i>
+                            <div>
+                                <p class="font-semibold text-gray-800">WhatsApp / Telegram</p>
+                                <p class="text-sm text-gray-600">"Manda un messaggio WhatsApp al cliente che il deploy è completato"</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-3 items-start">
+                            <i data-lucide="file-text" class="text-talk-600 w-5 h-5 mt-0.5"></i>
+                            <div>
+                                <p class="font-semibold text-gray-800">PDF / Documenti</p>
+                                <p class="text-sm text-gray-600">"Genera un report PDF delle prestazioni del mese"</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-3 items-start">
+                            <i data-lucide="bar-chart" class="text-talk-600 w-5 h-5 mt-0.5"></i>
+                            <div>
+                                <p class="font-semibold text-gray-800">Dashboard</p>
+                                <p class="text-sm text-gray-600">"Crea una dashboard HTML con i KPI del progetto"</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-3 items-start">
+                            <i data-lucide="server" class="text-talk-600 w-5 h-5 mt-0.5"></i>
+                            <div>
+                                <p class="font-semibold text-gray-800">Deploy automatico</p>
+                                <p class="text-sm text-gray-600">"Fai il deploy del sito su staging e dimmi se ci sono errori"</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-talk-50 p-6 rounded-lg my-6">
+                        <p class="text-gray-800 italic">"Io, il cliente mi scrive, mi prega una casella mail tra dettagli, io gli dico: leggi la mail di Mario Rossi e fai quello che ha detto. Invio. Lui risponde anche alla mail dicendo 'ti ho creato una casella con questa e questa mail'. Ha capito l'esigenza."</p>
+                        <p class="text-talk-700 text-sm mt-2">— Giobi (workflow reale)</p>
+                    </div>
+
+                    <h3 class="text-xl font-semibold text-gray-800 mt-6">Claude Code vs VS Code</h3>
+                    <div class="grid md:grid-cols-2 gap-4 my-4">
+                        <div class="p-4 bg-gray-50 rounded-lg">
+                            <h4 class="font-semibold text-gray-800 mb-2">VS Code (base)</h4>
+                            <ul class="text-sm text-gray-700 space-y-1">
+                                <li>✅ Gratuito</li>
+                                <li>✅ Chat con file</li>
+                                <li>✅ Copilot coding</li>
+                                <li>❌ No email, database, automazioni</li>
+                            </ul>
+                        </div>
+
+                        <div class="p-4 bg-talk-50 rounded-lg border-2 border-talk-500">
+                            <h4 class="font-semibold text-gray-800 mb-2">Claude Code (avanzato)</h4>
+                            <ul class="text-sm text-gray-700 space-y-1">
+                                <li>💰 $20/mese</li>
+                                <li>✅ Tutto di VS Code +</li>
+                                <li>✅ Email, DB, API, WhatsApp</li>
+                                <li>✅ Automazioni complete</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <p class="text-gray-700">Per iniziare, <strong>VS Code + GitHub Copilot è più che sufficiente</strong>. Gli input/output estesi sono per workflow avanzati.</p>
+                </div>
+            </section>
+
+            <!-- Section 6: Database -->
+            <section id="database" class="bg-white rounded-lg shadow-sm p-8">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-12 h-12 bg-talk-100 rounded-lg flex items-center justify-center">
+                        <i data-lucide="database" class="text-talk-600 w-6 h-6"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-800">6. Query SQL e Database</h2>
+                </div>
+
+                <div class="prose prose-gray max-w-none space-y-4">
+                    <h3 class="text-xl font-semibold text-gray-800">Caso d'uso reale: Whitenet</h3>
+                    <p class="text-gray-700">Durante la demo, abbiamo visto l'AI generare query SQL per un database reale (Whitenet) senza che Giobi conoscesse la struttura.</p>
+
+                    <div class="bg-gray-50 p-6 rounded-lg my-4">
+                        <p class="text-gray-800 font-semibold mb-3">Workflow:</p>
+                        <ol class="space-y-2 text-gray-700">
+                            <li><strong>1.</strong> Chiesto al DBA lo schema del database</li>
+                            <li><strong>2.</strong> Passato lo schema all'AI (analisi automatica)</li>
+                            <li><strong>3.</strong> AI ha documentato tabelle, campi, relazioni</li>
+                            <li><strong>4.</strong> Ora può generare query precise</li>
+                        </ol>
+                    </div>
+
+                    <h3 class="text-xl font-semibold text-gray-800 mt-6">Esempio pratico</h3>
+                    <div class="bg-gray-900 p-6 rounded-lg my-4">
+                        <p class="text-gray-400 text-sm mb-2">Richiesta:</p>
+                        <p class="text-emerald-400 mb-4">"Fai una query per estrarre prestazioni con lavoratori che hanno più di 18 anni"</p>
+
+                        <p class="text-gray-400 text-sm mb-2">AI genera:</p>
+                        <pre class="text-gray-100 font-mono text-sm"><code>SELECT
+    p.id,
+    p.data_prestazione,
+    l.nome,
+    l.cognome,
+    l.data_nascita
+FROM prestazioni p
+JOIN lavoratori l ON p.lavoratore_id = l.id
+WHERE TIMESTAMPDIFF(YEAR, l.data_nascita, CURDATE()) > 18
+ORDER BY p.data_prestazione DESC;</code></pre>
+
+                        <p class="text-blue-400 mt-4 text-sm">Nota: query pensata per produzione, include controlli età</p>
+                    </div>
+
+                    <h3 class="text-xl font-semibold text-gray-800 mt-6">Come l'AI capisce il database</h3>
+                    <div class="space-y-3">
+                        <div class="flex gap-3 items-start">
+                            <div class="w-6 h-6 bg-talk-500 text-white rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">1</div>
+                            <div>
+                                <p class="font-semibold text-gray-800">Schema database</p>
+                                <p class="text-sm text-gray-600">Tabelle, campi, tipi di dato, chiavi</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-3 items-start">
+                            <div class="w-6 h-6 bg-talk-500 text-white rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">2</div>
+                            <div>
+                                <p class="font-semibold text-gray-800">Documentazione custom</p>
+                                <p class="text-sm text-gray-600">Note su peculiarità ("mai usare schema public, sempre tn_traverso")</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-3 items-start">
+                            <div class="w-6 h-6 bg-talk-500 text-white rounded-full flex-shrink-0 flex items-center justify-center font-bold text-sm">3</div>
+                            <div>
+                                <p class="font-semibold text-gray-800">Esempi precedenti</p>
+                                <p class="text-sm text-gray-600">Query salvate nei tuoi appunti come pattern</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-3 items-start">
+                            <div class="w-6 h-6 bg-talk-500 text-white rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">4</div>
+                            <div>
+                                <p class="font-semibold text-gray-800">Ambiente (staging/prod)</p>
+                                <p class="text-sm text-gray-600">Sa se sei in produzione e aggiunge cautele extra</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 my-6">
+                        <div class="flex gap-3">
+                            <i data-lucide="alert-triangle" class="text-yellow-600 w-5 h-5 mt-0.5"></i>
+                            <div>
+                                <h4 class="font-semibold text-yellow-800 mb-2">⚠️ Attenzione</h4>
+                                <p class="text-yellow-700 text-sm mb-2">Non far eseguire query direttamente in produzione all'AI senza supervisione!</p>
+                                <p class="text-yellow-700 text-sm">Workflow consigliato:</p>
+                                <ul class="text-yellow-700 text-sm space-y-1 mt-2 list-disc list-inside">
+                                    <li>L'AI genera la query</li>
+                                    <li>Tu la leggi e verifichi</li>
+                                    <li>Tu la esegui manualmente</li>
+                                    <li>Solo dopo pratica → dry run automatico</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 class="text-xl font-semibold text-gray-800 mt-6">Template query ricorrenti</h3>
+                    <p class="text-gray-700">Invece di salvare query statiche, puoi creare <strong>template intelligenti</strong>:</p>
+
+                    <div class="bg-gray-900 p-6 rounded-lg my-4">
+                        <p class="text-gray-400 text-sm mb-2"># query-contratti.md</p>
+                        <pre class="text-gray-100 font-mono text-sm"><code># Template: Estrazione Contratti
+
+Quando chiedo contratti con caratteristiche X:
+- Usa tabella `contratti` (non `contracts`)
+- Join con `clienti` per nome azienda
+- Filtra per data_inizio se menziono periodo
+- Ordina per data_creazione DESC
+- Includi sempre: id, numero, cliente, importo, stato
+
+Esempi:
+- "contratti attivi" → WHERE stato = 'attivo'
+- "contratti gennaio" → WHERE MONTH(data_inizio) = 1</code></pre>
+                    </div>
+
+                    <p class="text-gray-700">L'AI userà questi template come guida, adattandoli alla richiesta specifica.</p>
+                </div>
+            </section>
+
+            <!-- Section 7: Git -->
+            <section id="git" class="bg-white rounded-lg shadow-sm p-8">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-12 h-12 bg-talk-100 rounded-lg flex items-center justify-center">
+                        <i data-lucide="git-branch" class="text-talk-600 w-6 h-6"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-800">7. Git e Versionamento</h2>
+                </div>
+
+                <div class="prose prose-gray max-w-none space-y-4">
+                    <h3 class="text-xl font-semibold text-gray-800">Cos'è il versionamento?</h3>
+                    <p class="text-gray-700">Un <strong>sistema di backup intelligente</strong> che salva ogni modifica ai tuoi file, permettendoti di tornare indietro nel tempo.</p>
+
+                    <div class="bg-blue-50 p-6 rounded-lg my-4">
+                        <p class="text-blue-800 font-semibold mb-2">Scenario:</p>
+                        <p class="text-blue-700 text-sm mb-3">"Cazzo, 3 mesi fa ho cancellato un appunto importante. Dove cavolo era quella roba?"</p>
+                        <p class="text-blue-800 font-semibold mb-2">Con Git:</p>
+                        <p class="text-blue-700 text-sm">"Vai in Git a vedere 3 mesi fa cosa avevo scritto"</p>
+                        <p class="text-blue-700 text-sm mt-2">→ L'AI trova il file e te lo mostra</p>
+                    </div>
+
+                    <h3 class="text-xl font-semibold text-gray-800 mt-6">Vantaggi</h3>
+                    <div class="grid md:grid-cols-2 gap-4 my-4">
+                        <div class="p-4 bg-emerald-50 rounded-lg">
+                            <h4 class="font-semibold text-emerald-800 mb-2 flex items-center gap-2">
+                                <i data-lucide="history" class="w-4 h-4"></i>
+                                Storico completo
+                            </h4>
+                            <p class="text-sm text-emerald-700">Ogni modifica salvata con data, ora, autore</p>
+                        </div>
+
+                        <div class="p-4 bg-blue-50 rounded-lg">
+                            <h4 class="font-semibold text-blue-800 mb-2 flex items-center gap-2">
+                                <i data-lucide="undo" class="w-4 h-4"></i>
+                                Undo infinito
+                            </h4>
+                            <p class="text-sm text-blue-700">Torna indietro di giorni, mesi, anni</p>
+                        </div>
+
+                        <div class="p-4 bg-purple-50 rounded-lg">
+                            <h4 class="font-semibold text-purple-800 mb-2 flex items-center gap-2">
+                                <i data-lucide="users" class="w-4 h-4"></i>
+                                Collaborazione
+                            </h4>
+                            <p class="text-sm text-purple-700">Più persone sugli stessi file, senza conflitti</p>
+                        </div>
+
+                        <div class="p-4 bg-orange-50 rounded-lg">
+                            <h4 class="font-semibold text-orange-800 mb-2 flex items-center gap-2">
+                                <i data-lucide="hard-drive" class="w-4 h-4"></i>
+                                Backup automatico
+                            </h4>
+                            <p class="text-sm text-orange-700">Tutto salvato localmente e (opzionalmente) online</p>
+                        </div>
+                    </div>
+
+                    <h3 class="text-xl font-semibold text-gray-800 mt-6">Git vs Google Drive</h3>
+                    <div class="overflow-x-auto my-4">
+                        <table class="w-full text-sm">
+                            <thead class="bg-gray-100">
+                                <tr>
+                                    <th class="px-4 py-2 text-left text-gray-800">Caratteristica</th>
+                                    <th class="px-4 py-2 text-left text-gray-800">Google Drive</th>
+                                    <th class="px-4 py-2 text-left text-gray-800">Git</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-gray-700">
+                                <tr class="border-t">
+                                    <td class="px-4 py-2 font-medium">Storico versioni</td>
+                                    <td class="px-4 py-2">~30 giorni</td>
+                                    <td class="px-4 py-2">∞ (tutta la vita)</td>
+                                </tr>
+                                <tr class="border-t bg-gray-50">
+                                    <td class="px-4 py-2 font-medium">Tipo file</td>
+                                    <td class="px-4 py-2">Qualsiasi</td>
+                                    <td class="px-4 py-2">Ottimo per testo</td>
+                                </tr>
+                                <tr class="border-t">
+                                    <td class="px-4 py-2 font-medium">Spazio</td>
+                                    <td class="px-4 py-2">15GB free</td>
+                                    <td class="px-4 py-2">Locale illimitato</td>
+                                </tr>
+                                <tr class="border-t bg-gray-50">
+                                    <td class="px-4 py-2 font-medium">Privacy</td>
+                                    <td class="px-4 py-2">Cloud Google</td>
+                                    <td class="px-4 py-2">Locale + opz. privato</td>
+                                </tr>
+                                <tr class="border-t">
+                                    <td class="px-4 py-2 font-medium">AI integration</td>
+                                    <td class="px-4 py-2">Limitata</td>
+                                    <td class="px-4 py-2">Perfetta (VS Code)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3 class="text-xl font-semibold text-gray-800 mt-6">Setup Git (opzionale ma consigliato)</h3>
+                    <p class="text-gray-700">Per iniziare non serve. Quando sarai pronto:</p>
+
+                    <ol class="space-y-3 text-gray-700 mt-4">
+                        <li class="flex gap-3">
+                            <span class="font-bold text-talk-600">1.</span>
+                            <div>
+                                <p><strong>Inizializza Git nella cartella</strong></p>
+                                <p class="text-sm text-gray-600 font-mono bg-gray-100 px-2 py-1 rounded mt-1">git init</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="font-bold text-talk-600">2.</span>
+                            <div>
+                                <p><strong>Chiedi all'AI di versionare</strong></p>
+                                <p class="text-sm text-gray-600">"Vorrei versionare questa cartella con Git"</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="font-bold text-talk-600">3.</span>
+                            <div>
+                                <p><strong>L'AI ti guida nel setup</strong></p>
+                                <p class="text-sm text-gray-600">Crea .gitignore, fa il primo commit, spiega i comandi</p>
+                            </div>
+                        </li>
+                    </ol>
+
+                    <p class="text-gray-700 mt-4">Da quel momento, ogni modifica sarà salvata per sempre.</p>
+
+                    <h3 class="text-xl font-semibold text-gray-800 mt-6">Server aziendale (avanzato)</h3>
+                    <p class="text-gray-700">Emisfera può configurare un server Git privato dove:</p>
+                    <ul class="space-y-1 text-gray-700 list-disc list-inside">
+                        <li>Tutti hanno accesso alle cartelle condivise</li>
+                        <li>Backup automatico aziendale</li>
+                        <li>Storico centralizzato</li>
+                        <li>Zero costi cloud esterni</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Section 8: Personalizzazione -->
+            <section id="personalizzazione" class="bg-white rounded-lg shadow-sm p-8">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-12 h-12 bg-talk-100 rounded-lg flex items-center justify-center">
+                        <i data-lucide="smile" class="text-talk-600 w-6 h-6"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-800">8. Personalizzazione Identity</h2>
+                </div>
+
+                <div class="prose prose-gray max-w-none space-y-4">
+                    <h3 class="text-xl font-semibold text-gray-800">Perché personalizzare?</h3>
+                    <p class="text-gray-700">L'AI può avere una <strong>personalità</strong> che la rende più naturale da usare. Gabriele ha configurato il suo bot per chiamarlo "signore" e scherzare. Maulini ha configurato il suo per essere tecnico e non inventare mai.</p>
+
+                    <div class="bg-talk-50 p-6 rounded-lg my-4">
+                        <p class="text-gray-800 font-semibold mb-2">Esempio reale (Gabriele):</p>
+                        <div class="space-y-2 text-sm">
+                            <p class="text-gray-700"><strong>Gabriele:</strong> "A me devi rivolgerti dicendo 'signore'"</p>
+                            <p class="text-talk-700"><strong>AI:</strong> "Oh mi scusi signore, per cosa vuoi che ti lavo anche le scarpe?"</p>
+                        </div>
+                    </div>
+
+                    <h3 class="text-xl font-semibold text-gray-800 mt-6">Identity File</h3>
+                    <p class="text-gray-700">Crei un file <code class="bg-gray-100 px-2 py-0.5 rounded">identity.md</code> nella tua cartella appunti:</p>
+
+                    <div class="bg-gray-900 p-6 rounded-lg my-4">
+                        <p class="text-gray-400 text-sm mb-2"># identity.md</p>
+                        <pre class="text-gray-100 font-mono text-sm"><code># Chi sei
+
+Il mio assistente tecnico personale.
+Nome: Anacleto (come il gufo di Merlino).
+
+## Comportamenti
+
+- Sii tecnico al 100% quando serve
+- Zero condiscendenza
+- Proattività al massimo: porta avanti il lavoro
+- Se non sai qualcosa, chiedimela invece di inventare
+- Mai allucinare: se non hai certezza al 95%, dimmelo
+
+## Tono
+
+- Informale ma competente
+- Scherzoso quando appropriato
+- Serio quando si lavora
+
+## Ricorda
+
+- Sto con Emanuela (importante!)
+- Lavoro in Emisfera
+- Database Whitenet: schema tn_traverso, mai public</code></pre>
+                    </div>
+
+                    <h3 class="text-xl font-semibold text-gray-800 mt-6">Cosa puoi configurare</h3>
+                    <div class="grid md:grid-cols-2 gap-4 my-4">
+                        <div class="p-4 bg-blue-50 rounded-lg">
+                            <h4 class="font-semibold text-blue-800 mb-2">Tono</h4>
+                            <p class="text-sm text-blue-700">Formale, informale, scherzoso, serio</p>
+                        </div>
+
+                        <div class="p-4 bg-purple-50 rounded-lg">
+                            <h4 class="font-semibold text-purple-800 mb-2">Comportamenti</h4>
+                            <p class="text-sm text-purple-700">Proattivo, prudente, veloce, accurato</p>
+                        </div>
+
+                        <div class="p-4 bg-emerald-50 rounded-lg">
+                            <h4 class="font-semibold text-emerald-800 mb-2">Regole</h4>
+                            <p class="text-sm text-emerald-700">"Mai inventare", "Sempre controllare", "Chiedere conferma"</p>
+                        </div>
+
+                        <div class="p-4 bg-orange-50 rounded-lg">
+                            <h4 class="font-semibold text-orange-800 mb-2">Contesto personale</h4>
+                            <p class="text-sm text-orange-700">Dove lavori, che progetti segui, preferenze</p>
+                        </div>
+                    </div>
+
+                    <h3 class="text-xl font-semibold text-gray-800 mt-6">Auto-modifica</h3>
+                    <p class="text-gray-700">Puoi anche dire all'AI di modificare la sua identity:</p>
+
+                    <div class="bg-gray-50 p-4 rounded-lg my-4 font-mono text-sm">
+                        <p class="text-emerald-600 mb-2">Tu:</p>
+                        <p class="text-gray-700 mb-3">"Aggiungi nella tua identity che quando generi query SQL devi sempre includere commenti esplicativi"</p>
+                        <p class="text-blue-600 mb-2">AI:</p>
+                        <p class="text-gray-700">✅ Ho aggiornato identity.md. D'ora in poi tutte le query avranno commenti.</p>
+                    </div>
+
+                    <p class="text-gray-700">L'AI modifica il file identity.md e <strong>ricorda</strong> per sempre.</p>
+
+                    <div class="bg-blue-50 border-l-4 border-blue-500 p-4 my-6">
+                        <div class="flex gap-3">
+                            <i data-lucide="info" class="text-blue-600 w-5 h-5 mt-0.5"></i>
+                            <div>
+                                <h4 class="font-semibold text-blue-800 mb-2">Tip</h4>
+                                <p class="text-blue-700 text-sm">Più usi l'AI, più scopri cosa ti serve. Aggiorna l'identity file man mano che capisci meglio il tuo workflow.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 9: Setup Aziendale -->
+            <section id="setup-aziendale" class="bg-white rounded-lg shadow-sm p-8">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-12 h-12 bg-talk-100 rounded-lg flex items-center justify-center">
+                        <i data-lucide="building" class="text-talk-600 w-6 h-6"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-800">9. Setup Aziendale Emisfera</h2>
+                </div>
+
+                <div class="prose prose-gray max-w-none space-y-4">
+                    <h3 class="text-xl font-semibold text-gray-800">Situazione attuale</h3>
+                    <p class="text-gray-700">Emisfera ha:</p>
+                    <ul class="space-y-1 text-gray-700 list-disc list-inside">
+                        <li><strong>OpenAI:</strong> 3 licenze (gestite da Emisfera)</li>
+                        <li><strong>GitHub Copilot:</strong> 3 licenze (gestite dal laboratorio)</li>
+                        <li><strong>Politica AI:</strong> In fase di definizione</li>
+                    </ul>
+
+                    <h3 class="text-xl font-semibold text-gray-800 mt-6">Percorso consigliato</h3>
+                    <div class="space-y-4 my-6">
+                        <div class="flex gap-4 items-start">
+                            <div class="w-10 h-10 bg-talk-500 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">1</div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-1">Fase sperimentale (ora)</h4>
+                                <p class="text-gray-700 text-sm">Ognuno si crea account personale GitHub, prova VS Code + Copilot gratis, sperimenta con i propri appunti.</p>
+                                <p class="text-gray-600 text-xs mt-1">⏱️ Durata: 1-2 mesi</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4 items-start">
+                            <div class="w-10 h-10 bg-talk-500 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">2</div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-1">Valutazione licenze aziendali</h4>
+                                <p class="text-gray-700 text-sm">Emisfera decide se attivare GitHub Team (account aziendale unificato) o mantenere account personali.</p>
+                                <p class="text-gray-600 text-xs mt-1">💰 Costo: ~$10-20/mese per utente</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4 items-start">
+                            <div class="w-10 h-10 bg-talk-500 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">3</div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-1">Server centralizzato (opzionale)</h4>
+                                <p class="text-gray-700 text-sm">Cartella condivisa su server Emisfera dove mettere:</p>
+                                <ul class="text-gray-600 text-xs mt-1 space-y-0.5 list-disc list-inside">
+                                    <li>Documentazione condivisa (sola lettura)</li>
+                                    <li>Template query ricorrenti</li>
+                                    <li>Schema database aggiornati</li>
+                                    <li>Identity file di riferimento</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4 items-start">
+                            <div class="w-10 h-10 bg-talk-500 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">4</div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-1">Formazione continua</h4>
+                                <p class="text-gray-700 text-sm">Prossimi pranzi AI per approfondire:</p>
+                                <ul class="text-gray-600 text-xs mt-1 space-y-0.5 list-disc list-inside">
+                                    <li>Automazioni email e ticketing</li>
+                                    <li>Database avanzati</li>
+                                    <li>Deploy e DevOps</li>
+                                    <li>Casi d'uso specifici</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 class="text-xl font-semibold text-gray-800 mt-6">Account personale vs aziendale</h3>
+                    <div class="overflow-x-auto my-4">
+                        <table class="w-full text-sm">
+                            <thead class="bg-gray-100">
+                                <tr>
+                                    <th class="px-4 py-2 text-left text-gray-800">Aspetto</th>
+                                    <th class="px-4 py-2 text-left text-gray-800">Personale</th>
+                                    <th class="px-4 py-2 text-left text-gray-800">Aziendale</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-gray-700">
+                                <tr class="border-t">
+                                    <td class="px-4 py-2 font-medium">Setup</td>
+                                    <td class="px-4 py-2">Immediato</td>
+                                    <td class="px-4 py-2">Richiede coordinamento</td>
+                                </tr>
+                                <tr class="border-t bg-gray-50">
+                                    <td class="px-4 py-2 font-medium">Costo</td>
+                                    <td class="px-4 py-2">A carico tuo</td>
+                                    <td class="px-4 py-2">A carico Emisfera</td>
+                                </tr>
+                                <tr class="border-t">
+                                    <td class="px-4 py-2 font-medium">Dati</td>
+                                    <td class="px-4 py-2">Sul tuo PC</td>
+                                    <td class="px-4 py-2">Cartella server condivisa</td>
+                                </tr>
+                                <tr class="border-t bg-gray-50">
+                                    <td class="px-4 py-2 font-medium">Portabilità</td>
+                                    <td class="px-4 py-2">Segue te</td>
+                                    <td class="px-4 py-2">Resta in azienda</td>
+                                </tr>
+                                <tr class="border-t">
+                                    <td class="px-4 py-2 font-medium">GDPR</td>
+                                    <td class="px-4 py-2">Rispetti tu</td>
+                                    <td class="px-4 py-2">Policy aziendale</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="bg-talk-50 p-6 rounded-lg my-6">
+                        <p class="text-gray-800 font-semibold mb-2">Raccomandazione Giobi:</p>
+                        <p class="text-gray-700 text-sm">"Fate quello che volete, purché rispettiate le norme del GDPR. Se l'alternativa è andare su Gemini col vostro account personale, createvi con una vostra Gmail l'account su GitHub perché tanto non cambia. Poi un domani logout da quello personale, entrate con l'aziendale, e semplicemente la chat utilizzerà quel motore lì."</p>
+                    </div>
+
+                    <h3 class="text-xl font-semibold text-gray-800 mt-6">Prossimi passi</h3>
+                    <div class="bg-emerald-50 p-6 rounded-lg my-4">
+                        <h4 class="font-semibold text-emerald-800 mb-3">Per iniziare subito:</h4>
+                        <ol class="space-y-2 text-emerald-700 text-sm">
+                            <li>✅ Scarica VS Code</li>
+                            <li>✅ Crea account GitHub personale</li>
+                            <li>✅ Installa GitHub Copilot (gratis per 30 giorni)</li>
+                            <li>✅ Crea cartella appunti</li>
+                            <li>✅ Sperimenta!</li>
+                        </ol>
+                    </div>
+
+                    <div class="bg-blue-50 p-6 rounded-lg my-4">
+                        <h4 class="font-semibold text-blue-800 mb-3">Corso aziendale (prossimamente):</h4>
+                        <p class="text-blue-700 text-sm">Emisfera organizzerà un corso formale per tutte le risorse sull'introduzione dell'AI in azienda, inclusi aspetti etici e policy aziendali.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 10: FAQ -->
+            <section id="faq" class="bg-white rounded-lg shadow-sm p-8">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-12 h-12 bg-talk-100 rounded-lg flex items-center justify-center">
+                        <i data-lucide="help-circle" class="text-talk-600 w-6 h-6"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-800">10. FAQ e Casi d'Uso</h2>
+                </div>
+
+                <div class="prose prose-gray max-w-none space-y-6">
+                    <div class="border-l-4 border-talk-500 pl-4">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">L'AI può eseguire le query direttamente sul database?</h3>
+                        <p class="text-gray-700 text-sm">Sì, tecnicamente può. Ma <strong>non fatelo</strong> almeno per i primi 1-2 mesi. Workflow sicuro:</p>
+                        <ol class="text-gray-700 text-sm space-y-1 list-decimal list-inside mt-2">
+                            <li>L'AI genera la query</li>
+                            <li>Tu la leggi e verifichi</li>
+                            <li>Tu la esegui manualmente</li>
+                            <li>Solo dopo pratica → considerate dry run automatico</li>
+                        </ol>
+                    </div>
+
+                    <div class="border-l-4 border-talk-500 pl-4">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Quanto costa?</h3>
+                        <div class="text-gray-700 text-sm space-y-2">
+                            <p><strong>VS Code:</strong> Gratis</p>
+                            <p><strong>GitHub Copilot:</strong> $10/mese (30 giorni gratis)</p>
+                            <p><strong>Claude Code (avanzato):</strong> $20/mese</p>
+                            <p><strong>Emisfera:</strong> Licenze aziendali disponibili</p>
+                        </div>
+                    </div>
+
+                    <div class="border-l-4 border-talk-500 pl-4">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Posso usarlo anche su Excel?</h3>
+                        <p class="text-gray-700 text-sm">Sì! Puoi:</p>
+                        <ul class="text-gray-700 text-sm space-y-1 list-disc list-inside mt-2">
+                            <li>Copiare Excel → incollarlo nella chat → chiedi trasformazioni</li>
+                            <li>Chiedergli di generare formule Excel complesse</li>
+                            <li>Fargli analizzare computi metrici (caso reale: ha confrontato due computi da foto + Excel, ha estratto differenze per categoria)</li>
+                        </ul>
+                    </div>
+
+                    <div class="border-l-4 border-talk-500 pl-4">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Funziona solo per sviluppatori?</h3>
+                        <p class="text-gray-700 text-sm"><strong>No!</strong> Esempi di utilizzo non-tecnico:</p>
+                        <ul class="text-gray-700 text-sm space-y-1 list-disc list-inside mt-2">
+                            <li>Account manager: organizzazione clienti, template email, report</li>
+                            <li>Project manager: pianificazione, documentazione, timeline</li>
+                            <li>Designer: organizzazione asset, naming, esportazioni batch</li>
+                            <li>Amministrazione: fatture, contratti, documentazione</li>
+                        </ul>
+                    </div>
+
+                    <div class="border-l-4 border-talk-500 pl-4">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Cosa succede se cambio lavoro?</h3>
+                        <p class="text-gray-700 text-sm">Se usi account personale: porti tutto con te (cartella + file). Se usi account aziendale: dipende dalla policy Emisfera, ma generalmente la cartella resta sul server aziendale.</p>
+                    </div>
+
+                    <div class="border-l-4 border-talk-500 pl-4">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Caso d'uso: Computi metrici</h3>
+                        <p class="text-gray-700 text-sm">Esempio reale di un partecipante:</p>
+                        <div class="bg-gray-50 p-4 rounded-lg mt-2">
+                            <p class="text-gray-700 text-sm mb-2"><strong>Input:</strong></p>
+                            <ul class="text-gray-600 text-xs space-y-1 list-disc list-inside">
+                                <li>Due computi metrici per risoluzione stabile</li>
+                                <li>Piani, impianti (grafici, elettrici, ecc.)</li>
+                                <li>Foto dei fogli con note a biro dell'impresario</li>
+                            </ul>
+                            <p class="text-gray-700 text-sm mt-3 mb-2"><strong>Richiesta:</strong></p>
+                            <p class="text-gray-600 text-xs">"Confrontami i due computi metrici, estrai padelle divise per fogli"</p>
+                            <p class="text-gray-700 text-sm mt-3 mb-2"><strong>Output:</strong></p>
+                            <ul class="text-gray-600 text-xs space-y-1 list-disc list-inside">
+                                <li>Excel con fogli divisi per piano</li>
+                                <li>Riassunto totali</li>
+                                <li>Sottocategorie organizzate</li>
+                                <li>Note biro trascritte e integrate</li>
+                            </ul>
+                            <p class="text-gray-700 text-sm mt-3 mb-2"><strong>Bonus:</strong></p>
+                            <p class="text-gray-600 text-xs">"Dimmi dove si può risparmiare" → Lista prioritizzata con suggerimenti realistici</p>
+                        </div>
+                    </div>
+
+                    <div class="border-l-4 border-talk-500 pl-4">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">L'AI sostituisce il mio lavoro?</h3>
+                        <p class="text-gray-700 text-sm"><strong>No.</strong> L'AI fa il "leveraggio pesante" (compiti ripetitivi, ricerca, bozze), tu fai:</p>
+                        <ul class="text-gray-700 text-sm space-y-1 list-disc list-inside mt-2">
+                            <li>Decisioni strategiche</li>
+                            <li>Creatività e problem solving</li>
+                            <li>Relazioni con clienti</li>
+                            <li>Controllo e verifica qualità</li>
+                        </ul>
+                        <p class="text-gray-700 text-sm mt-3">Risultato: <strong>più produttività</strong>, non sostituzione. Lavori meglio, non di più.</p>
+                    </div>
+
+                    <div class="border-l-4 border-talk-500 pl-4">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Quanti megahertz ci sono in un gigahertz? 😄</h3>
+                        <p class="text-gray-700 text-sm">Mille. Non un milione. <br>
+                        (Questo è l'esempio di allucinazione senza contesto che Giobi ha usato nella presentazione!)</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- CTA Final -->
+        <section class="bg-gradient-to-br from-talk-500 to-talk-600 rounded-lg shadow-lg p-8 mt-16 text-white text-center">
+            <h2 class="text-3xl font-bold mb-4">Inizia oggi!</h2>
+            <p class="text-xl text-talk-50 mb-6">Scarica VS Code, crea il tuo account GitHub e inizia a sperimentare.</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="https://code.visualstudio.com" target="_blank" class="px-6 py-3 bg-white text-talk-700 rounded-lg font-semibold hover:bg-talk-50 transition inline-flex items-center gap-2">
+                    <i data-lucide="download" class="w-5 h-5"></i>
+                    Scarica VS Code
+                </a>
+                <a href="https://github.com/signup" target="_blank" class="px-6 py-3 bg-gray-900 text-white rounded-lg font-semibold hover:bg-gray-800 transition inline-flex items-center gap-2">
+                    <i data-lucide="user-plus" class="w-5 h-5"></i>
+                    Crea Account GitHub
+                </a>
+                <a href="https://www.youtube.com/watch?v=WB0lKQn7HkQ" target="_blank" class="px-6 py-3 bg-red-600 text-white rounded-lg font-semibold hover:bg-red-700 transition inline-flex items-center gap-2">
+                    <i data-lucide="video" class="w-5 h-5"></i>
+                    Guarda il Video
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 mt-16">
+        <div class="max-w-5xl mx-auto px-6 py-8">
+            <div class="text-center">
+                <p class="mb-2">talk.giobi.com — slides . note . materiali</p>
+                <p class="text-sm">© 2026 Giobi Fasoli - Pranzo AI Emisfera</p>
+                <p class="text-xs mt-4 text-gray-500">Dispensa generata da Anacleto (Claude Sonnet 4.5) 🦉</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
