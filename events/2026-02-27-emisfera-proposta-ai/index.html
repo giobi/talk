@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain AI - Proposta Adozione Emisfera</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif; }
+        .slide { scroll-margin-top: 2rem; }
+    </style>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        talk: {
+                            50: '#fffbeb', 100: '#fef3c7', 200: '#fde68a', 300: '#fcd34d',
+                            400: '#fbbf24', 500: '#f59e0b', 600: '#d97706', 700: '#b45309',
+                            800: '#92400e', 900: '#78350f'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Header -->
+    <header class="bg-gray-900 text-white">
+        <div class="max-w-4xl mx-auto px-6 py-8">
+            <div class="flex items-center gap-2 text-sm text-gray-400 mb-4">
+                <a href="https://talk.giobi.com" class="hover:text-talk-500 transition">talk.giobi.com</a>
+                <span>/</span>
+                <span>proposta</span>
+            </div>
+
+            <h1 class="text-4xl font-semibold mb-2">Brain AI - Proposta Adozione</h1>
+            <p class="text-xl text-gray-300">Assistenti AI contestuali per Emisfera</p>
+            <p class="text-gray-400 mt-4">Febbraio 2026 &mdash; Giobi Fasoli</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white border-b border-gray-200 sticky top-0 z-10">
+        <div class="max-w-4xl mx-auto px-6 py-3 flex gap-4 overflow-x-auto text-sm">
+            <a href="#cosa" class="text-gray-600 hover:text-talk-600 whitespace-nowrap transition">Cos'e</a>
+            <a href="#architettura" class="text-gray-600 hover:text-talk-600 whitespace-nowrap transition">Architettura</a>
+            <a href="#casi" class="text-gray-600 hover:text-talk-600 whitespace-nowrap transition">Casi d'uso</a>
+            <a href="#security" class="text-gray-600 hover:text-talk-600 whitespace-nowrap transition">Security</a>
+            <a href="#costi" class="text-gray-600 hover:text-talk-600 whitespace-nowrap transition">Costi</a>
+            <a href="#proposta" class="text-gray-600 hover:text-talk-600 whitespace-nowrap transition">Proposta</a>
+        </div>
+    </nav>
+
+    <main class="max-w-4xl mx-auto px-6 py-12 space-y-12">
+
+        <!-- 1. COS'E -->
+        <section id="cosa" class="slide bg-white rounded-lg shadow-sm p-8">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 bg-talk-100 rounded-lg flex items-center justify-center">
+                    <i data-lucide="brain" class="text-talk-600 w-5 h-5"></i>
+                </div>
+                <h2 class="text-2xl font-semibold text-gray-800">Cos'e il Brain AI</h2>
+            </div>
+
+            <div class="space-y-4 text-gray-700 leading-relaxed">
+                <p><strong>Non e un prodotto. E una metodologia.</strong></p>
+
+                <p>Invece di chattare con ChatGPT in una finestra web senza contesto, ogni utente ha un <strong>"cervello"</strong> &mdash; un insieme strutturato di file di testo (Markdown) organizzati in cartelle, che danno contesto permanente all'AI.</p>
+
+                <p>L'AI non parte piu da zero ogni conversazione. Sa chi sei, cosa fai, con chi lavori, cosa hai fatto ieri, quali sono i tuoi progetti aperti.</p>
+
+                <div class="bg-gray-50 rounded-lg p-6 mt-6">
+                    <h3 class="font-medium text-gray-800 mb-3">ChatGPT tradizionale vs Brain AI</h3>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="p-4 bg-red-50 rounded-lg">
+                            <div class="flex items-center gap-2 mb-2">
+                                <i data-lucide="x-circle" class="text-red-500 w-4 h-4"></i>
+                                <span class="font-medium text-red-700">Senza contesto</span>
+                            </div>
+                            <ul class="text-sm text-red-600 space-y-1">
+                                <li>Ogni chat parte da zero</li>
+                                <li>Devi spiegare tutto ogni volta</li>
+                                <li>Dati sensibili finiscono su server esterni</li>
+                                <li>Nessuna memoria tra sessioni</li>
+                            </ul>
+                        </div>
+                        <div class="p-4 bg-emerald-50 rounded-lg">
+                            <div class="flex items-center gap-2 mb-2">
+                                <i data-lucide="check-circle" class="text-emerald-500 w-4 h-4"></i>
+                                <span class="font-medium text-emerald-700">Con Brain AI</span>
+                            </div>
+                            <ul class="text-sm text-emerald-600 space-y-1">
+                                <li>Contesto permanente e strutturato</li>
+                                <li>Sa chi sei, i tuoi progetti, i tuoi colleghi</li>
+                                <li>File locali, controllati dall'utente</li>
+                                <li>Memoria persistente tra sessioni</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="mt-4">Il Brain e <strong>portabile</strong>: se domani cambiamo modello AI (Claude, GPT, Gemini, locale), la knowledge base si sposta tale e quale. Non c'e lock-in su nessun vendor.</p>
+            </div>
+        </section>
+
+        <!-- 2. ARCHITETTURA -->
+        <section id="architettura" class="slide bg-white rounded-lg shadow-sm p-8">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center">
+                    <i data-lucide="layers" class="text-indigo-600 w-5 h-5"></i>
+                </div>
+                <h2 class="text-2xl font-semibold text-gray-800">Architettura</h2>
+            </div>
+
+            <div class="space-y-6 text-gray-700 leading-relaxed">
+                <!-- Diagram -->
+                <div class="bg-gray-900 rounded-lg p-6 text-sm font-mono text-gray-300 overflow-x-auto">
+<pre class="whitespace-pre">
+ INPUT                    BRAIN (file locali)         OUTPUT
+ ─────                    ──────────────────         ──────
+ Email          ┐                                    ┌ Risposte chat
+ Calendario     │    ┌──────────────────────┐        │ Bozze email
+ Drive/File     ├───>│  boot/   identita    │───┐    │ Report/PDF
+ Messaggi       │    │  wiki/   persone,    │   │    │ Siti web
+ Ticket         │    │         aziende,     │   ├───>│ Automazioni
+ Database       │    │         progetti     │   │    │ Query SQL
+ Web/API        ┘    │  diary/ storico      │   │    │ Analisi dati
+                     │  tools/ integrazioni │───┘    └ ...
+                     └──────────────────────┘
+                          ▲        │
+                          │   LLM (Cloud/API)
+                          └────────┘
+</pre>
+                </div>
+
+                <h3 class="font-semibold text-gray-800">Struttura Cartelle</h3>
+
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="p-4 bg-gray-50 rounded-lg">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i data-lucide="shield" class="text-purple-600 w-4 h-4"></i>
+                            <span class="font-medium text-gray-800">boot/</span>
+                            <span class="text-xs bg-purple-100 text-purple-700 px-2 py-0.5 rounded-full">privato</span>
+                        </div>
+                        <p class="text-sm text-gray-600">Identita dell'AI, istruzioni, personalizzazione, tool disponibili</p>
+                    </div>
+
+                    <div class="p-4 bg-gray-50 rounded-lg">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i data-lucide="book-open" class="text-blue-600 w-4 h-4"></i>
+                            <span class="font-medium text-gray-800">wiki/</span>
+                            <span class="text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full">configurabile</span>
+                        </div>
+                        <p class="text-sm text-gray-600">Database: persone, aziende, progetti, server. Ricercabile e cross-referenziato</p>
+                    </div>
+
+                    <div class="p-4 bg-gray-50 rounded-lg">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i data-lucide="calendar" class="text-emerald-600 w-4 h-4"></i>
+                            <span class="font-medium text-gray-800">diary/</span>
+                            <span class="text-xs bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full">privato</span>
+                        </div>
+                        <p class="text-sm text-gray-600">Log giornaliero: cosa hai fatto, decisioni prese, sessioni di lavoro</p>
+                    </div>
+
+                    <div class="p-4 bg-gray-50 rounded-lg">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i data-lucide="share-2" class="text-talk-600 w-4 h-4"></i>
+                            <span class="font-medium text-gray-800">shared/</span>
+                            <span class="text-xs bg-talk-100 text-talk-700 px-2 py-0.5 rounded-full">aziendale</span>
+                        </div>
+                        <p class="text-sm text-gray-600">Knowledge base condivisa: prassi, protocolli, documentazione comune</p>
+                    </div>
+                </div>
+
+                <div class="bg-indigo-50 rounded-lg p-4 mt-4">
+                    <div class="flex items-start gap-3">
+                        <i data-lucide="info" class="text-indigo-600 w-5 h-5 mt-0.5"></i>
+                        <p class="text-sm text-indigo-700">Ogni cartella puo avere visibilita diversa: <strong>privata</strong> (solo l'utente), <strong>condivisa</strong> (team/reparto), <strong>pubblica</strong> (tutta l'azienda). Il livello di condivisione e configurabile per utente e per cartella.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. CASI D'USO -->
+        <section id="casi" class="slide bg-white rounded-lg shadow-sm p-8">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center">
+                    <i data-lucide="zap" class="text-emerald-600 w-5 h-5"></i>
+                </div>
+                <h2 class="text-2xl font-semibold text-gray-800">Casi d'Uso &mdash; Gia Funzionanti</h2>
+            </div>
+
+            <p class="text-gray-600 mb-6">Non e teoria. Queste persone stanno gia usando il sistema quotidianamente.</p>
+
+            <div class="space-y-4">
+                <div class="border border-gray-200 rounded-lg p-5">
+                    <div class="flex items-center gap-3 mb-2">
+                        <i data-lucide="database" class="text-talk-600 w-5 h-5"></i>
+                        <h3 class="font-semibold text-gray-800">Maulini &mdash; Query Oracle / Whitenet</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm">Analizzate 1.500+ query SQL di produzione (8 mesi di lavoro). L'AI identifica pattern, genera query corrette, suggerisce ottimizzazioni. Il "robottino" di Maulini gia capisce le casistiche dei ticket e crea la query di soluzione automaticamente.</p>
+                    <div class="mt-2 text-xs text-emerald-600 font-medium">Attivo da ~1 mese</div>
+                </div>
+
+                <div class="border border-gray-200 rounded-lg p-5">
+                    <div class="flex items-center gap-3 mb-2">
+                        <i data-lucide="layout-grid" class="text-talk-600 w-5 h-5"></i>
+                        <h3 class="font-semibold text-gray-800">Paolo Carmine / Digima &mdash; Griglia Cinema</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm">Strumento interattivo per disegnare layout soffitti cinema (posizionamento casse acustiche, lampade). Generato in 20 minuti dalla descrizione verbale del problema. Supporta multi-sede, export CSV/DWG per progettisti.</p>
+                    <div class="mt-2 text-xs text-emerald-600 font-medium">In uso per Bologna SCA + Parco Dora Torino</div>
+                </div>
+
+                <div class="border border-gray-200 rounded-lg p-5">
+                    <div class="flex items-center gap-3 mb-2">
+                        <i data-lucide="terminal" class="text-talk-600 w-5 h-5"></i>
+                        <h3 class="font-semibold text-gray-800">Blardone / Netycom &mdash; Workspace Sviluppo</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm">Workspace AI attivo per sviluppo web. Integrazione con repository di codice, ambiente di staging, deploy automatizzati.</p>
+                    <div class="mt-2 text-xs text-emerald-600 font-medium">Attivo</div>
+                </div>
+
+                <div class="border border-gray-200 rounded-lg p-5">
+                    <div class="flex items-center gap-3 mb-2">
+                        <i data-lucide="users" class="text-talk-600 w-5 h-5"></i>
+                        <h3 class="font-semibold text-gray-800">Puddu, Besozzi, Gabriele</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm">Utenti attivi del sistema Brain con casi d'uso diversi: dall'analisi documentale alla gestione progetti. Puddu utilizza integrazione con Google Drive.</p>
+                    <div class="mt-2 text-xs text-emerald-600 font-medium">In fase di adozione</div>
+                </div>
+
+                <div class="border border-gray-200 rounded-lg p-5">
+                    <div class="flex items-center gap-3 mb-2">
+                        <i data-lucide="globe" class="text-talk-600 w-5 h-5"></i>
+                        <h3 class="font-semibold text-gray-800">Siti Web &mdash; Da email a online</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm">Esempio: un elettricista ha mandato una mail con le sue esigenze. L'AI ha generato il sito, lo ha messo online, e dopo due giri di correzioni era finito. Costo per il cliente: 100 euro.</p>
+                    <div class="mt-2 text-xs text-emerald-600 font-medium">Caso reale esterno</div>
+                </div>
+            </div>
+
+            <div class="bg-talk-50 rounded-lg p-4 mt-6">
+                <div class="flex items-start gap-3">
+                    <i data-lucide="target" class="text-talk-600 w-5 h-5 mt-0.5"></i>
+                    <p class="text-sm text-talk-800"><strong>Prossimo caso d'uso aziendale:</strong> Integrazione con Fascicol (documentazione commerciale). La knowledge base condivisa puo includere fascicoli, prassi, protocolli &mdash; accessibili a tutti i Brain degli utenti autorizzati.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. SECURITY -->
+        <section id="security" class="slide bg-white rounded-lg shadow-sm p-8">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center">
+                    <i data-lucide="shield-check" class="text-red-600 w-5 h-5"></i>
+                </div>
+                <h2 class="text-2xl font-semibold text-gray-800">Privacy e Sicurezza</h2>
+            </div>
+
+            <div class="space-y-6 text-gray-700 leading-relaxed">
+
+                <div class="bg-red-50 rounded-lg p-5 border border-red-200">
+                    <h3 class="font-semibold text-red-800 mb-2">Il problema attuale</h3>
+                    <p class="text-sm text-red-700">Colleghi che copiano e incollano ticket con nomi, cognomi e dati sensibili dentro ChatGPT. Questo viola GDPR e AI Act. Proibire non funziona &mdash; serve un'alternativa migliore e controllata.</p>
+                </div>
+
+                <h3 class="font-semibold text-gray-800">Modello di sicurezza proposto</h3>
+
+                <div class="space-y-4">
+                    <div class="flex items-start gap-4">
+                        <div class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <span class="text-sm font-bold text-gray-600">1</span>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-gray-800">Dati locali, non in cloud</h4>
+                            <p class="text-sm text-gray-600">I file del Brain risiedono su server Emisfera. Non transitano su servizi terzi. Solo le richieste all'API del modello escono dalla rete &mdash; e non contengono l'intero Brain, solo il contesto della conversazione attiva.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <span class="text-sm font-bold text-gray-600">2</span>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-gray-800">Criptazione a livello utente</h4>
+                            <p class="text-sm text-gray-600">Linux supporta nativamente la criptazione delle home directory. Le cartelle private di ciascun utente sono decriptabili solo dal processo lanciato da quell'utente. L'amministratore di sistema <strong>non puo</strong> leggere i contenuti.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <span class="text-sm font-bold text-gray-600">3</span>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-gray-800">Separazione lettura / scrittura</h4>
+                            <p class="text-sm text-gray-600">L'AI puo leggere email, ticket, documenti. La scrittura (invio email, modifiche a sistemi) richiede approvazione esplicita dell'utente. Nessuna azione automatica su sistemi di produzione.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <span class="text-sm font-bold text-gray-600">4</span>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-gray-800">Controllo granulare accessi</h4>
+                            <p class="text-sm text-gray-600">Cartelle public/shared/private con permessi configurabili. La cartella condivisa aziendale e a sola lettura per tutti. Le API verso sistemi interni (es. Fascicol) hanno controllo di accesso per utente e per operazione.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <span class="text-sm font-bold text-gray-600">5</span>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-gray-800">Audit e tracciabilita</h4>
+                            <p class="text-sm text-gray-600">Ogni azione dell'AI e loggata nel diary. Git tiene traccia di ogni modifica ai file. E possibile ricostruire chi ha fatto cosa e quando.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-emerald-50 rounded-lg p-4 mt-4">
+                    <div class="flex items-start gap-3">
+                        <i data-lucide="check-circle" class="text-emerald-600 w-5 h-5 mt-0.5"></i>
+                        <p class="text-sm text-emerald-700"><strong>GDPR/AI Act:</strong> Il problema legale si risolve non inviando dati sensibili a servizi cloud non autorizzati. Il Brain lavora su file locali; le chiamate API al modello possono essere filtrate e monitorate. L'alternativa (lasciare che ognuno usi ChatGPT senza controllo) e molto peggio.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. COSTI -->
+        <section id="costi" class="slide bg-white rounded-lg shadow-sm p-8">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 bg-talk-100 rounded-lg flex items-center justify-center">
+                    <i data-lucide="coins" class="text-talk-600 w-5 h-5"></i>
+                </div>
+                <h2 class="text-2xl font-semibold text-gray-800">Costi</h2>
+            </div>
+
+            <div class="space-y-6">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead>
+                            <tr class="border-b border-gray-200">
+                                <th class="text-left py-3 pr-4 font-semibold text-gray-800">Voce</th>
+                                <th class="text-left py-3 pr-4 font-semibold text-gray-800">Costo</th>
+                                <th class="text-left py-3 font-semibold text-gray-800">Note</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-600">
+                            <tr class="border-b border-gray-100">
+                                <td class="py-3 pr-4">Licenza cloud (uso base)</td>
+                                <td class="py-3 pr-4 font-medium text-gray-800">~20 &euro;/mese per utente</td>
+                                <td class="py-3">Sufficiente per uso quotidiano standard</td>
+                            </tr>
+                            <tr class="border-b border-gray-100">
+                                <td class="py-3 pr-4">Licenza cloud (uso intensivo)</td>
+                                <td class="py-3 pr-4 font-medium text-gray-800">~100 &euro;/mese per utente</td>
+                                <td class="py-3">Per chi lavora tutto il giorno con l'AI</td>
+                            </tr>
+                            <tr class="border-b border-gray-100">
+                                <td class="py-3 pr-4">Server (spazio/RAM)</td>
+                                <td class="py-3 pr-4 font-medium text-gray-800">~0 &euro;</td>
+                                <td class="py-3">Risorse minime, utilizzabili su infrastruttura esistente</td>
+                            </tr>
+                            <tr class="border-b border-gray-100">
+                                <td class="py-3 pr-4">Tutoring (Giobi)</td>
+                                <td class="py-3 pr-4 font-medium text-gray-800">Da definire</td>
+                                <td class="py-3">~4h/mese primo trimestre, poi a scalare</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="bg-gray-50 rounded-lg p-5">
+                    <h3 class="font-semibold text-gray-800 mb-3">Opzione GPU Locale (futuro)</h3>
+                    <p class="text-sm text-gray-600 mb-3">Se gli utenti superano le 20-30 unita, una GPU locale puo ammortizzare i costi delle licenze cloud facendo girare modelli AI in sede.</p>
+                    <div class="grid md:grid-cols-2 gap-3 text-sm">
+                        <div class="p-3 bg-white rounded-lg">
+                            <span class="font-medium text-gray-800">Entry level:</span>
+                            <span class="text-gray-600"> ~5.000 &euro;</span>
+                        </div>
+                        <div class="p-3 bg-white rounded-lg">
+                            <span class="font-medium text-gray-800">Produzione seria:</span>
+                            <span class="text-gray-600"> ~20.000 &euro;</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-gray-500 mt-3">Nota: la qualita dei modelli locali potrebbe essere inferiore a quella dei modelli cloud. Da valutare nel tempo con test comparativi.</p>
+                </div>
+
+                <div class="bg-talk-50 rounded-lg p-4">
+                    <div class="flex items-start gap-3">
+                        <i data-lucide="calculator" class="text-talk-600 w-5 h-5 mt-0.5"></i>
+                        <div>
+                            <p class="text-sm text-talk-800"><strong>Esempio: 10 utenti base</strong></p>
+                            <p class="text-sm text-talk-700">10 &times; 20 &euro;/mese = 200 &euro;/mese + tutoring. Ammortamento GPU (5k) in ~2 anni a questo ritmo.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. PROPOSTA -->
+        <section id="proposta" class="slide bg-white rounded-lg shadow-sm p-8">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center">
+                    <i data-lucide="rocket" class="text-emerald-600 w-5 h-5"></i>
+                </div>
+                <h2 class="text-2xl font-semibold text-gray-800">Proposta Operativa</h2>
+            </div>
+
+            <div class="space-y-6">
+                <!-- Timeline -->
+                <div class="space-y-0">
+                    <div class="flex gap-4">
+                        <div class="flex flex-col items-center">
+                            <div class="w-8 h-8 bg-talk-500 rounded-full flex items-center justify-center text-white text-sm font-bold">1</div>
+                            <div class="w-0.5 h-full bg-talk-200"></div>
+                        </div>
+                        <div class="pb-8">
+                            <h3 class="font-semibold text-gray-800">Approvazione Security</h3>
+                            <p class="text-sm text-gray-500 mb-2">Prossime settimane</p>
+                            <p class="text-sm text-gray-600">Incontro con team sistemi e sicurezza. Revisione architettura, valutazione rischi, definizione policy di utilizzo.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4">
+                        <div class="flex flex-col items-center">
+                            <div class="w-8 h-8 bg-talk-500 rounded-full flex items-center justify-center text-white text-sm font-bold">2</div>
+                            <div class="w-0.5 h-full bg-talk-200"></div>
+                        </div>
+                        <div class="pb-8">
+                            <h3 class="font-semibold text-gray-800">Setup &amp; 10 Account Pilota</h3>
+                            <p class="text-sm text-gray-500 mb-2">Entro 2 settimane dall'approvazione</p>
+                            <p class="text-sm text-gray-600">Configurazione server, creazione account utente, setup Brain base per ciascun partecipante. Licenze cloud attivate.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4">
+                        <div class="flex flex-col items-center">
+                            <div class="w-8 h-8 bg-talk-500 rounded-full flex items-center justify-center text-white text-sm font-bold">3</div>
+                            <div class="w-0.5 h-full bg-talk-200"></div>
+                        </div>
+                        <div class="pb-8">
+                            <h3 class="font-semibold text-gray-800">Primo Trimestre &mdash; Adozione Assistita</h3>
+                            <p class="text-sm text-gray-500 mb-2">3 mesi</p>
+                            <p class="text-sm text-gray-600">Tutoring ~4h/mese. Ogni utente porta i propri casi d'uso, le soluzioni diventano patrimonio condiviso. Sessioni di gruppo + supporto individuale.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4">
+                        <div class="flex flex-col items-center">
+                            <div class="w-8 h-8 bg-emerald-500 rounded-full flex items-center justify-center text-white text-sm font-bold">4</div>
+                        </div>
+                        <div class="pb-4">
+                            <h3 class="font-semibold text-gray-800">Valutazione &amp; Scalabilita</h3>
+                            <p class="text-sm text-gray-500 mb-2">Fine trimestre</p>
+                            <p class="text-sm text-gray-600">Revisione risultati, decisione su estensione a piu utenti, valutazione GPU locale, piano di autonomia (riduzione tutoring).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-900 rounded-lg p-6 text-white">
+                    <h3 class="font-semibold mb-3">Cosa serve per partire</h3>
+                    <div class="space-y-2 text-sm">
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="square" class="w-4 h-4 text-talk-400"></i>
+                            <span>OK dal team sicurezza dopo presentazione</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="square" class="w-4 h-4 text-talk-400"></i>
+                            <span>10 account/chiavi per gli utenti pilota</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="square" class="w-4 h-4 text-talk-400"></i>
+                            <span>Spazio server per i Brain (minimo, su infrastruttura esistente)</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="square" class="w-4 h-4 text-talk-400"></i>
+                            <span>Budget licenze cloud (~200 &euro;/mese per 10 utenti base)</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="square" class="w-4 h-4 text-talk-400"></i>
+                            <span>Accordo tutoring con Giobi (proposta commerciale separata)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quote -->
+        <section class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg shadow-lg p-8 text-white">
+            <div class="flex gap-4">
+                <i data-lucide="quote" class="w-12 h-12 opacity-30 flex-shrink-0"></i>
+                <div>
+                    <p class="text-xl italic mb-4 leading-relaxed">"Non ti sto vendendo un software. Ti sto vendendo una metodologia che domani, quando ci sara la roba piu figa, diventa un componente dell'applicazione."</p>
+                    <p class="text-gray-400">&mdash; Giobi Fasoli, 27 febbraio 2026</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Materiali -->
+        <section class="bg-white rounded-lg shadow-sm p-8">
+            <h2 class="text-2xl font-semibold mb-6 text-gray-800">Materiali Correlati</h2>
+            <div class="space-y-3">
+                <a href="../2026-02-16-emisfera-pranzo-ai/" class="flex items-center gap-3 p-4 bg-talk-50 hover:bg-talk-100 rounded-lg transition group">
+                    <i data-lucide="book-open" class="text-talk-600 w-5 h-5"></i>
+                    <div class="flex-1">
+                        <div class="font-medium text-gray-800 group-hover:text-talk-700">Pranzo AI #2 &mdash; VS Code & Copilot</div>
+                        <div class="text-sm text-gray-600">Dispensa 10 sezioni: GDPR, allucinazioni, setup pratico</div>
+                    </div>
+                    <i data-lucide="arrow-right" class="text-talk-600 w-4 h-4"></i>
+                </a>
+                <a href="../2026-02-06-emisfera-pranzo-1/" class="flex items-center gap-3 p-4 bg-talk-50 hover:bg-talk-100 rounded-lg transition group">
+                    <i data-lucide="book-open" class="text-talk-600 w-5 h-5"></i>
+                    <div class="flex-1">
+                        <div class="font-medium text-gray-800 group-hover:text-talk-700">Pranzo AI #1 &mdash; Brain Emisfera</div>
+                        <div class="text-sm text-gray-600">Knowledge on-premise, agenti AI, demo + brainstorm</div>
+                    </div>
+                    <i data-lucide="arrow-right" class="text-talk-600 w-4 h-4"></i>
+                </a>
+                <a href="../2026-01-23-villa-giulia/" class="flex items-center gap-3 p-4 bg-emerald-50 hover:bg-emerald-100 rounded-lg transition group">
+                    <i data-lucide="presentation" class="text-emerald-600 w-5 h-5"></i>
+                    <div class="flex-1">
+                        <div class="font-medium text-gray-800 group-hover:text-emerald-700">Da Asimov a ChatGPT &mdash; Villa Giulia</div>
+                        <div class="text-sm text-gray-600">Conferenza divulgativa: storia dell'AI, demo, agenti personali</div>
+                    </div>
+                    <i data-lucide="arrow-right" class="text-emerald-600 w-4 h-4"></i>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 mt-16">
+        <div class="max-w-4xl mx-auto px-6 py-8 text-center text-sm">
+            <p>talk.giobi.com &mdash; slides . note . materiali</p>
+            <p class="mt-2">&copy; 2026 Giobi Fasoli</p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
