@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Brain AI — Proposta Adozione Emisfera</title>
+    <title>EmiBrain — Review Qualità e Sicurezza | Emisfera</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.3.1/dist/reveal.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,11 +20,12 @@
             --color-green: #059669;
             --color-red: #dc2626;
             --color-amber: #d97706;
+            --color-blue: #2563eb;
         }
 
-        body { background: var(--color-bg) !important; }
-        .reveal-viewport { background: var(--color-bg) !important; }
-        .reveal { background: var(--color-bg) !important; font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-weight: 400; color: var(--color-text); }
+        body { background: var(--color-bg); }
+        .reveal-viewport { background: var(--color-bg); }
+        .reveal { background: var(--color-bg); font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-weight: 400; color: var(--color-text); }
         .reveal .slides { text-align: left; }
         .reveal .slides section { padding: 0 80px; box-sizing: border-box; }
 
@@ -33,42 +34,65 @@
         .reveal h3 { font-size: 36px; font-weight: 600; letter-spacing: -0.01em; margin: 0 0 0.5em 0; }
         .reveal p { font-size: 28px; line-height: 1.6; color: var(--color-text-muted); margin: 0 0 1em 0; }
 
-        .reveal ul, .reveal ol { list-style: none !important; padding: 0 !important; margin: 0 !important; }
-        .reveal li { font-size: 30px; font-weight: 500; line-height: 1.4; margin-bottom: 0.5em; padding-left: 0 !important; list-style-type: none !important; }
-        .reveal li::before, .reveal li::marker { content: none !important; display: none !important; }
+        .reveal ul, .reveal ol { list-style: none; padding: 0; margin: 0; }
+        .reveal li { font-size: 30px; font-weight: 500; line-height: 1.4; margin-bottom: 0.5em; padding-left: 0; }
+        .reveal li::before, .reveal li::marker { content: none; display: none; }
 
         .reveal .fragment.visible { opacity: 1; }
         .reveal .fragment { opacity: 0.3; }
 
-        .title-slide { display: flex !important; flex-direction: column; justify-content: center; align-items: flex-start; }
+        .title-slide { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; }
         .title-slide h1 { font-size: 80px; margin-bottom: 0.2em; }
-        .title-slide .subtitle { font-size: 32px; font-weight: 400; color: var(--color-text-muted); margin-bottom: 2em; }
+        .title-slide .subtitle { font-size: 32px; font-weight: 400; color: var(--color-text-muted); margin-bottom: 0.5em; }
+        .title-slide .audience { font-size: 24px; font-weight: 500; color: var(--color-blue); margin-bottom: 2em; }
         .title-slide .date { font-size: 22px; font-weight: 500; color: var(--color-text-muted); letter-spacing: 0.1em; text-transform: uppercase; }
 
-        .chapter-slide { display: flex !important; flex-direction: column; justify-content: center; background: var(--color-accent) !important; }
-        .chapter-slide h2 { color: white !important; font-size: 64px; margin-bottom: 0.3em; }
-        .chapter-slide p { color: rgba(255,255,255,0.7) !important; font-size: 32px; }
+        .chapter-slide { display: flex; flex-direction: column; justify-content: center; background: var(--color-accent); }
+        .chapter-slide h2 { color: white; font-size: 64px; margin-bottom: 0.3em; }
+        .chapter-slide p { color: rgba(255,255,255,0.7); font-size: 32px; }
 
         .tool-row { display: flex; gap: 20px; margin: 0.5em 0; }
         .tool-box { background: white; padding: 1.2em 1.5em; border-radius: 8px; flex: 1; }
         .tool-box strong { font-size: 26px; font-weight: 600; display: block; margin-bottom: 0.3em; }
         .tool-box span { font-size: 20px; color: var(--color-text-muted); }
 
-        .schema-box { background: var(--color-accent); color: white; padding: 1.2em 2em; border-radius: 8px; font-size: 24px; font-weight: 500; margin: 1em 0; font-family: 'Courier New', monospace; white-space: pre; line-height: 1.5; }
+        .schema-box { background: var(--color-accent); color: white; padding: 1.2em 2em; border-radius: 8px; font-size: 22px; font-weight: 500; margin: 1em 0; font-family: 'Courier New', monospace; white-space: pre; line-height: 1.5; }
 
         .highlight-box { background: white; padding: 1.2em 1.8em; border-radius: 8px; margin: 1em 0; border-left: 4px solid var(--color-accent); }
         .highlight-box p { margin: 0; font-size: 26px; font-weight: 500; color: var(--color-text); }
+        .highlight-box.green-border { border-left-color: var(--color-green); }
+        .highlight-box.amber-border { border-left-color: var(--color-amber); }
+        .highlight-box.red-border { border-left-color: var(--color-red); }
+        .highlight-box.blue-border { border-left-color: var(--color-blue); }
 
         .green { color: var(--color-green); }
         .red { color: var(--color-red); }
         .amber { color: var(--color-amber); }
+        .blue { color: var(--color-blue); }
         .muted { color: var(--color-text-muted); font-weight: 400; font-size: 24px; }
 
-        .end-slide { display: flex !important; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+        .end-slide { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
         .end-slide h1 { font-size: 96px; }
 
         .two-col { display: flex; gap: 40px; }
         .two-col > div { flex: 1; }
+
+        .three-col { display: flex; gap: 20px; }
+        .three-col > div { flex: 1; background: white; padding: 1.2em 1.5em; border-radius: 8px; }
+        .three-col > div h3 { font-size: 24px; margin-bottom: 0.4em; }
+        .three-col > div p { font-size: 20px; margin: 0; }
+
+        .timeline-item { display: flex; gap: 20px; margin-bottom: 0.6em; align-items: flex-start; }
+        .timeline-dot { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; color: white; flex-shrink: 0; }
+        .timeline-dot.done { background: var(--color-green); }
+        .timeline-dot.current { background: var(--color-blue); box-shadow: 0 0 0 4px rgba(37,99,235,0.2); }
+        .timeline-dot.pending { background: #d1d5db; }
+        .timeline-text { font-size: 26px; font-weight: 500; }
+        .timeline-text .detail { font-size: 20px; color: var(--color-text-muted); font-weight: 400; }
+
+        .question-row { display: flex; gap: 16px; margin-bottom: 0.5em; align-items: flex-start; }
+        .question-icon { font-size: 24px; flex-shrink: 0; margin-top: 2px; }
+        .question-text { font-size: 26px; font-weight: 500; }
 
         .reveal .progress { color: var(--color-accent); height: 4px; }
         .reveal .controls { color: var(--color-accent); }
@@ -81,152 +105,195 @@
 
             <!-- SLIDE 1: TITLE -->
             <section class="title-slide">
-                <h1>Brain AI</h1>
-                <p class="subtitle">Assistenti AI contestuali per Emisfera</p>
-                <p class="date">Febbraio 2026 &middot; Giobi Fasoli</p>
+                <h1>EmiBrain</h1>
+                <p class="subtitle">Review Qualit&agrave; e Sicurezza</p>
+                <p class="audience">Valentina Mitidieri &middot; Ernesto Soncini</p>
+                <p class="date">9 marzo 2026 &middot; Giobi Fasoli</p>
             </section>
 
-            <!-- SLIDE 2: IL PROBLEMA -->
+            <!-- SLIDE 2: EMIBRAIN IN 60 SECONDI -->
             <section>
-                <h2>Il problema</h2>
+                <h2>EmiBrain in 60 secondi</h2>
+                <ul>
+                    <li class="fragment">Ogni dipendente ha un <strong>"brain"</strong> &mdash; file di testo strutturati</li>
+                    <li class="fragment">L'AI legge quei file e <strong>ha contesto</strong>: sa chi sei, i tuoi progetti, i colleghi</li>
+                    <li class="fragment">I file restano su <strong>server Emisfera</strong>, non su cloud terzi</li>
+                    <li class="fragment">Se domani cambiamo AI (Claude, GPT, Gemini), il brain si sposta tale e quale</li>
+                </ul>
+                <div class="highlight-box fragment">
+                    <p>Non &egrave; un software. &Egrave; una <strong>metodologia</strong> &mdash; con un protocollo versionato (v3.1) e utenti reali.</p>
+                </div>
+            </section>
+
+            <!-- SLIDE 3: IL PROBLEMA -->
+            <section>
+                <h2>Il problema reale</h2>
                 <ul>
                     <li class="fragment"><span class="red">Colleghi che incollano dati sensibili in ChatGPT</span></li>
-                    <li class="fragment">Nomi, cognomi, ticket, dati clienti su server terzi</li>
+                    <li class="fragment">Nomi, cognomi, ticket, dati clienti &rarr; server esterni</li>
                     <li class="fragment">Viola GDPR e AI Act</li>
-                    <li class="fragment">Proibire non funziona &mdash; serve un'alternativa</li>
+                    <li class="fragment"><strong>Proibire non funziona</strong> &mdash; la gente lo usa lo stesso</li>
                 </ul>
-                <div class="highlight-box fragment">
-                    <p>L'AI la usano già. La domanda non è <em>se</em>, ma <em>come</em>.</p>
+                <div class="highlight-box red-border fragment">
+                    <p>L'AI la usano gi&agrave;. La domanda non &egrave; <em>se</em>, ma <em>come la controlliamo</em>.</p>
                 </div>
             </section>
 
-            <!-- SLIDE 3: COS'È -->
+            <!-- SLIDE 4: CHI LO USA -->
             <section>
-                <h2>Cos'è il Brain AI</h2>
+                <h2>Chi lo usa gi&agrave;</h2>
                 <ul>
-                    <li class="fragment"><strong>Non è un prodotto</strong> &mdash; è una metodologia</li>
-                    <li class="fragment">Ogni utente ha un "cervello": file Markdown strutturati</li>
-                    <li class="fragment">L'AI sa chi sei, i tuoi progetti, i tuoi colleghi</li>
-                    <li class="fragment">File locali su server Emisfera, non in cloud</li>
+                    <li class="fragment"><strong>Maulini</strong> &mdash; 1.500+ query Oracle, genera soluzioni dai ticket <span class="muted">attivo</span></li>
+                    <li class="fragment"><strong>Paolo Carmine</strong> &mdash; Layout soffitti cinema, creato in 20 min <span class="muted">in produzione</span></li>
+                    <li class="fragment"><strong>Blardone</strong> &mdash; Workspace completo, primo sito web generato e pubblicato <span class="muted">live</span></li>
+                    <li class="fragment"><strong>Besozzi</strong> &mdash; Subscription cloud pro attiva, upload documenti <span class="muted">attivo</span></li>
+                    <li class="fragment"><strong>Puddu, Lancy</strong> &mdash; Drive condiviso, gestione progetti <span class="muted">in uso</span></li>
                 </ul>
-                <div class="highlight-box fragment">
-                    <p>Portabile: se cambiamo modello AI domani, il Brain si sposta tale e quale.</p>
-                </div>
+                <p class="fragment muted">Tirocinante ITS in arrivo: percorso 6 macro-attivit&agrave; definito con Ricci.</p>
             </section>
 
-            <!-- SLIDE 4: ARCHITETTURA -->
-            <section>
-                <h2>Architettura</h2>
-                <div class="schema-box fragment">
-INPUT                  BRAIN (server locale)       OUTPUT
-─────                  ──────────────────────      ──────
-Email         ┐       boot/  identità              ┌ Risposte chat
-Calendario    ├──────► wiki/  persone, progetti ───► Bozze email
-Ticket        │       diary/ storico sessioni      │ Report, siti
-Database      ┘       shared/ knowledge aziendale  └ Automazioni
-                           ▲         │
-                           └── LLM ──┘</div>
-            </section>
-
-            <!-- SLIDE 5: SICUREZZA -->
+            <!-- SLIDE 5: CHAPTER SICUREZZA -->
             <section class="chapter-slide">
                 <h2>Sicurezza</h2>
-                <p>Cosa serve sapere per i sistemi</p>
+                <p>Il modello, cosa c'&egrave;, cosa manca</p>
             </section>
 
+            <!-- SLIDE 6: ARCHITETTURA 3 LIVELLI -->
             <section>
-                <h2>Modello di sicurezza</h2>
+                <h2>Architettura a 3 livelli</h2>
+                <div class="schema-box fragment">
+/var/emibrain/
+&#9474;
+&#9500;&#9472;&#9472; shared/          AZIENDA    tutti leggono, admin scrive
+&#9474;   (Fascicol, prassi, protocolli, tools condivisi)
+&#9474;
+&#9500;&#9472;&#9472; teams/           REPARTO    gruppo legge/scrive
+&#9474;   (sviluppo/, commerciale/, sistemi/)
+&#9474;
+&#9492;&#9472;&#9472; brains/          PERSONALE  solo utente, criptato
+    (maulini/, carmine/, puddu/)</div>
+                <div class="highlight-box green-border fragment">
+                    <p>Un utente Linux per brain. Permessi filesystem standard. ecryptfs per le home private.</p>
+                </div>
+            </section>
+
+            <!-- SLIDE 7: COSA C'È GIÀ -->
+            <section>
+                <h2>Cosa c'&egrave; gi&agrave;</h2>
                 <ul>
-                    <li class="fragment"><span class="green">1.</span> File su server Emisfera, non su cloud esterni</li>
-                    <li class="fragment"><span class="green">2.</span> Criptazione Linux per cartelle private utente</li>
-                    <li class="fragment"><span class="green">3.</span> Admin di sistema non legge contenuti privati</li>
-                    <li class="fragment"><span class="green">4.</span> AI legge ma non scrive senza approvazione utente</li>
-                    <li class="fragment"><span class="green">5.</span> Ogni azione loggata &mdash; audit completo via Git</li>
+                    <li class="fragment"><span class="green">&#10003;</span> <strong>Workspace isolation</strong> &mdash; un utente Linux per brain, testato in produzione</li>
+                    <li class="fragment"><span class="green">&#10003;</span> <strong>Criptazione</strong> &mdash; ecryptfs per home private, admin non legge</li>
+                    <li class="fragment"><span class="green">&#10003;</span> <strong>Separazione lettura/azione</strong> &mdash; nessuna azione esterna senza OK utente</li>
+                    <li class="fragment"><span class="green">&#10003;</span> <strong>Audit trail</strong> &mdash; ogni modifica tracciata in Git (chi, cosa, quando)</li>
+                    <li class="fragment"><span class="green">&#10003;</span> <strong>Secrets management</strong> &mdash; .env con permessi 600, gitignored, mai nei log</li>
                 </ul>
             </section>
 
+            <!-- SLIDE 8: COSA ESCE DALLA RETE -->
             <section>
-                <h2>Cosa transita in rete</h2>
+                <h2>Cosa esce dalla rete</h2>
                 <div class="two-col">
                     <div class="fragment">
                         <h3 class="green">Resta in sede</h3>
                         <ul>
-                            <li>File del Brain (wiki, diary)</li>
-                            <li>Tool e integrazioni</li>
-                            <li>Dati sensibili e credenziali</li>
-                            <li>Cartella shared aziendale</li>
+                            <li>Tutti i file del brain</li>
+                            <li>Credenziali e secrets</li>
+                            <li>Knowledge base aziendale</li>
+                            <li>Log e audit trail</li>
                         </ul>
                     </div>
                     <div class="fragment">
                         <h3 class="amber">Esce via API</h3>
                         <ul>
                             <li>Solo il contesto della chat attiva</li>
-                            <li>Filtrabile e monitorabile</li>
-                            <li>No training sui nostri dati (policy Anthropic/OpenAI)</li>
+                            <li>Filtrabile a livello proxy</li>
+                            <li>Provider non trainano sui dati</li>
                             <li>Alternativa futura: GPU locale</li>
                         </ul>
                     </div>
                 </div>
-            </section>
-
-            <section>
-                <h2>Permessi e accessi</h2>
-                <div class="tool-row fragment">
-                    <div class="tool-box"><strong>Privato</strong><span>Solo l'utente. Criptato. Email, diary, note personali.</span></div>
-                    <div class="tool-box"><strong>Condiviso</strong><span>Team/reparto. Prassi, protocolli, knowledge base.</span></div>
-                    <div class="tool-box"><strong>Pubblico</strong><span>Tutta l'azienda. Documentazione, FAQ, procedure.</span></div>
-                </div>
-                <div class="highlight-box fragment">
-                    <p>L'utente decide cosa condividere. Il sistema non "aspira" dati automaticamente.</p>
+                <div class="highlight-box amber-border fragment">
+                    <p>Le chiamate API possono essere monitorate, loggiate, filtrate. &Egrave; un punto su cui vogliamo il vostro input.</p>
                 </div>
             </section>
 
-            <!-- SLIDE 9: CASI D'USO -->
-            <section class="chapter-slide">
-                <h2>Già funzionante</h2>
-                <p>Non è teoria</p>
-            </section>
-
+            <!-- SLIDE 9: COSA NON È -->
             <section>
-                <h2>Chi lo usa oggi</h2>
+                <h2>Cosa NON &egrave;</h2>
                 <ul>
-                    <li class="fragment"><strong>Maulini</strong> &mdash; 1.500+ query Oracle analizzate, genera soluzioni dai ticket</li>
-                    <li class="fragment"><strong>Paolo Carmine</strong> &mdash; Griglia interattiva cinema Bologna, creata in 20 min</li>
-                    <li class="fragment"><strong>Blardone</strong> &mdash; Workspace AI per sviluppo web</li>
-                    <li class="fragment"><strong>Puddu, Besozzi</strong> &mdash; Analisi documentale, gestione progetti</li>
+                    <li class="fragment">Non &egrave; un prodotto finito con certificazione</li>
+                    <li class="fragment">&Egrave; un <strong>protocollo in evoluzione</strong> (v3.1, aggiornato 5 marzo)</li>
+                    <li class="fragment">Utenti reali, infrastruttura reale, gi&agrave; in produzione</li>
+                    <li class="fragment">Cerchiamo la vostra competenza per <strong>hardening</strong></li>
                 </ul>
-                <p class="fragment muted">+ casi esterni: siti web generati da email, preventivi automatici, debug codice</p>
+                <div class="highlight-box blue-border fragment">
+                    <p>Non vi chiediamo di fidarvi. Vi chiediamo di <strong>dirci cosa manca</strong>.</p>
+                </div>
             </section>
 
-            <!-- SLIDE 11: COSTI -->
+            <!-- SLIDE 10: DOMANDE PER VOI -->
+            <section>
+                <h2>Domande per voi</h2>
+                <div class="question-row fragment"><span class="question-icon">&#9634;</span><span class="question-text">Server: on-premise o cloud? Quale macchina?</span></div>
+                <div class="question-row fragment"><span class="question-icon">&#9634;</span><span class="question-text">Accesso SSH per Giobi in fase setup?</span></div>
+                <div class="question-row fragment"><span class="question-icon">&#9634;</span><span class="question-text">Policy criptazione: obbligatoria o facoltativa?</span></div>
+                <div class="question-row fragment"><span class="question-icon">&#9634;</span><span class="question-text">Networking: VPN, Tailscale, rete interna?</span></div>
+                <div class="question-row fragment"><span class="question-icon">&#9634;</span><span class="question-text">Monitoraggio chiamate API: logging? whitelist?</span></div>
+                <div class="question-row fragment"><span class="question-icon">&#9634;</span><span class="question-text">Backup: integrazione con backup Emisfera?</span></div>
+                <div class="question-row fragment"><span class="question-icon">&#9634;</span><span class="question-text">Mapping utenti &rarr; team e reparti?</span></div>
+            </section>
+
+            <!-- SLIDE 11: TIMELINE -->
+            <section>
+                <h2>Timeline</h2>
+                <div class="timeline-item fragment">
+                    <div class="timeline-dot done">&#10003;</div>
+                    <div class="timeline-text">Approvazione Panella <span class="detail">&mdash; 27 feb, demo live, 10 utenti pilota</span></div>
+                </div>
+                <div class="timeline-item fragment">
+                    <div class="timeline-dot done">&#10003;</div>
+                    <div class="timeline-text">Presentazione IT (Franzinelli) <span class="detail">&mdash; architettura 3 livelli</span></div>
+                </div>
+                <div class="timeline-item fragment">
+                    <div class="timeline-dot current">1</div>
+                    <div class="timeline-text">Review Qualit&agrave; &amp; Security <span class="detail">&mdash; <strong>siamo qui</strong></span></div>
+                </div>
+                <div class="timeline-item fragment">
+                    <div class="timeline-dot pending">2</div>
+                    <div class="timeline-text">10 account + chiavi API <span class="detail">&mdash; da team IT</span></div>
+                </div>
+                <div class="timeline-item fragment">
+                    <div class="timeline-dot pending">3</div>
+                    <div class="timeline-text">Setup &amp; deploy su server Emisfera <span class="detail">&mdash; 2 settimane</span></div>
+                </div>
+                <div class="timeline-item fragment">
+                    <div class="timeline-dot pending">4</div>
+                    <div class="timeline-text">Adozione assistita <span class="detail">&mdash; tutoring 4h/mese, 3 mesi</span></div>
+                </div>
+                <div class="timeline-item fragment">
+                    <div class="timeline-dot pending">5</div>
+                    <div class="timeline-text">Valutazione &amp; scalabilit&agrave; <span class="detail">&mdash; fine trimestre</span></div>
+                </div>
+            </section>
+
+            <!-- SLIDE 12: COSTI -->
             <section>
                 <h2>Costi</h2>
                 <div class="tool-row fragment">
                     <div class="tool-box"><strong>~20 &euro;/mese</strong><span>Per utente, uso standard</span></div>
                     <div class="tool-box"><strong>~100 &euro;/mese</strong><span>Per utente, uso intensivo</span></div>
-                    <div class="tool-box"><strong>~0 &euro;</strong><span>Server: risorse minime su infrastruttura esistente</span></div>
+                    <div class="tool-box"><strong>~0 &euro;</strong><span>Server: risorse minime</span></div>
                 </div>
                 <div class="highlight-box fragment">
-                    <p><strong>10 utenti base = ~200 &euro;/mese</strong><br><span class="muted">GPU locale (5-20k &euro;) ammortizza i costi se si supera i 20-30 utenti</span></p>
+                    <p><strong>10 utenti base = ~200 &euro;/mese</strong> + tutoring</p>
                 </div>
-            </section>
-
-            <!-- SLIDE 12: COSA SERVE -->
-            <section>
-                <h2>Cosa serve per partire</h2>
-                <ul>
-                    <li class="fragment"><span class="green">&#9744;</span> OK dal team sicurezza</li>
-                    <li class="fragment"><span class="green">&#9744;</span> 10 account per utenti pilota</li>
-                    <li class="fragment"><span class="green">&#9744;</span> Spazio server (minimo, infrastruttura esistente)</li>
-                    <li class="fragment"><span class="green">&#9744;</span> Budget licenze cloud (~200 &euro;/mese)</li>
-                    <li class="fragment"><span class="green">&#9744;</span> Tutoring: ~4h/mese primo trimestre</li>
-                </ul>
+                <p class="fragment muted">GPU locale (5-20k &euro;) opzionale per il futuro se si supera i 20-30 utenti.</p>
             </section>
 
             <!-- END -->
             <section class="end-slide">
                 <h1>Domande?</h1>
-                <p>Dettaglio completo: <strong>talk.giobi.com</strong></p>
+                <p>Dispensa completa: <strong>talk.giobi.com/events/2026-02-27-emisfera-proposta-ai/</strong></p>
             </section>
 
         </div>
