@@ -214,58 +214,46 @@
                 <div class="w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center">
                     <i data-lucide="layers" class="text-indigo-600 w-5 h-5"></i>
                 </div>
-                <h2 class="text-2xl font-semibold text-gray-800">Architettura a 3 livelli</h2>
+                <h2 class="text-2xl font-semibold text-gray-800">Architettura</h2>
             </div>
 
             <div class="space-y-6 text-gray-700 leading-relaxed">
 
                 <div class="bg-gray-900 rounded-lg p-6 text-sm font-mono text-gray-300 overflow-x-auto">
 <pre class="whitespace-pre">
-/var/emibrain/
+/var/emibrain/brains/
 &#9474;
-&#9500;&#9472;&#9472; shared/                     LIVELLO 1: Emisfera (tutti leggono)
-&#9474;   &#9500;&#9472;&#9472; knowledge/              Fascicol, prassi, protocolli aziendali
-&#9474;   &#9500;&#9472;&#9472; core/                   Protocollo Brain, tools condivisi
-&#9474;   &#9492;&#9472;&#9472; templates/              Skeleton per nuovi brain
-&#9474;
-&#9500;&#9472;&#9472; teams/                      LIVELLO 2: Team (gruppo legge)
-&#9474;   &#9500;&#9472;&#9472; sviluppo/               Wiki condivisa dev
-&#9474;   &#9500;&#9472;&#9472; commerciale/            Wiki condivisa sales
-&#9474;   &#9492;&#9472;&#9472; sistemi/                Wiki condivisa IT
-&#9474;
-&#9492;&#9472;&#9472; brains/                     LIVELLO 3: Personale (solo utente)
-    &#9500;&#9472;&#9472; maulini/                Brain privato, criptato
-    &#9500;&#9472;&#9472; carmine/
-    &#9492;&#9472;&#9472; puddu/
+&#9500;&#9472;&#9472; maulini/          brain completo (boot, wiki, diary, tools...)
+&#9500;&#9472;&#9472; carmine/          ogni brain = workspace isolato
+&#9500;&#9472;&#9472; puddu/            utente Linux dedicato per brain
+&#9500;&#9472;&#9472; besozzi/
+&#9492;&#9472;&#9472; shared/           risorse condivise (admin scrive, tutti leggono)
 </pre>
                 </div>
 
                 <div class="grid md:grid-cols-3 gap-4">
                     <div class="p-4 bg-blue-50 rounded-lg border border-blue-200">
                         <div class="flex items-center gap-2 mb-2">
-                            <i data-lucide="building" class="text-blue-600 w-4 h-4"></i>
-                            <span class="font-medium text-gray-800">Livello 1: Azienda</span>
+                            <i data-lucide="user" class="text-blue-600 w-4 h-4"></i>
+                            <span class="font-medium text-gray-800">1 auth = 1 utente Linux</span>
                         </div>
-                        <p class="text-sm text-gray-600 mb-2">Knowledge base Emisfera. Tutti gli utenti EmiBrain leggono.</p>
-                        <p class="text-xs text-blue-700 font-medium">Permessi: emibrain:emibrain (read)</p>
+                        <p class="text-sm text-gray-600 mb-2">Ogni utente autenticato corrisponde a un utente di sistema. Isolamento via permessi filesystem.</p>
                     </div>
 
                     <div class="p-4 bg-purple-50 rounded-lg border border-purple-200">
                         <div class="flex items-center gap-2 mb-2">
-                            <i data-lucide="users" class="text-purple-600 w-4 h-4"></i>
-                            <span class="font-medium text-gray-800">Livello 2: Team</span>
+                            <i data-lucide="link" class="text-purple-600 w-4 h-4"></i>
+                            <span class="font-medium text-gray-800">Molti a molti</span>
                         </div>
-                        <p class="text-sm text-gray-600 mb-2">Wiki per reparto. Il commerciale non vede i ticket dev e viceversa.</p>
-                        <p class="text-xs text-purple-700 font-medium">Permessi: team-{reparto} (read/write)</p>
+                        <p class="text-sm text-gray-600 mb-2">Un utente pu&ograve; accedere a pi&ugrave; brain e un brain pu&ograve; essere accessibile a pi&ugrave; utenti. Utile per monitoraggio e collaborazione.</p>
                     </div>
 
                     <div class="p-4 bg-emerald-50 rounded-lg border border-emerald-200">
                         <div class="flex items-center gap-2 mb-2">
-                            <i data-lucide="lock" class="text-emerald-600 w-4 h-4"></i>
-                            <span class="font-medium text-gray-800">Livello 3: Personale</span>
+                            <i data-lucide="shield" class="text-emerald-600 w-4 h-4"></i>
+                            <span class="font-medium text-gray-800">Gruppo admin</span>
                         </div>
-                        <p class="text-sm text-gray-600 mb-2">Brain privato. Solo il proprietario accede. Criptazione raccomandata.</p>
-                        <p class="text-xs text-emerald-700 font-medium">Permessi: ws-{utente} + ecryptfs</p>
+                        <p class="text-sm text-gray-600 mb-2">Utenti nel gruppo admin possono scrivere in shared/, gestire packages e configurare nuovi brain.</p>
                     </div>
                 </div>
 
@@ -382,22 +370,16 @@
                         </thead>
                         <tbody class="text-gray-600">
                             <tr class="border-b border-gray-100">
-                                <td class="py-3 pr-4 font-medium">shared/</td>
-                                <td class="py-3 pr-4">Tutti EmiBrain</td>
-                                <td class="py-3 pr-4">Admin</td>
-                                <td class="py-3">No (pubblico interno)</td>
-                            </tr>
-                            <tr class="border-b border-gray-100">
-                                <td class="py-3 pr-4 font-medium">teams/{x}/</td>
-                                <td class="py-3 pr-4">Membri team x</td>
-                                <td class="py-3 pr-4">Membri team x</td>
-                                <td class="py-3">Opzionale</td>
+                                <td class="py-3 pr-4 font-medium">brains/{utente}/</td>
+                                <td class="py-3 pr-4">Utente proprietario + utenti associati</td>
+                                <td class="py-3 pr-4">Utente proprietario</td>
+                                <td class="py-3">Raccomandata (ecryptfs)</td>
                             </tr>
                             <tr>
-                                <td class="py-3 pr-4 font-medium">brains/{utente}/</td>
-                                <td class="py-3 pr-4">Solo utente</td>
-                                <td class="py-3 pr-4">Solo utente</td>
-                                <td class="py-3">Raccomandata (ecryptfs)</td>
+                                <td class="py-3 pr-4 font-medium">shared/</td>
+                                <td class="py-3 pr-4">Tutti EmiBrain</td>
+                                <td class="py-3 pr-4">Solo gruppo admin</td>
+                                <td class="py-3">No (risorse condivise)</td>
                             </tr>
                         </tbody>
                     </table>
@@ -612,7 +594,7 @@
                             <span class="text-xs bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full">Fatto</span>
                         </div>
                         <p class="text-sm text-gray-500 mb-2">Febbraio-marzo 2026</p>
-                        <p class="text-sm text-gray-600">Architettura presentata al team sistemi. Slide con dettaglio tecnico 3 livelli.</p>
+                        <p class="text-sm text-gray-600">Architettura presentata al team sistemi. Slide con dettaglio tecnico.</p>
                     </div>
                 </div>
 

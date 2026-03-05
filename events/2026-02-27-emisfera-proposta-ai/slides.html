@@ -158,23 +158,21 @@
                 <p>Il modello, cosa c'&egrave;, cosa manca</p>
             </section>
 
-            <!-- SLIDE 6: ARCHITETTURA 3 LIVELLI -->
+            <!-- SLIDE 6: ARCHITETTURA -->
             <section>
-                <h2>Architettura a 3 livelli</h2>
+                <h2>Architettura</h2>
                 <div class="schema-box fragment">
-/var/emibrain/
+/var/emibrain/brains/
 &#9474;
-&#9500;&#9472;&#9472; shared/          AZIENDA    tutti leggono, admin scrive
-&#9474;   (Fascicol, prassi, protocolli, tools condivisi)
-&#9474;
-&#9500;&#9472;&#9472; teams/           REPARTO    gruppo legge/scrive
-&#9474;   (sviluppo/, commerciale/, sistemi/)
-&#9474;
-&#9492;&#9472;&#9472; brains/          PERSONALE  solo utente, criptato
-    (maulini/, carmine/, puddu/)</div>
-                <div class="highlight-box green-border fragment">
-                    <p>Un utente Linux per brain. Permessi filesystem standard. ecryptfs per le home private.</p>
-                </div>
+&#9500;&#9472;&#9472; maulini/         brain completo (wiki, diary, boot, tools...)
+&#9500;&#9472;&#9472; carmine/         ogni brain = un workspace isolato
+&#9500;&#9472;&#9472; puddu/           utente Linux dedicato per brain
+&#9492;&#9472;&#9472; shared/          admin scrive, tutti leggono</div>
+                <ul>
+                    <li class="fragment"><strong>1 utente auth = 1 utente di sistema</strong></li>
+                    <li class="fragment">Associazione utente &harr; brain <strong>molti a molti</strong> (monitoraggio, collaborazione)</li>
+                    <li class="fragment">Gruppo <strong>admin</strong>: scrive in shared/, gestisce packages</li>
+                </ul>
             </section>
 
             <!-- SLIDE 7: COSA C'È GIÀ -->
@@ -252,7 +250,7 @@
                 </div>
                 <div class="timeline-item fragment">
                     <div class="timeline-dot done">&#10003;</div>
-                    <div class="timeline-text">Presentazione IT (Franzinelli) <span class="detail">&mdash; architettura 3 livelli</span></div>
+                    <div class="timeline-text">Presentazione IT (Franzinelli) <span class="detail">&mdash; architettura e sicurezza</span></div>
                 </div>
                 <div class="timeline-item fragment">
                     <div class="timeline-dot current">1</div>
