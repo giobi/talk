@@ -320,8 +320,8 @@
                             <i data-lucide="check" class="text-emerald-600 w-4 h-4"></i>
                         </div>
                         <div>
-                            <h4 class="font-medium text-gray-800">Criptazione a livello utente (ecryptfs)</h4>
-                            <p class="text-sm text-gray-600">Le home directory dei brain possono essere criptate con ecryptfs. L'admin di sistema <strong>non pu&ograve;</strong> leggere i contenuti senza la passphrase dell'utente. La decriptazione avviene solo quando l'utente &egrave; loggato.</p>
+                            <h4 class="font-medium text-gray-800">Isolamento a livello filesystem</h4>
+                            <p class="text-sm text-gray-600">Ogni brain gira con il proprio utente Linux. I permessi filesystem impediscono l'accesso tra workspace diversi. Criptazione valutabile come layer aggiuntivo se necessario.</p>
                         </div>
                     </div>
 
@@ -365,7 +365,7 @@
                                 <th class="text-left py-3 pr-4 font-semibold text-gray-800">Livello</th>
                                 <th class="text-left py-3 pr-4 font-semibold text-gray-800">Chi legge</th>
                                 <th class="text-left py-3 pr-4 font-semibold text-gray-800">Chi scrive</th>
-                                <th class="text-left py-3 font-semibold text-gray-800">Criptazione</th>
+                                <th class="text-left py-3 font-semibold text-gray-800">Note</th>
                             </tr>
                         </thead>
                         <tbody class="text-gray-600">
@@ -373,13 +373,13 @@
                                 <td class="py-3 pr-4 font-medium">brains/{utente}/</td>
                                 <td class="py-3 pr-4">Utente proprietario + utenti associati</td>
                                 <td class="py-3 pr-4">Utente proprietario</td>
-                                <td class="py-3">Raccomandata (ecryptfs)</td>
+                                <td class="py-3">Isolamento via permessi Linux</td>
                             </tr>
                             <tr>
                                 <td class="py-3 pr-4 font-medium">shared/</td>
                                 <td class="py-3 pr-4">Tutti EmiBrain</td>
                                 <td class="py-3 pr-4">Solo gruppo admin</td>
-                                <td class="py-3">No (risorse condivise)</td>
+                                <td class="py-3">Admin gestisce contenuti</td>
                             </tr>
                         </tbody>
                     </table>
@@ -505,8 +505,8 @@
                 <div class="flex items-start gap-4 p-4 bg-gray-50 rounded-lg">
                     <i data-lucide="shield" class="text-gray-500 w-5 h-5 mt-0.5 flex-shrink-0"></i>
                     <div>
-                        <h4 class="font-medium text-gray-800">Policy criptazione</h4>
-                        <p class="text-sm text-gray-600">ecryptfs per i brain personali: obbligatoria per tutti o facoltativa? Come gestire il recovery delle passphrase?</p>
+                        <h4 class="font-medium text-gray-800">Criptazione (se necessaria)</h4>
+                        <p class="text-sm text-gray-600">I brain sono gi&agrave; isolati via permessi Linux. Se serve un layer aggiuntivo di criptazione, va valutato insieme (tecnologia, recovery, impatto).</p>
                     </div>
                 </div>
 
