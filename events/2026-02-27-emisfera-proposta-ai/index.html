@@ -480,65 +480,25 @@
                 <div class="w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center">
                     <i data-lucide="help-circle" class="text-amber-600 w-5 h-5"></i>
                 </div>
-                <h2 class="text-2xl font-semibold text-gray-800">Domande aperte &mdash; per voi</h2>
+                <h2 class="text-2xl font-semibold text-gray-800">Cosa ci serve da voi</h2>
             </div>
 
-            <p class="text-gray-600 mb-6">Queste sono le decisioni che servono dal team IT/Security prima di procedere. Non abbiamo risposte preconfezionate &mdash; vogliamo le vostre.</p>
+            <p class="text-gray-600 mb-6">Per procedere abbiamo bisogno di decisioni su questi punti. Il resto &egrave; gi&agrave; definito.</p>
 
             <div class="space-y-4">
                 <div class="flex items-start gap-4 p-4 bg-gray-50 rounded-lg">
                     <i data-lucide="server" class="text-gray-500 w-5 h-5 mt-0.5 flex-shrink-0"></i>
                     <div>
-                        <h4 class="font-medium text-gray-800">Server di destinazione</h4>
-                        <p class="text-sm text-gray-600">On-premise Emisfera o cloud? Quale macchina? Risorse necessarie: minime (i brain sono file di testo).</p>
-                    </div>
-                </div>
-
-                <div class="flex items-start gap-4 p-4 bg-gray-50 rounded-lg">
-                    <i data-lucide="key" class="text-gray-500 w-5 h-5 mt-0.5 flex-shrink-0"></i>
-                    <div>
-                        <h4 class="font-medium text-gray-800">Accesso SSH per Giobi (fase setup)</h4>
-                        <p class="text-sm text-gray-600">Serve accesso temporaneo per il provisioning iniziale. Modalit&agrave; e durata da concordare.</p>
-                    </div>
-                </div>
-
-                <div class="flex items-start gap-4 p-4 bg-gray-50 rounded-lg">
-                    <i data-lucide="shield" class="text-gray-500 w-5 h-5 mt-0.5 flex-shrink-0"></i>
-                    <div>
-                        <h4 class="font-medium text-gray-800">Criptazione (se necessaria)</h4>
-                        <p class="text-sm text-gray-600">I brain sono gi&agrave; isolati via permessi Linux. Se serve un layer aggiuntivo di criptazione, va valutato insieme (tecnologia, recovery, impatto).</p>
-                    </div>
-                </div>
-
-                <div class="flex items-start gap-4 p-4 bg-gray-50 rounded-lg">
-                    <i data-lucide="users" class="text-gray-500 w-5 h-5 mt-0.5 flex-shrink-0"></i>
-                    <div>
-                        <h4 class="font-medium text-gray-800">Mapping utenti &rarr; team/reparti</h4>
-                        <p class="text-sm text-gray-600">Quali reparti (sviluppo, commerciale, sistemi, altro)? Chi in quale team?</p>
-                    </div>
-                </div>
-
-                <div class="flex items-start gap-4 p-4 bg-gray-50 rounded-lg">
-                    <i data-lucide="database" class="text-gray-500 w-5 h-5 mt-0.5 flex-shrink-0"></i>
-                    <div>
-                        <h4 class="font-medium text-gray-800">Integrazione Fascicol</h4>
-                        <p class="text-sm text-gray-600">Come accedere ai dati Fascicol? API, filesystem condiviso, export database? Da definire con chi gestisce il sistema.</p>
-                    </div>
-                </div>
-
-                <div class="flex items-start gap-4 p-4 bg-gray-50 rounded-lg">
-                    <i data-lucide="hard-drive" class="text-gray-500 w-5 h-5 mt-0.5 flex-shrink-0"></i>
-                    <div>
-                        <h4 class="font-medium text-gray-800">Backup strategy</h4>
-                        <p class="text-sm text-gray-600">Git tiene lo storico dei file, ma serve una strategia di backup a livello infrastruttura. Integrazione con backup esistenti Emisfera?</p>
+                        <h4 class="font-medium text-gray-800">Quale macchina on-premise</h4>
+                        <p class="text-sm text-gray-600">Risorse necessarie minime (i brain sono file di testo). Ci serve sapere quale server usare e come Giobi ci accede in fase setup.</p>
                     </div>
                 </div>
 
                 <div class="flex items-start gap-4 p-4 bg-gray-50 rounded-lg">
                     <i data-lucide="wifi" class="text-gray-500 w-5 h-5 mt-0.5 flex-shrink-0"></i>
                     <div>
-                        <h4 class="font-medium text-gray-800">Networking</h4>
-                        <p class="text-sm text-gray-600">Accesso utenti: VPN, Tailscale, rete interna diretta? Come raggiungono il server dalla loro postazione?</p>
+                        <h4 class="font-medium text-gray-800">Come raggiungono gli utenti il server</h4>
+                        <p class="text-sm text-gray-600">Rete interna diretta, VPN, altro? Da decidere in base all'infrastruttura esistente.</p>
                     </div>
                 </div>
 
@@ -546,7 +506,23 @@
                     <i data-lucide="eye" class="text-gray-500 w-5 h-5 mt-0.5 flex-shrink-0"></i>
                     <div>
                         <h4 class="font-medium text-gray-800">Monitoraggio chiamate API</h4>
-                        <p class="text-sm text-gray-600">Le richieste al modello AI escono dalla rete. Serve logging/filtering a livello proxy? Whitelist di endpoint?</p>
+                        <p class="text-sm text-gray-600">Le richieste al modello AI escono dalla rete aziendale. Volete logging, filtering, whitelist di endpoint? Siamo aperti a qualsiasi requisito.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-4 p-4 bg-gray-50 rounded-lg">
+                    <i data-lucide="hard-drive" class="text-gray-500 w-5 h-5 mt-0.5 flex-shrink-0"></i>
+                    <div>
+                        <h4 class="font-medium text-gray-800">Backup</h4>
+                        <p class="text-sm text-gray-600">Git tiene lo storico di ogni modifica, ma il backup infrastrutturale si aggancia ai vostri sistemi esistenti.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-4 p-4 bg-gray-50 rounded-lg">
+                    <i data-lucide="users" class="text-gray-500 w-5 h-5 mt-0.5 flex-shrink-0"></i>
+                    <div>
+                        <h4 class="font-medium text-gray-800">Chi sono i 10 utenti pilota</h4>
+                        <p class="text-sm text-gray-600">Nomi e gruppi di appartenenza per il provisioning dei brain.</p>
                     </div>
                 </div>
             </div>
