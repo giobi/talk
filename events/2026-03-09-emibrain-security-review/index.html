@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmiBrain — Review Qualità e Sicurezza | Emisfera 09/03/2026</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif; }
+        .slide { scroll-margin-top: 4rem; }
+    </style>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        talk: {
+                            50: '#fffbeb', 100: '#fef3c7', 200: '#fde68a', 300: '#fcd34d',
+                            400: '#fbbf24', 500: '#f59e0b', 600: '#d97706', 700: '#b45309',
+                            800: '#92400e', 900: '#78350f'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Header -->
+    <header class="bg-gray-900 text-white">
+        <div class="max-w-4xl mx-auto px-6 py-8">
+            <div class="flex items-center gap-2 text-sm text-gray-400 mb-4">
+                <a href="https://talk.giobi.com" class="hover:text-talk-500 transition">talk.giobi.com</a>
+                <span>/</span>
+                <span>security-review</span>
+            </div>
+
+            <div class="inline-block bg-blue-600 text-white text-xs font-mono uppercase tracking-wider px-3 py-1 mb-4">Dispensa</div>
+            <h1 class="text-4xl font-semibold mb-2">EmiBrain &mdash; Review Qualit&agrave; e Sicurezza</h1>
+            <p class="text-xl text-gray-300">Incontro con team Quality &amp; IT Security &mdash; Emisfera</p>
+            <p class="text-gray-400 mt-4">9 marzo 2026 &mdash; Giobi Fasoli</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white border-b border-gray-200 sticky top-0 z-10">
+        <div class="max-w-4xl mx-auto px-6 py-3 flex gap-4 overflow-x-auto text-sm">
+            <a href="#cosa" class="text-gray-600 hover:text-talk-600 whitespace-nowrap transition">Cos'&egrave;</a>
+            <a href="#chi" class="text-gray-600 hover:text-talk-600 whitespace-nowrap transition">Chi lo usa</a>
+            <a href="#architettura" class="text-gray-600 hover:text-talk-600 whitespace-nowrap transition">Architettura</a>
+            <a href="#security" class="text-gray-600 hover:text-talk-600 whitespace-nowrap transition">Sicurezza</a>
+            <a href="#protocollo" class="text-gray-600 hover:text-talk-600 whitespace-nowrap transition">Protocollo v3</a>
+            <a href="#domande" class="text-gray-600 hover:text-talk-600 whitespace-nowrap transition">Domande aperte</a>
+            <a href="#timeline" class="text-gray-600 hover:text-talk-600 whitespace-nowrap transition">Timeline</a>
+            <a href="#costi" class="text-gray-600 hover:text-talk-600 whitespace-nowrap transition">Costi</a>
+        </div>
+    </nav>
+
+    <main class="max-w-4xl mx-auto px-6 py-12 space-y-12">
+
+        <!-- Premessa -->
+        <section class="bg-blue-50 rounded-lg p-6 border border-blue-200">
+            <div class="flex items-start gap-4">
+                <i data-lucide="info" class="text-blue-600 w-6 h-6 mt-0.5 flex-shrink-0"></i>
+                <div class="text-sm text-blue-800 space-y-2">
+                    <p><strong>A chi &egrave; rivolto questo documento:</strong> Valentina Mitidieri (HR/Qualit&agrave;) e Ernesto Soncini (IT Security).</p>
+                    <p><strong>Obiettivo dell'incontro:</strong> Presentare lo stato di EmiBrain, il modello di sicurezza implementato, e raccogliere feedback e requisiti dal team qualit&agrave;/security per procedere con l'hardening.</p>
+                    <p><strong>Cosa non &egrave; questo documento:</strong> Non &egrave; la presentazione di un prodotto finito. &Egrave; la fotografia di un protocollo in costruzione, gi&agrave; in uso da diverse persone, su cui chiediamo la vostra competenza per blindarlo.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 1. COS'E -->
+        <section id="cosa" class="slide bg-white rounded-lg shadow-sm p-8">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 bg-talk-100 rounded-lg flex items-center justify-center">
+                    <i data-lucide="brain" class="text-talk-600 w-5 h-5"></i>
+                </div>
+                <h2 class="text-2xl font-semibold text-gray-800">Cos'&egrave; EmiBrain</h2>
+            </div>
+
+            <div class="space-y-4 text-gray-700 leading-relaxed">
+                <p><strong>EmiBrain &egrave; il deploy di una metodologia AI all'interno di Emisfera.</strong></p>
+
+                <p>Invece di usare ChatGPT in una finestra web senza contesto (e senza controllo su dove finiscono i dati), ogni dipendente ha un <strong>"brain"</strong>: un insieme strutturato di file di testo che danno contesto permanente all'AI.</p>
+
+                <p>L'AI non parte da zero ogni conversazione. Sa chi sei, cosa fai, con chi lavori, quali sono i tuoi progetti. Ma i dati restano <strong>su server Emisfera</strong>, non su cloud di terzi.</p>
+
+                <div class="bg-gray-50 rounded-lg p-6 mt-6">
+                    <h3 class="font-medium text-gray-800 mb-3">Situazione attuale vs EmiBrain</h3>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="p-4 bg-red-50 rounded-lg">
+                            <div class="flex items-center gap-2 mb-2">
+                                <i data-lucide="x-circle" class="text-red-500 w-4 h-4"></i>
+                                <span class="font-medium text-red-700">Oggi</span>
+                            </div>
+                            <ul class="text-sm text-red-600 space-y-1">
+                                <li>Colleghi usano ChatGPT senza controllo</li>
+                                <li>Dati sensibili (ticket, nomi, email) su server esterni</li>
+                                <li>Nessun audit, nessuna tracciabilit&agrave;</li>
+                                <li>Ogni chat parte da zero</li>
+                                <li>Proibire non funziona &mdash; la gente lo usa lo stesso</li>
+                            </ul>
+                        </div>
+                        <div class="p-4 bg-emerald-50 rounded-lg">
+                            <div class="flex items-center gap-2 mb-2">
+                                <i data-lucide="check-circle" class="text-emerald-500 w-4 h-4"></i>
+                                <span class="font-medium text-emerald-700">Con EmiBrain</span>
+                            </div>
+                            <ul class="text-sm text-emerald-600 space-y-1">
+                                <li>File su server Emisfera, non cloud terzi</li>
+                                <li>Workspace isolati per ogni utente</li>
+                                <li>Ogni azione loggata e tracciabile (Git)</li>
+                                <li>Contesto permanente tra sessioni</li>
+                                <li>Alternativa controllata &mdash; non divieto</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="mt-4">Il brain &egrave; <strong>portabile</strong>: se domani cambiamo modello AI (Claude, GPT, Gemini, locale), la knowledge base si sposta tale e quale. Nessun lock-in su vendor.</p>
+            </div>
+        </section>
+
+        <!-- 2. CHI LO USA -->
+        <section id="chi" class="slide bg-white rounded-lg shadow-sm p-8">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center">
+                    <i data-lucide="users" class="text-emerald-600 w-5 h-5"></i>
+                </div>
+                <h2 class="text-2xl font-semibold text-gray-800">Chi lo usa gi&agrave;</h2>
+            </div>
+
+            <p class="text-gray-600 mb-6">Non &egrave; teoria. Queste persone lo usano quotidianamente.</p>
+
+            <div class="space-y-4">
+                <div class="border border-gray-200 rounded-lg p-5">
+                    <div class="flex items-center justify-between mb-2">
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="database" class="text-talk-600 w-5 h-5"></i>
+                            <h3 class="font-semibold text-gray-800">Maulini &mdash; Query Oracle / Whitenet</h3>
+                        </div>
+                        <span class="text-xs bg-emerald-100 text-emerald-700 px-2 py-1 rounded-full font-medium">Attivo</span>
+                    </div>
+                    <p class="text-gray-600 text-sm">1.500+ query SQL analizzate. L'AI capisce le casistiche dei ticket e genera la query di soluzione. 8 mesi di storico caricato.</p>
+                </div>
+
+                <div class="border border-gray-200 rounded-lg p-5">
+                    <div class="flex items-center justify-between mb-2">
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="layout-grid" class="text-talk-600 w-5 h-5"></i>
+                            <h3 class="font-semibold text-gray-800">Paolo Carmine / Digima &mdash; Griglia Cinema</h3>
+                        </div>
+                        <span class="text-xs bg-emerald-100 text-emerald-700 px-2 py-1 rounded-full font-medium">In produzione</span>
+                    </div>
+                    <p class="text-gray-600 text-sm">Layout soffitti cinema (casse acustiche, lampade). Generato in 20 min dalla descrizione verbale. In uso per Bologna SCA + Parco Dora Torino.</p>
+                </div>
+
+                <div class="border border-gray-200 rounded-lg p-5">
+                    <div class="flex items-center justify-between mb-2">
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="globe" class="text-talk-600 w-5 h-5"></i>
+                            <h3 class="font-semibold text-gray-800">Blardone / Netycom &mdash; Workspace completo</h3>
+                        </div>
+                        <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full font-medium">Primo sito live</span>
+                    </div>
+                    <p class="text-gray-600 text-sm">Workspace con packages installati (PressLess, Figma/SiteRipper). Ha generato il primo sito web pubblicato online tramite il suo brain. Primo caso di workspace "full-stack".</p>
+                </div>
+
+                <div class="border border-gray-200 rounded-lg p-5">
+                    <div class="flex items-center justify-between mb-2">
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="briefcase" class="text-talk-600 w-5 h-5"></i>
+                            <h3 class="font-semibold text-gray-800">Gabriele Besozzi &mdash; Subscription cloud attiva</h3>
+                        </div>
+                        <span class="text-xs bg-emerald-100 text-emerald-700 px-2 py-1 rounded-full font-medium">Attivo</span>
+                    </div>
+                    <p class="text-gray-600 text-sm">Account cloud pro attivato. Claude scelto come modello standard. Flussi testati: upload documenti Word/PDF, organizzazione progetti per cliente.</p>
+                </div>
+
+                <div class="border border-gray-200 rounded-lg p-5">
+                    <div class="flex items-center justify-between mb-2">
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="user" class="text-talk-600 w-5 h-5"></i>
+                            <h3 class="font-semibold text-gray-800">Puddu, Lancy</h3>
+                        </div>
+                        <span class="text-xs bg-talk-100 text-talk-700 px-2 py-1 rounded-full font-medium">In uso</span>
+                    </div>
+                    <p class="text-gray-600 text-sm">Utenti attivi con casi d'uso diversi. Puddu: integrazione Google Drive condiviso.</p>
+                </div>
+            </div>
+
+            <div class="bg-indigo-50 rounded-lg p-4 mt-6">
+                <div class="flex items-start gap-3">
+                    <i data-lucide="graduation-cap" class="text-indigo-600 w-5 h-5 mt-0.5"></i>
+                    <p class="text-sm text-indigo-800"><strong>Tirocinante ITS in arrivo:</strong> Ricci ha definito un percorso di 6 macro-attivit&agrave; (analisi modello, configurazione agente, automazioni Python, testing, documentazione, adozione). Il brain del tirocinante sar&agrave; il primo deliverable concreto del percorso formativo.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. ARCHITETTURA -->
+        <section id="architettura" class="slide bg-white rounded-lg shadow-sm p-8">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center">
+                    <i data-lucide="layers" class="text-indigo-600 w-5 h-5"></i>
+                </div>
+                <h2 class="text-2xl font-semibold text-gray-800">Architettura a 3 livelli</h2>
+            </div>
+
+            <div class="space-y-6 text-gray-700 leading-relaxed">
+
+                <div class="bg-gray-900 rounded-lg p-6 text-sm font-mono text-gray-300 overflow-x-auto">
+<pre class="whitespace-pre">
+/var/emibrain/
+&#9474;
+&#9500;&#9472;&#9472; shared/                     LIVELLO 1: Emisfera (tutti leggono)
+&#9474;   &#9500;&#9472;&#9472; knowledge/              Fascicol, prassi, protocolli aziendali
+&#9474;   &#9500;&#9472;&#9472; core/                   Protocollo Brain, tools condivisi
+&#9474;   &#9492;&#9472;&#9472; templates/              Skeleton per nuovi brain
+&#9474;
+&#9500;&#9472;&#9472; teams/                      LIVELLO 2: Team (gruppo legge)
+&#9474;   &#9500;&#9472;&#9472; sviluppo/               Wiki condivisa dev
+&#9474;   &#9500;&#9472;&#9472; commerciale/            Wiki condivisa sales
+&#9474;   &#9492;&#9472;&#9472; sistemi/                Wiki condivisa IT
+&#9474;
+&#9492;&#9472;&#9472; brains/                     LIVELLO 3: Personale (solo utente)
+    &#9500;&#9472;&#9472; maulini/                Brain privato, criptato
+    &#9500;&#9472;&#9472; carmine/
+    &#9492;&#9472;&#9472; puddu/
+</pre>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-4">
+                    <div class="p-4 bg-blue-50 rounded-lg border border-blue-200">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i data-lucide="building" class="text-blue-600 w-4 h-4"></i>
+                            <span class="font-medium text-gray-800">Livello 1: Azienda</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-2">Knowledge base Emisfera. Tutti gli utenti EmiBrain leggono.</p>
+                        <p class="text-xs text-blue-700 font-medium">Permessi: emibrain:emibrain (read)</p>
+                    </div>
+
+                    <div class="p-4 bg-purple-50 rounded-lg border border-purple-200">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i data-lucide="users" class="text-purple-600 w-4 h-4"></i>
+                            <span class="font-medium text-gray-800">Livello 2: Team</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-2">Wiki per reparto. Il commerciale non vede i ticket dev e viceversa.</p>
+                        <p class="text-xs text-purple-700 font-medium">Permessi: team-{reparto} (read/write)</p>
+                    </div>
+
+                    <div class="p-4 bg-emerald-50 rounded-lg border border-emerald-200">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i data-lucide="lock" class="text-emerald-600 w-4 h-4"></i>
+                            <span class="font-medium text-gray-800">Livello 3: Personale</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-2">Brain privato. Solo il proprietario accede. Criptazione raccomandata.</p>
+                        <p class="text-xs text-emerald-700 font-medium">Permessi: ws-{utente} + ecryptfs</p>
+                    </div>
+                </div>
+
+                <h3 class="font-semibold text-gray-800 mt-6">Infrastruttura</h3>
+
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="p-4 bg-gray-50 rounded-lg">
+                        <h4 class="font-medium text-gray-800 mb-2">Brain = File su filesystem</h4>
+                        <p class="text-sm text-gray-600">I brain sono cartelle con file Markdown. Non servono container. Servono permessi Linux standard (utenti, gruppi, ACL).</p>
+                    </div>
+                    <div class="p-4 bg-gray-50 rounded-lg">
+                        <h4 class="font-medium text-gray-800 mb-2">Servizi = Docker</h4>
+                        <p class="text-sm text-gray-600">WebSSH, telegram-webhook, proxy AI girano in container Docker. Stateless, facili da aggiornare. I brain sono montati come volumi.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. SECURITY -->
+        <section id="security" class="slide bg-white rounded-lg shadow-sm p-8">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center">
+                    <i data-lucide="shield-check" class="text-red-600 w-5 h-5"></i>
+                </div>
+                <h2 class="text-2xl font-semibold text-gray-800">Modello di Sicurezza</h2>
+            </div>
+
+            <div class="space-y-6 text-gray-700 leading-relaxed">
+
+                <div class="bg-amber-50 rounded-lg p-5 border border-amber-200">
+                    <div class="flex items-start gap-3">
+                        <i data-lucide="alert-triangle" class="text-amber-600 w-5 h-5 mt-0.5 flex-shrink-0"></i>
+                        <div class="text-sm text-amber-800">
+                            <p><strong>Trasparenza:</strong> Questo modello di sicurezza &egrave; implementato e funzionante, ma non &egrave; stato sottoposto a audit formale. Lo presentiamo perch&eacute; vogliamo il vostro feedback per rafforzarlo. Siamo qui per ascoltare, non per vendere.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="font-semibold text-gray-800">Cosa c'&egrave; gi&agrave;</h3>
+
+                <div class="space-y-4">
+                    <div class="flex items-start gap-4">
+                        <div class="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <i data-lucide="check" class="text-emerald-600 w-4 h-4"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-gray-800">Dati su server Emisfera, non in cloud terzi</h4>
+                            <p class="text-sm text-gray-600">I file del brain risiedono su filesystem locale. Non transitano su servizi terzi. Solo le richieste al modello AI escono dalla rete &mdash; e contengono solo il contesto della conversazione attiva, non l'intero brain.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <i data-lucide="check" class="text-emerald-600 w-4 h-4"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-gray-800">Isolamento workspace</h4>
+                            <p class="text-sm text-gray-600">Ogni utente ha un utente Linux dedicato (<code>ws-{nome}</code>). Il brain gira con i permessi di quell'utente. Un utente non pu&ograve; accedere ai file di un altro. Testato in produzione su ABChat con workspace multipli.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <i data-lucide="check" class="text-emerald-600 w-4 h-4"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-gray-800">Criptazione a livello utente (ecryptfs)</h4>
+                            <p class="text-sm text-gray-600">Le home directory dei brain possono essere criptate con ecryptfs. L'admin di sistema <strong>non pu&ograve;</strong> leggere i contenuti senza la passphrase dell'utente. La decriptazione avviene solo quando l'utente &egrave; loggato.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <i data-lucide="check" class="text-emerald-600 w-4 h-4"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-gray-800">Separazione lettura / azione</h4>
+                            <p class="text-sm text-gray-600">L'AI pu&ograve; leggere file, email, documenti. Ma ogni <strong>azione esterna</strong> (invio email, modifica a sistemi, accesso a database) richiede approvazione esplicita dell'utente. Nessuna azione automatica su sistemi di produzione senza conferma.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <i data-lucide="check" class="text-emerald-600 w-4 h-4"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-gray-800">Audit trail completo</h4>
+                            <p class="text-sm text-gray-600">Ogni modifica ai file &egrave; tracciata in Git (chi, cosa, quando). Le azioni dell'AI sono loggate nel diary. &Egrave; possibile ricostruire l'intera cronologia di un workspace.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <i data-lucide="check" class="text-emerald-600 w-4 h-4"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-gray-800">Secrets management</h4>
+                            <p class="text-sm text-gray-600">API keys e credenziali in file <code>.env</code> con permessi 600, gitignored. Mai nei log, mai in chiaro. Token esposti = revoca immediata.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="font-semibold text-gray-800 mt-8">Tabella permessi per livello</h3>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead>
+                            <tr class="border-b border-gray-200">
+                                <th class="text-left py-3 pr-4 font-semibold text-gray-800">Livello</th>
+                                <th class="text-left py-3 pr-4 font-semibold text-gray-800">Chi legge</th>
+                                <th class="text-left py-3 pr-4 font-semibold text-gray-800">Chi scrive</th>
+                                <th class="text-left py-3 font-semibold text-gray-800">Criptazione</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-600">
+                            <tr class="border-b border-gray-100">
+                                <td class="py-3 pr-4 font-medium">shared/</td>
+                                <td class="py-3 pr-4">Tutti EmiBrain</td>
+                                <td class="py-3 pr-4">Admin</td>
+                                <td class="py-3">No (pubblico interno)</td>
+                            </tr>
+                            <tr class="border-b border-gray-100">
+                                <td class="py-3 pr-4 font-medium">teams/{x}/</td>
+                                <td class="py-3 pr-4">Membri team x</td>
+                                <td class="py-3 pr-4">Membri team x</td>
+                                <td class="py-3">Opzionale</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 pr-4 font-medium">brains/{utente}/</td>
+                                <td class="py-3 pr-4">Solo utente</td>
+                                <td class="py-3 pr-4">Solo utente</td>
+                                <td class="py-3">Raccomandata (ecryptfs)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="bg-emerald-50 rounded-lg p-4 mt-4">
+                    <div class="flex items-start gap-3">
+                        <i data-lucide="scale" class="text-emerald-600 w-5 h-5 mt-0.5"></i>
+                        <p class="text-sm text-emerald-700"><strong>GDPR / AI Act:</strong> Il modello risolve il problema legale alla radice: i dati sensibili non lasciano il perimetro aziendale. Le chiamate API al modello possono essere filtrate e monitorate. L'alternativa (ignorare che la gente usa ChatGPT senza controllo) &egrave; incomparabilmente peggio dal punto di vista compliance.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. PROTOCOLLO v3 -->
+        <section id="protocollo" class="slide bg-white rounded-lg shadow-sm p-8">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
+                    <i data-lucide="file-text" class="text-purple-600 w-5 h-5"></i>
+                </div>
+                <h2 class="text-2xl font-semibold text-gray-800">Protocollo Brain v3.1</h2>
+            </div>
+
+            <div class="space-y-6 text-gray-700 leading-relaxed">
+                <p>Il "Protocollo Brain" &egrave; il documento che definisce come funziona un brain: struttura cartelle, naming, permessi, regole di scrittura, sicurezza. &Egrave; versionato e in evoluzione.</p>
+
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="p-4 bg-gray-50 rounded-lg">
+                        <h4 class="font-medium text-gray-800 mb-2">v1 &rarr; v2 (feb-mar 2026)</h4>
+                        <ul class="text-sm text-gray-600 space-y-1">
+                            <li>&bull; Struttura cartelle base</li>
+                            <li>&bull; Shared layer per risorse condivise</li>
+                            <li>&bull; Workspace isolation</li>
+                            <li>&bull; Validazione schema (.index.yaml)</li>
+                        </ul>
+                    </div>
+                    <div class="p-4 bg-purple-50 rounded-lg border border-purple-200">
+                        <h4 class="font-medium text-gray-800 mb-2">v3.0 &rarr; v3.1 (5 mar 2026)</h4>
+                        <ul class="text-sm text-gray-600 space-y-1">
+                            <li>&bull; Ruolo dell'agente come "custode del brain"</li>
+                            <li>&bull; Sequenza di boot formalizzata</li>
+                            <li>&bull; <strong>Package system</strong>: skill modulari installabili</li>
+                            <li>&bull; Guida utente proattiva</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3 class="font-semibold text-gray-800 mt-4">Packages: skill modulari</h3>
+
+                <p>Novit&agrave; della v3.1: i brain possono installare <strong>packages</strong> &mdash; bundle di comandi, agenti e strumenti. Come le estensioni di un browser: il core &egrave; uguale per tutti, le capability sono personalizzabili.</p>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead>
+                            <tr class="border-b border-gray-200">
+                                <th class="text-left py-3 pr-4 font-semibold text-gray-800">Package</th>
+                                <th class="text-left py-3 pr-4 font-semibold text-gray-800">Cosa fa</th>
+                                <th class="text-left py-3 font-semibold text-gray-800">Visibilit&agrave;</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-600">
+                            <tr class="border-b border-gray-100">
+                                <td class="py-3 pr-4 font-medium">PressLess</td>
+                                <td class="py-3 pr-4">Generazione siti web statici dall'AI</td>
+                                <td class="py-3"><span class="text-xs bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full">Pubblico</span></td>
+                            </tr>
+                            <tr class="border-b border-gray-100">
+                                <td class="py-3 pr-4 font-medium">Figma/SiteRipper</td>
+                                <td class="py-3 pr-4">Estrazione design system da siti web</td>
+                                <td class="py-3"><span class="text-xs bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full">Pubblico</span></td>
+                            </tr>
+                            <tr class="border-b border-gray-100">
+                                <td class="py-3 pr-4 font-medium">Brainstorm</td>
+                                <td class="py-3 pr-4">Pensiero critico e Devil's Advocate</td>
+                                <td class="py-3"><span class="text-xs bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full">Pubblico</span></td>
+                            </tr>
+                            <tr class="border-b border-gray-100">
+                                <td class="py-3 pr-4 font-medium">O365</td>
+                                <td class="py-3 pr-4">Integrazione Microsoft Outlook/Office</td>
+                                <td class="py-3"><span class="text-xs bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full">Ristretto</span></td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 pr-4 font-medium">Stalker</td>
+                                <td class="py-3 pr-4">Ricerca approfondita (OSINT)</td>
+                                <td class="py-3"><span class="text-xs bg-red-100 text-red-700 px-2 py-0.5 rounded-full">Ristretto</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p class="text-sm text-gray-500">I packages sono installati come symlink read-only: il brain li usa ma non pu&ograve; modificarli. L'admin decide quali packages sono disponibili per quali utenti/gruppi.</p>
+            </div>
+        </section>
+
+        <!-- 6. DOMANDE APERTE -->
+        <section id="domande" class="slide bg-white rounded-lg shadow-sm p-8">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center">
+                    <i data-lucide="help-circle" class="text-amber-600 w-5 h-5"></i>
+                </div>
+                <h2 class="text-2xl font-semibold text-gray-800">Domande aperte &mdash; per voi</h2>
+            </div>
+
+            <p class="text-gray-600 mb-6">Queste sono le decisioni che servono dal team IT/Security prima di procedere. Non abbiamo risposte preconfezionate &mdash; vogliamo le vostre.</p>
+
+            <div class="space-y-4">
+                <div class="flex items-start gap-4 p-4 bg-gray-50 rounded-lg">
+                    <i data-lucide="server" class="text-gray-500 w-5 h-5 mt-0.5 flex-shrink-0"></i>
+                    <div>
+                        <h4 class="font-medium text-gray-800">Server di destinazione</h4>
+                        <p class="text-sm text-gray-600">On-premise Emisfera o cloud? Quale macchina? Risorse necessarie: minime (i brain sono file di testo).</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-4 p-4 bg-gray-50 rounded-lg">
+                    <i data-lucide="key" class="text-gray-500 w-5 h-5 mt-0.5 flex-shrink-0"></i>
+                    <div>
+                        <h4 class="font-medium text-gray-800">Accesso SSH per Giobi (fase setup)</h4>
+                        <p class="text-sm text-gray-600">Serve accesso temporaneo per il provisioning iniziale. Modalit&agrave; e durata da concordare.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-4 p-4 bg-gray-50 rounded-lg">
+                    <i data-lucide="shield" class="text-gray-500 w-5 h-5 mt-0.5 flex-shrink-0"></i>
+                    <div>
+                        <h4 class="font-medium text-gray-800">Policy criptazione</h4>
+                        <p class="text-sm text-gray-600">ecryptfs per i brain personali: obbligatoria per tutti o facoltativa? Come gestire il recovery delle passphrase?</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-4 p-4 bg-gray-50 rounded-lg">
+                    <i data-lucide="users" class="text-gray-500 w-5 h-5 mt-0.5 flex-shrink-0"></i>
+                    <div>
+                        <h4 class="font-medium text-gray-800">Mapping utenti &rarr; team/reparti</h4>
+                        <p class="text-sm text-gray-600">Quali reparti (sviluppo, commerciale, sistemi, altro)? Chi in quale team?</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-4 p-4 bg-gray-50 rounded-lg">
+                    <i data-lucide="database" class="text-gray-500 w-5 h-5 mt-0.5 flex-shrink-0"></i>
+                    <div>
+                        <h4 class="font-medium text-gray-800">Integrazione Fascicol</h4>
+                        <p class="text-sm text-gray-600">Come accedere ai dati Fascicol? API, filesystem condiviso, export database? Da definire con chi gestisce il sistema.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-4 p-4 bg-gray-50 rounded-lg">
+                    <i data-lucide="hard-drive" class="text-gray-500 w-5 h-5 mt-0.5 flex-shrink-0"></i>
+                    <div>
+                        <h4 class="font-medium text-gray-800">Backup strategy</h4>
+                        <p class="text-sm text-gray-600">Git tiene lo storico dei file, ma serve una strategia di backup a livello infrastruttura. Integrazione con backup esistenti Emisfera?</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-4 p-4 bg-gray-50 rounded-lg">
+                    <i data-lucide="wifi" class="text-gray-500 w-5 h-5 mt-0.5 flex-shrink-0"></i>
+                    <div>
+                        <h4 class="font-medium text-gray-800">Networking</h4>
+                        <p class="text-sm text-gray-600">Accesso utenti: VPN, Tailscale, rete interna diretta? Come raggiungono il server dalla loro postazione?</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-4 p-4 bg-gray-50 rounded-lg">
+                    <i data-lucide="eye" class="text-gray-500 w-5 h-5 mt-0.5 flex-shrink-0"></i>
+                    <div>
+                        <h4 class="font-medium text-gray-800">Monitoraggio chiamate API</h4>
+                        <p class="text-sm text-gray-600">Le richieste al modello AI escono dalla rete. Serve logging/filtering a livello proxy? Whitelist di endpoint?</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. TIMELINE -->
+        <section id="timeline" class="slide bg-white rounded-lg shadow-sm p-8">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 bg-talk-100 rounded-lg flex items-center justify-center">
+                    <i data-lucide="git-branch" class="text-talk-600 w-5 h-5"></i>
+                </div>
+                <h2 class="text-2xl font-semibold text-gray-800">Timeline completa</h2>
+            </div>
+
+            <div class="space-y-0">
+                <!-- Fase 0 -->
+                <div class="flex gap-4">
+                    <div class="flex flex-col items-center">
+                        <div class="w-8 h-8 bg-emerald-500 rounded-full flex items-center justify-center text-white text-sm font-bold">
+                            <i data-lucide="check" class="w-4 h-4"></i>
+                        </div>
+                        <div class="w-0.5 h-full bg-emerald-200"></div>
+                    </div>
+                    <div class="pb-8">
+                        <div class="flex items-center gap-2">
+                            <h3 class="font-semibold text-gray-800">Presentazione e approvazione Panella</h3>
+                            <span class="text-xs bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full">Fatto</span>
+                        </div>
+                        <p class="text-sm text-gray-500 mb-2">27 febbraio 2026</p>
+                        <p class="text-sm text-gray-600">Demo live, approvazione del direttore, definizione scope 10 utenti pilota.</p>
+                    </div>
+                </div>
+
+                <!-- Fase 0.5 -->
+                <div class="flex gap-4">
+                    <div class="flex flex-col items-center">
+                        <div class="w-8 h-8 bg-emerald-500 rounded-full flex items-center justify-center text-white text-sm font-bold">
+                            <i data-lucide="check" class="w-4 h-4"></i>
+                        </div>
+                        <div class="w-0.5 h-full bg-emerald-200"></div>
+                    </div>
+                    <div class="pb-8">
+                        <div class="flex items-center gap-2">
+                            <h3 class="font-semibold text-gray-800">Presentazione reparto IT (Franzinelli)</h3>
+                            <span class="text-xs bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full">Fatto</span>
+                        </div>
+                        <p class="text-sm text-gray-500 mb-2">Febbraio-marzo 2026</p>
+                        <p class="text-sm text-gray-600">Architettura presentata al team sistemi. Slide con dettaglio tecnico 3 livelli.</p>
+                    </div>
+                </div>
+
+                <!-- Fase 1 -->
+                <div class="flex gap-4">
+                    <div class="flex flex-col items-center">
+                        <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white text-sm font-bold ring-4 ring-blue-100">1</div>
+                        <div class="w-0.5 h-full bg-gray-200"></div>
+                    </div>
+                    <div class="pb-8">
+                        <div class="flex items-center gap-2">
+                            <h3 class="font-semibold text-gray-800">Review Qualit&agrave; &amp; Security</h3>
+                            <span class="text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full">Siamo qui</span>
+                        </div>
+                        <p class="text-sm text-gray-500 mb-2">9 marzo 2026</p>
+                        <p class="text-sm text-gray-600">Incontro con Mitidieri (HR/Qualit&agrave;) e Soncini (IT Security). Revisione modello di sicurezza, raccolta requisiti, definizione policy.</p>
+                    </div>
+                </div>
+
+                <!-- Fase 2 -->
+                <div class="flex gap-4">
+                    <div class="flex flex-col items-center">
+                        <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center text-white text-sm font-bold">2</div>
+                        <div class="w-0.5 h-full bg-gray-200"></div>
+                    </div>
+                    <div class="pb-8">
+                        <h3 class="font-semibold text-gray-800">10 Account + Chiavi API</h3>
+                        <p class="text-sm text-gray-500 mb-2">Da approvazione security</p>
+                        <p class="text-sm text-gray-600">Team IT fornisce account/chiavi per gli utenti pilota. Configurazione server, provisioning brain base.</p>
+                    </div>
+                </div>
+
+                <!-- Fase 3 -->
+                <div class="flex gap-4">
+                    <div class="flex flex-col items-center">
+                        <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center text-white text-sm font-bold">3</div>
+                        <div class="w-0.5 h-full bg-gray-200"></div>
+                    </div>
+                    <div class="pb-8">
+                        <h3 class="font-semibold text-gray-800">Setup &amp; Deploy</h3>
+                        <p class="text-sm text-gray-500 mb-2">Entro 2 settimane da fase 2</p>
+                        <p class="text-sm text-gray-600">Installazione su server Emisfera. Creazione workspace per ogni utente pilota. Licenze cloud attivate.</p>
+                    </div>
+                </div>
+
+                <!-- Fase 4 -->
+                <div class="flex gap-4">
+                    <div class="flex flex-col items-center">
+                        <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center text-white text-sm font-bold">4</div>
+                        <div class="w-0.5 h-full bg-gray-200"></div>
+                    </div>
+                    <div class="pb-8">
+                        <h3 class="font-semibold text-gray-800">Primo trimestre &mdash; Adozione assistita</h3>
+                        <p class="text-sm text-gray-500 mb-2">3 mesi</p>
+                        <p class="text-sm text-gray-600">Tutoring ~4h/mese. Ogni utente porta i propri casi d'uso. Sessioni di gruppo + supporto individuale. Tirocinante ITS incluso nel percorso.</p>
+                    </div>
+                </div>
+
+                <!-- Fase 5 -->
+                <div class="flex gap-4">
+                    <div class="flex flex-col items-center">
+                        <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center text-white text-sm font-bold">5</div>
+                    </div>
+                    <div class="pb-4">
+                        <h3 class="font-semibold text-gray-800">Valutazione &amp; Scalabilit&agrave;</h3>
+                        <p class="text-sm text-gray-500 mb-2">Fine trimestre</p>
+                        <p class="text-sm text-gray-600">Revisione risultati, decisione su estensione utenti, valutazione GPU locale, piano di autonomia.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. COSTI -->
+        <section id="costi" class="slide bg-white rounded-lg shadow-sm p-8">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 bg-talk-100 rounded-lg flex items-center justify-center">
+                    <i data-lucide="coins" class="text-talk-600 w-5 h-5"></i>
+                </div>
+                <h2 class="text-2xl font-semibold text-gray-800">Costi</h2>
+            </div>
+
+            <div class="space-y-6">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead>
+                            <tr class="border-b border-gray-200">
+                                <th class="text-left py-3 pr-4 font-semibold text-gray-800">Voce</th>
+                                <th class="text-left py-3 pr-4 font-semibold text-gray-800">Costo</th>
+                                <th class="text-left py-3 font-semibold text-gray-800">Note</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-600">
+                            <tr class="border-b border-gray-100">
+                                <td class="py-3 pr-4">Licenza cloud (uso base)</td>
+                                <td class="py-3 pr-4 font-medium text-gray-800">~20 &euro;/mese per utente</td>
+                                <td class="py-3">Uso quotidiano standard</td>
+                            </tr>
+                            <tr class="border-b border-gray-100">
+                                <td class="py-3 pr-4">Licenza cloud (uso intensivo)</td>
+                                <td class="py-3 pr-4 font-medium text-gray-800">~100 &euro;/mese per utente</td>
+                                <td class="py-3">Lavoro full-day con AI</td>
+                            </tr>
+                            <tr class="border-b border-gray-100">
+                                <td class="py-3 pr-4">Server</td>
+                                <td class="py-3 pr-4 font-medium text-gray-800">~0 &euro;</td>
+                                <td class="py-3">Risorse minime, infrastruttura esistente</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 pr-4">Tutoring (Giobi)</td>
+                                <td class="py-3 pr-4 font-medium text-gray-800">Da definire</td>
+                                <td class="py-3">~4h/mese primo trimestre</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="bg-talk-50 rounded-lg p-4">
+                    <div class="flex items-start gap-3">
+                        <i data-lucide="calculator" class="text-talk-600 w-5 h-5 mt-0.5"></i>
+                        <div>
+                            <p class="text-sm text-talk-800"><strong>Esempio: 10 utenti base</strong></p>
+                            <p class="text-sm text-talk-700">10 &times; 20 &euro;/mese = 200 &euro;/mese + tutoring.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 rounded-lg p-5">
+                    <h3 class="font-semibold text-gray-800 mb-3">Opzione GPU Locale (futuro)</h3>
+                    <p class="text-sm text-gray-600 mb-3">Se gli utenti superano 20-30 unit&agrave;, una GPU locale ammortizza i costi cloud facendo girare modelli AI in sede.</p>
+                    <div class="grid md:grid-cols-2 gap-3 text-sm">
+                        <div class="p-3 bg-white rounded-lg">
+                            <span class="font-medium text-gray-800">Entry level:</span>
+                            <span class="text-gray-600"> ~5.000 &euro;</span>
+                        </div>
+                        <div class="p-3 bg-white rounded-lg">
+                            <span class="font-medium text-gray-800">Produzione:</span>
+                            <span class="text-gray-600"> ~20.000 &euro;</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quote -->
+        <section class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg shadow-lg p-8 text-white">
+            <div class="flex gap-4">
+                <i data-lucide="quote" class="w-12 h-12 opacity-30 flex-shrink-0"></i>
+                <div>
+                    <p class="text-xl italic mb-4 leading-relaxed">"Non ti sto vendendo un software. Ti sto vendendo una metodologia che domani, quando ci sar&agrave; la roba pi&ugrave; figa, diventa un componente dell'applicazione."</p>
+                    <p class="text-gray-400">&mdash; Giobi Fasoli, 27 febbraio 2026</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Materiali correlati -->
+        <section class="bg-white rounded-lg shadow-sm p-8">
+            <h2 class="text-2xl font-semibold mb-6 text-gray-800">Materiali correlati</h2>
+            <div class="space-y-3">
+                <a href="slides.html" class="flex items-center gap-3 p-4 bg-blue-50 hover:bg-blue-100 rounded-lg transition group">
+                    <i data-lucide="presentation" class="text-blue-600 w-5 h-5"></i>
+                    <div class="flex-1">
+                        <div class="font-medium text-gray-800 group-hover:text-blue-700">Slide per la presentazione</div>
+                        <div class="text-sm text-gray-600">12 slide reveal.js: problema, architettura, sicurezza, domande, timeline</div>
+                    </div>
+                    <i data-lucide="arrow-right" class="text-blue-600 w-4 h-4"></i>
+                </a>
+                <a href="../2026-02-27-emisfera-proposta-ai/" class="flex items-center gap-3 p-4 bg-emerald-50 hover:bg-emerald-100 rounded-lg transition group">
+                    <i data-lucide="file-check" class="text-emerald-600 w-5 h-5"></i>
+                    <div class="flex-1">
+                        <div class="font-medium text-gray-800 group-hover:text-emerald-700">Proposta originale approvata</div>
+                        <div class="text-sm text-gray-600">27 febbraio 2026 &mdash; documento completo con architettura, casi d'uso, costi</div>
+                    </div>
+                    <i data-lucide="arrow-right" class="text-emerald-600 w-4 h-4"></i>
+                </a>
+                <a href="../2026-02-27-emisfera-proposta-ai/slides.html" class="flex items-center gap-3 p-4 bg-indigo-50 hover:bg-indigo-100 rounded-lg transition group">
+                    <i data-lucide="presentation" class="text-indigo-600 w-5 h-5"></i>
+                    <div class="flex-1">
+                        <div class="font-medium text-gray-800 group-hover:text-indigo-700">Slide per team Sistemi (Franzinelli)</div>
+                        <div class="text-sm text-gray-600">~12 slide reveal.js: architettura, sicurezza, costi</div>
+                    </div>
+                    <i data-lucide="arrow-right" class="text-indigo-600 w-4 h-4"></i>
+                </a>
+                <a href="../2026-02-16-emisfera-pranzo-ai/" class="flex items-center gap-3 p-4 bg-talk-50 hover:bg-talk-100 rounded-lg transition group">
+                    <i data-lucide="book-open" class="text-talk-600 w-5 h-5"></i>
+                    <div class="flex-1">
+                        <div class="font-medium text-gray-800 group-hover:text-talk-700">Pranzo AI #2 &mdash; VS Code &amp; Copilot</div>
+                        <div class="text-sm text-gray-600">Dispensa: GDPR, allucinazioni, setup pratico</div>
+                    </div>
+                    <i data-lucide="arrow-right" class="text-talk-600 w-4 h-4"></i>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 mt-16">
+        <div class="max-w-4xl mx-auto px-6 py-8 text-center text-sm">
+            <p>talk.giobi.com &mdash; slides . note . materiali</p>
+            <p class="mt-2">&copy; 2026 Giobi Fasoli</p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
