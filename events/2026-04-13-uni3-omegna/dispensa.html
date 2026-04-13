@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dispensa - Conferenza AI: da Asimov a ChatGPT</title>
+
+    <!-- Monospace font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Fira Code', 'JetBrains Mono', 'Source Code Pro', Consolas, Monaco, 'Courier New', monospace;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.7;
+        }
+
+        .breadcrumb {
+            margin-bottom: 2rem;
+        }
+
+        .breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            opacity: 0.7;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 2.5rem 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2.2rem;
+            font-weight: 500;
+            line-height: 1.3;
+        }
+
+        .header .subtitle {
+            margin: 1rem 0 0 0;
+            font-size: 1.1rem;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        .intro {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .intro p {
+            margin: 0 0 1rem 0;
+            color: #666;
+        }
+
+        .intro p:last-child {
+            margin-bottom: 0;
+        }
+
+        .section {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            border-left: 4px solid #10b981;
+        }
+
+        .section h2 {
+            margin: 0 0 1.5rem 0;
+            color: #333;
+            font-size: 1.6rem;
+        }
+
+        .section h3 {
+            margin: 2rem 0 1rem 0;
+            color: #059669;
+            font-size: 1.3rem;
+        }
+
+        .section h3:first-of-type {
+            margin-top: 0;
+        }
+
+        .section p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .section ul, .section ol {
+            color: #666;
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+
+        .section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .link-box {
+            background: #f0fdf4;
+            border: 1px solid #10b981;
+            border-radius: 5px;
+            padding: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .link-box h4 {
+            margin: 0 0 0.8rem 0;
+            color: #059669;
+            font-size: 1rem;
+        }
+
+        .link-box a {
+            display: block;
+            color: #10b981;
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            transition: opacity 0.3s ease;
+        }
+
+        .link-box a:hover {
+            opacity: 0.7;
+        }
+
+        .link-box a:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 5px;
+        }
+
+        .highlight p {
+            margin: 0;
+            color: #78350f;
+        }
+
+        .tool-card {
+            background: #eff6ff;
+            border: 1px solid #3b82f6;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .tool-card h4 {
+            margin: 0 0 0.5rem 0;
+            color: #1e40af;
+            font-size: 1.1rem;
+        }
+
+        .tool-card p {
+            margin: 0 0 0.8rem 0;
+            font-size: 0.95rem;
+        }
+
+        .tool-card a {
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .tool-card a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1rem;
+            }
+
+            .header h1 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="breadcrumb">
+        <a href="./index.html">← Torna all'Evento</a>
+    </div>
+
+    <div class="header">
+        <h1>📖 Dispensa della Conferenza</h1>
+        <div class="subtitle">Intelligenza Artificiale: da Asimov a ChatGPT<br>Materiali di approfondimento per i partecipanti</div>
+    </div>
+
+    <div class="intro">
+        <p><strong>Benvenuti!</strong></p>
+        <p>Questa dispensa raccoglie materiali, spiegazioni e risorse per approfondire i temi trattati durante la conferenza del 23 gennaio 2026 presso Villa Giulia.</p>
+        <p>I link sono organizzati per argomento, seguendo il percorso della presentazione. Prendete tutto il tempo necessario per esplorare ciò che più vi interessa.</p>
+    </div>
+
+    <div class="section">
+        <h2>🤖 Da Asimov a ChatGPT: La Storia dell'IA</h2>
+
+        <h3>Le Tre Leggi della Robotica</h3>
+        <p>Isaac Asimov, autore di fantascienza del '900, immaginò le "Tre Leggi della Robotica" per governare il comportamento dei robot intelligenti. Sebbene siano fantascienza, hanno influenzato profondamente il dibattito sull'etica dell'IA.</p>
+
+        <div class="link-box">
+            <h4>🔗 Approfondimenti:</h4>
+            <a href="https://it.wikipedia.org/wiki/Tre_leggi_della_robotica" target="_blank">→ Le Tre Leggi della Robotica su Wikipedia</a>
+            <a href="https://www.amazon.it/s?k=isaac+asimov+io+robot" target="_blank">→ "Io, Robot" di Isaac Asimov (libro)</a>
+        </div>
+
+        <h3>Reti Neurali e il Percorso verso gli LLM</h3>
+        <p>L'intelligenza artificiale moderna si basa su <strong>reti neurali</strong>, sistemi ispirati (vagamente) al cervello umano. Il grande salto è avvenuto con i <strong>Transformer</strong> (2017), l'architettura che ha permesso la nascita di GPT, Claude e altri "Large Language Model".</p>
+
+        <div class="highlight">
+            <p><strong>💡 Concetto chiave:</strong> Un LLM è essenzialmente un sistema di "completamento automatico" gigantesco, allenato su miliardi di testi per prevedere la parola successiva più probabile.</p>
+        </div>
+
+        <div class="link-box">
+            <h4>🔗 Approfondimenti:</h4>
+            <a href="https://waitbutwhy.com/2015/01/artificial-intelligence-revolution-1.html" target="_blank">→ The AI Revolution: The Road to Superintelligence (Wait But Why)</a>
+            <a href="https://www.youtube.com/watch?v=aircAruvnKk" target="_blank">→ Video: "But what is a neural network?" (3Blue1Brown, YouTube)</a>
+            <a href="https://www.youtube.com/watch?v=wjZofJX0v4M" target="_blank">→ Video: "Attention is All You Need" (Transformer spiegato)</a>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>🛠️ Tool Calling: Come l'IA Usa gli Strumenti</h2>
+
+        <p>I modelli linguistici non sanno fare calcoli complessi o conoscere l'ora attuale. Come risolvono? Usano <strong>tool calling</strong>: chiamano strumenti esterni (calcolatrice, orologio, motore di ricerca) e integrano il risultato nella risposta.</p>
+
+        <div class="highlight">
+            <p><strong>💡 Analogia:</strong> È come quando tu usi la calcolatrice del telefono per fare un conto. Il tuo cervello sa che serve moltiplicare, ma delega il calcolo allo strumento.</p>
+        </div>
+
+        <p>Questa capacità permette agli LLM di accedere a informazioni aggiornate, eseguire codice, cercare sul web, e molto altro.</p>
+    </div>
+
+    <div class="section">
+        <h2>🎨 Multimodalità: Testo, Immagini, Audio</h2>
+
+        <p>I modelli AI moderni non lavorano solo con testo. Possono:</p>
+        <ul>
+            <li><strong>Generare immagini</strong> da descrizioni testuali (Midjourney, DALL-E, Stable Diffusion)</li>
+            <li><strong>Riconoscere immagini</strong> e descriverle (GPT-4 Vision, Claude con immagini)</li>
+            <li><strong>Generare audio e musica</strong> (Suno, ElevenLabs)</li>
+            <li><strong>Trascrivere parlato</strong> (Whisper di OpenAI)</li>
+        </ul>
+
+        <div class="highlight">
+            <p><strong>💡 Il segreto:</strong> Tutto viene convertito in numeri (vettori). Il testo diventa numeri, le immagini diventano numeri, l'audio diventa numeri. L'AI lavora su questa "lingua intermedia" universale.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>🧰 Strumenti AI Consigliati</h2>
+
+        <p>Ecco alcuni strumenti utili per iniziare a esplorare l'intelligenza artificiale:</p>
+
+        <div class="tool-card">
+            <h4>ChatGPT (OpenAI)</h4>
+            <p>Il più famoso. Conversazione, scrittura, traduzione, riassunti. Versione gratuita disponibile.</p>
+            <a href="https://chat.openai.com" target="_blank">→ chat.openai.com</a>
+        </div>
+
+        <div class="tool-card">
+            <h4>Claude (Anthropic)</h4>
+            <p>Ottimo per analisi di documenti lunghi, coding, ragionamento complesso. Versione gratuita disponibile.</p>
+            <a href="https://claude.ai" target="_blank">→ claude.ai</a>
+        </div>
+
+        <div class="tool-card">
+            <h4>Perplexity</h4>
+            <p>Motore di ricerca potenziato dall'AI. Risponde citando fonti verificabili. Ideale per ricerca e fact-checking.</p>
+            <a href="https://www.perplexity.ai" target="_blank">→ perplexity.ai</a>
+        </div>
+
+        <div class="tool-card">
+            <h4>NotebookLM (Google)</h4>
+            <p>Carica documenti (PDF, note, articoli) e l'AI ti aiuta a studiarli, riassumerli, fare collegamenti. Può generare podcast audio dai tuoi documenti!</p>
+            <a href="https://notebooklm.google.com" target="_blank">→ notebooklm.google.com</a>
+        </div>
+
+        <div class="tool-card">
+            <h4>Midjourney</h4>
+            <p>Generazione di immagini da testo. Risultati artistici di alta qualità. Richiede account Discord.</p>
+            <a href="https://www.midjourney.com" target="_blank">→ midjourney.com</a>
+        </div>
+
+        <div class="tool-card">
+            <h4>Suno</h4>
+            <p>Generazione di musica e canzoni da prompt testuali. Sorprendentemente efficace.</p>
+            <a href="https://suno.ai" target="_blank">→ suno.ai</a>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>🧠 AI vs AGI: Dove Stiamo Andando?</h2>
+
+        <h3>La Singolarità Tecnologica</h3>
+        <p>La <strong>singolarità tecnologica</strong> è il punto ipotetico in cui l'intelligenza artificiale supera quella umana e inizia a migliorarsi autonomamente in modo esponenziale. Fantascienza? Forse. Ma è un tema di discussione serio tra ricercatori.</p>
+
+        <div class="link-box">
+            <h4>🔗 Approfondimenti:</h4>
+            <a href="https://waitbutwhy.com/2015/01/artificial-intelligence-revolution-2.html" target="_blank">→ The AI Revolution Part 2: Our Immortality or Extinction (Wait But Why)</a>
+            <a href="https://kindle.giobi.com/k.php?d=2026-01-19-creating-friendly-ai-la-guida-che-anticipo-tutto" target="_blank">→ Creating Friendly AI - Yudkowsky (digest)</a>
+        </div>
+
+        <h3>La Metafora dell'Aeroplano in 2D</h3>
+        <p>Immagina di vedere un aereo solo di lato (in 2D): vedi un tubo, non le ali. Se lo lanci sempre più forte, sembra che "voli". Ma non sta volando, lo stai catapultando. Volare richiede ali, portanza, aerodinamica.</p>
+
+        <div class="highlight">
+            <p><strong>💡 Applicato all'IA:</strong> Scaliamo i modelli sempre di più e sembrano sempre più intelligenti. Ma forse stiamo solo "catapultando" pattern matching sempre più potenti. La vera intelligenza/coscienza potrebbe essere qualcosa di diverso che non stiamo costruendo.</p>
+        </div>
+
+        <h3>La Stanza Cinese di Searle</h3>
+        <p>Esperimento mentale del 1980: immagina una persona in una stanza che riceve domande in cinese, consulta un manuale di regole e risponde in cinese perfetto - senza capire una parola di cinese. Sta "capendo" o sta solo manipolando simboli?</p>
+        <p>Questo è il dilemma degli LLM: manipolano pattern linguistici brillantemente, ma "capiscono" davvero?</p>
+    </div>
+
+    <div class="section">
+        <h2>🎯 Agenti Personali: L'AI con il Tuo Contesto</h2>
+
+        <p>ChatGPT generico è potente, ma non ti conosce. Un <strong>agente personale</strong> è un'IA che ha accesso al tuo contesto: email, calendario, file, preferenze. Può:</p>
+        <ul>
+            <li>Rispondere usando informazioni dai tuoi documenti</li>
+            <li>Gestire il tuo calendario</li>
+            <li>Redigere email nel tuo stile</li>
+            <li>Ricordare conversazioni precedenti</li>
+        </ul>
+
+        <div class="highlight">
+            <p><strong>⚠️ Privacy:</strong> Dare all'IA accesso ai propri dati richiede fiducia nel provider. Valutare sempre termini di servizio e politiche sulla privacy.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>❓ Domande Frequenti</h2>
+
+        <h3>Come inizio a usare ChatGPT?</h3>
+        <p>Vai su <a href="https://chat.openai.com" target="_blank">chat.openai.com</a>, crea un account gratuito, e inizia a fare domande. Consiglio: sii specifico nelle richieste e non aver paura di chiedere chiarimenti.</p>
+
+        <h3>L'AI sostituirà il mio lavoro?</h3>
+        <p>L'IA cambierà molti lavori, ma è più probabile che <strong>aumenti</strong> le capacità umane piuttosto che sostituirle completamente. Chi sa usare l'IA avrà un vantaggio competitivo.</p>
+
+        <h3>Posso fidarmi delle risposte dell'IA?</h3>
+        <p>No, non ciecamente. Gli LLM possono "allucinare" (inventare fatti plausibili ma falsi). Usa sempre spirito critico e verifica informazioni importanti su fonti affidabili. Strumenti come Perplexity citano le fonti, facilitando la verifica.</p>
+
+        <h3>L'IA consuma molta energia?</h3>
+        <p>Sì. Allenare un LLM richiede enormi quantità di energia. Anche l'inferenza (usarlo) ha un costo energetico. È un tema etico importante da considerare.</p>
+
+        <h3>Cosa sono i "bias" nell'IA?</h3>
+        <p>Gli LLM imparano dai dati di addestramento, che riflettono bias culturali, storici e sociali. Ad esempio, essendo allenati principalmente su testi in inglese americano, possono avere prospettive culturalmente sbilanciate.</p>
+    </div>
+
+    <div class="section">
+        <h2>📚 Letture Consigliate</h2>
+
+        <ul>
+            <li><strong>"The AI Revolution"</strong> (Wait But Why) - Serie di articoli divulgativi eccezionali sull'IA<br>
+                <a href="https://waitbutwhy.com/2015/01/artificial-intelligence-revolution-1.html" target="_blank">Parte 1</a> |
+                <a href="https://waitbutwhy.com/2015/01/artificial-intelligence-revolution-2.html" target="_blank">Parte 2</a>
+            </li>
+            <li><strong>"Io, Robot"</strong> (Isaac Asimov) - Fantascienza che ha plasmato l'immaginario sull'IA</li>
+            <li><strong>"Life 3.0"</strong> (Max Tegmark) - Futuro dell'IA e impatto sulla società</li>
+            <li><strong>"Superintelligence"</strong> (Nick Bostrom) - Analisi filosofica dell'AGI</li>
+        </ul>
+    </div>
+
+    <div class="intro" style="background: #f0fdf4; border: 2px solid #10b981;">
+        <p><strong>🎓 Continuate a Esplorare!</strong></p>
+        <p>L'intelligenza artificiale è un campo in evoluzione rapidissima. Ciò che è impossibile oggi potrebbe essere realtà tra sei mesi. Mantenete la curiosità, fate esperimenti, ponete domande.</p>
+        <p>E ricordate: l'IA è uno strumento. Come tutti gli strumenti, il suo valore dipende da come viene usata.</p>
+    </div>
+
+</body>
+</html>
