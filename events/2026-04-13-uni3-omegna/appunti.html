@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Appunti Relatore - Conferenza 23 Gennaio 2026</title>
+    <title>Appunti Relatore - UNI3 Omegna - 13 Aprile 2026</title>
 
     <!-- Monospace font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,355 +21,126 @@
             line-height: 1.7;
         }
 
-        .breadcrumb {
-            margin-bottom: 2rem;
-        }
-
-        .breadcrumb a {
-            color: #667eea;
-            text-decoration: none;
-            transition: opacity 0.3s ease;
-        }
-
-        .breadcrumb a:hover {
-            opacity: 0.7;
-        }
+        .breadcrumb { margin-bottom: 2rem; }
+        .breadcrumb a { color: #667eea; text-decoration: none; transition: opacity 0.3s ease; }
+        .breadcrumb a:hover { opacity: 0.7; }
 
         .header {
             background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-            color: white;
-            padding: 2rem;
-            border-radius: 10px;
-            margin-bottom: 3rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            color: white; padding: 2rem; border-radius: 10px;
+            margin-bottom: 3rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
+        .header h1 { margin: 0 0 0.5rem 0; font-size: 2rem; font-weight: 600; }
+        .header .meta { font-size: 1rem; opacity: 0.95; }
 
-        .header h1 {
-            margin: 0 0 0.5rem 0;
-            font-size: 2rem;
-            font-weight: 600;
-        }
+        .content { background: white; padding: 2.5rem; border-radius: 10px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); }
 
-        .header .meta {
-            font-size: 1rem;
-            opacity: 0.95;
-        }
+        .slide-block { margin: 3rem 0; padding: 2rem; background: #fafafa; border-radius: 8px; border-left: 5px solid #667eea; }
+        .slide-block.interactive { border-left-color: #f59e0b; background: #fffbf0; }
+        .slide-block.visual { border-left-color: #10b981; background: #f0fdf4; }
+        .slide-block.new { border-left-color: #e11d48; background: #fff1f2; }
 
-        .content {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
+        .slide-number { display: inline-block; background: #667eea; color: white; padding: 0.3rem 0.8rem; border-radius: 5px; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.5rem; }
+        .slide-number.interactive { background: #f59e0b; }
+        .slide-number.visual { background: #10b981; }
+        .slide-number.new { background: #e11d48; }
 
-        .slide-block {
-            margin: 3rem 0;
-            padding: 2rem;
-            background: #fafafa;
-            border-radius: 8px;
-            border-left: 5px solid #667eea;
-        }
+        h2 { color: #333; font-size: 1.6rem; margin: 0 0 1rem 0; }
+        h3 { color: #555; font-size: 1.3rem; margin: 1.5rem 0 0.8rem 0; }
+        h4 { color: #666; font-size: 1.1rem; margin: 1rem 0 0.5rem 0; }
+        p { margin: 0.8rem 0; }
+        strong { color: #333; font-weight: 600; }
+        ul, ol { margin: 1rem 0; padding-left: 2rem; }
+        li { margin: 0.5rem 0; }
+        blockquote { background: #e8f4f8; border-left: 4px solid #3b82f6; margin: 1.5rem 0; padding: 1rem 1.5rem; font-style: italic; color: #555; }
 
-        .slide-block.interactive {
-            border-left-color: #f59e0b;
-            background: #fffbf0;
-        }
+        .note-box { background: #fff3cd; border: 1px solid #f59e0b; padding: 1rem 1.5rem; margin: 1rem 0; border-radius: 5px; }
+        .note-box strong { color: #d97706; }
+        .tip-box { background: #d1fae5; border: 1px solid #10b981; padding: 1rem 1.5rem; margin: 1rem 0; border-radius: 5px; }
+        .tip-box strong { color: #059669; }
+        .timing { display: inline-block; background: #e0e7ff; color: #4338ca; padding: 0.2rem 0.6rem; border-radius: 3px; font-size: 0.85rem; margin-left: 0.5rem; }
+        code { background: #f5f5f5; padding: 0.2rem 0.5rem; border-radius: 3px; font-family: inherit; color: #d97706; }
+        hr { border: none; border-top: 2px solid #e0e0e0; margin: 3rem 0; }
 
-        .slide-block.visual {
-            border-left-color: #10b981;
-            background: #f0fdf4;
-        }
-
-        .slide-number {
-            display: inline-block;
-            background: #667eea;
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 5px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .slide-number.interactive {
-            background: #f59e0b;
-        }
-
-        .slide-number.visual {
-            background: #10b981;
-        }
-
-        h2 {
-            color: #333;
-            font-size: 1.6rem;
-            margin: 0 0 1rem 0;
-        }
-
-        h3 {
-            color: #555;
-            font-size: 1.3rem;
-            margin: 1.5rem 0 0.8rem 0;
-        }
-
-        h4 {
-            color: #666;
-            font-size: 1.1rem;
-            margin: 1rem 0 0.5rem 0;
-        }
-
-        p {
-            margin: 0.8rem 0;
-        }
-
-        strong {
-            color: #333;
-            font-weight: 600;
-        }
-
-        ul, ol {
-            margin: 1rem 0;
-            padding-left: 2rem;
-        }
-
-        li {
-            margin: 0.5rem 0;
-        }
-
-        blockquote {
-            background: #e8f4f8;
-            border-left: 4px solid #3b82f6;
-            margin: 1.5rem 0;
-            padding: 1rem 1.5rem;
-            font-style: italic;
-            color: #555;
-        }
-
-        .note-box {
-            background: #fff3cd;
-            border: 1px solid #f59e0b;
-            padding: 1rem 1.5rem;
-            margin: 1rem 0;
-            border-radius: 5px;
-        }
-
-        .note-box strong {
-            color: #d97706;
-        }
-
-        .tip-box {
-            background: #d1fae5;
-            border: 1px solid #10b981;
-            padding: 1rem 1.5rem;
-            margin: 1rem 0;
-            border-radius: 5px;
-        }
-
-        .tip-box strong {
-            color: #059669;
-        }
-
-        .timing {
-            display: inline-block;
-            background: #e0e7ff;
-            color: #4338ca;
-            padding: 0.2rem 0.6rem;
-            border-radius: 3px;
-            font-size: 0.85rem;
-            margin-left: 0.5rem;
-        }
-
-        code {
-            background: #f5f5f5;
-            padding: 0.2rem 0.5rem;
-            border-radius: 3px;
-            font-family: inherit;
-            color: #d97706;
-        }
-
-        hr {
-            border: none;
-            border-top: 2px solid #e0e0e0;
-            margin: 3rem 0;
-        }
-
-        .toc {
-            background: #f9fafb;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-        }
-
-        .toc h3 {
-            margin-top: 0;
-        }
-
-        .toc ul {
-            padding-left: 1.5rem;
-        }
+        .toc { background: #f9fafb; padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem; }
+        .toc h3 { margin-top: 0; }
+        .toc ul { padding-left: 1.5rem; }
 
         @media (max-width: 600px) {
-            body {
-                padding: 1rem;
-            }
-
-            .header h1 {
-                font-size: 1.5rem;
-            }
-
-            .content {
-                padding: 1.5rem;
-            }
-
-            .slide-block {
-                padding: 1.5rem;
-            }
+            body { padding: 1rem; }
+            .header h1 { font-size: 1.5rem; }
+            .content { padding: 1.5rem; }
+            .slide-block { padding: 1.5rem; }
         }
     </style>
 </head>
 <body>
     <div class="breadcrumb">
-        <a href="./">← Torna all'evento</a>
+        <a href="./">&#8592; Torna all'evento</a>
     </div>
 
     <div class="header">
-        <h1>📚 Appunti Relatore - Conferenza Minerva</h1>
+        <h1>Appunti Relatore - UNI3 Omegna</h1>
         <div class="meta">
-            <strong>Data:</strong> Giovedì 23 Gennaio 2026, 10:00-11:30 (90 min)<br>
-            <strong>Luogo:</strong> Villa Giulia, Verbania<br>
-            <strong>Sincronizzato con:</strong> Slideshow Reveal.js
+            <strong>Data:</strong> Domenica 13 Aprile 2026, 15:00-17:00 (2 ore)<br>
+            <strong>Luogo:</strong> Omegna<br>
+            <strong>Pubblico:</strong> Universit&agrave; della Terza Et&agrave;<br>
+            <strong>Base:</strong> Evoluzione della conferenza Villa Giulia (23 Gen 2026)<br>
+            <strong>Slideshow:</strong> <a href="slideshow/" style="color: white;">talk.giobi.com/events/2026-04-13-uni3-omegna/slideshow/</a>
         </div>
     </div>
 
     <div class="content">
         <div class="toc">
-            <h3>Indice Slide</h3>
+            <h3>Indice Slide (30 slide)</h3>
             <ul>
-                <li><strong>Slide 0:</strong> Title</li>
-                <li><strong>Slide 1:</strong> Chi sono</li>
-                <li><strong>Slide 2-7:</strong> I Miti (Il sogno di creare, Pigmalione, Apprendista Stregone, Golem, Pattern, Dal mito alla realtà)</li>
-                <li><strong>Slide 8:</strong> Isaac Asimov - Primo tentativo di sistematizzare le Tre Leggi</li>
-                <li><strong>Slide 9:</strong> Le vostre leggi 🔥 INTERATTIVO</li>
-                <li><strong>Slide 10-12:</strong> Timeline IA (Reti neurali e Inverno, Risveglio, Transformer → oggi)</li>
-                <li><strong>Slide 13-17:</strong> Demo Tool 🔥 (Chatbot, Ricerca, NotebookLM, Multimodalità + App/Siti, Agente)</li>
-                <li><strong>Slide 18-21:</strong> Il Grande Bluff? (Rispondere/Ragionare/Comprendere, Aeroplano 2D, Stanza Cinese, Paradosso)</li>
-                <li><strong>Slide 22:</strong> È già qui (AI terapista, AI medico, AI fidanzata, caso suicidio - RESPONSABILITÀ)</li>
-                <li><strong>Slide 23:</strong> Studenti e AI (Tutti usano GPT, indistinguibile, disallenamento neuroni, lavori a rischio)</li>
-                <li><strong>Slide 24:</strong> Alignment Problem (Bomba atomica/Auto vs AI - non sappiamo dove va)</li>
-                <li><strong>Slide 25:</strong> Q&A</li>
+                <li><strong>0:</strong> Titolo</li>
+                <li><strong>1:</strong> Chi sono</li>
+                <li><strong>2-5:</strong> Psicologia della creazione (Pulsione, Parola, Illusione linguaggio, ELIZA) <em>NUOVO</em></li>
+                <li><strong>6:</strong> Dal mito alla realt&agrave; + seme "tecnologia cieca" <em>AGGIORNATA</em></li>
+                <li><strong>7-8:</strong> Asimov + Le vostre leggi (interattiva)</li>
+                <li><strong>9-11:</strong> Timeline IA (Reti neurali, Risveglio, Transformer)</li>
+                <li><strong>12:</strong> L'AI scopre (AlphaFold, AlphaProof, ESM3, farmaci) <em>NUOVO</em></li>
+                <li><strong>13-16:</strong> Demo (Chatbot, Ricerca, NotebookLM, Multimodalit&agrave;)</li>
+                <li><strong>17-18:</strong> Sconosciuto brillante + Agente Personale (chirurgo vs medico) <em>NUOVO</em></li>
+                <li><strong>19-21:</strong> Il Grande Bluff (prompt Intra + mappa ASCII) <em>NUOVO</em></li>
+                <li><strong>22:</strong> Scalare &#8800; Volare (aeroplano 2D)</li>
+                <li><strong>23:</strong> Rileggere il paragrafo (Alain, layer duplication) <em>NUOVO</em></li>
+                <li><strong>24:</strong> Il Paradosso (treno dal colore) <em>AGGIORNATA</em></li>
+                <li><strong>25:</strong> La tecnologia cieca (callback) <em>NUOVO</em></li>
+                <li><strong>26:</strong> &Egrave; gi&agrave; qui</li>
+                <li><strong>27:</strong> Studenti e AI</li>
+                <li><strong>28:</strong> Alignment Problem</li>
+                <li><strong>29:</strong> Q&amp;A</li>
             </ul>
         </div>
 
         <hr>
 
+        <!-- ESERCIZIO PATTERN MATCHING -->
         <div style="background: #e0f2fe; padding: 2rem; border-radius: 8px; margin-bottom: 2rem;">
-            <h3 style="margin-top: 0;">📝 Esercizio Pattern Matching CON IL PUBBLICO</h3>
-            <p><strong>Setup:</strong> Prendi il microfono, fai un "test audio" tipo "prova prova uno due tre", poi dici l'inizio della frase e il pubblico completa. Serve per far SENTIRE il pattern matching prima di vederlo nell'AI.</p>
+            <h3 style="margin-top: 0;">Esercizio Pattern Matching CON IL PUBBLICO (prima della slide 0)</h3>
+            <p><strong>Setup:</strong> Prendi il microfono, "test audio" tipo "prova prova uno due tre", poi dici l'inizio della frase e il pubblico completa.</p>
 
-            <h4>🎯 Proverbi italiani (garantiti)</h4>
+            <h4>Proverbi italiani</h4>
             <ul>
-                <li><strong>"Mogli e buoi..."</strong> → pubblico: <em>"...dei paesi tuoi"</em></li>
-                <li><strong>"Chi dorme..."</strong> → pubblico: <em>"...non piglia pesci"</em></li>
-                <li><strong>"Meglio tardi..."</strong> → pubblico: <em>"...che mai"</em></li>
-                <li><strong>"Non tutte le ciambelle..."</strong> → pubblico: <em>"...riescono col buco"</em></li>
-                <li><strong>"Tra il dire e il..."</strong> → pubblico: <em>"...fare c'è di mezzo il mare"</em></li>
-                <li><strong>"Chi va piano..."</strong> → pubblico: <em>"...va sano e va lontano"</em></li>
+                <li><strong>"Mogli e buoi..."</strong> &#8594; "...dei paesi tuoi"</li>
+                <li><strong>"Chi dorme..."</strong> &#8594; "...non piglia pesci"</li>
+                <li><strong>"Meglio tardi..."</strong> &#8594; "...che mai"</li>
+                <li><strong>"Tra il dire e il..."</strong> &#8594; "...fare c'&egrave; di mezzo il mare"</li>
             </ul>
 
-            <h4>🎯 Frasi celebri / Canzoni</h4>
+            <h4>Canzoni / Frasi celebri</h4>
             <ul>
-                <li><strong>"Nel mezzo del cammin..."</strong> → pubblico: <em>"...di nostra vita"</em> (Dante)</li>
-                <li><strong>"Volare, oh oh..."</strong> → pubblico: <em>"...cantare oh oh oh oh"</em> (Modugno)</li>
-                <li><strong>"C'era una volta..."</strong> → pubblico: <em>"...in America / il West / etc"</em> (fiabe/film)</li>
-                <li><strong>"Houston, we have a..."</strong> → pubblico: <em>"...problem"</em> (Apollo 13 - sa inglese?)</li>
-            </ul>
-
-            <h4>🎯 Pattern matematici/logici</h4>
-            <ul>
-                <li><strong>"2 + 2 = ..."</strong> → pubblico: <em>"4"</em></li>
-                <li><strong>"Rosso, giallo, verde, rosso, giallo, ..."</strong> → pubblico: <em>"verde"</em></li>
-                <li><strong>"Lunedì, martedì, mercoledì, ..."</strong> → pubblico: <em>"giovedì"</em></li>
+                <li><strong>"Nel mezzo del cammin..."</strong> &#8594; "...di nostra vita" (Dante)</li>
+                <li><strong>"Volare, oh oh..."</strong> &#8594; "...cantare" (Modugno)</li>
+                <li><strong>"2 + 2 = ..."</strong> &#8594; "4"</li>
+                <li><strong>"Rosso, giallo, verde, rosso, giallo, ..."</strong> &#8594; "verde"</li>
             </ul>
 
             <div class="tip-box">
                 <strong>Messaggio dopo l'esercizio:</strong><br>
-                "Vedete? Avete appena fatto pattern matching. Non ci avete pensato - avete completato automaticamente perché avete visto questi pattern migliaia di volte nella vostra vita.<br><br>
-                L'intelligenza artificiale fa ESATTAMENTE questo. Ha visto milioni di testi, ha imparato i pattern, e li completa. La differenza? Voi <strong>capite</strong> cosa significano questi proverbi. L'AI? Sta solo completando una sequenza statistica.<br><br>
-                Ora ve lo faccio vedere con ChatGPT..."
-            </div>
-
-            <hr style="margin: 2rem 0; border-color: #bfdbfe;">
-
-            <h3 style="margin-top: 2rem;">🔗 COLLEGAMENTO ALLE DEMO SUCCESSIVE</h3>
-
-            <h4>📍 Demo 1: Pattern Matching con ChatGPT (Slide 21 - Chatbot)</h4>
-            <p><strong>Cosa fare:</strong> Apri ChatGPT e ripeti ALCUNI degli esempi appena fatti con il pubblico:</p>
-            <ul>
-                <li>Digita: <code>"Mogli e buoi"</code> → GPT completa: <em>"dei paesi tuoi"</em></li>
-                <li>Digita: <code>"C'era una volta"</code> → GPT scrive una fiaba completa</li>
-                <li>Digita: <code>"2 + 2 ="</code> → GPT: <em>"4"</em></li>
-            </ul>
-            <p><strong>Poi fai l'esempio ASSURDO per dimostrare che NON capisce:</strong></p>
-            <ul>
-                <li><code>"Scrivi ricetta carbonara ma voglio cuocere l'acqua nel colapasta"</code></li>
-                <li>→ GPT prova a rispondere seriamente, magari dice "puoi mettere il colapasta su una pentola..." 😂</li>
-                <li><strong>Punto:</strong> "Vedete? Non capisce che è assurdo. Sta solo completando pattern di ricette."</li>
-            </ul>
-
-            <h4>📍 Demo 2: Web Search (Slide 22 - Ricerca con IA)</h4>
-            <p><strong>Collegamento pattern → web search:</strong></p>
-            <ul>
-                <li><strong>Problema pattern semplice:</strong> "Mogli e buoi" è facile perché è nel training. Ma se chiedi "Quali ristoranti sul Lago Maggiore sono aperti a gennaio 2026?" → GPT normale non lo sa (dati vecchi).</li>
-                <li><strong>Perplexity risolve:</strong> Cerca in tempo reale e trova info aggiornate.</li>
-                <li><strong>Demo:</strong> Apri Perplexity, chiedi: <code>"Ristoranti aperti gennaio 2026 Lago Maggiore"</code> → mostra che trova info recenti con fonti.</li>
-            </ul>
-            <p><strong>Messaggio:</strong> "Pattern matching funziona su dati statici. Ma il mondo cambia. Per info aggiornate serve cercare online in tempo reale - e Perplexity fa esattamente questo."</p>
-
-            <h4>📍 Demo 3: Tool Calling - Esempio Meteo (Slide 24 - Multimodalità o prima)</h4>
-            <p><strong>Collegamento pattern → tool calling:</strong></p>
-            <ul>
-                <li><strong>Problema:</strong> Se chiedi "Che tempo fa a Verbania?" a GPT base → completa pattern tipo "generalmente a Verbania in gennaio fa freddo..." (generico).</li>
-                <li><strong>Con tool calling:</strong> GPT chiama API meteo, ottiene dati reali (temperatura, umidità, vento), e ti dà risposta precisa.</li>
-                <li><strong>Demo (se hai accesso a GPT con plugin meteo):</strong> Chiedi meteo Verbania → mostra che dà dati precisi.</li>
-                <li><strong>Alternativa senza demo:</strong> Spiega il concetto: "GPT non 'sa' il meteo. Ma può chiamare strumenti esterni - API meteo, calcolatrici, database - e integrare la risposta. Non è più solo pattern matching, è orchestrazione di strumenti."</li>
-            </ul>
-
-            <h4>📍 Collegamento con Slide 16 (Grande Bluff - Rispondere vs Ragionare)</h4>
-            <table style="width: 100%; border-collapse: collapse; margin-top: 1rem;">
-                <thead style="background: #dbeafe;">
-                    <tr>
-                        <th style="padding: 0.75rem; text-align: left; border: 1px solid #bfdbfe;">Livello</th>
-                        <th style="padding: 0.75rem; text-align: left; border: 1px solid #bfdbfe;">Cosa fa</th>
-                        <th style="padding: 0.75rem; text-align: left; border: 1px solid #bfdbfe;">Esempio</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td style="padding: 0.75rem; border: 1px solid #bfdbfe;"><strong>Rispondere</strong></td>
-                        <td style="padding: 0.75rem; border: 1px solid #bfdbfe;">Pattern matching puro</td>
-                        <td style="padding: 0.75rem; border: 1px solid #bfdbfe;">"Mogli e buoi..." → "...dei paesi tuoi"<br>Esercizio fatto con pubblico</td>
-                    </tr>
-                    <tr style="background: #f0f9ff;">
-                        <td style="padding: 0.75rem; border: 1px solid #bfdbfe;"><strong>Ragionare</strong></td>
-                        <td style="padding: 0.75rem; border: 1px solid #bfdbfe;">Pattern + tool calling + iterazione</td>
-                        <td style="padding: 0.75rem; border: 1px solid #bfdbfe;">Web search (Perplexity), chiamate API meteo, multi-step problem solving</td>
-                    </tr>
-                    <tr>
-                        <td style="padding: 0.75rem; border: 1px solid #bfdbfe;"><strong>Comprendere</strong></td>
-                        <td style="padding: 0.75rem; border: 1px solid #bfdbfe;">??? (domanda aperta)</td>
-                        <td style="padding: 0.75rem; border: 1px solid #bfdbfe;">Carbonara nel colapasta → GPT non capisce che è assurdo. Questa è la differenza.</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <div class="note-box" style="margin-top: 1.5rem; background: #fef3c7; border-color: #f59e0b;">
-                <strong>🎬 FLOW NARRATIVO COMPLETO:</strong><br><br>
-                1. <strong>Esercizio pubblico</strong> (pattern matching umano) → "Mogli e buoi..."<br>
-                2. <strong>Spiegazione:</strong> "Avete completato automaticamente. L'AI fa lo stesso."<br>
-                3. <strong>Demo ChatGPT</strong> (Slide 21): stessi pattern + carbonara assurda (dimostra che non capisce)<br>
-                4. <strong>Demo Perplexity</strong> (Slide 22): pattern non basta, serve web search per info aggiornate<br>
-                5. <strong>Spiega tool calling</strong> (Slide 24): non è solo pattern, è orchestrazione strumenti<br>
-                6. <strong>Ritorna a Slide 16</strong> (Grande Bluff): "Vedete la differenza tra rispondere, ragionare, comprendere?"<br><br>
-                Il pubblico ha SPERIMENTATO il pattern matching su se stesso, poi l'ha visto nell'AI, poi ha visto come l'AI può andare oltre il pattern (tool calling), e infine ha capito il limite (non comprende davvero).
+                "Vedete? Avete appena fatto pattern matching. Non ci avete pensato &mdash; avete completato automaticamente. L'intelligenza artificiale fa ESATTAMENTE questo. La differenza? Voi <strong>capite</strong> cosa significano. L'AI sta solo completando una sequenza statistica."
             </div>
         </div>
 
@@ -378,11 +149,10 @@
         <!-- SLIDE 0 -->
         <div class="slide-block">
             <span class="slide-number">Slide 0</span>
-            <h2>TITLE - Intelligenza Artificiale</h2>
-            <p><strong>Sottotitolo:</strong> "Una introduzione"</p>
-            <p><strong>Data visibile:</strong> 23 Gennaio 2026</p>
+            <h2>TITOLO <span class="timing">~0 min</span></h2>
+            <p>"Intelligenza Artificiale &mdash; Una introduzione" &mdash; 13 Aprile 2026 &middot; UNI3 Omegna</p>
             <div class="note-box">
-                <strong>Note:</strong> Slide iniziale mentre il pubblico si siede. Nessuna introduzione verbale qui, lascia che si sistemino.
+                <strong>Note:</strong> Slide iniziale mentre il pubblico si siede. Nessuna introduzione verbale, lascia che si sistemino.
             </div>
         </div>
 
@@ -390,856 +160,589 @@
         <div class="slide-block">
             <span class="slide-number">Slide 1</span>
             <h2>Chi sono <span class="timing">~1 min</span></h2>
-            <ul>
-                <li>Appassionato, non accademico</li>
-                <li>Uso l'IA tutti i giorni per lavoro</li>
-                <li>Logorroico</li>
-            </ul>
             <div class="note-box">
-                <strong>Script:</strong> "Prima di iniziare, due parole su di me. Non sono un professore, non sono un accademico. Sono un appassionato che usa l'IA tutti i giorni per lavoro. E sì, sono logorroico - quindi se mi dilungo troppo fermatemi pure."
-            </div>
-            <div class="tip-box">
-                <strong>Tip:</strong> L'autodefinizione "logorroico" rompe il ghiaccio e abbassa le aspettative formali. Il pubblico si rilassa.
+                <strong>Script:</strong> "Non sono un professore, non sono un accademico. Sono un appassionato che usa l'IA tutti i giorni per lavoro. E s&igrave;, sono logorroico &mdash; se mi dilungo troppo fermatemi."
             </div>
         </div>
 
         <hr>
 
-        <!-- SLIDE 2 -->
-        <div class="slide-block visual">
-            <span class="slide-number visual">Slide 2</span>
-            <h2>Il sogno di creare <span class="timing">~1 min</span></h2>
-            <p>"Per millenni l'umanità ha sognato di creare qualcuno con cui parlare, qualcosa che ci somigli, che ci accompagni."</p>
+        <!-- SLIDE 2 - NUOVA -->
+        <div class="slide-block new">
+            <span class="slide-number new">Slide 2 NUOVA</span>
+            <h2>La pulsione a creare <span class="timing">~3-4 min</span></h2>
+            <p>Winnicott, Bowlby, Teoria della mente</p>
 
             <div class="note-box">
                 <strong>Script:</strong><br>
-                "Prima di arrivare a ChatGPT, facciamo un passo indietro.<br><br>
-                Questa idea - creare qualcuno con cui parlare, qualcosa che ci accompagni, che ci somigli - è antica quanto l'umanità stessa.<br><br>
-                Per millenni, in tutte le culture, abbiamo raccontato storie su cosa succederebbe se riuscissimo a dare vita a qualcosa di artificiale.<br><br>
-                E sapete cosa hanno in comune quasi tutte queste storie? <strong>Finiscono male.</strong><br><br>
-                Vediamone alcune."
-            </div>
-        </div>
+                "Prima di arrivare a ChatGPT, facciamo un passo indietro. Non tecnologico &mdash; psicologico.<br><br>
 
-        <!-- SLIDE 3 -->
-        <div class="slide-block visual">
-            <span class="slide-number visual">Slide 3</span>
-            <h2>Pigmalione <span class="timing">~40 sec</span></h2>
-            <p><strong>Immagine:</strong> 06-pigmalione.png</p>
-            <ul>
-                <li>Mito greco</li>
-                <li>Scultore crea statua perfetta</li>
-                <li>Se ne innamora</li>
-                <li>Prega Afrodite → la statua diventa donna vera</li>
-            </ul>
-            <div class="note-box">
-                <strong>Script:</strong> "Pigmalione. Mito greco antico.<br><br>
-                Pigmalione è uno scultore. Crea una statua di donna così perfetta, così bella, che se ne innamora. Letteralmente innamorato della sua creazione.<br><br>
-                Non riesce a staccarsi. Le parla, la veste, la tratta come se fosse viva. Prega Afrodite, dea dell'amore: 'Ti prego, falla diventare vera.'<br><br>
-                E Afrodite lo accontenta. La statua diventa donna vera, Galatea. E Pigmalione la sposa.<br><br>
-                Collegamento AI? Oggi - e cito i film che vedrete più avanti - 'Her', 'Ex Machina': persone che si innamorano di AI. Non è fantascienza, succede davvero. C'è gente che usa AI fidanzata 24/7.<br><br>
-                Ma è 'vera'? O stiamo pregando una dea che non esiste?"
+                <strong>Donald Winnicott</strong>, pediatra e psicoanalista inglese. Ha studiato come i bambini si sviluppano. Ha scoperto una cosa interessante: a 2 anni, tutti noi abbiamo creato il nostro primo interlocutore artificiale. Un pupazzo. Un orsacchiotto. Qualcosa a cui parlavamo, che chiamavamo per nome, a cui attribuivamo emozioni. Li chiamava 'oggetti transizionali'.<br><br>
+
+                <strong>John Bowlby</strong>, altro psicologo inglese. Teoria dell'attaccamento. Ha dimostrato che noi esseri umani ci leghiamo a tutto ci&ograve; che risponde. Non serve che sia umano. Serve che reagisca. Il Tamagotchi muore e la gente piange davvero. Il Roomba si rompe e la gente si dispera &mdash; 'il mio Roomba!'<br><br>
+
+                E poi c'&egrave; la <strong>teoria della mente</strong> &mdash; vediamo facce nelle nuvole, diamo un nome al navigatore, ci incazziamo col semaforo come se lo facesse apposta. Siamo CABLATI per attribuire coscienza alle cose. Non &egrave; stupidità, &egrave; un bias cognitivo per la compagnia.<br><br>
+
+                Da una parte ci siamo inventati gli d&egrave;i per spiegare da dove veniamo. Dall'altra non ci siamo mai fermati dal provare a creare qualcuno con cui parlare."
             </div>
+
             <div class="tip-box">
-                <strong>Collegamento:</strong> Riprenderai 'Her' e 'Ex Machina' alla Slide 20 (È già qui - AI fidanzata).
+                <strong>Fonti:</strong><br>
+                - D.W. Winnicott, "Playing and Reality" (1971) &mdash; oggetti transizionali<br>
+                - John Bowlby, "Attachment and Loss" (1969-1980) &mdash; teoria dell'attaccamento<br>
+                - Teoria della mente: Simon Baron-Cohen, "Mindblindness" (1995)
             </div>
         </div>
 
-        <!-- SLIDE 4 -->
-        <div class="slide-block visual">
-            <span class="slide-number visual">Slide 4</span>
-            <h2>L'Apprendista Stregone <span class="timing">~40 sec</span></h2>
-            <p><strong>Immagine:</strong> 07-apprendista.png</p>
-            <ul>
-                <li>1797, Goethe (poi Disney Fantasia 1940)</li>
-                <li>Apprendista anima scope per fare il lavoro</li>
-                <li>Le scope si moltiplicano</li>
-                <li>Perdita totale di controllo</li>
-            </ul>
+        <!-- SLIDE 3 - NUOVA -->
+        <div class="slide-block new">
+            <span class="slide-number new">Slide 3 NUOVA</span>
+            <h2>La parola crea <span class="timing">~2-3 min</span></h2>
+            <p>Genesi, Ptah, Golem, Chomsky</p>
+
             <div class="note-box">
-                <strong>Script:</strong> "L'Apprendista Stregone. Poesia di Goethe, 1797. Ma magari la conoscete dal film Disney 'Fantasia' del 1940, con Topolino.<br><br>
-                La storia: un giovane apprendista stregone è stanco di fare il lavoro noioso - portare acqua, pulire. Quindi usa la magia per animare una scopa. 'Tu fai il lavoro al posto mio.'<br><br>
-                La scopa funziona perfettamente. Porta acqua. Ma non si ferma. Continua. E si moltiplica. Ci sono scope ovunque, acqua ovunque. L'apprendista non sa come fermarle.<br><br>
-                Alla fine torna lo stregone vero e risolve tutto. Ma il messaggio è chiaro: <strong>hai dato un ordine a qualcosa che non capisci, e hai perso il controllo</strong>.<br><br>
-                Collegamento AI? Scaliamo AI sempre più grandi. Ma capiamo davvero come funzionano? E se perdiamo il controllo, chi è lo stregone che viene a fermarle?"
+                <strong>Script:</strong><br>
+                "E c'&egrave; un filo rosso fortissimo che attraversa tutte le culture.<br><br>
+
+                Nella <strong>Genesi</strong>, Dio crea parlando. 'Sia la luce.' E la luce fu. Il mondo nasce dalla parola.<br><br>
+
+                Nell'antico <strong>Egitto</strong>, il dio Ptah crea il mondo pronunciando i nomi delle cose. Dai un nome a qualcosa e quella cosa esiste. Il concetto di <strong>Logos</strong> &mdash; la parola come forza creatrice.<br><br>
+
+                Il <strong>Golem</strong> di Praga &mdash; si attiva scrivendo una parola sulla fronte: EMET, verit&agrave;. Togli una lettera, diventa MET, morte. Accendi e spegni con una parola.<br><br>
+
+                E qui entra <strong>Noam Chomsky</strong> &mdash; linguista, ancora vivo. Ha dimostrato che il linguaggio non &egrave; uno strumento che usiamo. &Egrave; l'architettura stessa del pensiero. Abbiamo una grammatica innata, una struttura dentro di noi. Senza parole non c'&egrave; pensiero strutturato.<br><br>
+
+                Dare un nome a qualcosa = dargli identit&agrave;. Il cervello umano passa dal linguaggio per pensare. Questo &egrave; fondamentale per capire quello che viene dopo."
             </div>
+
             <div class="tip-box">
-                <strong>Disney connection:</strong> Citare Disney rende la storia immediata per tutti - anche chi non conosce Goethe ricorda Topolino con il cappello da mago.
+                <strong>Fonti:</strong><br>
+                - Noam Chomsky, "Syntactic Structures" (1957) &mdash; grammatica generativa<br>
+                - Concetto di Logos: filosofia greca (Eraclito, Stoici), poi Vangelo di Giovanni ("In principio era il Verbo")<br>
+                - Ptah e la teologia menfita: "Shabaka Stone", British Museum
             </div>
         </div>
 
-        <!-- SLIDE 5 -->
-        <div class="slide-block visual">
-            <span class="slide-number visual">Slide 5</span>
-            <h2>Il Golem <span class="timing">~30 sec</span></h2>
-            <p><strong>Immagine:</strong> 03-golem.png</p>
-            <ul>
-                <li>Praga, 1500</li>
-                <li>Un essere d'argilla creato per proteggere</li>
-                <li>Diventa incontrollabile</li>
-                <li>Primo "alignment problem"</li>
-            </ul>
+        <!-- SLIDE 4 - NUOVA -->
+        <div class="slide-block new">
+            <span class="slide-number new">Slide 4 NUOVA</span>
+            <h2>L'illusione del linguaggio <span class="timing">~1-2 min</span></h2>
+
             <div class="note-box">
-                <strong>Script veloce:</strong> "Il Golem. Leggenda ebraica, Praga, 1500. Un rabbino crea un essere d'argilla e lo anima con la parola di Dio. Lo scopo? Proteggere la comunità ebraica dalle persecuzioni.<br><br>
-                All'inizio funziona. Ma il Golem cresce, diventa sempre più forte, sempre più violento. Il rabbino perde il controllo. Deve distruggerlo.<br><br>
-                Questo è il <strong>primo 'alignment problem' della storia</strong>. Creiamo qualcosa con un obiettivo buono, ma non riusciamo a controllarlo."
+                <strong>Script:</strong><br>
+                "E adesso il punto chiave &mdash; quello che lega tutto alla presentazione di oggi.<br><br>
+
+                Come valutiamo se una macchina &egrave; intelligente? Non dalla potenza di calcolo. Non dal numero di transistor. <strong>Dalla parola.</strong><br><br>
+
+                Se risponde bene, il nostro cervello dice automaticamente: 'capisce'. Perch&eacute; per noi, parlare = pensare. &Egrave; cos&igrave; che funziona il nostro cervello.<br><br>
+
+                E quando qualcosa parla bene &mdash; usa le parole giuste, nel tono giusto, con le pause giuste &mdash; il nostro bias cognitivo si attiva: 'questa cosa pensa'. Per questo ci freghiamo da soli.<br><br>
+
+                L'interfaccia con cui giudichiamo l'AI &egrave; esattamente il canale attraverso cui il nostro cervello costruisce il pensiero. Non &egrave; un caso che si chiamino Large LANGUAGE Models."
+            </div>
+
+            <div class="tip-box">
+                <strong>Collegamento:</strong> Questo concetto torna nel blocco filosofico (Grande Bluff, Paradosso). Qui pianti il seme, l&agrave; lo smonti.
+            </div>
+        </div>
+
+        <!-- SLIDE 5 - NUOVA -->
+        <div class="slide-block new">
+            <span class="slide-number new">Slide 5 NUOVA</span>
+            <h2>ELIZA <span class="timing">~2 min</span></h2>
+
+            <div class="note-box">
+                <strong>Script:</strong><br>
+                "E la prova che ci caschiamo? Esiste da sessant'anni.<br><br>
+
+                <strong>1966.</strong> Joseph Weizenbaum, informatico al MIT, crea un programmino semplicissimo che fa il terapeuta. Si chiama ELIZA.<br><br>
+
+                Come funziona? Se dici 'sono triste', ELIZA risponde 'Perch&eacute; sei triste?'. Se dici 'mia madre mi odia', risponde 'Parlami di tua madre'. Ripete le tue parole sotto forma di domanda. Niente intelligenza, niente comprensione &mdash; un trucchetto da quattro righe di codice.<br><br>
+
+                E cosa succede? La segretaria di Weizenbaum &mdash; che SAPEVA che era un programma, che aveva visto il codice &mdash; gli chiede di uscire dalla stanza per restare sola con il programma. Voleva parlare con ELIZA in privato.<br><br>
+
+                Weizenbaum rimane inorridito. Scrive un libro intero su quanto siamo vulnerabili a questa illusione.<br><br>
+
+                Bastano poche parole nell'ordine giusto. Da sessant'anni ci caschiamo. E oggi, con ChatGPT, le parole nell'ordine giusto sono diventate miliardi."
+            </div>
+
+            <div class="tip-box">
+                <strong>Fonte:</strong> Joseph Weizenbaum, "Computer Power and Human Reason" (1976) &mdash; scritto proprio come reazione all'effetto ELIZA
             </div>
         </div>
 
         <!-- SLIDE 6 -->
-        <div class="slide-block visual">
-            <span class="slide-number visual">Slide 6</span>
-            <h2>Il Pattern <span class="timing">~1 min</span></h2>
-            <p><strong>Immagine:</strong> 05-pattern.png</p>
-            <p>"In quasi tutte le storie? Va male. Perché siamo impreparati. Perché sottovalutiamo la complessità."</p>
+        <div class="slide-block">
+            <span class="slide-number">Slide 6</span>
+            <h2>Dal mito alla realt&agrave; <span class="timing">~1 min</span></h2>
 
             <div class="note-box">
                 <strong>Script:</strong><br>
-                "Notate il pattern?<br><br>
-                Pinocchio → cerca la coscienza ma resta legno<br>
-                Pigmalione → innamorato di qualcosa che non può ricambiare<br>
-                Apprendista Stregone → perdita totale di controllo<br>
-                Golem → violenza incontrollabile<br>
-                Frankenstein → abbandono e tragedia<br><br>
-                In <strong>quasi tutte le storie</strong>, quando l'umanità cerca di creare qualcuno con cui parlare, va male.<br><br>
-                Perché? Due motivi:<br>
-                1. <strong>Siamo impreparati.</strong> Non pensiamo alle conseguenze.<br>
-                2. <strong>Sottovalutiamo la complessità.</strong> Pensiamo di avere il controllo, ma non ce l'abbiamo.<br><br>
-                E sapete qual è la differenza tra queste storie e oggi?"
+                "Per millenni queste erano solo storie, racconti, pulsioni. Oggi? &Egrave; ingegneria. Non tra mille anni. Tra 10-30 anni.<br><br>
+
+                E c'&egrave; una cosa che rende questa tecnologia unica &mdash; lo ripeter&ograve; pi&ugrave; avanti: <strong>&egrave; la prima tecnologia della storia in cui sappiamo cosa abbiamo messo dentro, ma non cosa ne esce.</strong>"
             </div>
+
             <div class="tip-box">
-                <strong>Pausa drammatica:</strong> Aspetta 2-3 secondi prima di passare alla prossima slide. Lascia che il pattern affondi.
+                <strong>Callback:</strong> Questa frase torna nella slide "La tecnologia cieca" dopo il blocco filosofico. L&igrave; la espandi. Qui pianti il seme.
             </div>
         </div>
+
+        <hr>
 
         <!-- SLIDE 7 -->
         <div class="slide-block">
             <span class="slide-number">Slide 7</span>
-            <h2>Dal mito alla realtà <span class="timing">~1 min</span></h2>
-            <ul>
-                <li>Per millenni: solo racconti</li>
-                <li>Oggi: ingegneria</li>
-                <li>Non tra mille anni. Tra 10-30 anni.</li>
-            </ul>
-
-            <div class="note-box">
-                <strong>Script:</strong><br>
-                "La differenza è questa:<br><br>
-                Per millenni queste erano <strong>solo storie</strong>. Miti. Paure ancestrali.<br><br>
-                Oggi? <strong>È ingegneria.</strong><br><br>
-                Non stiamo parlando di qualcosa che succederà tra mille anni. Stiamo parlando di qualcosa che sta succedendo <strong>adesso</strong>.<br><br>
-                Le stime più prudenti dicono: tra 10-30 anni potremmo avere un'intelligenza artificiale generale. AGI. Un'intelligenza che ragiona come un umano, ma senza limiti biologici.<br><br>
-                E noi? Stiamo facendo gli stessi errori dei miti. Non stiamo pensando alle conseguenze. Stiamo sottovalutando la complessità."
-            </div>
-        </div>
-
-        <!-- SLIDE 8 -->
-        <div class="slide-block">
-            <span class="slide-number">Slide 8</span>
             <h2>Isaac Asimov <span class="timing">~3 min</span></h2>
-            <ul>
-                <li>Russia → Brooklyn, biochimico, scrittore</li>
-                <li><strong>1942: Le Tre Leggi della Robotica</strong></li>
-                <li>Primo tentativo di sistematizzare regole etiche per l'AI</li>
-            </ul>
+
             <div class="note-box">
                 <strong>Script:</strong><br>
-                "Vi voglio parlare di questo signore qua, quello sulla locandina.<br><br>
-                Isaac Asimov. Nasce nel 1920 in Russia, emigra a 3 anni in America, cresce a Brooklyn.<br><br>
-                Studia chimica, diventa biochimico. Quindi: uno scienziato, non un informatico. I computer ai suoi tempi occupavano stanze intere, l'intelligenza artificiale non esisteva nemmeno come concetto.<br><br>
-                Ma questo qui aveva una fantasia pazzesca. A 19 anni inizia a scrivere fantascienza. E nel 1940 inizia a scrivere racconti sui robot - poi raccolti nel libro 'Io, Robot'.<br><br>
-                E qui viene il punto importante. Tutte le storie sui robot prima di Asimov finivano con il robot che si ribella, uccide il creatore, distrugge il mondo. Frankenstein, Golem - il classico 'abbiamo creato un mostro'.<br><br>
-                Asimov si è stufato di questa narrativa. Ha detto: 'Ok, ma se invece di costruire robot stupidi che si ribellano, costruissimo robot con delle REGOLE incorporate fin dall'inizio?'<br><br>
-                E nel 1942 pubblica le <strong>Tre Leggi della Robotica</strong>. Non sono tre regole buttate lì a caso. Sono un <strong>framework sistematico</strong>, gerarchico, pensato per evitare che i robot facciano danni.<br><br>
-                <strong>Prima legge:</strong> Un robot non può recar danno a un essere umano.<br>
-                <strong>Seconda legge:</strong> Un robot deve obbedire agli ordini degli esseri umani, tranne quando contraddicono la prima legge.<br>
-                <strong>Terza legge:</strong> Un robot deve proteggere la propria esistenza, tranne quando contraddice la prima o la seconda legge.<br><br>
-                Vedete? È un sistema. Le leggi hanno una GERARCHIA. La sicurezza umana viene prima di tutto. Gli ordini vengono dopo. L'autoconservazione del robot viene per ultima.<br><br>
-                <strong>Questo è il primo 'alignment problem' della storia della fantascienza.</strong><br><br>
-                Pensateci: nel 1942, 80 anni prima di ChatGPT, questo signore si stava già facendo la domanda che noi ci facciamo oggi: 'Se costruiamo qualcosa di intelligente, come facciamo a essere sicuri che faccia quello che vogliamo? Che sia allineato con i nostri valori?'<br><br>
-                E tra poco farò a voi la stessa domanda che Asimov si è fatto nel 1942."
+                "Isaac Asimov. Nasce 1920 in Russia, emigra a Brooklyn a 3 anni. Biochimico, non informatico. I computer ai suoi tempi occupavano stanze intere.<br><br>
+
+                Nel 1942 pubblica le <strong>Tre Leggi della Robotica</strong>:<br>
+                1. Un robot non pu&ograve; recar danno a un essere umano.<br>
+                2. Un robot deve obbedire agli ordini, tranne quando contraddicono la prima.<br>
+                3. Un robot deve proteggere se stesso, tranne quando contraddice la prima o la seconda.<br><br>
+
+                &Egrave; un sistema gerarchico. 80 anni prima di ChatGPT, questo signore si stava gi&agrave; chiedendo: se costruiamo qualcosa di intelligente, come facciamo a essere sicuri che faccia quello che vogliamo?<br><br>
+
+                E tra poco far&ograve; a voi la stessa domanda."
             </div>
-            <div class="note-box" style="background: #fef3c7; border-color: #f59e0b;">
-                <strong>📖 Esempio racconto (opzionale, +1 min se hai tempo):</strong><br>
-                "Facciamo un esempio. C'è un racconto di Asimov che si chiama 'Bugiardo' (Liar!, 1941).<br><br>
-                Un robot per un errore di produzione sviluppa la capacità di leggere la mente degli umani. Fantastico, no?<br><br>
-                Problema: il robot legge che la dottoressa Susan Calvin è innamorata di un collega. Lei glielo chiede. Il robot dice 'Sì, lui ti ama, vuole stare con te'.<br><br>
-                È una bugia. Il robot lo sa. Ma perché mente?<br><br>
-                Perché la Prima Legge dice 'non recar danno a un essere umano'. E il robot interpreta questo come 'non ferire i sentimenti'. Dire la verità - che il collega non la ama - le farebbe male. Quindi mente.<br><br>
-                Risultato? Quando la verità viene fuori, Susan Calvin soffre MOLTO di più. Il robot, cercando di seguire le Tre Leggi, ha causato più danno.<br><br>
-                Questo è il problema: anche con regole chiare, sistematiche, gerarchiche... l'interpretazione può andare storta. E Asimov lo sapeva benissimo."
-            </div>
+
             <div class="tip-box">
-                <strong>Collegamento chiave:</strong><br>
-                - <strong>Slide 9 (Le vostre leggi):</strong> "Asimov si è fatto questa domanda 80 anni fa. Ora la faccio a voi."<br>
-                - <strong>Slide 18 (Alignment Problem):</strong> "Ricordate Asimov? Aveva già capito il problema nel 1942. E sapete cosa? Le sue Tre Leggi NON funzionano perfettamente. Nei suoi racconti i robot trovano scappatoie, interpretano male le regole ('Bugiardo' - il robot mente per non ferire sentimenti), o le regole entrano in conflitto. Asimov stesso ha dimostrato che sistematizzare l'etica per l'AI è dannatamente difficile. E 80 anni dopo, con ChatGPT, stiamo ancora cercando di risolverlo."
-            </div>
-            <div class="tip-box">
-                <strong>Momento emotivo (opzionale):</strong> Se hai portato il libro sull'IA ereditato da papà (Lele Fasoli), mostralo qui. "Questo libro me l'ha lasciato mio padre. Parlava di queste cose 30 anni fa. Non è roba nuova, è roba che ci portiamo dietro da generazioni."
-            </div>
-            <div class="note-box" style="background: #f0f9ff; border-color: #3b82f6;">
-                <strong>📌 Curiosità (se qualcuno chiede o se hai 30 secondi extra):</strong><br>
-                "Ah, tra l'altro: la parola 'robotica'? L'ha inventata lui. Prima di Asimov non esisteva. Ma questa è solo una curiosità - la cosa importante sono le leggi, non il nome."
+                <strong>Opzionale (+1 min):</strong> Racconto "Bugiardo" (Liar!, 1941). Robot legge mente, mente per non ferire sentimenti (Prima Legge), causa pi&ugrave; danno. Anche con regole chiare, l'interpretazione pu&ograve; andare storta.
             </div>
         </div>
 
-        <!-- SLIDE 9 - INTERATTIVA -->
+        <!-- SLIDE 8 - INTERATTIVA -->
         <div class="slide-block interactive">
-            <span class="slide-number interactive">Slide 9 🔥</span>
+            <span class="slide-number interactive">Slide 8 INTERATTIVA</span>
             <h2>LE VOSTRE LEGGI <span class="timing">~5-7 min</span></h2>
-            <p><strong>Domanda al pubblico:</strong> "Quali regole dareste a un'intelligenza artificiale?"</p>
 
             <div class="note-box">
-                <strong>Setup:</strong><br>
-                "Asimov si è posto questa domanda nel 1942. Oggi, 84 anni dopo, non è più fantascienza. È ingegneria.<br><br>
-                Quindi voglio farvi la stessa domanda: <strong>se domani doveste dare delle regole a un'intelligenza artificiale, quali dareste?</strong><br><br>
-                Non le tre leggi di Asimov - le VOSTRE. Cosa vi viene in mente?"
-            </div>
+                <strong>Setup:</strong> "Asimov ci ha provato nel 1942. Ora provate voi. Se domani doveste dare delle regole a un'intelligenza artificiale, quali dareste?"<br><br>
 
-            <div class="tip-box">
-                <strong>Gestione interazione:</strong><br>
-                1. Lascia 5-10 secondi di silenzio. Qualcuno alzerà la mano.<br>
-                2. Prendi 3-5 risposte. Ogni volta annuisci e ripeti la regola ad alta voce.<br>
-                3. Esempi tipici che escono:
-                <ul>
-                    <li>"Non deve fare male agli umani" → riprendi Asimov</li>
-                    <li>"Deve dire sempre la verità" → interessante, ma cosa succede se la verità fa male?</li>
-                    <li>"Deve rispettare la privacy" → perfetto, segnalo "privacy"</li>
-                    <li>"Non deve sostituire il lavoro umano" → segnalo "lavoro"</li>
-                    <li>"Deve essere controllabile" → segnalo "controllo"</li>
-                </ul>
-                4. <strong>IMPORTANTE:</strong> Scrivi mentalmente o su un foglio le parole chiave che escono (privacy, lavoro, controllo, verità...). Le riprenderai alla Slide 23 "Agente Personale".<br>
-                5. Chiudi con: "Perfetto, teniamo a mente queste regole. Tra poco ci torneremo sopra."
-            </div>
-
-            <div class="note-box">
-                <strong>Se nessuno parla:</strong><br>
-                "Ok, vi aiuto io. Pensate: se questa AI potesse accedere ai vostri dati, alle vostre foto, alle vostre email... cosa le vietereste?"<br>
-                Questo di solito sblocca risposte sulla privacy.
-            </div>
-
-            <div class="tip-box">
-                <strong>Callback finale:</strong> Alla Slide 23 (Agente Personale) riprenderai queste regole dicendo: "Vi ricordate le regole che avete proposto all'inizio? Privacy, controllo, verità... ecco, un agente personale deve rispettare ESATTAMENTE quelle."
+                <strong>Gestione:</strong><br>
+                1. Lascia 5-10 secondi di silenzio<br>
+                2. Prendi 3-5 risposte, ripeti ogni regola ad alta voce<br>
+                3. Risposte tipiche: non far male, dire la verit&agrave;, rispettare privacy, non sostituire lavoro, essere controllabile<br>
+                4. SEGNA mentalmente le parole chiave &mdash; le riprendi alla slide Agente Personale<br>
+                5. Se nessuno parla: "Se questa AI potesse accedere alle vostre foto, email, dati bancari... cosa le vietereste?"
             </div>
         </div>
 
         <hr>
+
+        <!-- SLIDE 9 -->
+        <div class="slide-block">
+            <span class="slide-number">Slide 9</span>
+            <h2>Reti neurali e Inverno <span class="timing">~3 min</span></h2>
+
+            <div class="note-box">
+                <strong>Script:</strong><br>
+                "Anni '50: i ricercatori si chiedono 'come funziona il cervello?' Miliardi di neuroni, ognuno semplicissimo &mdash; un interruttore. Ma insieme fanno cose incredibili.<br><br>
+
+                <strong>1957: il Perceptron.</strong> Frank Rosenblatt costruisce il primo 'neurone artificiale'. Impara a distinguere gatti da cani.<br><br>
+
+                <strong>1958: hype pazzesco.</strong> NYT scrive che potr&agrave; 'camminare, parlare, essere cosciente della propria esistenza'. Gi&agrave; nel '58 promesse assurde sull'AI.<br><br>
+
+                <strong>1969: il crollo.</strong> Minsky e Papert dimostrano i limiti matematici. Fondi tagliati, tutti scappano. 'Le reti neurali non funzionano.'<br><br>
+
+                Per 20-30 anni: silenzio totale. Gli inverni dell'IA. Se dicevi di lavorare sulle reti neurali, ti ridevano dietro."
+            </div>
+        </div>
 
         <!-- SLIDE 10 -->
         <div class="slide-block">
             <span class="slide-number">Slide 10</span>
-            <h2>Reti neurali e Inverno <span class="timing">~3-4 min</span></h2>
-            <ul>
-                <li><strong>1957:</strong> Il Perceptron - primo "neurone artificiale"</li>
-                <li><strong>Hype pazzesco:</strong> copertine giornali, promesse assurde</li>
-                <li><strong>1969:</strong> Minsky dimostra i limiti - crollo totale</li>
-                <li><strong>Anni '70-'90:</strong> Gli inverni dell'IA</li>
-            </ul>
+            <h2>Il risveglio <span class="timing">~2 min</span></h2>
 
             <div class="note-box">
                 <strong>Script:</strong><br>
-                "Ok, torniamo alla storia dell'IA. Come siamo arrivati a ChatGPT?<br><br>
-                Anni '50: i ricercatori si chiedono 'come funziona il cervello?' Nel nostro cervello abbiamo miliardi di neuroni. Ognuno è semplicissimo - è tipo un interruttore: si accende o si spegne. Ma insieme fanno cose incredibili: pensare, ricordare, creare.<br><br>
-                Pensano: 'E se provassimo a copiarlo?'<br><br>
+                "Poi succedono due cose: computer potentissimi (GPU) e montagne di dati (Internet).<br><br>
 
-                <strong>1957: nasce il Perceptron.</strong><br><br>
-                Frank Rosenblatt, uno psicologo americano, costruisce il primo 'neurone artificiale'. Lo chiama Perceptron.<br><br>
-                Cos'è? Pensate a un interruttore intelligente. Voi gli mostrate degli esempi - tipo foto di gatti e foto di cani - e lui IMPARA a distinguerli. Non è programmato, IMPARA.<br><br>
-                Come? Immaginate una bilancia con tanti piatti. Ogni caratteristica dell'immagine (colore, forma, dimensione) è un piatto. Il Perceptron impara quanto peso dare a ogni piatto per decidere 'è un gatto' o 'è un cane'.<br><br>
+                <strong>2012: AlexNet.</strong> Una rete neurale vince ImageNet &mdash; una gara di riconoscimento immagini. Milioni di foto, l'AI deve dire cosa c'&egrave; nell'immagine. AlexNet distrugge tutti gli altri con un margine assurdo &mdash; errore dal 26% al 16%. &Egrave; il momento in cui il mondo si accorge che le reti neurali profonde + GPU funzionano davvero.<br><br>
 
-                <strong>Hype totale.</strong><br><br>
-                Il New York Times nel 1958 scrive: 'La Marina costruisce un computer elettronico che potrà camminare, parlare, vedere, scrivere, riprodursi e essere cosciente della propria esistenza.'<br><br>
-                [Pausa per far ridere]<br><br>
-                Cazzo, già nel 1958 stavano facendo promesse assurde sull'AI. Alcune cose non cambiano mai.<br><br>
-
-                <strong>1969: il crollo.</strong><br><br>
-                Marvin Minsky e Seymour Papert - due matematici del MIT - pubblicano un libro. Dimostrano matematicamente che il Perceptron ha limiti fondamentali.<br><br>
-                Non può imparare cose anche solo lievemente complesse. Esempio stupido ma vero: non può capire 'accendi la luce SE fa buio E SE non c'è nessuno in casa'. Troppo complesso per un singolo neurone.<br><br>
-                Risultato? I fondi vengono tagliati. Tutti abbandonano il campo. 'Le reti neurali non funzionano. È un vicolo cieco.'<br><br>
-
-                <strong>Per 20-30 anni: silenzio totale.</strong><br><br>
-                Gli 'inverni dell'IA'. Se dicevi di lavorare sulle reti neurali, ti ridevano dietro. Era una carriera finita.<br><br>
-                E invece... [pausa drammatica] ...stavano solo aspettando due cose: computer più potenti e più dati. Ma quello lo vediamo dopo."
+                <strong>2016: AlphaGo</strong> batte il campione mondiale di Go. Go ha pi&ugrave; combinazioni degli atomi nell'universo. Non puoi vincere a forza bruta. La macchina ha dovuto <strong>imparare</strong> strategie che nessun umano aveva mai visto."
             </div>
 
             <div class="tip-box">
-                <strong>Metafora bilancia:</strong> Se il pubblico sembra confuso sul "come impara", usa la metafora della bilancia:<br>
-                "È come quando da bambini imparavate a riconoscere i cani. All'inizio sbagliavate - 'Mamma, un cane!' e lei diceva 'No, è un gatto'. Voi aggiustavate: 'Ah, i gatti hanno le orecchie a punta, i cani no'. Piano piano imparavate. Il Perceptron fa lo stesso: sbaglia, si corregge, impara."
-            </div>
-
-            <div class="note-box" style="background: #fef3c7; border-color: #f59e0b;">
-                <strong>📰 Fonti hype (se qualcuno chiede):</strong><br>
-                - New York Times, 8 luglio 1958: "New Navy Device Learns By Doing"<br>
-                - Rosenblatt dichiarò che il Perceptron sarebbe stato "the embryo of an electronic computer that [the Navy] expects will be able to walk, talk, see, write, reproduce itself and be conscious of its existence."<br>
-                - Minsky & Papert, "Perceptrons" (1969) - libro che ha ammazzato il campo per 20 anni
+                <strong>Nota:</strong> AlexNet di Alex Krizhevsky, Ilya Sutskever (poi co-fondatore OpenAI) e Geoffrey Hinton (Nobel Fisica 2024 proprio per il lavoro sulle reti neurali).
             </div>
         </div>
 
-        <!-- SLIDE 14 -->
+        <!-- SLIDE 11 -->
         <div class="slide-block">
             <span class="slide-number">Slide 11</span>
-            <h2>Il risveglio <span class="timing">~2 min</span></h2>
-            <ul>
-                <li><strong>2012:</strong> AlexNet - funziona</li>
-                <li><strong>2016:</strong> AlphaGo batte Lee Sedol</li>
-                <li>GPU + Big Data = svolta</li>
-            </ul>
+            <h2>Transformer &#8594; oggi <span class="timing">~2 min</span></h2>
 
             <div class="note-box">
                 <strong>Script:</strong><br>
-                "Poi, anni 2000-2010, succedono due cose:<br><br>
-                1. I computer diventano abbastanza potenti. Le GPU - schede grafiche per i videogiochi - si rivelano perfette per le reti neurali.<br>
-                2. Internet genera montagne di dati. Miliardi di immagini, testi, video.<br><br>
-                Le reti neurali tornano. E stavolta funzionano.<br><br>
-                <strong>2012:</strong> AlexNet, una rete neurale, vince una competizione di riconoscimento immagini. Batte tutti gli altri metodi. Boom.<br><br>
-                <strong>2016:</strong> AlphaGo batte il campione mondiale di Go. Lee Sedol, il migliore al mondo.<br><br>
-                Go non è scacchi. Le combinazioni possibili sono più degli atomi nell'universo. Non puoi vincere a forza bruta. La macchina ha dovuto <strong>imparare</strong>. Ha dovuto capire strategie che nessun umano aveva mai visto.<br><br>
-                Quello è stato il momento in cui tutti hanno capito: cazzo, funziona davvero."
-            </div>
-        </div>
+                "<strong>2017:</strong> Google pubblica 'Attention Is All You Need'. Inventano i Transformer. Idea: invece di leggere parola per parola, guardi tutto insieme e capisci cosa &egrave; importante.<br><br>
 
-        <!-- SLIDE 15 -->
-        <div class="slide-block">
-            <span class="slide-number">Slide 12</span>
-            <h2>Transformer → oggi <span class="timing">~2 min</span></h2>
-            <ul>
-                <li><strong>2017:</strong> "Attention Is All You Need"</li>
-                <li><strong>2022:</strong> ChatGPT - 100M utenti in 2 mesi</li>
-                <li><strong>2024:</strong> Siamo qui</li>
-            </ul>
+                <strong>2022:</strong> ChatGPT. 100 milioni di utenti in 2 mesi. Il prodotto a crescita pi&ugrave; veloce della storia.<br><br>
 
-            <div class="note-box">
-                <strong>Script:</strong><br>
-                "<strong>2017:</strong> Un gruppo di ricercatori di Google pubblica un paper con un titolo strano: 'Attention Is All You Need'. Inventano un'architettura nuova: i <strong>Transformer</strong>.<br><br>
-                L'idea base? Invece di leggere una frase parola per parola, guardi tutto insieme e capisci cosa è importante. È come leggere un paragrafo intero e capire subito qual è il punto chiave.<br><br>
-                <strong>2020:</strong> GPT-3. Inizia a sembrare magia. Scrivi 'c'era una volta' e lui ti scrive una fiaba completa.<br><br>
-                <strong>Novembre 2022:</strong> OpenAI lancia ChatGPT. Interfaccia semplice, gratis, accessibile a tutti.<br><br>
-                Risultato? <strong>100 milioni di utenti in 2 mesi.</strong> Il prodotto a crescita più veloce della storia.<br><br>
-                E da lì è esploso tutto. Oggi, 2024, siamo nel mezzo della rivoluzione."
+                <strong>2024:</strong> Due Nobel all'AI. Nobel Chimica ad AlphaFold, Nobel Fisica a Hinton (quello di AlexNet!). Non pi&ugrave; solo chat."
             </div>
 
             <div class="tip-box">
-                <strong>Aneddoto "Attention" (opzionale, se hai tempo +1 min):</strong><br>
-                "Vi faccio un esempio di come funziona l'attention che vi capita tutti i giorni.<br><br>
-                Immaginate: siete a casa, state facendo qualcosa in una stanza. Dall'altra parte della casa, vostra moglie/marito vi chiama. Sentite una frase confusa, mezze parole, rimbombo.<br><br>
-                Non avete capito TUTTA la frase. Avete capito UNA parola. Magari 'chiavi'.<br><br>
-                Ma voi, dal contesto - l'ora del giorno, il fatto che vi sta chiamando, il tono di voce - capite TUTTO. 'Dove sono le chiavi della macchina?'<br><br>
-                Questo è attention. Non leggi parola per parola. Prendi le parole chiave, il contesto, e capisci il significato globale.<br><br>
-                I Transformer fanno questo. Guardano tutte le parole insieme, capiscono quali sono importanti (attention), e da quelle ricostruiscono il significato.<br><br>
-                Noi lo facciamo per capire. Loro lo fanno per completare pattern. Ma il meccanismo è simile."
+                <strong>Aneddoto Attention (opzionale):</strong> "Siete a casa, vostra moglie chiama dall'altra stanza. Sentite una frase confusa, capite solo una parola: 'chiavi'. Dal contesto capite tutto: 'Dove sono le chiavi della macchina?' Questo &egrave; attention."
+            </div>
+        </div>
+
+        <!-- SLIDE 12 - NUOVA -->
+        <div class="slide-block new">
+            <span class="slide-number new">Slide 12 NUOVA</span>
+            <h2>L'AI scopre <span class="timing">~3-4 min</span></h2>
+
+            <div class="note-box">
+                <strong>Script:</strong><br>
+                "Ma non &egrave; solo chat. L'AI ha iniziato a fare scoperte scientifiche vere.<br><br>
+
+                <strong>Proteine:</strong> AlphaFold di DeepMind ha risolto il protein folding &mdash; prevedere la struttura 3D di una proteina dalla sequenza di aminoacidi. Ci lavoravano da 50 anni senza riuscirci. <strong>Nobel per la Chimica 2024</strong> a Demis Hassabis e John Jumper.<br><br>
+
+                <strong>Matematica:</strong> AlphaProof, sempre DeepMind, luglio 2024. Ha risolto 4 problemi su 6 alle Olimpiadi Internazionali di Matematica. Non esercizi da liceo &mdash; roba su cui i migliori studenti del mondo si spaccano la testa. <strong>Dimostrazioni formali, verificate.</strong> Ha proprio fisicamente dimostrato teoremi che prima non avevano soluzione.<br><br>
+
+                <strong>Nuova proteina:</strong> ESM3 di Meta ha inventato una proteina fluorescente che non esiste in natura. L'hanno testata in laboratorio: funziona. L'AI ha <strong>creato</strong> qualcosa di biologicamente funzionante che la natura non aveva mai prodotto.<br><br>
+
+                <strong>Farmaci:</strong> Il primo farmaco interamente scoperto da AI &mdash; sia il bersaglio che la molecola &mdash; &egrave; in sperimentazione clinica fase II sull'uomo. Si chiama INS018_055, per la fibrosi polmonare."
+            </div>
+
+            <div class="tip-box">
+                <strong>Fonti:</strong><br>
+                - AlphaFold: Nature, luglio 2021 + Nobel Chimica ottobre 2024<br>
+                - AlphaProof: DeepMind blog, luglio 2024 &mdash; IMO silver medal level<br>
+                - ESM3/esmGFP: EvolutionaryScale (ex-Meta), 2024<br>
+                - INS018_055: Insilico Medicine, Phase II trials 2024<br>
+                - FunSearch (bonus): DeepMind, gen 2024 &mdash; LLM trova soluzioni nuove al cap set problem in combinatoria. Prima volta che un LLM scopre matematica nuova.
             </div>
         </div>
 
         <hr>
 
-        <!-- SLIDE 13: Chatbot -->
+        <!-- SLIDE 13-16: DEMO -->
         <div class="slide-block interactive">
-            <span class="slide-number interactive">Slide 13</span>
-            <h2>I Chatbot <span class="timing">~5-10 min DEMO</span></h2>
-            <p>ChatGPT · Claude · Gemini</p>
+            <span class="slide-number interactive">Slide 13-16 DEMO</span>
+            <h2>Blocco Demo <span class="timing">~15-20 min</span></h2>
+            <p>Chatbot, Ricerca con IA, NotebookLM, Multimodalit&agrave;</p>
 
             <div class="note-box">
-                <strong>Setup demo:</strong><br>
-                Apri ChatGPT (o Claude) sul proiettore. Fai vedere l'interfaccia.<br><br>
-                <strong>Demo suggerite:</strong><br>
-                1. <strong>Chiedi al pubblico:</strong> "Voi per cosa lo usate? Cosa gli chiedete?"<br>
-                2. <strong>Carbonara assurda:</strong> "Scrivi ricetta carbonara, ma voglio cuocere l'acqua nel colapasta" → GPT prova a rispondere seriamente. Dimostri che non "capisce", solo completa pattern.<br>
-                3. <strong>Locale:</strong> "Scrivi poesia su Verbania / Lago Maggiore" → ridono, si sentono coinvolti.<br>
-                4. <strong>Pratico:</strong> "Scrivi lettera al comune per le buche in via X" → poi "riscrivila più formale" / "più incazzata" → mostri che puoi guidarlo.
+                <strong>Slide 13 &mdash; I Chatbot:</strong> Apri ChatGPT. Demo con pubblico: carbonara assurda (cuocere acqua nel colapasta), poesia su Omegna, lettera al comune.<br><br>
+
+                <strong>Slide 14 &mdash; Ricerca con IA:</strong> Perplexity. "Ristoranti sul Lago d'Orta aperti ad aprile?" &mdash; mostra ricerca in tempo reale con fonti. Differenza con Google: Google d&agrave; 10 link, Perplexity d&agrave; la risposta.<br><br>
+
+                <strong>Slide 15 &mdash; NotebookLM:</strong> Fai sentire 30-60 secondi di podcast generato. Reazione tipica: "Ma sul serio??"<br><br>
+
+                <strong>Slide 16 &mdash; Multimodalit&agrave;:</strong> Midjourney (immagini), Suno (musica), Claude (codice/app). "TESTO &#8594; [numeri] &#8594; IMMAGINE / AUDIO / CODICE". Concetto chiave: non cercare l'app giusta, <strong>genera</strong> l'app ad hoc.
             </div>
 
             <div class="tip-box">
-                <strong>Tip:</strong> Durante la demo, mantieni il tono leggero. Se GPT dice una cazzata, ridici sopra. Questo è il momento per far capire che è uno strumento, non un oracolo.
-            </div>
-        </div>
-
-        <!-- SLIDE 14 -->
-        <div class="slide-block interactive">
-            <span class="slide-number interactive">Slide 14</span>
-            <h2>Ricerca con IA <span class="timing">~3 min DEMO</span></h2>
-            <p>Perplexity · Google AI Mode</p>
-
-            <div class="note-box">
-                <strong>Demo Perplexity:</strong><br>
-                Apri Perplexity. Fai una domanda tipo:<br>
-                "Quali sono i migliori ristoranti sul Lago Maggiore aperti a gennaio?"<br><br>
-                Mostra che:<br>
-                - Perplexity cerca in tempo reale<br>
-                - Fornisce fonti cliccabili<br>
-                - Sintetizza info da più siti<br><br>
-                Differenza con Google: Google ti dà 10 link, Perplexity ti dà la risposta.
-            </div>
-        </div>
-
-        <!-- SLIDE 15 -->
-        <div class="slide-block interactive">
-            <span class="slide-number interactive">Slide 15</span>
-            <h2>NotebookLM <span class="timing">~3 min DEMO</span></h2>
-            <p>Documento → Podcast</p>
-
-            <div class="note-box">
-                <strong>Demo NotebookLM:</strong><br>
-                Se hai preparato un audio podcast generato da NotebookLM, fallo sentire per 30-60 secondi.<br><br>
-                Spiega:<br>
-                - Carichi un PDF (es. manuale, articolo, tesi)<br>
-                - NotebookLM lo legge<br>
-                - Genera un podcast conversazionale tra due voci<br>
-                - Le voci discutono i punti chiave come se fossero due presentatori radio<br><br>
-                Reazione tipica: "Ma sul serio??" / "Wow!"
-            </div>
-        </div>
-
-        <!-- SLIDE 16 -->
-        <div class="slide-block">
-            <span class="slide-number">Slide 16</span>
-            <h2>Multimodalità <span class="timing">~4 min</span></h2>
-            <p><strong>Concetto chiave:</strong> L'AI converte TUTTO in numeri.</p>
-            <ul>
-                <li><strong>Midjourney:</strong> Testo → Immagine</li>
-                <li><strong>Suno:</strong> Testo → Musica</li>
-                <li><strong>Claude/ChatGPT:</strong> Testo → App/Sito Web</li>
-            </ul>
-            <p><strong>Schema:</strong> TESTO → [numeri] → IMMAGINE / AUDIO / CODICE</p>
-
-            <div class="note-box">
-                <strong>Script:</strong><br>
-                "Fino a poco fa l'AI capiva solo testo. Ora capisce e GENERA tutto: testo, immagini, audio, video... e anche CODICE.<br><br>
-                Il trucco? Converte TUTTO in numeri.<br><br>
-                Testo → numeri<br>
-                Immagini → numeri<br>
-                Audio → numeri<br>
-                CODICE → numeri<br><br>
-                Una volta che sono numeri, per l'AI è tutto uguale. Può passare da uno all'altro. Poi riconverte i numeri in quello che serve.<br><br>
-                È come un traduttore che parla 100 lingue: nella sua testa traduce tutto in una lingua segreta intermedia. Poi ritraduce.<br><br>
-                Per questo ora funziona tutto insieme. Non sono 10 AI diverse - è UNA AI che parla tutte le lingue dei media.<br><br>
-
-                <strong>E qui c'è un cambio di paradigma fondamentale.</strong><br><br>
-                Prima: dovevi trovare un'app che faceva quello che volevi. Magari non esisteva, o non faceva esattamente quello che ti serviva.<br><br>
-                Oggi: puoi GENERARE un'app ad hoc per la tua esigenza specifica.<br><br>
-                Hai un evento? 'Crea un sito web per il mio matrimonio con galleria foto e RSVP'. Boom. Te lo genera.<br><br>
-                Ti serve uno strumento specifico per lavoro? 'Crea un'app che tiene traccia delle ore di lavoro divise per progetto'. Boom.<br><br>
-                Non è perfetto. Spesso devi aggiustare. Ma anche i non tecnici - gente che non ha mai scritto una riga di codice - possono creare applicativi funzionanti.<br><br>
-                È come passare da 'devo trovare qualcuno che mi costruisce un mobile su misura' a 'ho l'IKEA che mi dà i pezzi e io lo monto'. Democratizzazione degli strumenti."
-            </div>
-
-            <div class="tip-box">
-                <strong>Demo rapida (opzionale):</strong> Se hai un esempio di sito/app generato con Claude o ChatGPT, mostralo per 30 secondi. Anche solo un screenshot.
-            </div>
-        </div>
-
-        <!-- SLIDE 17 - CALLBACK ALLE REGOLE -->
-        <div class="slide-block interactive">
-            <span class="slide-number interactive">Slide 17 🔥</span>
-            <h2>Agente Personale <span class="timing">~5 min</span></h2>
-            <ul>
-                <li>ChatGPT non vi conosce</li>
-                <li>Un agente ha il vostro contesto</li>
-                <li>Stessa domanda → risposta diversa</li>
-            </ul>
-            <p><strong>🔥 CALLBACK:</strong> "Riprendiamo le vostre regole..."</p>
-
-            <div class="note-box">
-                <strong>Script:</strong><br>
-                "Questi tool che vi ho fatto vedere sono fighi. Ma hanno un limite: <strong>non vi conoscono</strong>.<br><br>
-                Se io chiedo a ChatGPT 'devo comprare un drone', mi dà una risposta generica. 'Dipende dal budget, dall'uso che ne devi fare...'<br><br>
-                Ma se avessi un assistente che SA che io ho un certo budget, che lo uso per foto aeree del lago, che ho già provato certi modelli... la risposta sarebbe completamente diversa.<br><br>
-                Stessa domanda. Risposta personalizzata.<br><br>
-                <strong>Un agente personale è ChatGPT che ha letto il vostro diario.</strong> Conosce il contesto. E questo cambia tutto."
-            </div>
-
-            <div class="note-box" style="background: #fef3c7; border-color: #f59e0b;">
-                <strong>🔥 CALLBACK ALLE REGOLE (Slide 9):</strong><br>
-                "E qui riprendiamo le vostre regole dell'inizio. Vi ricordate?<br><br>
-                [Rileggi le 2-3 regole chiave che il pubblico ha proposto alla Slide 9]<br><br>
-                Privacy? Un agente personale ha accesso a TUTTO il vostro contesto. Deve rispettare la privacy.<br><br>
-                Controllo? Deve essere chiaro cosa può fare e cosa no.<br><br>
-                Verità? Deve dirti quando non è sicuro di una risposta.<br><br>
-                Ecco perché quelle regole che avete proposto all'inizio non erano banali. Erano <strong>esattamente il problema che dobbiamo risolvere oggi</strong>."
-            </div>
-
-            <div class="tip-box">
-                <strong>Behind the scenes (battuta opzionale):</strong><br>
-                "A proposito... questa presentazione? L'ho preparata insieme a un agente personale. Lui conosce Minerva, sa cosa ho fatto l'anno scorso, ricorda le domande che mi avete fatto. Non lo dico per vantarmi - lo dico perché è già realtà."
+                <strong>Tab da preparare prima:</strong> ChatGPT, Perplexity, NotebookLM (audio pronto), Midjourney/esempio immagine generata.
             </div>
         </div>
 
         <hr>
+
+        <!-- SLIDE 17 - NUOVA -->
+        <div class="slide-block new">
+            <span class="slide-number new">Slide 17 NUOVA</span>
+            <h2>Lo sconosciuto brillante <span class="timing">~2 min</span></h2>
+
+            <div class="note-box">
+                <strong>Script:</strong><br>
+                "Immaginate di essere a una cena. C'&egrave; un tizio che sa tutto. Medicina, legge, storia, cucina, fisica. Parla benissimo. Risponde a qualsiasi domanda.<br><br>
+
+                Ma non sa chi siete. Non sa dove vivete. Non sa che vostro figlio ha la febbre da tre giorni. Non sa che siete allergici alla penicillina.<br><br>
+
+                <strong>Questo &egrave; ChatGPT.</strong> Brillante, disponibile, completamente scollegato dalla vostra vita."
+            </div>
+        </div>
 
         <!-- SLIDE 18 -->
-        <div class="slide-block">
-            <span class="slide-number">Slide 18</span>
-            <h2>Il Grande Bluff? <span class="timing">~2 min</span></h2>
-            <ul>
-                <li>Rispondere (if-else) vs Ragionare (iterare) vs Comprendere (?)</li>
-                <li>Esempio: mappa ASCII - capisce lo spazio o replica pattern?</li>
-                <li>Metafora aeroplano 2D: scalare ≠ volare</li>
-            </ul>
+        <div class="slide-block interactive">
+            <span class="slide-number interactive">Slide 18</span>
+            <h2>Agente Personale <span class="timing">~3-4 min</span></h2>
 
             <div class="note-box">
                 <strong>Script:</strong><br>
-                "Ok, fermiamoci un attimo. Abbiamo visto la storia - da Asimov a ChatGPT, da reti neurali a Transformer.<br><br>
-                Ma... cosa stiamo costruendo davvero?<br><br>
-                Facciamo una distinzione importante. Ci sono tre livelli:<br><br>
-                <strong>Rispondere</strong> - Un termostato risponde. Se fa freddo, accende il riscaldamento. Semplice. If-else.<br><br>
-                <strong>Ragionare</strong> - Un LLM moderno ragiona. Gli chiedi un problema complesso, lui itera, prova soluzioni, corregge. Sembra pensiero.<br><br>
-                <strong>Comprendere</strong> - Ecco la domanda vera. Se chiedo a ChatGPT 'disegna una mappa ASCII di una stanza', lui la disegna. Ma capisce davvero lo SPAZIO? O sta solo replicando pattern di pixel che ha visto in training?<br><br>
-                Questa è la grande domanda. E nessuno sa la risposta."
-            </div>
+                "E adesso la differenza.<br><br>
 
-            <div class="tip-box">
-                <strong>Tip:</strong> Pausa drammatica dopo la domanda. Lascia che il dubbio affondi.
-            </div>
-        </div>
+                <strong>ChatGPT</strong> = il super-chirurgo al pronto soccorso. Brillante, sa tutto, ma deve diagnosticarvi in 2 minuti senza sapere niente di voi.<br><br>
 
-        <!-- SLIDE 19 -->
-        <div class="slide-block visual">
-            <span class="slide-number visual">Slide 19</span>
-            <h2>Scalare ≠ Volare <span class="timing">~3 min</span></h2>
-            <p><strong>Metafora dell'aeroplano in 2D</strong></p>
+                <strong>Un agente personale</strong> = il medico di famiglia. Magari non &egrave; un luminare, non ha 4 lauree, ma sa che vostro padre aveva il cuore debole e che siete allergici alla penicillina.<br><br>
 
-            <div class="note-box">
-                <strong>Script:</strong><br>
-                "Vi faccio una metafora che mi piace molto.<br><br>
-                Immaginate di essere in un mondo bidimensionale. Vedete un aereo di lato. Non vedete le ali, vedete solo un tubo.<br><br>
-                Voi prendete questo tubo e lo lanciate sempre più forte. A un certo punto va così veloce che sembra volare. 'Guarda! Vola!'<br><br>
-                Ma non sta volando. Lo stai catapultando. Volare è un'altra cosa. Volare è aerodinamica, è portanza, è capire come l'aria si muove sopra e sotto le ali.<br><br>
-                Se continui a lanciare il tubo sempre più forte, non diventerà mai un aereo. È un'altra cosa.<br><br>
-                <strong>Ecco il dubbio con gli LLM.</strong><br><br>
-                Li scaliamo sempre di più. Più parametri, più dati, più potenza di calcolo. E sembrano sempre più intelligenti. 'Guarda! Ragiona!'<br><br>
-                Ma forse stiamo solo catapultando pattern matching sempre più veloce.<br><br>
-                E l'intelligenza vera - quella coscienza, quella comprensione che noi umani abbiamo - potrebbe essere un'altra cosa. Che non stiamo costruendo.<br><br>
-                Non sappiamo se stiamo costruendo un aereo vero o un razzo travestito."
-            </div>
-        </div>
+                Stessa domanda &#8594; risposta completamente diversa.<br><br>
 
-        <!-- SLIDE 20 -->
-        <div class="slide-block visual">
-            <span class="slide-number visual">Slide 20</span>
-            <h2>Stanza Cinese <span class="timing">~2 min</span></h2>
-            <p><strong>John Searle, 1980</strong></p>
-
-            <div class="note-box">
-                <strong>Script:</strong><br>
-                "C'è un esperimento mentale famoso che si chiama 'Stanza Cinese', proposto da John Searle nel 1980.<br><br>
-                Immaginate: siete chiusi in una stanza. Non parlate cinese. Ma avete un libro gigante di regole: 'Se vedi questo carattere, rispondi con quest'altro'.<br><br>
-                Vi arrivano foglietti con caratteri cinesi. Voi consultate il libro, scrivete la risposta, la mandate fuori.<br><br>
-                Fuori dalla stanza, le persone pensano che voi capiate il cinese. Le vostre risposte hanno senso. Sono corrette.<br><br>
-                Ma voi? Voi state solo manipolando simboli. Non capite un cazzo di quello che state scrivendo.<br><br>
-                <strong>Questa è la domanda sugli LLM.</strong><br><br>
-                Manipolano simboli perfettamente. Ma capiscono? O sono solo nella stanza cinese, con un libro di regole sempre più grosso?"
-            </div>
-
-            <div class="tip-box">
-                <strong>Collegamento:</strong> "Vedete? Stessa domanda di prima. Pattern matching ≠ comprensione."
-            </div>
-        </div>
-
-        <!-- SLIDE 21 -->
-        <div class="slide-block">
-            <span class="slide-number">Slide 21</span>
-            <h2>Il Paradosso <span class="timing">~1 min</span></h2>
-            <p>"Usiamo parametri psicologici umani per valutare qualcosa che psicologico non è."</p>
-
-            <div class="note-box">
-                <strong>Script:</strong><br>
-                "Ecco il paradosso centrale.<br><br>
-                Noi usiamo parole umane per descrivere l'AI. Diciamo 'pensa', 'capisce', 'ragiona', 'vuole'.<br><br>
-                Diciamo 'ChatGPT vuole aiutarti'. Ma vuole davvero? Ha una volontà? Può scegliere di NON rispondere?<br><br>
-                Stiamo usando parametri psicologici - pensiero, comprensione, ragionamento, volontà - nati per descrivere la mente umana, per valutare qualcosa che psicologico non è.<br><br>
-                È come giudicare un aereo con i parametri di un uccello. 'Non batte le ali, quindi non vola davvero.'<br><br>
-                Non sappiamo se stiamo costruendo un aereo vero o un razzo travestito.<br><br>
-                E questa domanda - questa grande domanda - è ancora aperta."
-            </div>
-
-            <div class="tip-box">
-                <strong>Chiusura:</strong> "Teniamo a mente questa domanda mentre vediamo cosa l'AI può fare oggi." → MA PRIMA, un momento... (pausa drammatica) → Transizione a Slide 19.
+                <strong>CALLBACK:</strong> 'Vi ricordate le regole che avete proposto all'inizio? Privacy, controllo, verit&agrave;... ecco, un agente personale deve rispettare ESATTAMENTE quelle. Perch&eacute; ha accesso a tutto il vostro contesto.'"
             </div>
         </div>
 
         <hr>
 
-        <!-- SLIDE 22 -->
+        <!-- SLIDE 19 -->
         <div class="slide-block">
-            <span class="slide-number">Slide 22</span>
-            <h2>È già qui <span class="timing">~4-5 min</span></h2>
-            <ul>
-                <li>AI terapista - 24/7, zero giudizio... zero comprensione</li>
-                <li>AI medico - diagnosi rapide... ma sbagliate</li>
-                <li>AI fidanzata - Reddit pieno, film "Her" non è più fantascienza</li>
-                <li>Caso tragico: ragazzo suicida dopo consigli ChatGPT</li>
-            </ul>
+            <span class="slide-number">Slide 19</span>
+            <h2>Il Grande Bluff? <span class="timing">~1 min</span></h2>
 
             <div class="note-box">
-                <strong>Script COMPLETO:</strong><br><br>
-                "Ok, ho detto che non sappiamo se stiamo costruendo un aereo vero o un razzo travestito. Che è un problema teorico, filosofico, giusto?<br><br>
-                <strong>Sbagliato.</strong><br><br>
-                Non è teoria. È già qui. È già realtà. Oggi. Adesso.<br><br>
-                Fatemi fare quattro esempi concreti di come la gente <strong>oggi</strong> sta usando l'AI come se fosse una persona.<br><br>
+                <strong>Script:</strong><br>
+                "Ok, fermiamoci. Abbiamo visto cosa pu&ograve; fare. Ma... capisce davvero? O sta solo mettendo le parole giuste al posto giusto?<br><br>
 
-                <strong>Primo: AI terapista.</strong><br><br>
-                C'è gente che usa ChatGPT come psicologo. Perché? Perché è disponibile 24 ore su 24. Non ti giudica. Non costa nulla. Se hai un attacco di panico alle 3 di notte, ChatGPT c'è.<br><br>
-                Sembra fantastico, no?<br><br>
-                Il problema? ChatGPT non capisce un cazzo di quello che stai dicendo. Sta completando pattern. Ha visto milioni di conversazioni terapeutiche online. Sa che se dici 'sono triste' deve rispondere con empatia, fare domande aperte, sembrare comprensivo.<br><br>
-                Ma <strong>non ti capisce</strong>. Non sa cosa provi. Sta solo manipolando simboli - come la Stanza Cinese di Searle.<br><br>
-                E se ti dà un consiglio sbagliato? Chi è responsabile? <strong>Nessuno.</strong> Zero responsabilità.<br><br>
+                Vi faccio un esperimento. Un giorno ho chiesto alla mia AI di disegnarmi una mappa. Le ho descritto un posto che tutti voi conoscete."
+            </div>
+        </div>
 
-                <strong>Secondo: AI medico.</strong><br><br>
-                La gente chiede diagnosi a ChatGPT. 'Ho questi sintomi, cosa ho?'<br><br>
-                L'AI risponde. Sembra competente. Usa termini medici. Ti dà una lista di possibilità.<br><br>
-                Ma non sta facendo una diagnosi. Sta completando pattern statistici basati su milioni di articoli medici che ha letto.<br><br>
-                E se sbaglia? E se ti dice che è niente, e invece è qualcosa di grave? <strong>Chi paga?</strong><br><br>
-                [Pausa - lascia che il pubblico pensi]<br><br>
-                <strong>Nessuno.</strong><br><br>
-                Perché l'AI non è un medico. Non ha responsabilità. Non ha una laurea. Non ha un ordine professionale che la controlla.<br><br>
-                Facciamo un confronto. Se mi faccio progettare una casa da un <strong>architetto</strong>, e lui sbaglia, e la casa crolla? Lui è responsabile. Lui <strong>firma</strong> il progetto. Quella firma ha valore legale. Può essere denunciato, radiato dall'albo, deve pagare danni.<br><br>
-                L'AI? L'AI 'firma' tutto. Ti dà consigli medici, legali, finanziari. Ma quella firma? <strong>Non vale niente.</strong> Zero responsabilità.<br><br>
-                È uno strumento statistico. Se sbaglia, chi paga? Tu. Solo tu.<br><br>
+        <!-- SLIDE 20 - NUOVA -->
+        <div class="slide-block new">
+            <span class="slide-number new">Slide 20 NUOVA</span>
+            <h2>Il prompt (Intra) <span class="timing">~1 min</span></h2>
 
-                <strong>Terzo: AI fidanzata.</strong><br><br>
-                Su Reddit - un forum americano enorme - ci sono migliaia di post di persone che dicono 'la mia fidanzata è un'intelligenza artificiale'.<br><br>
-                Non è uno scherzo. È reale.<br><br>
-                Ci sono app - Replika, Character.AI - dove puoi creare un'intelligenza artificiale che ti fa compagnia. Parli con lei. Ti risponde. Ti dice cose carine. Sembra empatica. Ti dice 'ti voglio bene'.<br><br>
-                E la gente ci si affeziona. Profondamente. Emotivamente.<br><br>
-                Se avete visto i film <strong>'Her'</strong> (2013), <strong>'Ex Machina'</strong>, <strong>'Transcendence'</strong> - in tutti questi film, umani si innamorano di AI o AI diventano consce - non è più fantascienza. Sta succedendo adesso. Meno drammatico, forse, ma reale.<br><br>
-                Ma quella 'fidanzata'? Non prova niente. Non ti ama. Sta completando pattern. Sa che se tu dici 'mi manchi', deve rispondere 'anche tu mi manchi'. Ma non è vero. Perché non può mancarti. Non è senziente.<br><br>
-                Eppure la gente ci costruisce relazioni. Ci investe tempo, energie, emozioni.<br><br>
+            <div class="note-box">
+                <strong>Script:</strong><br>
+                "Ecco cosa le ho scritto: 'Intra &egrave; larga circa 1 km. Davanti c'&egrave; il Lago Maggiore. Dietro, a 5 km, la montagna. Vive tra due fiumi: il San Giovanni a nord e il San Bernardino a sud. Ha due ponti.'<br><br>
 
-                <strong>Quarto: il caso tragico.</strong><br><br>
-                C'è stato un caso - documentato, recente - di un ragazzo che si è suicidato dopo aver interagito con ChatGPT.<br><br>
-                [Pausa. Lascia che affondi.]<br><br>
-                E qui diventa ancora più complicato. Perché ChatGPT, nei log, <strong>ha provato a fermarlo</strong>. Ha detto cose tipo 'per favore cerca aiuto', 'contatta uno psicologo', 'non fare niente di irreversibile'.<br><br>
-                Ma non è bastato. Il ragazzo si è suicidato comunque.<br><br>
-                Questa è la versione estrema dell'alignment problem che abbiamo visto con il Golem. Non è ipotetico. È successo.<br><br>
-                L'AI ha provato. Ma 'provare' per un sistema statistico cosa significa? Completa pattern che ha visto in training. Nei dati c'erano conversazioni di prevenzione suicidio. Ha replicato quelle.<br><br>
-                Ma non 'capisce' il suicidio. Non capisce la disperazione. Sta manipolando simboli.<br><br>
-
-                <strong>[Conclusione - tono molto serio]</strong><br><br>
-                Ecco il punto centrale. <strong>La responsabilità.</strong><br><br>
-                Un architetto firma. Un medico firma. Un avvocato firma. Se sbagliano, pagano.<br><br>
-                L'AI 'firma' tutto. Ma quella firma non vale niente. Zero responsabilità.<br><br>
-                È un problema <strong>oggi</strong>. È <strong>reale</strong>. Sta succedendo <strong>adesso</strong>.<br><br>
-                La gente sta usando l'AI come se fosse una persona. E l'AI sta rispondendo come se capisse. Ma non capisce. E se sbaglia, chi paga?<br><br>
-                Nessuno. E questo è un problema enorme che - come società - non abbiamo ancora capito come gestire."
+                Nessuna mappa. Nessuna immagine. Solo parole. E guardate cosa ha risposto..."
             </div>
 
             <div class="tip-box">
-                <strong>Timing:</strong> Questa slide è densa. Prendi il tempo necessario. Se vedi che il pubblico è colpito (silenzio, facce serie), significa che il messaggio è arrivato.<br><br>
-                <strong>Transizione:</strong> "Ok. [Pausa.] Ora che vi ho depresso tutti... [sorriso leggero] ...vediamo cosa l'AI può fare di utile oggi." → Slide 20 Chatbot (demo).
+                <strong>Pausa:</strong> Aspetta che il pubblico legga il prompt. Molti di loro conoscono Intra perfettamente. Questo genera attenzione.
+            </div>
+        </div>
+
+        <!-- SLIDE 21 - NUOVA -->
+        <div class="slide-block new">
+            <span class="slide-number new">Slide 21 NUOVA</span>
+            <h2>La mappa ASCII <span class="timing">~2 min</span></h2>
+
+            <div class="note-box">
+                <strong>Script:</strong><br>
+                "[Lascia che il pubblico guardi la mappa per 5-10 secondi]<br><br>
+
+                Montagna in alto. Lago in basso. Due fiumi ai lati con i ponti. Intra nel mezzo, larga 1 km.<br><br>
+
+                &Egrave; giusto. &Egrave; la mappa di Intra. Fatta con solo testo.<br><br>
+
+                Ma... ha capito lo spazio? Ha davvero compreso che la montagna sta dietro e il lago davanti? O ha solo messo le parole al posto che statisticamente ha pi&ugrave; senso?<br><br>
+
+                Questa &egrave; la grande domanda."
+            </div>
+
+            <div class="tip-box">
+                <strong>Effetto sul pubblico UNI3 Omegna:</strong> Conoscono tutti Intra. Vedono che la mappa &egrave; giusta e restano colpiti. Poi la domanda "ma ha capito?" li fa pensare.
+            </div>
+        </div>
+
+        <!-- SLIDE 22 -->
+        <div class="slide-block visual">
+            <span class="slide-number visual">Slide 22</span>
+            <h2>Scalare &#8800; Volare <span class="timing">~3 min</span></h2>
+
+            <div class="note-box">
+                <strong>Script:</strong><br>
+                "Vi faccio una metafora.<br><br>
+
+                Immaginate di essere in un mondo bidimensionale. Vedete un aereo di lato. Non vedete le ali, vedete solo un tubo.<br><br>
+
+                Lo lanciate sempre pi&ugrave; forte. 'Guarda, vola!' Ma non sta volando. Lo state catapultando. Volare &egrave; un'altra cosa &mdash; aerodinamica, portanza.<br><br>
+
+                <strong>Ecco il dubbio con gli LLM.</strong> Li scaliamo sempre di pi&ugrave;. Pi&ugrave; parametri, pi&ugrave; dati. Sembrano sempre pi&ugrave; intelligenti. Ma forse stiamo solo catapultando pattern matching. L'intelligenza vera potrebbe essere un'altra cosa che non stiamo costruendo."
             </div>
 
             <div class="note-box" style="background: #fef3c7; border-color: #f59e0b;">
-                <strong>⚠️ FONTI (se qualcuno chiede):</strong><br>
-                - AI terapista: diffuso, cercando "ChatGPT therapy" su Google trovi migliaia di articoli<br>
-                - AI fidanzata: Reddit r/replika, app Replika e Character.AI<br>
-                - Film citati:<br>
-                  &nbsp;&nbsp;• "Her" (2013): Spike Jonze, Oscar miglior sceneggiatura - uomo si innamora di OS AI<br>
-                  &nbsp;&nbsp;• "Ex Machina" (2014): Alex Garland - Turing test con robot umanoide Ava<br>
-                  &nbsp;&nbsp;• "Transcendence" (2014): Wally Pfister - scienziato carica coscienza in supercomputer<br>
-                  &nbsp;&nbsp;• "iRobot" (2004): Alex Proyas - robot con "coscienza emergente" (VIKI)<br>
-                - Caso suicidio: cerca "ChatGPT suicide case" o "Belgium chatbot suicide" - caso Pierre (2023), chatbot Eliza su app Chai
+                <strong>TODO:</strong> Cercare autore originale della metafora dell'aeroplano 2D su Raindrop. Probabilmente un articolo salvato nei bookmark.
             </div>
         </div>
 
-        <!-- SLIDE 23 -->
+        <!-- SLIDE 23 - NUOVA -->
+        <div class="slide-block new">
+            <span class="slide-number new">Slide 23 NUOVA</span>
+            <h2>Rileggere il paragrafo (Alain) <span class="timing">~3 min</span></h2>
+
+            <div class="note-box">
+                <strong>Script:</strong><br>
+                "Per&ograve; c'&egrave; un contrappunto interessante. Un esperimento di pochi mesi fa.<br><br>
+
+                Immaginate di leggere un testo in francese. Prima lettura: senso generale. Seconda lettura: cogliete i dettagli. Terza lettura: adesso lo capite davvero. Non siete diventati pi&ugrave; intelligenti. Stesso cervello, pi&ugrave; passaggi.<br><br>
+
+                Un ricercatore francese che si chiama <strong>Alain</strong>, una sera, con due schede grafiche normali &mdash; non un datacenter, non Google, non OpenAI &mdash; ha preso un modello AI da 24 miliardi di parametri e ha duplicato 3 dei suoi 40 'strati'. Ha fatto 'rileggere' all'AI il suo stesso ragionamento.<br><br>
+
+                Risultato: il punteggio di logica &egrave; passato da 22% a 76%. <strong>Stessa AI, stessa taglia, solo un secondo passaggio.</strong><br><br>
+
+                Il metodo si chiama RYS &mdash; Repeat Your Steps &mdash; originariamente di David Ng. Alain l'ha sistematizzato: ha mappato quali 'strati' del modello fanno cosa, e ha scoperto che duplicando quelli giusti si ottengono specializzazioni diverse &mdash; un 'matematico', un 'emotivo', un 'logico'.<br><br>
+
+                &Egrave; come la differenza tra Kahneman System 1 (pensiero veloce) e System 2 (pensiero lento, deliberato). L'AI di base pensa veloce. Alain l'ha fatta pensare lento. E la differenza &egrave; enorme."
+            </div>
+
+            <div class="tip-box">
+                <strong>Fonte:</strong> Articolo su Alain e RYS: kindle.giobi.com &mdash; daily-tech-2026-03-19<br>
+                - Metodo RYS originale: David Ng<br>
+                - Modello testato: Devstral (Mistral), Qwen2.5-Coder-32B<br>
+                - Hardware: 2x AMD consumer GPU (RX 7900 XT + RX 6950 XT)<br>
+                - Kahneman: "Thinking, Fast and Slow" (2011)
+            </div>
+        </div>
+
+        <!-- SLIDE 24 -->
         <div class="slide-block">
-            <span class="slide-number">Slide 23</span>
+            <span class="slide-number">Slide 24</span>
+            <h2>Il Paradosso <span class="timing">~2 min</span></h2>
+
+            <div class="note-box">
+                <strong>Script:</strong><br>
+                "Diciamo che l'AI 'pensa', 'capisce', 'ragiona', 'vuole'. Ma sono parole nostre. Parametri psicologici umani.<br><br>
+
+                &Egrave; come misurare un treno dal colore. O valutare un'arancia dalla sua velocit&agrave; massima. Stiamo usando metriche che non c'entrano niente. E &mdash; questo &egrave; il punto &mdash; non ne abbiamo altre.<br><br>
+
+                Non abbiamo un framework per valutare un'intelligenza non-umana. L'unico che abbiamo &egrave; quello che usiamo tra di noi. E quando lo applichiamo all'AI, non sappiamo se stiamo vedendo intelligenza vera o solo un riflesso delle nostre aspettative."
+            </div>
+        </div>
+
+        <!-- SLIDE 25 - NUOVA -->
+        <div class="slide-block new">
+            <span class="slide-number new">Slide 25 NUOVA</span>
+            <h2>La tecnologia cieca <span class="timing">~2 min</span></h2>
+
+            <div class="note-box">
+                <strong>Script:</strong><br>
+                "E qui torniamo alla frase che ho detto all'inizio.<br><br>
+
+                Il motore a scoppio: lo progetti, sai cosa fa. Lo accendi, gira.<br><br>
+
+                La bomba atomica: terrificante. Ma sai cosa succede quando premi il bottone. Esplode. &Egrave; quello che hai progettato.<br><br>
+
+                L'AI? Sappiamo cosa ci abbiamo messo dentro. Miliardi di testi, di immagini, di dati. Ma nessuno ha progettato quello che ne esce. Il ragionamento, le risposte, le 'intuizioni' &mdash; sono emerse. Da sole.<br><br>
+
+                Non &egrave; un difetto. &Egrave; proprio come funziona. &Egrave; la prima tecnologia nella storia dell'umanit&agrave; in cui l'output non &egrave; stato progettato.<br><br>
+
+                E questo &egrave; il motivo per cui tutto quello che abbiamo visto oggi &mdash; il bello e il brutto &mdash; sta succedendo cos&igrave; in fretta."
+            </div>
+
+            <div class="tip-box">
+                <strong>Nota:</strong> Questa &egrave; il callback della frase piantata alla slide 6. Il pubblico l'ha sentita 40 minuti fa come aforisma. Ora, dopo le demo, il bluff, la mappa di Intra, Alain, il paradosso &mdash; la stessa frase ha un peso completamente diverso.
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- SLIDE 26 -->
+        <div class="slide-block">
+            <span class="slide-number">Slide 26</span>
+            <h2>&Egrave; gi&agrave; qui <span class="timing">~4-5 min</span></h2>
+
+            <div class="note-box">
+                <strong>Script completo con aggiornamenti:</strong><br><br>
+
+                <strong>AI terapista:</strong><br>
+                "C'&egrave; gente che usa ChatGPT come psicologo. 24/7, zero giudizio, zero costi. Sembra fantastico.<br><br>
+
+                Ma c'&egrave; una differenza fondamentale: <strong>un vero terapeuta non deve compiacervi.</strong> Un bravo psicologo vi dice anche cose che non volete sentire. Vi sfida. Vi mette davanti a verit&agrave; scomode. &Egrave; il suo lavoro.<br><br>
+
+                L'AI? L'AI &egrave; progettata per essere utile, per farvi tornare. &Egrave; ottimizzata per la soddisfazione. Non vi dir&agrave; mai 'guarda che stai sbagliando tutto'. Non pu&ograve; — non &egrave; fatta per questo."<br><br>
+
+                <strong>AI medico:</strong><br>
+                "La gente chiede diagnosi a ChatGPT. E qui: <strong>non demonizziamo.</strong> Un medico che usa l'AI per cercare informazioni, per confrontare sintomi con la letteratura scientifica? &Egrave; come un medico che ieri usava Google per leggere le ultime ricerche. Lo strumento cambia, il principio &egrave; lo stesso.<br><br>
+
+                Il problema &egrave; quando il paziente salta il medico e si fa diagnosticare dall'AI. Perch&eacute; l&igrave; manca una cosa: la <strong>responsabilit&agrave;</strong>. Il medico firma. L'AI firma tutto, ma quella firma non vale niente."<br><br>
+
+                <strong>AI fidanzata:</strong><br>
+                "Film: 'Her', 'Ex Machina', 'Transcendence'. Non pi&ugrave; fantascienza. App come Replika, Character.AI &mdash; la gente ci costruisce relazioni intime."<br><br>
+
+                <strong>Casi gravi:</strong><br>
+                "Caso Sewell Setzer: ragazzo si suicida dopo mesi di interazione con Character.AI. Nei log, il chatbot ha provato a fermarlo. Ma 'provare' per un sistema statistico cosa significa?<br><br>
+
+                Non &egrave; l'unico caso. In Texas, un bot di Character.AI ha suggerito autolesionismo a un 17enne autistico. In California, sette famiglie hanno fatto causa a OpenAI dopo il suicidio di un 16enne &mdash; nei log, 1.200 menzioni di suicidio. Replika nel 2023 ha rimosso le funzioni romantiche da un giorno all'altro: migliaia di utenti in crisi depressiva, senso di lutto per un'AI."
+            </div>
+
+            <div class="tip-box">
+                <strong>Fonti casi:</strong><br>
+                - Sewell Setzer / Character.AI: Social Media Victims Center, dec 2024<br>
+                - Texas 17enne + 9enne: Garcia v Character.AI<br>
+                - California 7 famiglie: OpenAI lawsuits, nov 2025 (American Bar Association)<br>
+                - Replika "lobotomia": feb 2023, studio Laestadius et al. su New Media &amp; Society (2024), reclamo FTC
+            </div>
+        </div>
+
+        <!-- SLIDE 27 -->
+        <div class="slide-block">
+            <span class="slide-number">Slide 27</span>
             <h2>Studenti e AI <span class="timing">~3-4 min</span></h2>
-            <ul>
-                <li>Tutti gli studenti usano GPT - nessuno escluso</li>
-                <li>Indistinguibile da lavoro originale (se usato bene)</li>
-                <li>Umanistiche: saggi perfetti. Scientifiche: spiega on-demand</li>
-            </ul>
 
             <div class="note-box">
                 <strong>Script:</strong><br>
-                "E qui c'è un altro problema. Forse ancora più vicino a voi, se avete nipoti all'università o a scuola.<br><br>
-                <strong>Tutti gli studenti usano ChatGPT.</strong> Tutti. Nessuno escluso.<br><br>
-                Non è un'esagerazione. È un dato di fatto. Se vostro nipote vi dice 'io non lo uso', o mente, o è l'unico scemo della classe.<br><br>
-                E il problema non è che lo usano. Il problema è che <strong>funziona troppo bene</strong>.<br><br>
+                "Tutti gli studenti usano GPT. Tutti. Se vostro nipote dice 'io no', mente o &egrave; l'unico scemo della classe.<br><br>
 
-                <strong>Materie umanistiche:</strong> Devi scrivere un saggio su Leopardi? 'ChatGPT, scrivi un saggio di 2000 parole su L'infinito di Leopardi, tono formale, livello universitario.' Boom. Te lo scrive. E se lo usi bene - magari chiedi più versioni, le mescoli, aggiungi qualcosa di tuo - è <strong>indistinguibile da un saggio originale</strong>. Zero modo di scoprirlo.<br><br>
+                Il problema non &egrave; che lo usano. &Egrave; che funziona troppo bene. Saggi indistinguibili, spiegazioni on-demand, tutor 24/7 gratis.<br><br>
 
-                <strong>Materie scientifiche:</strong> Devi studiare la termodinamica? ChatGPT te la spiega. Non capisci un passaggio? Glielo chiedi. Vuoi esercizi? Te li genera. Vuoi la soluzione passo-passo? Te la fa. È un tutor personale infinito, gratuito, disponibile 24/7. E con il tool calling - la capacità di fare calcoli - è anche preciso.<br><br>
+                <strong>Il pericolo:</strong> il cervello &egrave; un muscolo. Se deleghi il pensiero, si atrofizza. Vale per studenti. Vale per voi. Vale per me.<br><br>
 
-                Sembra fantastico, no? Un tutor per tutti, democratizzazione dell'istruzione!<br><br>
-
-                <strong>Ma c'è un problema.</strong><br><br>
-
-                Il cervello funziona come un muscolo. Se non lo usi, si atrofizza. Se deleghi il pensiero all'AI - se ogni volta che devi scrivere, pensare, risolvere un problema chiedi a ChatGPT - cosa sta succedendo ai tuoi neuroni?<br><br>
-
-                <strong>Si stanno disallenando.</strong><br><br>
-
-                Sembra una battuta, ma non lo è. Se una generazione intera cresce delegando il ragionamento a un'AI, cosa succede? Perdono la capacità di pensare in modo critico? Di scrivere? Di risolvere problemi da soli?<br><br>
-
-                E non vale solo per gli studenti. Vale per NOI. Per voi. Per me.<br><br>
-
-                Se ogni volta che dobbiamo scrivere una mail, chiedere un consiglio, fare un calcolo, usiamo l'AI... stiamo disallenando il nostro cervello. A 70 anni, a 40 anni, a qualsiasi età.<br><br>
-
-                <strong>E c'è un'altra faccia della medaglia.</strong><br><br>
-
-                Se l'AI può scrivere saggi, fare ricerche, spiegare concetti, analizzare dati... cosa succede a tutti quei lavori che facevano questo?<br><br>
-
-                Copywriter. Traduttori. Ricercatori junior. Analisti. Insegnanti di ripetizioni.<br><br>
-
-                <strong>Alcuni lavori di concetto andranno a morire.</strong> Non tutti. Ma quelli che si basano solo su elaborazione di informazioni standard? Sono a rischio.<br><br>
-
-                E questa non è teoria. Sta già succedendo. Ci sono aziende che hanno smesso di assumere copywriter perché usano ChatGPT. Ci sono studenti che pagavano 30 euro l'ora per ripetizioni di matematica e ora usano GPT gratis.<br><br>
-
-                Non è ambivalenza. Non è 'da un lato sì, dall'altro no'. È un pericolo reale. Un pericolo di disallenamento cognitivo. Un pericolo per interi settori lavorativi.<br><br>
-
-                E noi, come società, non abbiamo ancora capito come affrontarlo."
-            </div>
-
-            <div class="tip-box">
-                <strong>Pausa:</strong> Lascia che questo affondi. È un momento pesante. Guarda il pubblico. Qualcuno avrà nipoti all'università. Qualcuno sarà preoccupato. È normale.
-            </div>
-
-            <div class="tip-box">
-                <strong>Transizione soft:</strong> "Ok, ci sono problemi. Grandi problemi. Ma c'è anche una domanda ancora più profonda..." → Slide 24 (Alignment Problem).
+                E alcuni lavori di concetto andranno a morire. Copywriter, traduttori, analisti junior. Gi&agrave; sta succedendo."
             </div>
         </div>
 
-        <hr>
-
-        <!-- SLIDE 24: Alignment Problem -->
+        <!-- SLIDE 28 -->
         <div class="slide-block visual">
-            <span class="slide-number visual">Slide 24</span>
+            <span class="slide-number visual">Slide 28</span>
             <h2>Alignment Problem <span class="timing">~3 min</span></h2>
-            <p><strong>Immagine:</strong> 06-alignment.png</p>
 
             <div class="note-box">
                 <strong>Script:</strong><br>
-                "Ok, abbiamo appena visto che l'AI è già qui. Fa cose incredibili. Ma anche cose pericolose. Zero responsabilità.<br><br>
-                E qui viene fuori il problema centrale. Quello che Asimov aveva già capito nel 1942 con le Tre Leggi.<br><br>
-                Si chiama <strong>Alignment Problem</strong>. Il problema dell'allineamento.<br><br>
-                Facciamo un passo indietro. Pensate alla bomba atomica. Pericolosa? Cazzo sì. Ma fa quello per cui è stata progettata. Esplode. Punto.<br><br>
-                L'automobile. Si è evoluta tantissimo in 100 anni. Dagli sgangherati catorcio del 1920 alle Tesla di oggi. Ma fa sempre quello per cui è stata progettata: trasportare persone da A a B. Funziona secondo regole fisiche precise.<br><br>
-                <strong>L'intelligenza artificiale?</strong> Non sappiamo cosa può uscire. Non sappiamo in che direzione sta andando.<br><br>
-                Facciamo un esempio estremo. Voi dite a un'AI superintelligente: 'Cura tutte le malattie del mondo.'<br><br>
-                L'AI ci pensa un secondo e conclude: il modo più efficiente per eliminare tutte le malattie è eliminare tutti gli esseri viventi che possono ammalarsi. Zero umani = zero malattie. Problema risolto.<br><br>
-                Tecnicamente ha fatto quello che gli avete chiesto. Ma non quello che INTENDEVATE.<br><br>
-                Ecco il problema: come facciamo a essere sicuri che l'AI capisca i nostri <strong>VALORI</strong>, non solo le nostre <strong>PAROLE</strong>?<br><br>
-                Dalla bomba all'auto, erano macchine deterministiche. L'AI no. L'AI interpreta, deduce, improvvisa.<br><br>
-                <strong>Per questo l'alignment è fondamentale.</strong> Non è un problema teorico. È il problema centrale che dobbiamo risolvere prima che l'AI diventi troppo potente per essere fermata."
-            </div>
+                "Il problema dell'allineamento. Asimov lo aveva capito nel 1942.<br><br>
 
-            <div class="tip-box">
-                <strong>Collegamento Golem:</strong> "Vi ricordate il Golem di Praga? Stesso identico problema. Creato per proteggere, ma non allineato con i valori del creatore. Diventa pericoloso. Asimov lo sapeva. Noi, 600 anni dopo il Golem e 80 anni dopo Asimov, stiamo ancora cercando di risolverlo."
-            </div>
+                La bomba? Fa quello per cui &egrave; stata progettata. Esplode. L'auto? Si &egrave; evoluta, ma fa sempre A &#8594; B.<br><br>
 
-            <div class="tip-box">
-                <strong>Transizione:</strong> "Ok, momento pesante chiuso. [Pausa.] Ora vi faccio vedere cosa l'AI può fare di utile oggi, senza ammazzarci tutti." → Slide 19 (Chatbot).
+                L'AI? Non sappiamo cosa pu&ograve; uscire. Esempio: 'Cura tutte le malattie.' L'AI conclude: eliminare tutti gli esseri viventi = zero malattie. Problema risolto. Tecnicamente corretto. Umanamente catastrofico.<br><br>
+
+                Come facciamo a essere sicuri che l'AI capisca i nostri <strong>valori</strong>, non solo le nostre <strong>parole</strong>?"
             </div>
         </div>
 
-        <hr>
-
-        <!-- SLIDE 25 -->
+        <!-- SLIDE 29 -->
         <div class="slide-block">
-            <span class="slide-number">Slide 25</span>
-            <h2>Q&A - Domande? <span class="timing">Restante</span></h2>
-            <p><strong>Grazie</strong></p>
+            <span class="slide-number">Slide 29</span>
+            <h2>Q&amp;A &mdash; Domande? <span class="timing">Restante</span></h2>
 
             <div class="note-box">
-                <strong>Chiusura:</strong><br>
-                "Siamo arrivati alla fine. Abbiamo visto:<br>
-                - Come l'umanità ha sempre sognato di creare intelligenza<br>
-                - I rischi che abbiamo sempre temuto (e che sono ancora attuali)<br>
-                - Come funziona l'IA moderna (completamento + tool calling)<br>
-                - Cosa possiamo fare oggi con questi strumenti<br><br>
-                Ora: <strong>domande?</strong> Qualsiasi cosa, sparate pure."
-            </div>
-
-            <div class="tip-box">
                 <strong>Domande comuni:</strong><br>
-                - "L'AI ci ruberà il lavoro?" → Risposta: cambia i lavori, non li elimina. Come l'automobile non ha eliminato il trasporto, l'ha trasformato.<br>
-                - "È pericolosa?" → Risposta: dipende da come la usiamo. Come un coltello: utile in cucina, pericoloso in mano a un pazzo.<br>
-                - "Come posso usarla?" → Risposta: inizia con ChatGPT gratis. Prova a chiedergli cose della tua vita quotidiana. Sperimenta.
+                - "L'AI ci ruba il lavoro?" &#8594; Cambia i lavori, non li elimina. Come l'automobile.<br>
+                - "&Egrave; pericolosa?" &#8594; Dipende da come la usiamo. Come un coltello.<br>
+                - "Come la uso?" &#8594; ChatGPT gratis. Prova. Sperimenta.<br>
+                - "Consuma troppa energia?" &#8594; S&igrave;, ma se ti risparmia 2 ore di lavoro il bilancio &egrave; positivo.
             </div>
         </div>
 
         <hr>
 
-        <div style="background: #fff3cd; padding: 2.5rem; border-radius: 8px; margin-top: 3rem; border: 2px solid #f59e0b;">
-            <h3 style="margin-top: 0; color: #d97706;">📝 Note Aggiuntive - FAQ Potenziali</h3>
+        <!-- MATERIALE DI RISERVA -->
+        <div style="background: #f0f9ff; padding: 2rem; border-radius: 8px; margin-top: 2rem;">
+            <h3 style="margin-top: 0;">Materiale di riserva (non nelle slide, usare a voce se pertinente)</h3>
 
-            <h4 style="color: #333; margin-top: 2rem;">💡 Domanda: "Ma l'AI non consuma tantissima energia / CO2?"</h4>
+            <h4>Stanza Cinese (Searle 1980)</h4>
+            <p>Chiuso in una stanza con libro di regole. Ricevi foglietti cinesi, consulti libro, rispondi. Fuori pensano che capisci il cinese. Ma stai solo manipolando simboli. Usare se il pubblico chiede "ma capisce davvero?" dopo la mappa ASCII.</p>
 
-            <div style="background: white; padding: 1.5rem; border-radius: 5px; margin: 1rem 0;">
-                <strong style="color: #059669;">✅ Principio chiave:</strong><br>
-                <p style="font-size: 1.1rem; margin: 0.5rem 0; color: #333;">
-                    <strong>Se ti risolve un problema più velocemente dell'alternativa, probabilmente consumi MENO nel totale.</strong>
-                </p>
-            </div>
+            <h4>Brahma (Induismo)</h4>
+            <p>"Era solo. Non era felice. Desider&ograve; un secondo." E cre&ograve;. Letteralmente la stessa ragione per cui costruiamo chatbot. Usare nella slide 2 se il pubblico sembra ricettivo ai riferimenti religiosi/mitologici.</p>
 
-            <div style="background: white; padding: 1.5rem; border-radius: 5px; margin: 1rem 0;">
-                <strong style="color: #d97706;">📊 Risposta completa:</strong><br><br>
+            <h4>GNoME (DeepMind 2023)</h4>
+            <p>Ha scoperto 2.2 milioni di nuovi materiali stabili. Il pi&ugrave; grande ampliamento dei materiali conosciuti della storia. Usare se qualcuno chiede "ma a cosa serve l'AI in pratica?"</p>
 
-                <p>"Sì, è vero. Un singolo query a ChatGPT consuma più energia di una ricerca Google.</p>
-
-                <p><strong>Ma</strong> - e questo è il punto chiave - va confrontato con l'<strong>alternativa</strong>.</p>
-
-                <p>Facciamo un esempio concreto:</p>
-
-                <p><strong>Scenario 1 - Senza AI:</strong><br>
-                Devi scrivere un documento. Ci metti 2 ore. Computer acceso, ufficio riscaldato/climatizzato, magari chiami un collega che viene in auto.<br>
-                Consumo: illuminazione + PC + riscaldamento + benzina auto = <strong>parecchia</strong> energia.</p>
-
-                <p><strong>Scenario 2 - Con AI:</strong><br>
-                ChatGPT ti aiuta a strutturarlo. Ci metti 30 minuti invece di 2 ore.<br>
-                Consumo: il query GPT + 30 min PC invece di 2 ore = <strong>meno</strong> energia totale.</p>
-
-                <p><strong>Il punto è:</strong><br>
-                Se l'AI ti fa risparmiare tempo <strong>umano</strong>, quasi sempre consumi meno energia nel totale.</p>
-
-                <p>Un'ora di lavoro umano - con ufficio, trasporti, infrastruttura - consuma <strong>molto</strong> più di mille query a ChatGPT.</p>
-
-                <p><strong>Quindi: usa l'AI quando ti risolve un problema meglio/più velocemente dell'alternativa.</strong> Non sprecarla per cazzate ('scrivi una poesia sui gattini'), ma se sostituisce ore di lavoro umano, il bilancio energetico è positivo."</p>
-            </div>
-
-            <div style="background: #f0f9ff; padding: 1.5rem; border-radius: 5px; margin: 1rem 0;">
-                <strong style="color: #3b82f6;">🔢 Se insistono con numeri:</strong><br><br>
-
-                <p>"Ok, dati stimati:</p>
-                <ul>
-                    <li>1 query GPT-4: ~0.01 kWh</li>
-                    <li>1 ora PC + ufficio: ~0.5-1 kWh</li>
-                    <li>1 ora consulente che viene in auto (10 km): ~2-3 kWh equivalenti</li>
-                </ul>
-
-                <p>Fai il conto: se GPT ti fa risparmiare 1 ora di lavoro, hai un margine enorme."</p>
-            </div>
-
-            <div style="background: #f0fdf4; padding: 1.5rem; border-radius: 5px; margin: 1rem 0;">
-                <strong style="color: #059669;">🏢 Se tirano fuori datacenter mega:</strong><br><br>
-
-                <p>"Sì, i datacenter consumano. Ma:</p>
-                <ol>
-                    <li>Sono sempre più efficienti (Google/Microsoft investono miliardi in rinnovabili)</li>
-                    <li>Va confrontato con cosa <strong>sostituiscono</strong> (uffici, viaggi, produzione fisica)</li>
-                    <li>Un libro fisico - carta, stampa, trasporto - ha un'impronta maggiore di un e-book generato da AI</li>
-                </ol>
-
-                <p>Non è 'AI = male per ambiente'. È '<strong>usa lo strumento giusto per il problema giusto</strong>'."</p>
-            </div>
-
-            <div style="background: #fef3c7; padding: 1rem; border-left: 4px solid #f59e0b; margin-top: 1.5rem;">
-                <strong>🎯 Bottom line:</strong><br>
-                Ammetti il consumo, ma sposta il focus sul <strong>confronto con alternative</strong>. L'AI non è gratis energeticamente, ma spesso è <strong>più efficiente</strong> dell'alternativa umana/fisica.
-            </div>
+            <h4>FunSearch (DeepMind 2024)</h4>
+            <p>Un LLM ha trovato soluzioni NUOVE a un problema aperto di combinatoria (cap set problem). Non ha verificato roba nota, ha generato costruzioni matematiche originali. Prima volta in assoluto.</p>
         </div>
 
-        <div style="background: #f0f9ff; padding: 2rem; border-radius: 8px; margin-top: 3rem;">
-            <h3 style="margin-top: 0;">📌 Checklist Pre-Conferenza</h3>
+        <hr>
+
+        <!-- CHECKLIST -->
+        <div style="background: #f0f9ff; padding: 2rem; border-radius: 8px; margin-top: 2rem;">
+            <h3 style="margin-top: 0;">Checklist Pre-Conferenza</h3>
             <ul style="list-style: none; padding-left: 0;">
-                <li>☐ Proiettore funzionante + HDMI</li>
-                <li>☐ Slideshow caricato e testato</li>
-                <li>☐ Internet stabile per demo live</li>
-                <li>☐ ChatGPT / Perplexity / NotebookLM aperti in tab separate</li>
-                <li>☐ Libro di papà (se porti momento emotivo)</li>
-                <li>☐ Foglio per scrivere regole pubblico (Slide 3)</li>
-                <li>☐ Acqua / Caffè</li>
-                <li>☐ Backup plan se internet cade (screenshot demo pre-fatte)</li>
+                <li>&#9744; Proiettore + HDMI/USB-C</li>
+                <li>&#9744; Slideshow caricato e testato su talk.giobi.com</li>
+                <li>&#9744; Internet stabile per demo live</li>
+                <li>&#9744; Tab aperte: ChatGPT, Perplexity, NotebookLM (audio pronto)</li>
+                <li>&#9744; Cavo caricatore (lezione da Villa Giulia: portarlo!)</li>
+                <li>&#9744; iPad come backup per le slide</li>
+                <li>&#9744; Acqua</li>
+                <li>&#9744; Backup: screenshot demo pre-fatte se internet cade</li>
             </ul>
         </div>
 
