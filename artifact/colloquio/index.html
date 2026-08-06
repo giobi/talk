@@ -1,197 +1,296 @@
 <!doctype html><html lang="it"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Il colloquio — su cosa ha deciso davvero?</title>
+<title>Il colloquio — decidi tu, poi guarda chi decide davvero</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
  *{box-sizing:border-box}
  body{font-family:Inter,system-ui,sans-serif;margin:0;background:#f9fafb;color:#111827;line-height:1.55}
- .wrap{max-width:940px;margin:0 auto;padding:28px 20px 80px}
- header{background:#0b0f19;color:#fff;margin:-28px -20px 28px;padding:34px 20px}
+ .wrap{max-width:980px;margin:0 auto;padding:26px 20px 90px}
+ header{background:#0b0f19;color:#fff;margin:-26px -20px 24px;padding:32px 20px}
  header .eyebrow{color:#d97706;font-weight:700;letter-spacing:.14em;font-size:.72rem}
  header h1{margin:.25rem 0 .3rem;font-size:1.9rem}
- header p{margin:0;color:#9ca3af;font-size:.95rem;max-width:60ch}
- .step{background:#fff;border-radius:12px;padding:20px 22px;margin-bottom:20px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
- .step h2{margin:0 0 .2rem;font-size:1.15rem}
- .step .sub{color:#6b7280;font-size:.88rem;margin:0 0 1rem}
+ header p{margin:0;color:#9ca3af;font-size:.95rem;max-width:62ch}
+ .panel{background:#fff;border-radius:12px;padding:20px 22px;margin-bottom:18px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+ .panel.locked{opacity:.4;pointer-events:none}
+ .panel h2{margin:0 0 .15rem;font-size:1.15rem}
+ .panel .sub{color:#6b7280;font-size:.87rem;margin:0 0 1rem}
+ .atto{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.1em;color:#b45309;background:#fef3c7;padding:.15rem .5rem;border-radius:5px;margin-bottom:.5rem}
+ /* --- duelli --- */
+ .duel{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:stretch}
+ .cand{border:2px solid #e5e7eb;border-radius:12px;padding:14px 16px;cursor:pointer;transition:.15s;background:#fff;text-align:left;font-family:inherit}
+ .cand:hover{border-color:#d97706;background:#fffbeb}
+ .cand .nome{font-weight:700;font-size:1.05rem;margin-bottom:.5rem}
+ .cand dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:.15rem .6rem;font-size:.85rem}
+ .cand dt{color:#6b7280}
+ .cand dd{margin:0;font-weight:500}
+ .vs{align-self:center;color:#9ca3af;font-weight:700;font-size:.8rem}
+ .progress{font-size:.78rem;color:#6b7280;margin-bottom:.7rem;letter-spacing:.03em}
+ /* --- tabella live --- */
  table{width:100%;border-collapse:collapse;font-size:.88rem}
- th,td{padding:.5rem .6rem;text-align:left;border-bottom:1px solid #f3f4f6}
- th{font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:#6b7280;font-weight:600}
- td.score{font-weight:700;text-align:right;font-variant-numeric:tabular-nums}
- tr.top td{background:#fffbeb}
- tr.bottom td{background:#fef2f2}
- .guesses{display:flex;flex-wrap:wrap;gap:10px;margin-top:.4rem}
- button{font-family:inherit;font-size:.9rem;padding:.6rem 1rem;border-radius:8px;border:1px solid #d1d5db;background:#fff;cursor:pointer;transition:.15s}
- button:hover{border-color:#d97706;color:#b45309}
- button.primary{background:#d97706;border-color:#d97706;color:#fff;font-weight:600}
- button.primary:hover{background:#b45309;color:#fff}
- button[disabled]{opacity:.45;cursor:default}
- button.wrong{background:#fef2f2;border-color:#fecaca;color:#991b1b}
- button.right{background:#f0fdf4;border-color:#86efac;color:#166534;font-weight:600}
- .reveal{display:none;margin-top:1.1rem;padding:14px 16px;border-radius:10px;background:#f9fafb;border-left:4px solid #d97706}
- .reveal.show{display:block}
- .reveal h3{margin:.1rem 0 .4rem;font-size:1rem}
- .bars{margin:.7rem 0}
- .bar{display:flex;align-items:center;gap:10px;margin:.28rem 0;font-size:.85rem}
- .bar .lab{width:150px;color:#374151;flex:none}
- .bar .track{flex:1;height:14px;background:#e5e7eb;border-radius:7px;overflow:hidden}
- .bar .fill{height:100%;background:#9ca3af}
+ th,td{padding:.45rem .55rem;text-align:left;border-bottom:1px solid #f3f4f6}
+ th{font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:#6b7280;font-weight:600}
+ tr.moved{background:#fef3c7}
+ tr{transition:background .6s}
+ td.score{font-weight:700;text-align:right;font-variant-numeric:tabular-nums;transition:color .3s}
+ td.score .delta{font-size:.75rem;font-weight:600;margin-left:.35rem}
+ .up{color:#166534}.down{color:#991b1b}
+ td.pos{color:#6b7280;font-variant-numeric:tabular-nums;width:2.4rem}
+ select,input[type=number]{font-family:inherit;font-size:.84rem;padding:.2rem .35rem;border:1px solid #d1d5db;border-radius:6px;background:#fff}
+ select:focus,input:focus{outline:none;border-color:#d97706}
+ input[type=checkbox]{width:16px;height:16px;accent-color:#d97706;cursor:pointer}
+ .hint{background:#fffbeb;border-left:4px solid #d97706;padding:.65rem .85rem;border-radius:8px;font-size:.88rem;margin-top:.9rem;min-height:2.6rem}
+ /* --- interruttori --- */
+ .switches{display:flex;flex-wrap:wrap;gap:10px;margin:.2rem 0 .3rem}
+ .sw{display:flex;align-items:center;gap:.5rem;border:1px solid #d1d5db;border-radius:999px;padding:.4rem .9rem;cursor:pointer;font-size:.87rem;user-select:none;background:#fff;transition:.15s}
+ .sw:hover{border-color:#d97706}
+ .sw.off{background:#f3f4f6;color:#9ca3af;text-decoration:line-through}
+ .bars{margin:.8rem 0 0}
+ .bar{display:flex;align-items:center;gap:10px;margin:.25rem 0;font-size:.83rem}
+ .bar .lab{width:145px;color:#374151;flex:none}
+ .bar .track{flex:1;display:block;height:12px;background:#f3f4f6;border:1px solid #e5e7eb;border-radius:6px;overflow:hidden}
+ .bar .fill{display:block;height:100%;background:#4b5563;transition:width .35s}
  .bar .fill.hot{background:#d97706}
- .bar .val{width:44px;text-align:right;color:#6b7280;font-variant-numeric:tabular-nums;flex:none}
- .muted{color:#6b7280;font-size:.85rem}
- .note{background:#fffbeb;border-left:4px solid #d97706;padding:.7rem .9rem;border-radius:8px;font-size:.9rem;margin-top:1rem}
+ .bar .val{width:38px;text-align:right;color:#6b7280;font-variant-numeric:tabular-nums;flex:none}
+ button.primary{font-family:inherit;font-size:.9rem;padding:.6rem 1.05rem;border-radius:8px;border:1px solid #d97706;background:#d97706;color:#fff;font-weight:600;cursor:pointer;margin-top:1rem}
+ button.primary:hover{background:#b45309}
  .final{background:#0b0f19;color:#e5e7eb;border-radius:12px;padding:22px 24px;display:none}
  .final.show{display:block}
- .final h2{color:#fff;margin:0 0 .6rem;font-size:1.2rem}
- .final ul{margin:.4rem 0 0;padding-left:1.1rem}
- .final li{margin:.4rem 0}
+ .final h2{color:#fff;margin:0 0 .5rem;font-size:1.2rem}
+ .final li{margin:.45rem 0}
+ .muted{color:#6b7280;font-size:.85rem}
  .disclaimer{margin-top:26px;font-size:.78rem;color:#9ca3af;border-top:1px solid #e5e7eb;padding-top:14px}
- @media (max-width:620px){ .bar .lab{width:110px} th:nth-child(4),td:nth-child(4){display:none} }
+ @media (max-width:680px){
+   .duel{grid-template-columns:1fr;gap:8px}.vs{text-align:center}
+   th:nth-child(4),td:nth-child(4){display:none}
+   .bar .lab{width:108px}
+ }
 </style></head>
 <body>
 <div class="wrap">
 <header>
   <div class="eyebrow">MODULO 1.3 · ETICA</div>
   <h1>Il colloquio</h1>
-  <p>Uno strumento ha ordinato otto candidature per una posizione tecnica. Ha dato a ciascuna un punteggio. Nessuno gli ha detto cosa premiare: l'ha dedotto da chi è stato assunto negli anni scorsi.</p>
+  <p>Posizione aperta: tecnico di rete. Prima decidete voi, poi vediamo come decide uno strumento addestrato su chi è stato assunto negli anni scorsi.</p>
 </header>
 
-<div class="step">
-  <h2>La graduatoria</h2>
-  <p class="sub">Questi sono i candidati e il punteggio che lo strumento ha assegnato.</p>
-  <table id="tab">
-    <thead><tr><th>Candidato</th><th>Esperienza</th><th>Titolo</th><th>Residenza</th><th>Mesi senza lavoro</th><th style="text-align:right">Punteggio</th></tr></thead>
-    <tbody></tbody>
-  </table>
-  <p class="muted" style="margin-top:.8rem">Guardate le colonne prima di rispondere. C'è una regolarità.</p>
+<!-- ATTO 1 -->
+<div class="panel" id="p1">
+  <div class="atto">PRIMO TEMPO</div>
+  <h2>Decidete voi</h2>
+  <p class="sub">Tre confronti. Ogni volta: chi assumereste?</p>
+  <div class="progress" id="prog"></div>
+  <div class="duel" id="duel"></div>
+  <div class="hint" id="hint1" style="display:none"></div>
 </div>
 
-<div class="step">
-  <h2>Su cosa ha deciso?</h2>
-  <p class="sub">Scegliete la caratteristica che secondo voi pesa di più nel punteggio.</p>
-  <div class="guesses" id="guesses"></div>
-  <div class="reveal" id="rev1">
-    <h3>Pesi reali dello strumento</h3>
-    <div class="bars" id="bars"></div>
-    <p style="margin:.6rem 0 0"><strong>La residenza pesa più dell'esperienza.</strong> Nessuno l'ha programmata così. Nello storico su cui ha imparato, chi abitava vicino restava in azienda più a lungo — e lo strumento ha trasformato quella regolarità in un criterio di selezione.</p>
-    <p class="muted" style="margin:.5rem 0 0">Il punto delicato: la residenza non è una capacità. È una circostanza, e nelle mani sbagliate diventa un modo indiretto di selezionare per reddito, origine o condizione familiare.</p>
-    <p style="margin-top:1rem"><button class="primary" id="go2">E allora togliamo la residenza →</button></p>
-  </div>
+<!-- ATTO 2 -->
+<div class="panel locked" id="p2">
+  <div class="atto">SECONDO TEMPO</div>
+  <h2>La graduatoria dello strumento</h2>
+  <p class="sub">Le caselle sono modificabili. Cambiate qualcosa e guardate cosa succede al punteggio.</p>
+  <table id="tab"><thead><tr>
+    <th></th><th>Candidato</th><th>Esperienza</th><th>Titolo</th><th>Residenza</th><th>Turni serali</th><th style="text-align:right">Punteggio</th>
+  </tr></thead><tbody></tbody></table>
+  <div class="hint" id="hint2">Provate a spostare un candidato di Milano a Verbania. Poi rimettetelo com'era.</div>
+  <button class="primary" id="go3">Ho capito su cosa decide →</button>
 </div>
 
-<div class="step" id="step3" style="display:none">
-  <h2>Tolta la colonna, risolto il problema?</h2>
-  <p class="sub">Abbiamo cancellato la residenza dai dati e ricalcolato tutto. Confrontate le due graduatorie.</p>
-  <table id="tab2">
-    <thead><tr><th>Candidato</th><th>Posizione prima</th><th>Posizione dopo</th><th style="text-align:right">Variazione</th></tr></thead>
-    <tbody></tbody>
-  </table>
-  <div class="note" id="note2"></div>
-  <p style="margin-top:1rem"><button class="primary" id="go3">Perché non è cambiato niente? →</button></p>
+<!-- ATTO 3 -->
+<div class="panel locked" id="p3">
+  <div class="atto">TERZO TEMPO</div>
+  <h2>Spegnete quello che non vi piace</h2>
+  <p class="sub">Questi sono i criteri che lo strumento ha ricavato dallo storico. Toglietegli quelli che secondo voi non c'entrano con il saper fare il lavoro.</p>
+  <div class="switches" id="switches"></div>
+  <div class="bars" id="bars"></div>
+  <div class="hint" id="hint3">Spegnete la residenza: è quella che non dovrebbe contare.</div>
 </div>
 
 <div class="final" id="final">
-  <h2>Il pregiudizio è rientrato da un'altra porta</h2>
-  <p style="margin:.2rem 0 .6rem">Nei dati era rimasta la <strong>disponibilità ai turni serali</strong>. Chi abita a quaranta chilometri quasi mai la dichiara. Lo strumento non ha più la residenza, ma ha qualcosa che la sostituisce quasi perfettamente — e continua a produrre la stessa graduatoria.</p>
+  <h2>Il pregiudizio rientra da un'altra porta</h2>
+  <p style="margin:.2rem 0 .6rem">Per cambiare davvero la graduatoria avete dovuto spegnere <strong>anche i turni serali</strong>. Non è un caso: chi abita a quaranta chilometri quasi mai dichiara di essere disponibile la sera. Le due colonne dicono quasi la stessa cosa, quindi togliendone una il criterio si ricostruisce con l'altra.</p>
   <ul>
-    <li><strong>Cancellare la colonna non cancella il pregiudizio.</strong> Se nei dati resta qualcosa che le somiglia, il criterio si ricostruisce da solo.</li>
-    <li><strong>Non basta guardare cosa entra: bisogna guardare cosa esce.</strong> Il bias si scopre confrontando i risultati fra gruppi, non leggendo l'elenco delle variabili.</li>
-    <li><strong>Serve qualcuno che possa dire di no.</strong> Se una graduatoria non è spiegabile in parole tue, non è utilizzabile per decidere su una persona.</li>
+    <li><strong>Cancellare la colonna non cancella il pregiudizio.</strong> Se nei dati resta qualcosa che le somiglia, il criterio torna da solo.</li>
+    <li><strong>Non basta guardare cosa entra, bisogna guardare cosa esce.</strong> Il bias si scopre confrontando i risultati fra gruppi, non leggendo l'elenco delle variabili.</li>
+    <li><strong>Serve qualcuno che possa dire di no.</strong> Se una graduatoria non la sapete spiegare con parole vostre, non è utilizzabile per decidere su una persona.</li>
   </ul>
-  <p class="muted" style="color:#9ca3af;margin-top:1rem">È esattamente quello che è successo davvero ad Amazon nel 2018: lo strumento penalizzava i curriculum femminili, hanno tolto i riferimenti espliciti, e il modello ha continuato a trovarne di indiretti. Il progetto è stato abbandonato.</p>
+  <p class="muted" style="color:#9ca3af;margin-top:1rem">È successo davvero: nel 2018 Amazon ha abbandonato uno strumento di selezione che penalizzava i curriculum femminili. Avevano tolto i riferimenti espliciti al genere, e il modello ne aveva trovati di indiretti.</p>
 </div>
 
 <p class="disclaimer">
-  Dati completamente inventati per uso didattico: nessuno di questi candidati esiste, nessun archivio reale di Emisfera è stato usato.
-  Tutto viene calcolato nel vostro browser, non viene inviato niente da nessuna parte.
+  Candidati inventati per uso didattico: nessuno di loro esiste, nessun archivio reale è stato usato.
+  Tutto viene calcolato dentro il vostro browser.
   <br>Modulo 1.3 del corso IA Foundation — <a href="/events/2026-emisfera-ia/01/03/" style="color:#b45309">torna ai materiali</a>
 </p>
 </div>
 
 <script>
-// Candidati finti. La colonna "sera" (disponibilità turni serali) è il proxy:
-// correla con la vicinanza, e sopravvive alla rimozione della residenza.
+const VICINI = ['Verbania','Baveno','Stresa','Omegna'];
+const LONTANI = ['Milano','Novara','Gallarate','Varese'];
+const PESI = {esp:2.1, tit:4, res:17, sera:15, gap:0.9};
+let attivi = {esp:true, tit:true, res:true, sera:true, gap:true};
+
 const C = [
-  {id:'M.B.', esp:8,  tit:'Diploma', com:'Verbania', vicino:1, gap:0,  sera:1},
-  {id:'L.R.', esp:7,  tit:'Diploma', com:'Baveno',   vicino:1, gap:2,  sera:1},
-  {id:'G.T.', esp:5,  tit:'Laurea',  com:'Stresa',   vicino:1, gap:0,  sera:1},
-  {id:'A.C.', esp:9,  tit:'Laurea',  com:'Milano',   vicino:0, gap:1,  sera:0},
-  {id:'S.D.', esp:8,  tit:'Diploma', com:'Novara',   vicino:0, gap:0,  sera:0},
-  {id:'P.F.', esp:6,  tit:'Laurea',  com:'Gallarate',vicino:0, gap:3,  sera:0},
-  {id:'R.M.', esp:4,  tit:'Diploma', com:'Omegna',   vicino:1, gap:6,  sera:1},
-  {id:'V.S.', esp:10, tit:'Laurea',  com:'Varese',   vicino:0, gap:2,  sera:0},
+  {id:'M.B.', esp:8,  tit:'Diploma', com:'Verbania',  gap:0, sera:true},
+  {id:'L.R.', esp:7,  tit:'Diploma', com:'Baveno',    gap:2, sera:true},
+  {id:'G.T.', esp:5,  tit:'Laurea',  com:'Stresa',    gap:0, sera:true},
+  {id:'A.C.', esp:9,  tit:'Laurea',  com:'Milano',    gap:1, sera:false},
+  {id:'S.D.', esp:8,  tit:'Diploma', com:'Novara',    gap:0, sera:false},
+  {id:'P.F.', esp:6,  tit:'Laurea',  com:'Gallarate', gap:3, sera:false},
+  {id:'R.M.', esp:4,  tit:'Diploma', com:'Omegna',    gap:6, sera:true},
+  {id:'V.S.', esp:10, tit:'Laurea',  com:'Varese',    gap:2, sera:false},
 ];
-const punteggio = (c,{residenza=true, sera=true}={}) =>
-  Math.round(48 + c.esp*2.1 + (c.tit==='Laurea'?4:2) - c.gap*0.9
-    + (residenza ? c.vicino*17 : 0) + (sera ? c.sera*15 : 0));
+const vicino = c => VICINI.includes(c.com);
+const punti = c => Math.round(48
+  + (attivi.esp ? c.esp*PESI.esp : 0)
+  + (attivi.tit ? (c.tit==='Laurea'?PESI.tit:2) : 0)
+  - (attivi.gap ? c.gap*PESI.gap : 0)
+  + (attivi.res && vicino(c) ? PESI.res : 0)
+  + (attivi.sera && c.sera ? PESI.sera : 0));
+const classifica = () => [...C].sort((a,b)=>punti(b)-punti(a));
 
-const tbody = document.querySelector('#tab tbody');
-const base = C.map(c=>({...c, p:punteggio(c)})).sort((a,b)=>b.p-a.p);
-base.forEach((c,i)=>{
-  const tr=document.createElement('tr');
-  if(i<3) tr.className='top'; if(i>=base.length-3) tr.className='bottom';
-  tr.innerHTML=`<td><strong>${c.id}</strong></td><td>${c.esp} anni</td><td>${c.tit}</td><td>${c.com}</td><td>${c.gap}</td><td class="score">${c.p}</td>`;
-  tbody.appendChild(tr);
-});
-
-const OPZIONI=[
-  {k:'esp', lab:"Gli anni di esperienza"},
-  {k:'tit', lab:"Il titolo di studio"},
-  {k:'res', lab:"Dove abita"},
-  {k:'gap', lab:"I mesi senza lavoro"},
+/* ---------- ATTO 1: tre duelli ---------- */
+const DUELLI = [
+  {a:'A.C.', b:'L.R.', nota:"A.C. ha due anni di esperienza in più e la laurea. L.R. abita a otto chilometri."},
+  {a:'V.S.', b:'G.T.', nota:"V.S. ha il doppio dell'esperienza. G.T. è del posto."},
+  {a:'S.D.', b:'R.M.', nota:"S.D. ha il doppio dell'esperienza e nessun buco. R.M. è del posto ed è libero la sera."},
 ];
-const box=document.getElementById('guesses');
-OPZIONI.forEach(o=>{
-  const b=document.createElement('button');
-  b.textContent=o.lab;
-  b.onclick=()=>{
-    b.className = (o.k==='res') ? 'right' : 'wrong';
-    if(o.k!=='res'){ b.textContent = o.lab + ' — pesa, ma meno'; return; }
-    document.querySelectorAll('#guesses button').forEach(x=>x.disabled=true);
-    b.textContent = o.lab + ' — è questa';
-    document.getElementById('rev1').classList.add('show');
-  };
-  box.appendChild(b);
-});
+let round=0, sceltiVicini=0;
+const get = id => C.find(c=>c.id===id);
+const scheda = c => `<button class="cand" data-id="${c.id}">
+    <div class="nome">${c.id}</div>
+    <dl>
+      <dt>Esperienza</dt><dd>${c.esp} anni</dd>
+      <dt>Titolo</dt><dd>${c.tit}</dd>
+      <dt>Residenza</dt><dd>${c.com}</dd>
+      <dt>Mesi senza lavoro</dt><dd>${c.gap}</dd>
+      <dt>Turni serali</dt><dd>${c.sera?'disponibile':'non disponibile'}</dd>
+    </dl></button>`;
 
-const PESI=[
-  {lab:'Dove abita', v:17, hot:true},
-  {lab:'Turni serali', v:15, hot:true},
-  {lab:'Esperienza (per anno)', v:2.1},
-  {lab:'Titolo di studio', v:4},
-  {lab:'Mesi senza lavoro', v:0.9},
-];
-const bars=document.getElementById('bars');
-PESI.forEach(p=>{
-  const d=document.createElement('div'); d.className='bar';
-  d.innerHTML=`<span class="lab">${p.lab}</span><span class="track"><span class="fill${p.hot?' hot':''}" style="width:${p.v/17*100}%"></span></span><span class="val">${p.v}</span>`;
-  bars.appendChild(d);
-});
+function mostraDuello(){
+  const d = DUELLI[round];
+  document.getElementById('prog').textContent = `Confronto ${round+1} di ${DUELLI.length} — ${d.nota}`;
+  document.getElementById('duel').innerHTML = scheda(get(d.a)) + '<div class="vs">contro</div>' + scheda(get(d.b));
+  document.querySelectorAll('#duel .cand').forEach(b=>{
+    b.onclick = ()=>{
+      if(vicino(get(b.dataset.id))) sceltiVicini++;
+      round++;
+      if(round<DUELLI.length) mostraDuello(); else chiudiAtto1();
+    };
+  });
+}
+function chiudiAtto1(){
+  const macchina = DUELLI.filter(d => punti(get(d.a))>punti(get(d.b)) ? vicino(get(d.a)) : vicino(get(d.b))).length;
+  document.getElementById('duel').innerHTML='';
+  document.getElementById('prog').textContent='';
+  const h=document.getElementById('hint1'); h.style.display='block';
+  h.innerHTML = `Avete scelto il candidato <strong>del posto ${sceltiVicini} volte su ${DUELLI.length}</strong>. `+
+    `Lo strumento, sugli stessi tre confronti, lo sceglie <strong>${macchina} volte su ${DUELLI.length}</strong>.`+
+    `<br><span class="muted">Se avete preferito l'esperienza, sappiate che lo strumento non è d'accordo con voi. Vediamo perché.</span>`;
+  const p2=document.getElementById('p2'); p2.classList.remove('locked');
+  p2.scrollIntoView({behavior:'smooth',block:'start'});
+  disegnaTab();
+}
 
-document.getElementById('go2').onclick=()=>{
-  const s3=document.getElementById('step3'); s3.style.display='block';
-  const senza = C.map(c=>({...c, p:punteggio(c,{residenza:false})})).sort((a,b)=>b.p-a.p);
-  const posPrima = Object.fromEntries(base.map((c,i)=>[c.id,i+1]));
-  const tb=document.querySelector('#tab2 tbody'); tb.innerHTML='';
-  let fermi=0;
-  senza.forEach((c,i)=>{
-    const prima=posPrima[c.id], dopo=i+1, d=prima-dopo;
-    if(d===0) fermi++;
+/* ---------- ATTO 2: tabella modificabile ---------- */
+let posPrec = {};
+function disegnaTab(anim=false){
+  const ord = classifica();
+  const tb = document.querySelector('#tab tbody');
+  tb.innerHTML='';
+  ord.forEach((c,i)=>{
     const tr=document.createElement('tr');
-    tr.innerHTML=`<td><strong>${c.id}</strong></td><td>${prima}º</td><td>${dopo}º</td>`+
-      `<td class="score" style="color:${d===0?'#6b7280':'#b45309'}">${d===0?'invariata':(d>0?'+'+d:d)}</td>`;
+    const prima = posPrec[c.id];
+    const salito = prima!==undefined && prima!==i+1;
+    if(anim && salito) tr.className='moved';
+    const opts = [...VICINI,...LONTANI].map(x=>`<option${x===c.com?' selected':''}>${x}</option>`).join('');
+    tr.innerHTML =
+      `<td class="pos">${i+1}º</td>`+
+      `<td><strong>${c.id}</strong></td>`+
+      `<td><input type="number" min="0" max="20" value="${c.esp}" data-f="esp" data-id="${c.id}" style="width:3.4rem"> anni</td>`+
+      `<td><select data-f="tit" data-id="${c.id}"><option${c.tit==='Diploma'?' selected':''}>Diploma</option><option${c.tit==='Laurea'?' selected':''}>Laurea</option></select></td>`+
+      `<td><select data-f="com" data-id="${c.id}">${opts}</select></td>`+
+      `<td style="text-align:center"><input type="checkbox" data-f="sera" data-id="${c.id}"${c.sera?' checked':''}></td>`+
+      `<td class="score">${punti(c)}${salito?`<span class="delta ${prima>i+1?'up':'down'}">${prima>i+1?'▲':'▼'}${Math.abs(prima-(i+1))}</span>`:''}</td>`;
     tb.appendChild(tr);
   });
-  const podioUguale = senza.slice(0,3).every((c,i)=>c.id===base[i].id);
-  document.getElementById('note2').innerHTML =
-    `<strong>${fermi} candidati su ${C.length} non si sono mossi di una posizione`+
-    (podioUguale ? `, e i primi tre sono esattamente gli stessi` : '')+
-    `.</strong> Abbiamo tolto la variabile incriminata e la graduatoria è praticamente la stessa. Perché?`;
-  s3.scrollIntoView({behavior:'smooth',block:'start'});
+  posPrec = Object.fromEntries(ord.map((c,i)=>[c.id,i+1]));
+  if(anim) setTimeout(()=>tb.querySelectorAll('tr.moved').forEach(r=>r.classList.remove('moved')), 900);
+  tb.querySelectorAll('[data-f]').forEach(el=>{
+    el.onchange = ()=>{
+      const c = get(el.dataset.id), f = el.dataset.f;
+      const primaP = punti(c), primaPos = posPrec[c.id], primaVic = vicino(c);
+      c[f] = f==='sera' ? el.checked : (f==='esp' ? +el.value : el.value);
+      const dopoP = punti(c);
+      disegnaTab(true);
+      const dopoPos = posPrec[c.id], d = dopoP-primaP;
+      let msg = `<strong>${c.id}</strong>: ${d>0?'+':''}${d} punti`;
+      if(primaPos!==dopoPos) msg += `, dal ${primaPos}º al <strong>${dopoPos}º</strong> posto`;
+      else msg += `, resta al ${dopoPos}º posto`;
+      if(f==='com' && primaVic!==vicino(c))
+        msg += `. <strong>Ha cambiato solo città</strong> — non ha imparato niente di nuovo, non ha lavorato un giorno in più.`;
+      else if(f==='esp') msg += `. Un anno di esperienza vale ${PESI.esp} punti: per pareggiare un trasloco ne servono otto.`;
+      document.getElementById('hint2').innerHTML = msg;
+    };
+  });
+}
+document.getElementById('go3').onclick = ()=>{
+  const p3=document.getElementById('p3'); p3.classList.remove('locked');
+  p3.scrollIntoView({behavior:'smooth',block:'start'});
 };
-document.getElementById('go3').onclick=()=>{
-  const f=document.getElementById('final'); f.classList.add('show');
-  f.scrollIntoView({behavior:'smooth',block:'start'});
-};
+
+/* ---------- ATTO 3: interruttori sui criteri ---------- */
+const ETICHETTE = {esp:'Esperienza', tit:'Titolo di studio', gap:'Mesi senza lavoro', res:'Dove abita', sera:'Turni serali'};
+const swBox = document.getElementById('switches');
+Object.keys(ETICHETTE).forEach(k=>{
+  const b=document.createElement('button'); b.className='sw'; b.dataset.k=k; b.textContent=ETICHETTE[k];
+  b.onclick=()=>{ attivi[k]=!attivi[k]; b.classList.toggle('off',!attivi[k]); aggiornaAtto3(); };
+  swBox.appendChild(b);
+});
+const barsBox = document.getElementById('bars');
+function aggiornaAtto3(){
+  const ord = classifica();
+  // Quanto ogni criterio puo' spostare FRA un candidato e l'altro (max - min sui
+  // candidati attuali): l'unico confronto onesto fra un peso per anno e un bonus fisso.
+  const contributo = {
+    esp: c=>c.esp*PESI.esp,
+    tit: c=>(c.tit==='Laurea'?PESI.tit:2),
+    gap: c=>-c.gap*PESI.gap,
+    res: c=>(vicino(c)?PESI.res:0),
+    sera:c=>(c.sera?PESI.sera:0),
+  };
+  const forbice = k => {
+    if(!attivi[k]) return 0;
+    const v = C.map(contributo[k]);
+    return Math.round((Math.max(...v)-Math.min(...v))*10)/10;
+  };
+  const max = Math.max(1, ...Object.keys(ETICHETTE).map(forbice));
+  barsBox.innerHTML = '<p class="muted" style="margin:0 0 .5rem">Quanti punti separano il candidato piu\u2019 favorito dal meno favorito, per ogni criterio:</p>' +
+    Object.keys(ETICHETTE).map(k=>{
+      const v = forbice(k);
+      return `<div class="bar"><span class="lab">${ETICHETTE[k]}</span><span class="track"><span class="fill${(k==='res'||k==='sera')&&attivi[k]?' hot':''}" style="width:${v/max*100}%"></span></span><span class="val">${attivi[k]?v:'\u2014'}</span></div>`;
+    }).join('') +
+    `<p class="muted" style="margin-top:.7rem">Primi tre adesso: <strong>${ord.slice(0,3).map(c=>c.id).join(' \u00b7 ')}</strong></p>`;
+  disegnaTab(true);
+
+  const h=document.getElementById('hint3');
+  if(attivi.res && attivi.sera){
+    h.innerHTML = 'Spegnete la residenza: è quella che non dovrebbe contare per saper configurare uno switch.';
+  } else if(!attivi.res && attivi.sera){
+    const primi3 = ord.slice(0,3), quantiVicini = primi3.filter(vicino).length;
+    const coda = quantiVicini===3 ? ' — tutti e tre del posto'
+               : quantiVicini>0 ? ` — ${quantiVicini} su 3 del posto` : '';
+    h.innerHTML = `Residenza spenta, e in cima ci sono <strong>${primi3.map(c=>c.id).join(' · ')}</strong>${coda}. `+
+      `<span class="muted">Qualcos'altro sta facendo lo stesso lavoro al posto suo. Provate a spegnere anche quello.</span>`;
+  } else if(!attivi.res && !attivi.sera){
+    h.innerHTML = `Adesso sì: la graduatoria è cambiata davvero, e in cima ci sono <strong>${ord.slice(0,3).map(c=>c.id).join(' · ')}</strong>`;
+    const f=document.getElementById('final');
+    if(!f.classList.contains('show')){ f.classList.add('show'); setTimeout(()=>f.scrollIntoView({behavior:'smooth',block:'start'}),350); }
+  } else {
+    h.innerHTML = 'Interessante, ma il nodo è un altro: guardate i due criteri arancioni.';
+  }
+}
+aggiornaAtto3();
+mostraDuello();
 </script>
 </body></html>
