@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>EmiBrain &mdash; Architettura Docker | Slide</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.3.1/dist/reveal.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --color-bg: #f5f0e8;
+            --color-bg-alt: #e8e0d5;
+            --color-text: #1a1a1a;
+            --color-text-muted: #666666;
+            --color-accent: #1e3a5f;
+            --color-green: #059669;
+            --color-red: #dc2626;
+            --color-amber: #d97706;
+            --color-blue: #2563eb;
+        }
+
+        body { background: var(--color-bg); }
+        .reveal-viewport { background: var(--color-bg); }
+        .reveal { background: var(--color-bg); font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-weight: 400; color: var(--color-text); }
+        .reveal .slides { text-align: left; }
+        .reveal .slides section { padding: 0 80px; box-sizing: border-box; }
+
+        .reveal h1 { font-size: 72px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.0; margin: 0 0 0.3em 0; }
+        .reveal h2 { font-size: 52px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin: 0 0 0.6em 0; }
+        .reveal h3 { font-size: 36px; font-weight: 600; letter-spacing: -0.01em; margin: 0 0 0.5em 0; }
+        .reveal p { font-size: 28px; line-height: 1.6; color: var(--color-text-muted); margin: 0 0 1em 0; }
+
+        .reveal ul, .reveal ol { list-style: none; padding: 0; margin: 0; }
+        .reveal li { font-size: 30px; font-weight: 500; line-height: 1.4; margin-bottom: 0.5em; padding-left: 0; }
+        .reveal li::before, .reveal li::marker { content: none; display: none; }
+
+        .reveal .fragment.visible { opacity: 1; }
+        .reveal .fragment { opacity: 0.3; }
+
+        .title-slide { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; }
+        .title-slide h1 { font-size: 80px; margin-bottom: 0.2em; }
+        .title-slide .subtitle { font-size: 32px; font-weight: 400; color: var(--color-text-muted); margin-bottom: 0.5em; }
+        .title-slide .audience { font-size: 24px; font-weight: 500; color: var(--color-blue); margin-bottom: 2em; }
+        .title-slide .date { font-size: 22px; font-weight: 500; color: var(--color-text-muted); letter-spacing: 0.1em; text-transform: uppercase; }
+
+        .chapter-slide { display: flex; flex-direction: column; justify-content: center; background: var(--color-accent); }
+        .chapter-slide h2 { color: white; font-size: 64px; margin-bottom: 0.3em; }
+        .chapter-slide p { color: rgba(255,255,255,0.7); font-size: 32px; }
+
+        .schema-box { background: var(--color-accent); color: white; padding: 1.2em 2em; border-radius: 8px; font-size: 20px; font-weight: 500; margin: 1em 0; font-family: 'Courier New', monospace; white-space: pre; line-height: 1.5; }
+
+        .highlight-box { background: white; padding: 1.2em 1.8em; border-radius: 8px; margin: 0.8em 0; border-left: 4px solid var(--color-accent); }
+        .highlight-box p { margin: 0; font-size: 24px; font-weight: 500; color: var(--color-text); }
+        .highlight-box.green-border { border-left-color: var(--color-green); }
+        .highlight-box.amber-border { border-left-color: var(--color-amber); }
+        .highlight-box.blue-border { border-left-color: var(--color-blue); }
+
+        .green { color: var(--color-green); }
+        .red { color: var(--color-red); }
+        .amber { color: var(--color-amber); }
+        .blue { color: var(--color-blue); }
+        .muted { color: var(--color-text-muted); font-weight: 400; font-size: 24px; }
+
+        .end-slide { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+        .end-slide h1 { font-size: 96px; }
+
+        .two-col { display: flex; gap: 40px; }
+        .two-col > div { flex: 1; }
+
+        .decision-tag { display: inline-block; background: var(--color-accent); color: white; font-size: 18px; font-weight: 700; padding: 4px 12px; border-radius: 4px; margin-right: 12px; font-family: 'Courier New', monospace; }
+
+        .flow-step { display: inline-block; background: white; padding: 8px 16px; border-radius: 6px; font-size: 20px; font-weight: 500; margin: 4px; }
+        .flow-arrow { color: var(--color-text-muted); font-size: 24px; margin: 0 4px; }
+    </style>
+</head>
+<body>
+
+<div class="reveal">
+<div class="slides">
+
+    <!-- 1: TITLE -->
+    <section class="title-slide">
+        <h1>EmiBrain<br>Docker</h1>
+        <div class="subtitle">Architettura container per il pilota Emisfera</div>
+        <div class="audience">Giobi + Puddu</div>
+        <div class="date">12 marzo 2026</div>
+    </section>
+
+    <!-- 2: CONTESTO -->
+    <section>
+        <h2>Dove siamo</h2>
+        <ul>
+            <li class="fragment"><span class="green">&#10003;</span> Panella ha approvato (27 feb)</li>
+            <li class="fragment"><span class="green">&#10003;</span> Review sicurezza superata (9 mar)</li>
+            <li class="fragment"><span class="green">&#10003;</span> Dominio emibrain.it live</li>
+            <li class="fragment"><span class="blue">&#9654;</span> Oggi: definiamo l'architettura Docker</li>
+            <li class="fragment"><span class="muted">Prossimo: simulazione su server test</span></li>
+        </ul>
+    </section>
+
+    <!-- 3: PRINCIPIO -->
+    <section class="chapter-slide">
+        <h2>Tutto Docker.<br>Niente mele e arance.</h2>
+        <p>Stack uniforme = manutenzione uniforme</p>
+    </section>
+
+    <!-- 4: CONTAINER vs DATI -->
+    <section>
+        <h2>Due nature</h2>
+        <div class="two-col">
+            <div>
+                <h3 class="green">Container = Ambiente</h3>
+                <ul>
+                    <li class="fragment">Sacrificabile</li>
+                    <li class="fragment">Si ricostruisce in secondi</li>
+                    <li class="fragment">Python, git, tool brain</li>
+                    <li class="fragment">Preconfigurato nell'image</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="blue">Brain = Dati</h3>
+                <ul>
+                    <li class="fragment">Insostituibile</li>
+                    <li class="fragment">Filesystem host</li>
+                    <li class="fragment">Versionato con Git</li>
+                    <li class="fragment">Sopravvive a tutto</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5: STRUTTURA -->
+    <section>
+        <h2>Struttura target</h2>
+        <div class="schema-box">Server Emisfera (fisico, on-premise)
+&#9474;
+&#9500;&#9472; /var/emibrain/brains/    &lt;-- HOST (git versioned)
+&#9474;   &#9500;&#9472; giobi/
+&#9474;   &#9500;&#9472; puddu/
+&#9474;   &#9500;&#9472; ricci/
+&#9474;   &#9500;&#9472; franzini/
+&#9474;   &#9492;&#9472; shared/              &lt;-- read-only (fase Prod)
+&#9474;
+&#9492;&#9472; Docker containers:   &lt;-- ON-DEMAND
+    &#9500;&#9472; emibrain-admin       (privilegiato)
+    &#9500;&#9472; emibrain-ws-*        (workspace utente)
+    &#9492;&#9472; emibrain-webssh      (fase Beta)</div>
+    </section>
+
+    <!-- 6: DECISIONI 1-4 -->
+    <section>
+        <h2>Decisioni 1&ndash;4</h2>
+        <ul>
+            <li class="fragment"><span class="decision-tag">D1</span> <strong>Tutto Docker</strong> &mdash; brain admin + workspace + servizi</li>
+            <li class="fragment"><span class="decision-tag">D2</span> <strong>Alpha &rarr; Beta &rarr; Prod</strong> &mdash; infra, poi utenti, poi servizi</li>
+            <li class="fragment"><span class="decision-tag">D3</span> <strong>Brain su host</strong> &mdash; dati su filesystem, montati come volume</li>
+            <li class="fragment"><span class="decision-tag">D4</span> <strong>Container isolati</strong> &mdash; zero comunicazione, shared read-only</li>
+        </ul>
+    </section>
+
+    <!-- 7: DECISIONI 5-8 -->
+    <section>
+        <h2>Decisioni 5&ndash;8</h2>
+        <ul>
+            <li class="fragment"><span class="decision-tag">D5</span> <strong>Image minimali</strong> &mdash; default leggero, si scala per chi serve</li>
+            <li class="fragment"><span class="decision-tag">D6</span> <strong>Cold start</strong> &mdash; container on-demand, ~3 sec spin up</li>
+            <li class="fragment"><span class="decision-tag">D7</span> <strong>Monitoring custom</strong> &mdash; brain admin + dashboard HTML</li>
+            <li class="fragment"><span class="decision-tag">D8</span> <strong>Rolling update</strong> &mdash; uno alla volta, rollback in 10 sec</li>
+        </ul>
+    </section>
+
+    <!-- 8: COLD START -->
+    <section>
+        <h2>Cold start lifecycle</h2>
+        <p style="font-size: 22px; line-height: 2.2;">
+            <span class="flow-step fragment" style="background: #dbeafe;">Utente si collega</span>
+            <span class="flow-arrow">&rarr;</span>
+            <span class="flow-step fragment" style="background: #e9d5ff;">Brain admin: spin up</span>
+            <span class="flow-arrow">&rarr;</span>
+            <span class="flow-step fragment" style="background: #d1fae5;">Monta brain</span>
+            <span class="flow-arrow">&rarr;</span>
+            <span class="flow-step fragment" style="background: #fef3c7;">Lavora</span>
+            <span class="flow-arrow">&rarr;</span>
+            <span class="flow-step fragment" style="background: #e5e7eb;">Timeout &rarr; shutdown</span>
+        </p>
+        <div class="highlight-box green-border fragment" style="margin-top: 1.5em;">
+            <p>Brain resta su host, intatto. Container muore, nessun dato perso.</p>
+        </div>
+    </section>
+
+    <!-- 9: BRAIN ADMIN -->
+    <section>
+        <h2>Il Brain Admin</h2>
+        <p>Container privilegiato con Docker socket. Il cervello dell'infrastruttura.</p>
+        <div class="two-col">
+            <div>
+                <ul>
+                    <li class="fragment"><strong>Crea</strong> workspace container</li>
+                    <li class="fragment"><strong>Monitora</strong> health + risorse</li>
+                    <li class="fragment"><strong>Aggiorna</strong> rolling update</li>
+                    <li class="fragment"><strong>Logga</strong> ogni azione (audit)</li>
+                </ul>
+            </div>
+            <div>
+                <div class="highlight-box amber-border fragment">
+                    <p style="font-size: 22px;"><strong>Domanda:</strong> Cosa vede dei brain altrui? Solo metadati o anche contenuto?</p>
+                </div>
+                <div class="highlight-box blue-border fragment">
+                    <p style="font-size: 22px;"><strong>Domanda:</strong> Come ci parla Puddu? CLI? Chat? Pannello web?</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10: UTENTI ALPHA -->
+    <section>
+        <h2>Utenti Alpha</h2>
+        <ul>
+            <li class="fragment"><strong>Giobi</strong> &mdash; consulente esterno, architettura + tutoring</li>
+            <li class="fragment"><strong>Puddu</strong> &mdash; referente tecnico, root, gestisce infra</li>
+            <li class="fragment"><strong>Ricci</strong> &mdash; PM, utente brain standard</li>
+            <li class="fragment"><strong>Paola Franzini</strong> &mdash; CFO, tracking costi</li>
+            <li class="fragment"><strong>Stagista</strong> &mdash; TBD</li>
+        </ul>
+        <div class="highlight-box amber-border fragment" style="margin-top: 1em;">
+            <p style="font-size: 22px;">La Franzini non apre un terminale. Servir&agrave; WebSSH o alternativa per la Beta.</p>
+        </div>
+    </section>
+
+    <!-- 11: DOMANDE APERTE -->
+    <section>
+        <h2>Da decidere</h2>
+        <ul>
+            <li class="fragment"><span class="amber">?</span> Specs server fisico</li>
+            <li class="fragment"><span class="amber">?</span> Connessione Efesto &harr; server Emisfera</li>
+            <li class="fragment"><span class="amber">?</span> Git: un repo per brain o mono-repo?</li>
+            <li class="fragment"><span class="amber">?</span> Chi fa commit? Automatico o manuale?</li>
+            <li class="fragment"><span class="amber">?</span> Backup: aggancio a sistemi Emisfera</li>
+            <li class="fragment"><span class="amber">?</span> Onboarding non-tecnici (Franzini)</li>
+        </ul>
+    </section>
+
+    <!-- 12: PROSSIMI STEP -->
+    <section>
+        <h2>Prossimi step</h2>
+        <ul>
+            <li class="fragment"><span class="green">1.</span> Validare decisioni D1&ndash;D8 <span class="muted">(oggi)</span></li>
+            <li class="fragment"><span class="green">2.</span> Simulazione Docker su server test</li>
+            <li class="fragment"><span class="green">3.</span> Dockerfile base + primo workspace</li>
+            <li class="fragment"><span class="green">4.</span> Brain admin container funzionante</li>
+            <li class="fragment"><span class="green">5.</span> SSH dentro un workspace con brain montato</li>
+        </ul>
+    </section>
+
+    <!-- 13: END -->
+    <section class="end-slide">
+        <h1>EmiBrain</h1>
+        <p class="muted" style="font-size: 28px;">Alpha &rarr; Beta &rarr; Prod</p>
+        <p style="font-size: 22px; margin-top: 2em; color: var(--color-text-muted);">talk.giobi.com/events/2026-03-12-emisfera-docker-architecture/</p>
+    </section>
+
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.3.1/dist/reveal.js"></script>
+<script>
+    Reveal.initialize({
+        hash: true,
+        controls: true,
+        progress: true,
+        center: true,
+        transition: 'none',
+        width: 1280,
+        height: 720,
+    });
+</script>
+</body>
+</html>

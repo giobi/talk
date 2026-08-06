@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmiBrain &mdash; Architettura Docker | Emisfera 12/03/2026</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif; }
+    </style>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        talk: {
+                            50: '#fffbeb', 100: '#fef3c7', 200: '#fde68a', 300: '#fcd34d',
+                            400: '#fbbf24', 500: '#f59e0b', 600: '#d97706', 700: '#b45309',
+                            800: '#92400e', 900: '#78350f'
+                        },
+                        emi: {
+                            50: '#eff6ff', 100: '#dbeafe', 200: '#bfdbfe', 300: '#93c5fd',
+                            400: '#60a5fa', 500: '#3b82f6', 600: '#1e3a5f', 700: '#1e3a5f',
+                            800: '#1e2d4a', 900: '#0f172a'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Header -->
+    <header class="bg-emi-600 text-white">
+        <div class="max-w-4xl mx-auto px-6 py-8">
+            <div class="flex items-center gap-2 text-sm text-blue-200 mb-4">
+                <a href="https://talk.giobi.com" class="hover:text-talk-400 transition">talk.giobi.com</a>
+                <span>/</span>
+                <span>docker-architecture</span>
+            </div>
+
+            <div class="inline-block bg-talk-500 text-white text-xs font-mono uppercase tracking-wider px-3 py-1 mb-4">Dispensa Tecnica</div>
+            <h1 class="text-4xl font-semibold mb-2">EmiBrain &mdash; Architettura Docker</h1>
+            <p class="text-xl text-blue-200">Decisioni architetturali, container model, roadmap Alpha &rarr; Prod</p>
+            <p class="text-blue-300 mt-4">12 marzo 2026 &mdash; Giobi Fasoli + Puddu</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white border-b border-gray-200 sticky top-0 z-10">
+        <div class="max-w-4xl mx-auto px-6 py-3 flex gap-4 overflow-x-auto text-sm">
+            <a href="#principio" class="text-gray-600 hover:text-emi-600 whitespace-nowrap transition">Principio</a>
+            <a href="#decisioni" class="text-gray-600 hover:text-emi-600 whitespace-nowrap transition">8 Decisioni</a>
+            <a href="#struttura" class="text-gray-600 hover:text-emi-600 whitespace-nowrap transition">Struttura</a>
+            <a href="#lifecycle" class="text-gray-600 hover:text-emi-600 whitespace-nowrap transition">Lifecycle</a>
+            <a href="#sicurezza" class="text-gray-600 hover:text-emi-600 whitespace-nowrap transition">Sicurezza</a>
+            <a href="#fasi" class="text-gray-600 hover:text-emi-600 whitespace-nowrap transition">Fasi</a>
+            <a href="#domande" class="text-gray-600 hover:text-emi-600 whitespace-nowrap transition">Domande aperte</a>
+        </div>
+    </nav>
+
+    <main class="max-w-4xl mx-auto px-6 py-12 space-y-12">
+
+        <!-- Contesto -->
+        <section class="bg-emi-50 rounded-lg p-6 border border-emi-200">
+            <div class="flex items-start gap-4">
+                <i data-lucide="info" class="text-emi-600 w-6 h-6 mt-0.5 flex-shrink-0"></i>
+                <div class="text-sm text-emi-800 space-y-2">
+                    <p><strong>Contesto:</strong> Review sicurezza superata il 9 marzo. Via libera al pilota. Questo documento definisce l'architettura Docker per il deploy su server fisico Emisfera.</p>
+                    <p><strong>Partecipanti:</strong> Giobi (consulente architettura), Puddu (referente tecnico interno, root server).</p>
+                    <p><strong>Obiettivo:</strong> Validare le 8 decisioni architetturali e definire i prossimi step per la simulazione.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRINCIPIO GUIDA -->
+        <section id="principio" class="bg-white rounded-lg shadow-sm p-8">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 bg-emi-100 rounded-lg flex items-center justify-center">
+                    <i data-lucide="compass" class="text-emi-600 w-5 h-5"></i>
+                </div>
+                <h2 class="text-2xl font-semibold text-gray-800">Principio guida</h2>
+            </div>
+
+            <div class="space-y-4 text-gray-700 leading-relaxed">
+                <div class="bg-gray-900 rounded-lg p-6 text-white">
+                    <p class="text-xl font-semibold mb-2">Tutto Docker. Niente mele e arance.</p>
+                    <p class="text-gray-300">Brain admin, workspace, servizi: tutti container. Stack uniforme = manutenzione uniforme. Se tutto si gestisce uguale, tutto si mantiene uguale.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-4 mt-6">
+                    <div class="p-5 bg-emerald-50 rounded-lg border border-emerald-200">
+                        <div class="flex items-center gap-2 mb-3">
+                            <i data-lucide="hard-drive" class="text-emerald-600 w-5 h-5"></i>
+                            <span class="font-semibold text-gray-800">Container = Ambiente</span>
+                        </div>
+                        <p class="text-sm text-gray-600">Sacrificabile. Se muore, si ricostruisce in secondi. Python, git, tool brain &mdash; tutto preconfigurato nell'immagine.</p>
+                    </div>
+                    <div class="p-5 bg-blue-50 rounded-lg border border-blue-200">
+                        <div class="flex items-center gap-2 mb-3">
+                            <i data-lucide="database" class="text-blue-600 w-5 h-5"></i>
+                            <span class="font-semibold text-gray-800">Brain = Dati</span>
+                        </div>
+                        <p class="text-sm text-gray-600">Insostituibile. File markdown su filesystem host, versionati con Git. Sopravvive a qualsiasi crash del container.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8 DECISIONI -->
+        <section id="decisioni" class="bg-white rounded-lg shadow-sm p-8">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 bg-talk-100 rounded-lg flex items-center justify-center">
+                    <i data-lucide="list-checks" class="text-talk-600 w-5 h-5"></i>
+                </div>
+                <h2 class="text-2xl font-semibold text-gray-800">Le 8 decisioni</h2>
+            </div>
+
+            <div class="space-y-4">
+
+                <!-- D1 -->
+                <div class="border border-gray-200 rounded-lg p-5">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="bg-emi-600 text-white text-xs font-mono font-bold px-2 py-1 rounded">D1</span>
+                        <h3 class="font-semibold text-gray-800">Tutto Docker</h3>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-2">Ogni componente &egrave; un container. Brain admin = container privilegiato con Docker socket. Workspace = container isolati. Niente eccezioni bare metal.</p>
+                    <div class="text-xs text-emi-600 font-medium">Rationale: stack uniforme, stessa logica di gestione per tutto</div>
+                </div>
+
+                <!-- D2 -->
+                <div class="border border-gray-200 rounded-lg p-5">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="bg-emi-600 text-white text-xs font-mono font-bold px-2 py-1 rounded">D2</span>
+                        <h3 class="font-semibold text-gray-800">Fasi rollout: Alpha &rarr; Beta &rarr; Prod</h3>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-3 mt-3">
+                        <div class="p-3 bg-blue-50 rounded-lg text-center">
+                            <div class="font-semibold text-blue-700 text-sm">Alpha</div>
+                            <div class="text-xs text-gray-600 mt-1">Infrastruttura Docker<br>Container model</div>
+                        </div>
+                        <div class="p-3 bg-amber-50 rounded-lg text-center">
+                            <div class="font-semibold text-amber-700 text-sm">Beta</div>
+                            <div class="text-xs text-gray-600 mt-1">Utenti con brain puro<br>No servizi esterni</div>
+                        </div>
+                        <div class="p-3 bg-emerald-50 rounded-lg text-center">
+                            <div class="font-semibold text-emerald-700 text-sm">Prod</div>
+                            <div class="text-xs text-gray-600 mt-1">Shared/ aperta<br>Integrazioni + WebSSH</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- D3 -->
+                <div class="border border-gray-200 rounded-lg p-5">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="bg-emi-600 text-white text-xs font-mono font-bold px-2 py-1 rounded">D3</span>
+                        <h3 class="font-semibold text-gray-800">Brain = dati su host</h3>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-2">Brain data (wiki/, diary/, todo/, boot/) su filesystem host, versionati Git, montati nei container come volume. Container = ambiente sacrificabile.</p>
+                    <div class="text-xs text-emi-600 font-medium">Rationale: backup con strumenti standard, versioning indipendente dal container lifecycle</div>
+                </div>
+
+                <!-- D4 -->
+                <div class="border border-gray-200 rounded-lg p-5">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="bg-emi-600 text-white text-xs font-mono font-bold px-2 py-1 rounded">D4</span>
+                        <h3 class="font-semibold text-gray-800">Container isolati</h3>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-2">Zero comunicazione tra workspace. Ogni container &egrave; una bolla. Shared/ montata read-only. API esterne whitelistate a livello di network policy Docker.</p>
+                    <div class="text-xs text-emi-600 font-medium">Rationale: sicurezza by default, si apre gradualmente</div>
+                </div>
+
+                <!-- D5 -->
+                <div class="border border-gray-200 rounded-lg p-5">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="bg-emi-600 text-white text-xs font-mono font-bold px-2 py-1 rounded">D5</span>
+                        <h3 class="font-semibold text-gray-800">Image minimali</h3>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-2">Base image leggera (Python, git, tool brain). Si scala per chi serve (Node, compilatori). Default = minimo vitale.</p>
+                    <div class="text-xs text-emi-600 font-medium">Rationale: cold start veloce, meno superficie di attacco</div>
+                </div>
+
+                <!-- D6 -->
+                <div class="border border-gray-200 rounded-lg p-5">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="bg-emi-600 text-white text-xs font-mono font-bold px-2 py-1 rounded">D6</span>
+                        <h3 class="font-semibold text-gray-800">Cold start / auto-shutdown</h3>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-2">Container on-demand: spin up quando l'utente si collega, shutdown dopo timeout inattivit&agrave;. Brain admin gestisce il lifecycle. Cold start ~2-3 secondi con image minimale.</p>
+                    <div class="text-xs text-emi-600 font-medium">Rationale: zero spreco risorse, headroom per container pesanti quando servono</div>
+                </div>
+
+                <!-- D7 -->
+                <div class="border border-gray-200 rounded-lg p-5">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="bg-emi-600 text-white text-xs font-mono font-bold px-2 py-1 rounded">D7</span>
+                        <h3 class="font-semibold text-gray-800">Monitoring custom</h3>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-2">Brain admin con health check loop: stato container, uptime, risorse. Dashboard HTML minimale. Alert via email/canale interno. Niente Zabbix/Nagios &mdash; overkill per 5-6 container.</p>
+                    <div class="text-xs text-emi-600 font-medium">Rationale: si scala se serve, non si sovraingegnerizza all'inizio</div>
+                </div>
+
+                <!-- D8 -->
+                <div class="border border-gray-200 rounded-lg p-5">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="bg-emi-600 text-white text-xs font-mono font-bold px-2 py-1 rounded">D8</span>
+                        <h3 class="font-semibold text-gray-800">Rolling update + rollback</h3>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-2">Image Docker taggate semanticamente. Brain admin fa rolling update (un container alla volta, verifica, poi prossimo). Ultime 3 versioni sempre disponibili per rollback istantaneo.</p>
+                    <div class="text-xs text-emi-600 font-medium">Rationale: update sicuri, rollback in 10 secondi</div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- STRUTTURA -->
+        <section id="struttura" class="bg-white rounded-lg shadow-sm p-8">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center">
+                    <i data-lucide="layers" class="text-indigo-600 w-5 h-5"></i>
+                </div>
+                <h2 class="text-2xl font-semibold text-gray-800">Struttura target</h2>
+            </div>
+
+            <div class="bg-gray-900 rounded-lg p-6 text-sm font-mono text-gray-300 overflow-x-auto">
+<pre class="whitespace-pre">
+Server Emisfera (on-premise, fisico)
+&#9474;
+&#9500;&#9472;&#9472; /var/emibrain/brains/         # Brain data (host, git versioned)
+&#9474;   &#9500;&#9472;&#9472; giobi/
+&#9474;   &#9500;&#9472;&#9472; puddu/
+&#9474;   &#9500;&#9472;&#9472; ricci/
+&#9474;   &#9500;&#9472;&#9472; franzini/
+&#9474;   &#9500;&#9472;&#9472; stagista/
+&#9474;   &#9492;&#9472;&#9472; shared/                   # Knowledge base (fase Prod)
+&#9474;
+&#9492;&#9472;&#9472; Docker containers:
+    &#9500;&#9472;&#9472; emibrain-admin            # Brain admin (privilegiato)
+    &#9500;&#9472;&#9472; emibrain-ws-giobi         # Workspace (on-demand)
+    &#9500;&#9472;&#9472; emibrain-ws-puddu
+    &#9500;&#9472;&#9472; emibrain-ws-ricci
+    &#9500;&#9472;&#9472; emibrain-ws-franzini
+    &#9500;&#9472;&#9472; emibrain-ws-stagista
+    &#9492;&#9472;&#9472; emibrain-webssh           # WebSSH proxy (fase Beta)
+</pre>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-4 mt-6">
+                <div class="p-5 bg-gray-50 rounded-lg">
+                    <h4 class="font-medium text-gray-800 mb-2">Utenti Alpha</h4>
+                    <table class="w-full text-sm">
+                        <tbody class="text-gray-600">
+                            <tr class="border-b border-gray-200"><td class="py-2 font-medium">Giobi</td><td class="py-2">Consulente esterno</td></tr>
+                            <tr class="border-b border-gray-200"><td class="py-2 font-medium">Puddu</td><td class="py-2">Referente tecnico + root</td></tr>
+                            <tr class="border-b border-gray-200"><td class="py-2 font-medium">Ricci</td><td class="py-2">PM</td></tr>
+                            <tr class="border-b border-gray-200"><td class="py-2 font-medium">Paola Franzini</td><td class="py-2">CFO</td></tr>
+                            <tr><td class="py-2 font-medium">Stagista</td><td class="py-2">TBD</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="p-5 bg-gray-50 rounded-lg">
+                    <h4 class="font-medium text-gray-800 mb-2">API &amp; Connettivit&agrave;</h4>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li><strong>Claude Enterprise</strong> &mdash; gestione utenti/chiavi centralizzata</li>
+                        <li><strong>Outbound</strong> &mdash; blindato, solo lettura siti web inizialmente</li>
+                        <li><strong>Whitelisting</strong> &mdash; apertura graduale concordata con Puddu</li>
+                        <li><strong>Billing</strong> &mdash; tracking per utente (per la CFO)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- LIFECYCLE -->
+        <section id="lifecycle" class="bg-white rounded-lg shadow-sm p-8">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
+                    <i data-lucide="refresh-cw" class="text-purple-600 w-5 h-5"></i>
+                </div>
+                <h2 class="text-2xl font-semibold text-gray-800">Container lifecycle</h2>
+            </div>
+
+            <div class="space-y-6">
+                <!-- Cold start flow -->
+                <div class="bg-gray-50 rounded-lg p-6">
+                    <h3 class="font-semibold text-gray-800 mb-4">Cold start / auto-shutdown</h3>
+                    <div class="flex items-center gap-3 flex-wrap">
+                        <div class="bg-blue-100 text-blue-700 px-4 py-2 rounded-lg text-sm font-medium">Utente si collega</div>
+                        <i data-lucide="arrow-right" class="text-gray-400 w-4 h-4"></i>
+                        <div class="bg-purple-100 text-purple-700 px-4 py-2 rounded-lg text-sm font-medium">Brain admin: spin up</div>
+                        <i data-lucide="arrow-right" class="text-gray-400 w-4 h-4"></i>
+                        <div class="bg-emerald-100 text-emerald-700 px-4 py-2 rounded-lg text-sm font-medium">Monta brain volume</div>
+                        <i data-lucide="arrow-right" class="text-gray-400 w-4 h-4"></i>
+                        <div class="bg-talk-100 text-talk-700 px-4 py-2 rounded-lg text-sm font-medium">Lavora</div>
+                        <i data-lucide="arrow-right" class="text-gray-400 w-4 h-4"></i>
+                        <div class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium">Timeout &rarr; shutdown</div>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-3">Cold start ~2-3 sec con image minimale. Brain resta su host, intatto.</p>
+                </div>
+
+                <!-- Update flow -->
+                <div class="bg-gray-50 rounded-lg p-6">
+                    <h3 class="font-semibold text-gray-800 mb-4">Rolling update</h3>
+                    <div class="flex items-center gap-3 flex-wrap">
+                        <div class="bg-emi-100 text-emi-700 px-4 py-2 rounded-lg text-sm font-medium">Nuova image v1.2</div>
+                        <i data-lucide="arrow-right" class="text-gray-400 w-4 h-4"></i>
+                        <div class="bg-purple-100 text-purple-700 px-4 py-2 rounded-lg text-sm font-medium">Update WS #1</div>
+                        <i data-lucide="arrow-right" class="text-gray-400 w-4 h-4"></i>
+                        <div class="bg-emerald-100 text-emerald-700 px-4 py-2 rounded-lg text-sm font-medium">Verifica OK</div>
+                        <i data-lucide="arrow-right" class="text-gray-400 w-4 h-4"></i>
+                        <div class="bg-purple-100 text-purple-700 px-4 py-2 rounded-lg text-sm font-medium">Update WS #2</div>
+                        <i data-lucide="arrow-right" class="text-gray-400 w-4 h-4"></i>
+                        <div class="bg-emerald-100 text-emerald-700 px-4 py-2 rounded-lg text-sm font-medium">...</div>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-3">Rollback: <code>emibrain rollback v1.1</code> &mdash; 10 secondi, ultime 3 versioni sempre disponibili.</p>
+                </div>
+
+                <!-- Brain admin -->
+                <div class="bg-emi-50 rounded-lg p-6 border border-emi-200">
+                    <h3 class="font-semibold text-gray-800 mb-3">Il Brain Admin</h3>
+                    <p class="text-sm text-gray-600 mb-3">Container privilegiato con Docker socket. Gestisce tutto il lifecycle degli altri container.</p>
+                    <div class="grid md:grid-cols-3 gap-3">
+                        <div class="bg-white p-3 rounded-lg text-sm">
+                            <div class="font-medium text-gray-800">Crea/Distrugge</div>
+                            <div class="text-gray-500">Workspace container</div>
+                        </div>
+                        <div class="bg-white p-3 rounded-lg text-sm">
+                            <div class="font-medium text-gray-800">Monitora</div>
+                            <div class="text-gray-500">Health, risorse, uptime</div>
+                        </div>
+                        <div class="bg-white p-3 rounded-lg text-sm">
+                            <div class="font-medium text-gray-800">Aggiorna</div>
+                            <div class="text-gray-500">Rolling update + rollback</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SICUREZZA -->
+        <section id="sicurezza" class="bg-white rounded-lg shadow-sm p-8">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center">
+                    <i data-lucide="shield-check" class="text-red-600 w-5 h-5"></i>
+                </div>
+                <h2 class="text-2xl font-semibold text-gray-800">Sicurezza</h2>
+            </div>
+
+            <div class="space-y-4">
+                <div class="flex items-start gap-4">
+                    <div class="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <i data-lucide="check" class="text-emerald-600 w-4 h-4"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-medium text-gray-800">Container isolati</h4>
+                        <p class="text-sm text-gray-600">Zero comunicazione tra workspace. Ogni container &egrave; una bolla con network namespace separato.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-4">
+                    <div class="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <i data-lucide="check" class="text-emerald-600 w-4 h-4"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-medium text-gray-800">Shared read-only</h4>
+                        <p class="text-sm text-gray-600">La cartella condivisa &egrave; montata read-only in ogni container. Solo il brain admin pu&ograve; scriverci.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-4">
+                    <div class="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <i data-lucide="check" class="text-emerald-600 w-4 h-4"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-medium text-gray-800">Outbound blindato</h4>
+                        <p class="text-sm text-gray-600">Inizialmente solo lettura siti web. API whitelistate progressivamente. Solo Claude Enterprise come AI provider.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-4">
+                    <div class="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <i data-lucide="check" class="text-emerald-600 w-4 h-4"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-medium text-gray-800">Audit trail</h4>
+                        <p class="text-sm text-gray-600">Brain admin logga ogni azione (creazione workspace, accesso, modifiche container). Git traccia ogni modifica ai brain data. Log indipendenti e ispezionabili.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-4">
+                    <div class="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <i data-lucide="check" class="text-emerald-600 w-4 h-4"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-medium text-gray-800">Brain versionati su host</h4>
+                        <p class="text-sm text-gray-600">I dati non sono dentro i container. Backup con gli strumenti standard di Emisfera. Git per versioning. Il container pu&ograve; morire, il brain sopravvive.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FASI -->
+        <section id="fasi" class="bg-white rounded-lg shadow-sm p-8">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 bg-talk-100 rounded-lg flex items-center justify-center">
+                    <i data-lucide="git-branch" class="text-talk-600 w-5 h-5"></i>
+                </div>
+                <h2 class="text-2xl font-semibold text-gray-800">Roadmap</h2>
+            </div>
+
+            <div class="space-y-0">
+                <!-- Alpha -->
+                <div class="flex gap-4">
+                    <div class="flex flex-col items-center">
+                        <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white text-sm font-bold ring-4 ring-blue-100">
+                            <i data-lucide="wrench" class="w-4 h-4"></i>
+                        </div>
+                        <div class="w-0.5 h-full bg-blue-200"></div>
+                    </div>
+                    <div class="pb-8">
+                        <div class="flex items-center gap-2">
+                            <h3 class="font-semibold text-gray-800">Alpha &mdash; Infrastruttura</h3>
+                            <span class="text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full">Siamo qui</span>
+                        </div>
+                        <p class="text-sm text-gray-500 mb-2">Marzo 2026</p>
+                        <ul class="text-sm text-gray-600 space-y-1">
+                            <li>&bull; Definizione architettura Docker (questo talk)</li>
+                            <li>&bull; Simulazione su server test</li>
+                            <li>&bull; Dockerfile base + brain admin container</li>
+                            <li>&bull; Primo workspace funzionante con SSH</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Beta -->
+                <div class="flex gap-4">
+                    <div class="flex flex-col items-center">
+                        <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center text-white text-sm font-bold">&#946;</div>
+                        <div class="w-0.5 h-full bg-gray-200"></div>
+                    </div>
+                    <div class="pb-8">
+                        <h3 class="font-semibold text-gray-800">Beta &mdash; Utenti con brain puro</h3>
+                        <p class="text-sm text-gray-500 mb-2">Da completamento Alpha</p>
+                        <ul class="text-sm text-gray-600 space-y-1">
+                            <li>&bull; 5 workspace attivi (Giobi, Puddu, Ricci, Franzini, stagista)</li>
+                            <li>&bull; Solo brain, nessun servizio esterno</li>
+                            <li>&bull; Accesso via SSH (power user) + WebSSH (se fixato)</li>
+                            <li>&bull; Git auto-commit per versioning brain</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Prod -->
+                <div class="flex gap-4">
+                    <div class="flex flex-col items-center">
+                        <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center text-white text-sm font-bold">P</div>
+                    </div>
+                    <div class="pb-4">
+                        <h3 class="font-semibold text-gray-800">Prod &mdash; Servizi e integrazioni</h3>
+                        <p class="text-sm text-gray-500 mb-2">Da validazione Beta</p>
+                        <ul class="text-sm text-gray-600 space-y-1">
+                            <li>&bull; Shared/ aperta con knowledge base aziendale</li>
+                            <li>&bull; WebSSH stabile per utenti non-tecnici</li>
+                            <li>&bull; Integrazioni whitelistate (email, documenti)</li>
+                            <li>&bull; Packages installabili per workspace</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DOMANDE APERTE -->
+        <section id="domande" class="bg-white rounded-lg shadow-sm p-8">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center">
+                    <i data-lucide="help-circle" class="text-amber-600 w-5 h-5"></i>
+                </div>
+                <h2 class="text-2xl font-semibold text-gray-800">Domande aperte per Puddu</h2>
+            </div>
+
+            <p class="text-gray-600 mb-6">Punti da discutere e decidere insieme prima della simulazione.</p>
+
+            <div class="space-y-4">
+                <div class="flex items-start gap-4 p-4 bg-gray-50 rounded-lg">
+                    <i data-lucide="server" class="text-gray-500 w-5 h-5 mt-0.5 flex-shrink-0"></i>
+                    <div>
+                        <h4 class="font-medium text-gray-800">Specs del server fisico</h4>
+                        <p class="text-sm text-gray-600">Quale macchina? RAM, CPU, disco. Per 5-6 container con cold start servono risorse minime, ma meglio saperlo.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-4 p-4 bg-gray-50 rounded-lg">
+                    <i data-lucide="wifi" class="text-gray-500 w-5 h-5 mt-0.5 flex-shrink-0"></i>
+                    <div>
+                        <h4 class="font-medium text-gray-800">Connessione Efesto &harr; server Emisfera</h4>
+                        <p class="text-sm text-gray-600">SSH diretto? Tailscale? VPN site-to-site? Per la fase Alpha serve che Giobi possa accedere da remoto.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-4 p-4 bg-gray-50 rounded-lg">
+                    <i data-lucide="user-check" class="text-gray-500 w-5 h-5 mt-0.5 flex-shrink-0"></i>
+                    <div>
+                        <h4 class="font-medium text-gray-800">Brain admin: cosa vede degli altri brain?</h4>
+                        <p class="text-sm text-gray-600">Solo metadati (stato container, risorse, log) o anche contenuto workspace? Definire scope per audit trail.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-4 p-4 bg-gray-50 rounded-lg">
+                    <i data-lucide="git-branch" class="text-gray-500 w-5 h-5 mt-0.5 flex-shrink-0"></i>
+                    <div>
+                        <h4 class="font-medium text-gray-800">Git: un repo per brain o mono-repo?</h4>
+                        <p class="text-sm text-gray-600">Repo separati scalano meglio. Mono-repo pi&ugrave; semplice da backuppare. Chi fa commit? Automatico o manuale?</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-4 p-4 bg-gray-50 rounded-lg">
+                    <i data-lucide="monitor" class="text-gray-500 w-5 h-5 mt-0.5 flex-shrink-0"></i>
+                    <div>
+                        <h4 class="font-medium text-gray-800">Onboarding utenti non-tecnici</h4>
+                        <p class="text-sm text-gray-600">Paola Franzini (CFO) non apre un terminale. Aspettiamo WebSSH per lei, o troviamo un'alternativa per la Beta?</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-4 p-4 bg-gray-50 rounded-lg">
+                    <i data-lucide="hard-drive" class="text-gray-500 w-5 h-5 mt-0.5 flex-shrink-0"></i>
+                    <div>
+                        <h4 class="font-medium text-gray-800">Backup &amp; disaster recovery</h4>
+                        <p class="text-sm text-gray-600">Git per versioning, ma il backup infrastrutturale si aggancia ai sistemi Emisfera esistenti. Quale sistema usate?</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Materiali correlati -->
+        <section class="bg-white rounded-lg shadow-sm p-8">
+            <h2 class="text-2xl font-semibold mb-6 text-gray-800">Materiali correlati</h2>
+            <div class="space-y-3">
+                <a href="slides.html" class="flex items-center gap-3 p-4 bg-emi-50 hover:bg-emi-100 rounded-lg transition group">
+                    <i data-lucide="presentation" class="text-emi-600 w-5 h-5"></i>
+                    <div class="flex-1">
+                        <div class="font-medium text-gray-800 group-hover:text-emi-600">Slide per la presentazione</div>
+                        <div class="text-sm text-gray-600">~10 slide reveal.js: principio, decisioni, struttura, lifecycle, domande</div>
+                    </div>
+                    <i data-lucide="arrow-right" class="text-emi-600 w-4 h-4"></i>
+                </a>
+                <a href="../2026-02-27-emisfera-proposta-ai/" class="flex items-center gap-3 p-4 bg-gray-50 hover:bg-gray-100 rounded-lg transition group">
+                    <i data-lucide="archive" class="text-gray-500 w-5 h-5"></i>
+                    <div class="flex-1">
+                        <div class="font-medium text-gray-800 group-hover:text-gray-600">Review Qualit&agrave; &amp; Security (9 marzo)</div>
+                        <div class="text-sm text-gray-600">Dispensa e slide della review sicurezza precedente</div>
+                    </div>
+                    <i data-lucide="arrow-right" class="text-gray-400 w-4 h-4"></i>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 mt-16">
+        <div class="max-w-4xl mx-auto px-6 py-8 text-center text-sm">
+            <p>talk.giobi.com &mdash; slides . note . materiali</p>
+            <p class="mt-2">&copy; 2026 Giobi Fasoli</p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GR Work Tech — Speaker Notes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-bg: #0f0f0f;
+            --color-bg-alt: #1a1a1a;
+            --color-bg-card: #1e1e1e;
+            --color-text: #f0ece4;
+            --color-text-muted: #888888;
+            --color-accent: #e8dcc8;
+            --color-accent-dim: rgba(232, 220, 200, 0.12);
+            --color-accent-border: rgba(232, 220, 200, 0.2);
+            --color-highlight: #c8a96e;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: var(--color-bg);
+            color: var(--color-text);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 17px;
+            line-height: 1.7;
+            padding: 0;
+        }
+
+        .page-wrapper {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 60px 32px 80px;
+        }
+
+        /* === HEADER === */
+        .page-header {
+            margin-bottom: 48px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid var(--color-accent-border);
+        }
+        .page-header .eyebrow {
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--color-highlight);
+            margin-bottom: 12px;
+        }
+        .page-header h1 {
+            font-size: 40px;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            color: var(--color-text);
+            margin-bottom: 8px;
+        }
+        .page-header .subtitle {
+            font-size: 18px;
+            color: var(--color-text-muted);
+            font-weight: 400;
+        }
+        .page-header .date {
+            font-size: 14px;
+            color: var(--color-text-muted);
+            margin-top: 8px;
+            letter-spacing: 0.04em;
+        }
+
+        /* === SLIDE SECTIONS === */
+        .slide-section {
+            margin-bottom: 40px;
+            padding: 28px 32px;
+            background: var(--color-bg-card);
+            border: 1px solid var(--color-accent-border);
+            border-radius: 10px;
+            page-break-inside: avoid;
+        }
+        .slide-section h2 {
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            color: var(--color-text);
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .slide-section h2 .slide-num {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--color-highlight);
+            background: rgba(200, 169, 110, 0.12);
+            padding: 3px 10px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+        .slide-section .notes {
+            color: var(--color-text-muted);
+            margin-top: 12px;
+            line-height: 1.75;
+        }
+        .slide-section .notes strong {
+            color: var(--color-text);
+            font-weight: 600;
+        }
+
+        /* === BULLET LISTS === */
+        .slide-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 12px 0 0 0;
+        }
+        .slide-section ul li {
+            padding-left: 20px;
+            position: relative;
+            margin-bottom: 8px;
+            color: var(--color-text-muted);
+            line-height: 1.65;
+        }
+        .slide-section ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--color-highlight);
+        }
+        .slide-section ul li strong {
+            color: var(--color-text);
+            font-weight: 600;
+        }
+
+        /* === HIGHLIGHT CALLOUT === */
+        .callout {
+            background: rgba(200, 169, 110, 0.1);
+            border: 1px solid rgba(200, 169, 110, 0.35);
+            border-left: 4px solid var(--color-highlight);
+            padding: 14px 20px;
+            border-radius: 8px;
+            margin-top: 16px;
+            color: var(--color-text);
+            font-weight: 500;
+            line-height: 1.6;
+        }
+
+        /* === FOOTER === */
+        .page-footer {
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 1px solid var(--color-accent-border);
+            text-align: center;
+        }
+        .page-footer a {
+            color: var(--color-highlight);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            transition: opacity 0.2s;
+        }
+        .page-footer a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+        .page-footer .copyright {
+            margin-top: 12px;
+            font-size: 13px;
+            color: var(--color-text-muted);
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 640px) {
+            .page-wrapper { padding: 32px 18px 48px; }
+            .page-header h1 { font-size: 28px; }
+            .slide-section { padding: 20px 20px; }
+            .slide-section h2 { font-size: 18px; flex-direction: column; align-items: flex-start; gap: 6px; }
+        }
+
+        /* === PRINT === */
+        @media print {
+            :root {
+                --color-bg: #ffffff;
+                --color-bg-alt: #f5f5f5;
+                --color-bg-card: #f9f9f9;
+                --color-text: #111111;
+                --color-text-muted: #555555;
+                --color-accent: #333333;
+                --color-accent-dim: rgba(0, 0, 0, 0.04);
+                --color-accent-border: rgba(0, 0, 0, 0.12);
+                --color-highlight: #8b6914;
+            }
+            body { background: #fff; font-size: 11pt; }
+            .page-wrapper { max-width: 100%; padding: 0; }
+            .slide-section { break-inside: avoid; border: 1px solid #ddd; box-shadow: none; }
+            .page-footer { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+
+        <header class="page-header">
+            <div class="eyebrow">GR Work Tech</div>
+            <h1>Speaker Notes</h1>
+            <div class="subtitle">Brain Protocol Pitch Deck — Presentation Guide</div>
+            <div class="date">April 16, 2026 &mdash; Find Your Journey #2 &mdash; sustAIn.brussels / Sirris</div>
+        </header>
+
+        <section class="slide-section">
+            <h2><span class="slide-num">Slide 1</span> Title</h2>
+            <div class="notes">
+                Open with context: "We're here to walk through Brain Protocol &mdash; what it is, who it's for, and how we plan to bring it to market." Keep it short, Ide knows the background from Session 1.
+            </div>
+        </section>
+
+        <section class="slide-section">
+            <h2><span class="slide-num">Slide 2</span> The Problem</h2>
+            <div class="notes">
+                The core insight: <strong>AI has a memory problem, not a capability problem.</strong> ChatGPT is brilliant but amnesiac &mdash; every session starts from zero. Meanwhile, companies spend years building expertise that lives in people's heads and nowhere else. When someone leaves, that knowledge is gone. Generic AI tools can answer questions but can't learn YOUR business.
+            </div>
+            <div class="callout">Pause on the highlight: "The problem isn't AI capability. It's AI memory."</div>
+        </section>
+
+        <section class="slide-section">
+            <h2><span class="slide-num">Slide 3</span> The Solution</h2>
+            <div class="notes">
+                Brain Protocol is not another AI chat tool. It's a <strong>specification</strong> &mdash; an open standard for building AI workspaces that remember. Four key points to hit:
+            </div>
+            <ul>
+                <li><strong>Structured knowledge base</strong> &mdash; not a folder dump, organized by memory type</li>
+                <li><strong>WESP memory model</strong> mirrors human cognition (cite Tulving 1972, Baddeley &amp; Hitch 1974 if asked)</li>
+                <li><strong>LLM-agnostic</strong> = no vendor lock-in. Switch from Claude to Gemini to whatever comes next. The brain stays.</li>
+                <li><strong>Git-versioned</strong> = auditable history, rollback, transparency. Critical for compliance.</li>
+            </ul>
+        </section>
+
+        <section class="slide-section">
+            <h2><span class="slide-num">Slide 4</span> How It Works</h2>
+            <div class="notes">
+                Walk through each memory layer. Use Giobi's own brain as the live example if appropriate:
+            </div>
+            <ul>
+                <li><strong>Wiki/</strong> = the permanent record. People, companies, projects. Like a company Wikipedia that the AI reads.</li>
+                <li><strong>Diary/</strong> = what happened. Meeting notes, decisions, events. Chronological institutional memory.</li>
+                <li><strong>Skills/</strong> = how to do things. Automations, integrations, playbooks the AI can execute.</li>
+                <li><strong>Working memory</strong> = current context. What's happening right now.</li>
+                <li><strong>Agentic layer</strong> = THE differentiator. The AI doesn't just know &mdash; it DOES. Sends emails, produces deliverables, manages workflows. This is where the CEO value prop lives.</li>
+            </ul>
+        </section>
+
+        <section class="slide-section">
+            <h2><span class="slide-num">Slide 5</span> Customer Segmentation</h2>
+            <div class="notes">
+                Key message: we segment by <strong>ROLE</strong>, not by industry. This is deliberate &mdash; avoids competing with our own clients.
+            </div>
+            <ul>
+                <li><strong>C-level</strong> feels the pain most: drowning in operational noise, can't focus on strategy</li>
+                <li><strong>Directors</strong> lose domain knowledge when teams churn</li>
+                <li><strong>Managers</strong> drown in process and compliance overhead</li>
+                <li><strong>Operators</strong> waste time on admin instead of value work</li>
+            </ul>
+            <div class="callout"><strong>Go-to-market is top-down.</strong> Land the C-level first &mdash; they experience the value personally (agentic layer handles their operational overhead), then they push adoption down through the org.</div>
+        </section>
+
+        <section class="slide-section">
+            <h2><span class="slide-num">Slide 6</span> Market Landscape</h2>
+            <div class="notes">
+                Walk through the comparison matrix. Key talking points:
+            </div>
+            <ul>
+                <li><strong>Dust.tt</strong> ($6M ARR, VC-backed) &mdash; multi-model agents but no persistent memory, no custom deployment</li>
+                <li><strong>Glean</strong> ($200M ARR, $7.2B valuation) &mdash; enterprise search, completely wrong for SMBs, starts at $350K/year</li>
+                <li><strong>Notion AI</strong> &mdash; massive user base but agents are task-scoped, not company-brain. Credit-based pricing gets expensive</li>
+                <li><strong>Lindy.ai</strong> &mdash; good on agentic capability but no shared knowledge graph, each agent is independent</li>
+                <li><strong>Personal.ai</strong> &mdash; closest on memory but no agentic capabilities, more "chatbot with memory"</li>
+            </ul>
+            <div class="callout"><strong>The gap:</strong> No one combines all six columns. That's our space.</div>
+            <div class="notes" style="margin-top: 16px;">
+                Market size context if asked:
+            </div>
+            <ul>
+                <li>AI Agents market: $7.6B (2025) &rarr; $50.3B (2030), 45.8% CAGR</li>
+                <li>AI Knowledge Management: $7.7B &rarr; $51.4B, 46.2% CAGR</li>
+                <li>SMEs have the highest projected growth rate &mdash; that's our beachhead</li>
+            </ul>
+        </section>
+
+        <section class="slide-section">
+            <h2><span class="slide-num">Slide 7</span> Competitive Advantage</h2>
+            <div class="notes">
+                Six cards, each is a moat:
+            </div>
+            <ul>
+                <li><strong>Persistent</strong> &mdash; knowledge base that grows, not a session that dies</li>
+                <li><strong>Agentic</strong> &mdash; acts, not just answers</li>
+                <li><strong>Custom-fit</strong> &mdash; every brain is tailored, not a shared SaaS</li>
+                <li><strong>Vendor-agnostic</strong> &mdash; swap LLMs without migration</li>
+                <li><strong>EU AI Act ready</strong> &mdash; Brussels audience: compliance as differentiator. "Companies will need to prove compliance. If you're already there, you win the deal." (Ide's own words from Session 1)</li>
+                <li><strong>Open specification</strong> &mdash; builds trust and ecosystem. The value is in the implementation, not the spec.</li>
+            </ul>
+        </section>
+
+        <section class="slide-section">
+            <h2><span class="slide-num">Slide 8</span> Business Model</h2>
+            <div class="notes">
+                "AI Process Outsourcing" &mdash; deliberately positioned against traditional IT consulting.
+            </div>
+            <ul>
+                <li><strong>Audit</strong>: understand the company, map knowledge, identify opportunities. This is the entry point.</li>
+                <li><strong>Deployment</strong>: custom brain setup, integrations, training. This is the deliverable.</li>
+                <li><strong>Retainer</strong>: multi-year contract, continuous optimization. This is the revenue engine.</li>
+            </ul>
+            <div class="callout">Target: 10-15 high-value contracts, not 10,000 SaaS users. The sartorial approach IS the product &mdash; not a bug, the model.</div>
+            <div class="notes" style="margin-top: 16px;">
+                If asked about pricing: still calibrating, but think professional services pricing (EUR 5-15K/month retainer range), not SaaS pricing ($29/seat/month).
+            </div>
+        </section>
+
+        <section class="slide-section">
+            <h2><span class="slide-num">Slide 9</span> Traction</h2>
+            <div class="notes">
+                This is real, not slides:
+            </div>
+            <ul>
+                <li><strong>Emisfera pilot</strong>: 6 brains in production. Real company, real users, real daily usage.</li>
+                <li><strong>9+ months dogfooding</strong>: Giobi has been living in Brain Protocol daily. The spec is battle-tested by its creator.</li>
+                <li><strong>3 live products</strong>: brainprotocol.it (spec), EU AI Act Compliance Hub (Brussels credibility), FormPilot (production SaaS)</li>
+            </ul>
+            <div class="callout">Have brainprotocol.it open in a tab for live demo if interest.</div>
+        </section>
+
+        <section class="slide-section">
+            <h2><span class="slide-num">Slide 10</span> Team</h2>
+            <div class="notes">
+                Three people, zero overlap:
+            </div>
+            <ul>
+                <li><strong>Yoni</strong> = market access. 17 years of relationships in HR/recruitment. He knows who the buyers are and they know him.</li>
+                <li><strong>David</strong> = commercial engine. Translates tech into business value. Handles contracts, partnerships, sales.</li>
+                <li><strong>Giobi</strong> = technical core. Built Brain Protocol, operates it daily, scales with external collaborators.</li>
+            </ul>
+            <div class="callout">Key message: lean by design. We don't hire ahead of demand. External collaborators scale as contracts come in.</div>
+        </section>
+
+        <section class="slide-section">
+            <h2><span class="slide-num">Slide 11</span> Go-To-Market</h2>
+            <div class="notes">
+                Three phases, sequential:
+            </div>
+            <ul>
+                <li><strong>Land</strong>: Use existing network. Yoni's 17 years of HR contacts = warm leads. 3-5 pilots through direct relationships.</li>
+                <li><strong>Prove</strong>: Measure adoption (Ide's key metric from Session 1). Document case studies. Build evidence.</li>
+                <li><strong>Scale</strong>: EU AI Act creates urgency. Companies MUST demonstrate compliance. Case studies + regulatory pressure = inbound demand.</li>
+            </ul>
+            <div class="callout">Brussels is the perfect room for phase 3 &mdash; regulatory center of Europe.</div>
+        </section>
+
+        <section class="slide-section">
+            <h2><span class="slide-num">Slide 12</span> Ask</h2>
+            <div class="notes">
+                Be clear about what we want from Ide:
+            </div>
+            <ul>
+                <li><strong>Segmentation feedback</strong>: does role-based segmentation make sense to her?</li>
+                <li><strong>Pricing validation</strong>: does Audit+Deploy+Retainer fit how these companies buy?</li>
+                <li><strong>Network</strong>: does she know anyone in the sustAIn ecosystem who could be a pilot?</li>
+                <li><strong>Positioning</strong>: help us refine the marketplace framing for the next session</li>
+            </ul>
+            <div class="callout">We're NOT asking for money. We're asking for strategic guidance and introductions.</div>
+        </section>
+
+        <section class="slide-section">
+            <h2><span class="slide-num">End</span> Close</h2>
+            <div class="notes">
+                Leave room for discussion. Be ready to show:
+            </div>
+            <ul>
+                <li><strong>brainprotocol.it</strong> (live)</li>
+                <li><strong>FormPilot demo</strong> (forms.grworktech.com)</li>
+                <li>A live brain session if they want to see the agentic layer in action</li>
+            </ul>
+        </section>
+
+        <footer class="page-footer">
+            <a href="./">&larr; Back to slides</a>
+            <div class="copyright">GR Work Tech &mdash; Brussels, 2026</div>
+        </footer>
+
+    </div>
+</body>
+</html>

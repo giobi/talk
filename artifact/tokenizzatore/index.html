@@ -1,0 +1,110 @@
+<!doctype html><html lang="it"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Il tokenizzatore — come il modello legge le parole</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/gpt-tokenizer@2/dist/o200k_base.js"></script>
+<script>tailwind.config={theme:{extend:{fontFamily:{sans:['Inter','sans-serif'],mono:['IBM Plex Mono','monospace']},colors:{talk:{50:'#fffbeb',400:'#fbbf24',500:'#f59e0b',600:'#d97706',700:'#b45309'}}}}}</script>
+<style>
+ body{font-family:Inter,sans-serif}
+ .tok{font-family:'IBM Plex Mono',monospace;display:inline-block;padding:2px 5px;margin:2px;border-radius:5px;font-size:.9rem;line-height:1.5;white-space:pre;border:1px solid rgba(0,0,0,.06)}
+</style></head>
+<body class="bg-white text-gray-900 min-h-screen">
+<div class="max-w-4xl mx-auto px-6 py-10">
+
+  <div class="text-talk-600 font-semibold tracking-wide text-sm mb-2">MODULO 1.1 · STRUMENTO 3</div>
+  <h1 class="text-3xl font-bold tracking-tight mb-2">Il tokenizzatore</h1>
+  <p class="text-gray-500 mb-8 max-w-2xl">Il modello non legge lettere e nemmeno parole intere: le spezza in <strong>token</strong>, pezzi ricorrenti di testo. Scrivi qui sotto e guarda come vengono divise le tue parole.</p>
+
+  <textarea id="in" rows="3" class="w-full border border-gray-300 rounded-xl p-4 font-mono text-base focus:outline-none focus:ring-2 focus:ring-talk-400 focus:border-talk-400 resize-y">L'intelligenza artificiale non legge lettere: legge token. Prova con garage, 1234567 o precipitevolissimevolmente.</textarea>
+  <div class="flex flex-wrap gap-2 mt-3 mb-6" id="presets"></div>
+  <div class="flex flex-wrap gap-4 mb-3 text-sm">
+    <div class="bg-gray-50 border border-gray-200 rounded-lg px-4 py-2"><span class="text-gray-500">Caratteri</span> <span id="cChar" class="font-bold text-gray-900 ml-1">0</span></div>
+    <div class="bg-talk-50 border border-talk-400/40 rounded-lg px-4 py-2"><span class="text-gray-500">Token</span> <span id="cTok" class="font-bold text-talk-700 ml-1">0</span></div>
+    <div class="bg-gray-50 border border-gray-200 rounded-lg px-4 py-2"><span class="text-gray-500">Caratteri per token</span> <span id="cRatio" class="font-bold text-gray-900 ml-1">—</span></div>
+  </div>
+  <div id="out" class="border border-gray-200 rounded-xl p-4 bg-gray-50/50 min-h-[70px] leading-loose"></div>
+
+  <div class="mt-12 mb-6">
+    <h2 class="text-2xl font-bold">Perché conta, sul lavoro vero</h2>
+    <p class="text-gray-500 max-w-2xl mt-1">Se vede pezzi e non lettere, tre cose concrete vanno storte.</p>
+  </div>
+
+  <div class="grid md:grid-cols-1 gap-5">
+    <!-- CASO 1: codici esatti -->
+    <div class="border border-gray-200 rounded-xl p-5">
+      <div class="flex items-center gap-2 mb-1"><span class="text-xs font-bold text-white bg-red-500 rounded px-1.5 py-0.5">1</span><h3 class="font-bold">Codici e identificativi esatti</h3></div>
+      <p class="text-gray-500 text-sm mb-3">Un codice prodotto, una P.IVA, un IBAN. Il modello li vede a pezzi: in una riformulazione può cambiarti una cifra <strong>senza accorgersene</strong>.</p>
+      <input id="code" class="border border-gray-300 rounded-lg px-3 py-2 font-mono w-72 focus:outline-none focus:ring-2 focus:ring-talk-400" value="WN-2024-AB-00731">
+      <div id="codeOut" class="mt-3 text-sm"></div>
+    </div>
+    <!-- CASO 2: limite caratteri -->
+    <div class="border border-gray-200 rounded-xl p-5">
+      <div class="flex items-center gap-2 mb-1"><span class="text-xs font-bold text-white bg-talk-500 rounded px-1.5 py-0.5">2</span><h3 class="font-bold">Limiti di caratteri</h3></div>
+      <p class="text-gray-500 text-sm mb-3">"Scrivimi un testo di max <span id="limLbl">280</span> caratteri." Il modello non li conta: va a occhio e sfora. La verifica resta a te.</p>
+      <div class="flex items-center gap-3 mb-2 text-sm"><label class="text-gray-500">Limite</label><input id="lim" type="number" value="280" class="border border-gray-300 rounded-lg px-2 py-1 w-24"></div>
+      <textarea id="limTxt" rows="2" class="w-full border border-gray-300 rounded-lg p-3 text-sm resize-y">L'intelligenza artificiale è uno strumento potente per il lavoro quotidiano, ma va usata con criterio: ottima per scrivere e sintetizzare, da verificare sempre sui fatti, sui numeri e sui dettagli esatti.</textarea>
+      <div id="limOut" class="mt-2 text-sm"></div>
+    </div>
+    <!-- CASO 3: costo e memoria -->
+    <div class="border border-gray-200 rounded-xl p-5">
+      <div class="flex items-center gap-2 mb-1"><span class="text-xs font-bold text-white bg-blue-600 rounded px-1.5 py-0.5">3</span><h3 class="font-bold">Costo e memoria</h3></div>
+      <p class="text-gray-500 text-sm mb-3">I token sono l'unità con cui il modello <strong>paga</strong> e <strong>ricorda</strong>. Oltre la sua capacità, dimentica l'inizio del documento.</p>
+      <textarea id="memTxt" rows="2" class="w-full border border-gray-300 rounded-lg p-3 text-sm resize-y">Incolla qui un documento lungo per vedere quanti token pesa, a quante pagine equivale e quanto riempie la memoria del modello.</textarea>
+      <div id="memOut" class="mt-3 grid grid-cols-3 gap-3 text-center"></div>
+      <div id="memBar" class="mt-3"></div>
+    </div>
+  </div>
+
+  <p class="text-gray-400 text-xs mt-10">Tokenizzatore reale: o200k_base (GPT-4o). Tutto gira nel tuo browser, nessun testo viene inviato. Finestra di contesto e costo sono valori indicativi (~128.000 token di memoria, ~€1 per milione di token in ingresso).</p>
+</div>
+
+<script>
+const PAL=['#fde68a','#bfdbfe','#bbf7d0','#fecaca','#ddd6fe','#fed7aa','#a5f3fc','#f5d0fe'];
+const CTXWIN=128000, EUR_PER_MTOK=1.0, CHARS_PER_PAGE=1800;
+function E(){return window.GPTTokenizer_o200k_base;}
+function toks(t){const e=E();return e.encode(t).map(id=>({id,txt:e.decode([id])}));}
+function pills(list){return list.map((tk,i)=>`<span class="tok" style="background:${PAL[i%PAL.length]}">${tk.txt.replace(/ /g,'·').replace(/\n/g,'↵')}</span>`).join('');}
+function render(){
+  const t=document.getElementById('in').value, tk=toks(t);
+  document.getElementById('cChar').textContent=[...t].length;
+  document.getElementById('cTok').textContent=tk.length;
+  document.getElementById('cRatio').textContent=tk.length?([...t].length/tk.length).toFixed(1):'—';
+  document.getElementById('out').innerHTML=pills(tk);
+}
+function renderCode(){
+  const c=document.getElementById('code').value, tk=toks(c), chars=[...c.replace(/\s/g,'')].length;
+  document.getElementById('codeOut').innerHTML=
+    `<div class="flex items-center gap-2 flex-wrap mb-2">${pills(tk)}</div>`+
+    `<div class="text-gray-600"><b>${chars} caratteri</b> esatti, il modello ne vede <b class="text-red-600">${tk.length} pezzi</b>. Riscrivendolo può alterarne uno e restituirtelo con la stessa sicurezza.</div>`;
+}
+function renderLim(){
+  const lim=parseInt(document.getElementById('lim').value)||0, t=document.getElementById('limTxt').value, n=[...t].length;
+  document.getElementById('limLbl').textContent=lim;
+  const over=n>lim, pct=Math.min(100,lim?n/lim*100:0);
+  document.getElementById('limOut').innerHTML=
+    `<div class="h-2 bg-gray-100 rounded-full overflow-hidden mb-1"><div class="h-full ${over?'bg-red-500':'bg-emerald-500'}" style="width:${pct}%"></div></div>`+
+    `<div class="${over?'text-red-600':'text-emerald-600'} font-semibold">${n} / ${lim} caratteri ${over?'— sforato di '+(n-lim):'— dentro'}</div>`;
+}
+function renderMem(){
+  const t=document.getElementById('memTxt').value, tk=toks(t), n=tk.length;
+  const pages=([...t].length/CHARS_PER_PAGE), cost=(n/1e6*EUR_PER_MTOK), fill=Math.min(100,n/CTXWIN*100);
+  const cell=(v,l)=>`<div class="bg-gray-50 border border-gray-200 rounded-lg py-2"><div class="text-xl font-bold text-gray-900">${v}</div><div class="text-[11px] text-gray-500 uppercase tracking-wide">${l}</div></div>`;
+  document.getElementById('memOut').innerHTML=cell(n,'token')+cell('~'+pages.toFixed(1),'pagine')+cell('€'+cost.toFixed(4),'costo ~');
+  document.getElementById('memBar').innerHTML=
+    `<div class="text-xs text-gray-500 mb-1">Memoria del modello riempita: ${fill.toFixed(2)}% di ~128.000 token</div>`+
+    `<div class="h-2 bg-gray-100 rounded-full overflow-hidden"><div class="h-full bg-blue-600" style="width:${Math.max(0.5,fill)}%"></div></div>`;
+}
+function boot(){
+  const presets=['garage','strawberry','precipitevolissimevolmente','1234567','GDPR','😀 caffè'];
+  const box=document.getElementById('presets');
+  presets.forEach(p=>{const b=document.createElement('button');b.className='text-sm px-3 py-1 rounded-full border border-gray-300 hover:border-talk-400 hover:bg-talk-50 transition';b.textContent=p;b.onclick=()=>{document.getElementById('in').value=p;render();};box.appendChild(b);});
+  document.getElementById('in').addEventListener('input',render);
+  document.getElementById('code').addEventListener('input',renderCode);
+  ['lim','limTxt'].forEach(id=>document.getElementById(id).addEventListener('input',renderLim));
+  document.getElementById('memTxt').addEventListener('input',renderMem);
+  render();renderCode();renderLim();renderMem();
+}
+if(window.GPTTokenizer_o200k_base)boot();else addEventListener('load',()=>{let n=0;const t=setInterval(()=>{if(window.GPTTokenizer_o200k_base||n++>50){clearInterval(t);if(window.GPTTokenizer_o200k_base)boot();}},100);});
+</script>
+</body></html>

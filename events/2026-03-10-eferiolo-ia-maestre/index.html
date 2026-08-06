@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IA per Maestre — Strumenti Gratuiti per la Scuola Primaria</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fefcf8;
+            --bg-surface: #fff8ee;
+            --bg-card: #ffffff;
+            --border: #e8dcc8;
+            --border-soft: #f0e6d6;
+            --accent: #e87b35;
+            --accent-light: #f09050;
+            --accent-dim: #c46020;
+            --accent-glow: rgba(232, 123, 53, 0.08);
+            --purple: #7c5cbf;
+            --purple-dim: rgba(124, 92, 191, 0.08);
+            --purple-border: rgba(124, 92, 191, 0.25);
+            --green: #3da06d;
+            --green-dim: rgba(61, 160, 109, 0.08);
+            --green-border: rgba(61, 160, 109, 0.25);
+            --blue: #3b82c4;
+            --blue-dim: rgba(59, 130, 196, 0.08);
+            --blue-border: rgba(59, 130, 196, 0.25);
+            --red: #d94040;
+            --red-dim: rgba(217, 64, 64, 0.06);
+            --red-border: rgba(217, 64, 64, 0.2);
+            --amber: #d4891a;
+            --amber-dim: rgba(212, 137, 26, 0.08);
+            --amber-border: rgba(212, 137, 26, 0.25);
+            --text: #2c2417;
+            --text-secondary: #5a4e3e;
+            --text-muted: #9a8d7c;
+            --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+            --font-serif: 'Lora', Georgia, serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { font-size: 16px; scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-sans); background: var(--bg); color: var(--text);
+            line-height: 1.7; -webkit-font-smoothing: antialiased; min-height: 100vh;
+        }
+        .container { max-width: 780px; margin: 0 auto; padding: 0 2rem; }
+
+        /* ── Header ── */
+        header { padding: 4rem 0 3rem; position: relative; overflow: hidden; text-align: center; }
+        header::before {
+            content: ''; position: absolute; inset: 0;
+            background: radial-gradient(ellipse 70% 60% at 50% 40%, rgba(232,123,53,0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        h1 {
+            font-family: var(--font-sans); font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+            font-weight: 900; line-height: 1.1; letter-spacing: -0.03em;
+            color: var(--text); margin-bottom: 0.6rem;
+        }
+        h1 em { font-style: normal; color: var(--accent); }
+        .subtitle {
+            font-family: var(--font-serif); font-size: 1.1rem; font-style: italic;
+            color: var(--text-secondary); margin-bottom: 1.5rem; max-width: 520px; margin-left: auto; margin-right: auto;
+        }
+        .meta { display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+        .meta-item { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.04em; color: var(--text-muted); }
+        .meta-dot { width: 4px; height: 4px; background: var(--accent); border-radius: 50%; }
+
+        /* ── Main ── */
+        main { padding: 0 0 3rem; }
+        .section { padding: 2.5rem 0; }
+        .section + .section { border-top: 1px solid var(--border-soft); }
+        .section-label {
+            display: inline-flex; align-items: center; gap: 0.6rem;
+            font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;
+            color: var(--accent); margin-bottom: 1.5rem;
+        }
+        .section-label::before { content: ''; display: block; width: 24px; height: 2px; background: var(--accent); border-radius: 2px; }
+
+        /* Text */
+        .text-block { font-size: 1.05rem; line-height: 1.8; color: var(--text-secondary); }
+        .text-block p { margin-bottom: 1rem; }
+        .text-block p:last-child { margin-bottom: 0; }
+        .text-block strong { color: var(--text); font-weight: 600; }
+        .text-block a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-dim); }
+        .text-block a:hover { color: var(--accent-dim); }
+
+        /* Highlight */
+        .highlight-box {
+            background: var(--bg-surface); border: 1px solid var(--border);
+            border-radius: 12px; padding: 2rem 2.5rem; position: relative; overflow: hidden;
+        }
+        .highlight-box::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%;
+            background: linear-gradient(to bottom, var(--accent), var(--accent-dim));
+            border-radius: 2px;
+        }
+        .highlight-box p {
+            font-family: var(--font-serif); font-size: 1.1rem; font-style: italic;
+            line-height: 1.7; color: var(--text);
+        }
+        .highlight-box p strong { color: var(--accent); font-weight: 600; font-style: normal; }
+
+        /* Tool cards */
+        .tool-grid { display: flex; flex-direction: column; gap: 1rem; }
+        .tool-card {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 12px; padding: 1.5rem 1.75rem; position: relative;
+            overflow: hidden; transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .tool-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+        }
+        .tool-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; flex-wrap: wrap; }
+        .tool-name { font-size: 1.15rem; font-weight: 700; color: var(--text); }
+        .tool-tag {
+            display: inline-block; font-size: 0.55rem; font-weight: 700; letter-spacing: 0.1em;
+            text-transform: uppercase; padding: 0.15rem 0.5rem; border-radius: 3px;
+            margin-left: auto;
+        }
+        .tag-star { background: var(--amber-dim); border: 1px solid var(--amber-border); color: var(--amber); }
+        .tag-edu { background: var(--green-dim); border: 1px solid var(--green-border); color: var(--green); }
+        .tag-google { background: var(--blue-dim); border: 1px solid var(--blue-border); color: var(--blue); }
+        .tag-creative { background: var(--purple-dim); border: 1px solid var(--purple-border); color: var(--purple); }
+        .tag-bonus { background: rgba(100,100,100,0.08); border: 1px solid rgba(100,100,100,0.25); color: #666; }
+        .tool-desc { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 0.75rem; }
+        .tool-usecase {
+            background: var(--bg-surface); border-radius: 8px; padding: 0.75rem 1rem;
+            font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;
+        }
+        .tool-usecase + .tool-usecase { margin-top: 0.5rem; }
+        .tool-usecase strong { color: var(--accent); font-weight: 600; }
+        .tool-link {
+            display: inline-block; margin-top: 0.75rem; margin-right: 1rem;
+            font-size: 0.8rem; font-weight: 600; color: var(--accent);
+            text-decoration: none; border-bottom: 1px dashed var(--accent-dim);
+        }
+        .tool-link:hover { border-bottom-style: solid; }
+
+        /* Stats */
+        .stat-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 1px; background: var(--border); border: 1px solid var(--border);
+            border-radius: 12px; overflow: hidden;
+        }
+        .stat-card { background: var(--bg-card); padding: 1.25rem 1.5rem; text-align: center; }
+        .stat-value { font-size: 1.8rem; font-weight: 900; color: var(--accent); margin-bottom: 0.1rem; letter-spacing: -0.02em; }
+        .stat-label { font-size: 0.6rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); }
+
+        /* Warning box */
+        .warning-box {
+            background: var(--red-dim); border: 1px solid var(--red-border);
+            border-radius: 12px; padding: 1.5rem 2rem;
+        }
+        .warning-box h3 { font-size: 0.95rem; font-weight: 700; color: var(--red); margin-bottom: 0.5rem; }
+        .warning-list { list-style: none; padding: 0; }
+        .warning-list li {
+            font-size: 0.9rem; color: var(--text-secondary); padding: 0.35rem 0;
+            padding-left: 1.5rem; position: relative;
+        }
+        .warning-list li::before {
+            content: '!'; position: absolute; left: 0; top: 0.35rem; font-size: 0.7rem;
+            font-weight: 900; color: var(--red); background: var(--red-dim);
+            border: 1px solid var(--red-border); border-radius: 50%;
+            width: 18px; height: 18px; display: flex; align-items: center; justify-content: center;
+        }
+
+        /* Success box */
+        .success-box {
+            background: var(--green-dim); border: 1px solid var(--green-border);
+            border-radius: 12px; padding: 1.5rem 2rem;
+        }
+        .success-box h3 { font-size: 0.95rem; font-weight: 700; color: var(--green); margin-bottom: 0.5rem; }
+
+        /* Scaletta */
+        .timeline { display: flex; flex-direction: column; gap: 0.5rem; }
+        .timeline-item {
+            display: flex; align-items: flex-start; gap: 1rem;
+            padding: 1.1rem 1.25rem; background: var(--bg-card);
+            border: 1px solid var(--border); border-radius: 10px;
+        }
+        .timeline-time {
+            font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em;
+            color: var(--accent); background: var(--accent-glow);
+            padding: 0.25rem 0.6rem; border-radius: 4px; white-space: nowrap; margin-top: 0.1rem;
+        }
+        .timeline-title { font-size: 0.95rem; font-weight: 600; color: var(--text); margin-bottom: 0.2rem; }
+        .timeline-desc { font-size: 0.85rem; color: var(--text-muted); }
+
+        /* Fun quotes */
+        .fun-box {
+            background: linear-gradient(135deg, var(--purple-dim), var(--blue-dim));
+            border: 1px solid var(--purple-border);
+            border-radius: 12px; padding: 2rem 2.5rem; text-align: center;
+        }
+        .fun-box p {
+            font-family: var(--font-serif); font-size: 1.15rem; font-style: italic;
+            color: var(--text); line-height: 1.6;
+        }
+        .fun-box .fun-author { font-family: var(--font-sans); font-style: normal; font-size: 0.8rem; color: var(--text-muted); margin-top: 0.75rem; display: block; }
+
+        /* Table of contents */
+        .toc { list-style: none; padding: 0; }
+        .toc li {
+            padding: 0.5rem 0; border-bottom: 1px solid var(--border-soft);
+        }
+        .toc li:last-child { border-bottom: none; }
+        .toc a {
+            color: var(--text); text-decoration: none; font-size: 0.95rem; font-weight: 500;
+            display: flex; align-items: center; gap: 0.5rem;
+        }
+        .toc a:hover { color: var(--accent); }
+        .toc .toc-num {
+            font-size: 0.7rem; font-weight: 700; color: var(--accent);
+            background: var(--accent-glow); padding: 0.15rem 0.5rem; border-radius: 3px;
+            min-width: 24px; text-align: center;
+        }
+
+        /* Two column grid */
+        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        @media (max-width: 640px) { .two-col { grid-template-columns: 1fr; } }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-soft); padding: 2.5rem 0;
+            text-align: center;
+        }
+        footer p { font-size: 0.75rem; color: var(--text-muted); letter-spacing: 0.04em; }
+        footer a { color: var(--text-muted); text-decoration: none; }
+        footer a:hover { color: var(--accent); }
+
+        @media (max-width: 640px) {
+            .container { padding: 0 1.25rem; }
+            header { padding: 3rem 0 2rem; }
+            .highlight-box, .fun-box { padding: 1.5rem; }
+            .tool-card { padding: 1.25rem; }
+            .stat-grid { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+<div class="container">
+    <h1>L'IA entra in <em>classe</em></h1>
+    <p class="subtitle">Dispensa completa del corso. Strumenti gratuiti, esempi pratici, attività per i bambini e tutto quello che è emerso durante i nostri incontri.</p>
+    <div class="meta">
+        <span class="meta-item">Scuola Primaria Eferiolo</span>
+        <span class="meta-dot"></span>
+        <span class="meta-item">Marzo 2026</span>
+        <span class="meta-dot"></span>
+        <span class="meta-item">Giobi Fasoli</span>
+    </div>
+</div>
+</header>
+
+<main>
+<div class="container">
+
+    <!-- ═══ Talk ═══ -->
+    <div class="section" style="text-align: center;">
+        <a href="talk/" style="display: inline-flex; align-items: center; gap: 0.75rem; background: var(--accent); color: white; text-decoration: none; padding: 1rem 2rem; border-radius: 10px; font-size: 1.1rem; font-weight: 700; transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(232,123,53,0.3)'" onmouseout="this.style.transform='none';this.style.boxShadow='none'">
+            Apri la presentazione
+        </a>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.75rem;">Le slide del talk — naviga con le frecce</p>
+    </div>
+
+    <!-- ═══ Indice ═══ -->
+    <div class="section">
+        <div class="section-label">Indice</div>
+        <ul class="toc">
+            <li><a href="#cosè"><span class="toc-num">1</span> Cos'è l'IA (in parole semplici)</a></li>
+            <li><a href="#bisogni"><span class="toc-num">2</span> I vostri bisogni reali</a></li>
+            <li><a href="#strumenti"><span class="toc-num">3</span> Gli strumenti (tutti gratis)</a></li>
+            <li><a href="#prompt"><span class="toc-num">4</span> Il segreto: chiedere bene</a></li>
+            <li><a href="#livelli"><span class="toc-num">5</span> Operativo vs tattico</a></li>
+            <li><a href="#regole"><span class="toc-num">6</span> Privacy, allucinazioni e regole</a></li>
+            <li><a href="#bambini"><span class="toc-num">7</span> E per i bambini? AI Unplugged</a></li>
+            <li><a href="#bonus"><span class="toc-num">8</span> Strumenti bonus</a></li>
+            <li><a href="#fonti"><span class="toc-num">9</span> Fonti e approfondimenti</a></li>
+        </ul>
+    </div>
+
+    <!-- ═══ Intro ═══ -->
+    <div class="section">
+        <div class="fun-box">
+            <p>"Qualsiasi tecnologia sufficientemente avanzata è <strong>indistinguibile dalla magia</strong>."</p>
+            <span class="fun-author">— Arthur C. Clarke (ma probabilmente anche le vostre classi terze)</span>
+        </div>
+    </div>
+
+    <!-- ═══ 1. Cos'è ═══ -->
+    <div class="section" id="cosè">
+        <div class="section-label">1. Ma cos'è sta roba?</div>
+        <div class="text-block">
+            <p>L'intelligenza artificiale generativa è un software che <strong>capisce cosa gli chiedete</strong> (in italiano, tranquille) e <strong>produce testo, immagini o riassunti</strong> al volo. Non è magia, non è Terminator, non vi ruberà il posto. È più tipo... <strong>un tirocinante molto veloce</strong> che non si lamenta mai, ma che ogni tanto dice cose sbagliate con una sicurezza imbarazzante.</p>
+            <p>Tutti gli strumenti che vedrete sono <strong>usabili domani mattina</strong>, gratis, dal telefono o dal computer della scuola. L'account Google della scuola basta per tutto.</p>
+        </div>
+    </div>
+
+    <!-- ═══ Numeri ═══ -->
+    <div class="section">
+        <div class="section-label">La buona notizia</div>
+        <div class="stat-grid">
+            <div class="stat-card">
+                <div class="stat-value">€0</div>
+                <div class="stat-label">Costo licenze</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">4+</div>
+                <div class="stat-label">Strumenti</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">&infin;</div>
+                <div class="stat-label">Verifiche generate</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">-80%</div>
+                <div class="stat-label">Tempo burocrazia</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══ 2. Bisogni reali ═══ -->
+    <div class="section" id="bisogni">
+        <div class="section-label">2. I vostri bisogni reali</div>
+        <div class="text-block">
+            <p>Dal nostro primo incontro, ecco cosa è emerso come <strong>prioritario</strong>:</p>
+        </div>
+        <div class="tool-grid" style="margin-top: 1rem;">
+            <div class="tool-card">
+                <div class="tool-header">
+                    <span class="tool-name">Verbalizzazione</span>
+                    <span class="tool-tag tag-star">Priorità alta</span>
+                </div>
+                <div class="tool-desc">Riunioni, consigli, interclasse — tutto da verbalizzare e archiviare. L'IA può trascrivere automaticamente e generare verbali strutturati.</div>
+                <div class="tool-usecase"><strong>Come:</strong> Read.ai registra e trascrive tutto. NotebookLM archivia i verbali e li rende cercabili: "Cosa è stato deciso su X il mese scorso?"</div>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-header">
+                    <span class="tool-name">Gestione sostituzioni</span>
+                    <span class="tool-tag tag-star">Priorità alta</span>
+                </div>
+                <div class="tool-desc">Organizzare la timetable delle sostituzioni al volo, generare compiti per le classi scoperte.</div>
+                <div class="tool-usecase"><strong>Come:</strong> Caricate gli orari e le materie in un chatbot → "La maestra X è assente domani, genera compiti di ripasso per la sua classe terza, materia italiano, argomento: aggettivi"</div>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-header">
+                    <span class="tool-name">Creazione attività</span>
+                </div>
+                <div class="tool-desc">Schede, verifiche, esercizi, filastrocche, storie — tutto personalizzato per età e livello.</div>
+                <div class="tool-usecase"><strong>Come:</strong> Chatbot o Diffit per generare. NotebookLM per generare basandosi sui VOSTRI documenti (PTOF, programmi, verifiche precedenti).</div>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-header">
+                    <span class="tool-name">Correzione e valutazione</span>
+                </div>
+                <div class="tool-desc">Supporto nella correzione — ma con un caveat enorme: <strong>va sempre verificata</strong>. L'IA non firma e non si prende responsabilità.</div>
+                <div class="tool-usecase"><strong>Attenzione:</strong> Il pericolo non è quando il voto è palesemente sbagliato. È quando <em>sembra giusto</em> ma non lo è. Usatela come primo filtro, mai come giudice finale.</div>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-header">
+                    <span class="tool-name">Materiali inclusivi (BES, DSA, CAA)</span>
+                    <span class="tool-tag tag-edu">Inclusione</span>
+                </div>
+                <div class="tool-desc">Generare materiali personalizzati per l'inclusione, inclusa la <strong>Comunicazione Alternativa Aumentativa</strong>. Quello che prima richiedeva ore, ora richiede minuti.</div>
+                <div class="tool-usecase"><strong>Come:</strong> "Trasforma questo testo in linguaggio semplificato con supporto CAA" — oppure usate Diffit per generare testi al livello giusto con vocabolario adatto.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══ Highlight ═══ -->
+    <div class="section">
+        <div class="highlight-box">
+            <p>La domanda giusta non è <strong>"l'IA sostituirà le maestre?"</strong> — la risposta è no. La domanda giusta è: <strong>"posso farle correggere quelle 47 schede mentre io faccio merenda?"</strong></p>
+        </div>
+    </div>
+
+    <!-- ═══ 3. Strumenti ═══ -->
+    <div class="section" id="strumenti">
+        <div class="section-label">3. Gli strumenti (tutti gratis!)</div>
+        <div class="tool-grid">
+
+            <div class="tool-card">
+                <div class="tool-header">
+                    <span class="tool-name">Google NotebookLM</span>
+                    <span class="tool-tag tag-star">Top Pick</span>
+                </div>
+                <div class="tool-desc">Il migliore per voi. Carichi i documenti che vuoi (PDF, siti web, video YouTube, appunti) e poi gli fai domande. Lui risponde <strong>citando esattamente dove ha trovato l'informazione</strong>. Non può inventare niente perché si basa <strong>solo</strong> sui documenti che gli date.</div>
+                <div class="tool-usecase"><strong>Come funziona:</strong> Tre pannelli — fonti a sinistra, chat al centro, note a destra. Caricate i vostri materiali e interrogatelo.</div>
+                <div class="tool-usecase"><strong>Genera:</strong> Quiz, flash card, mappe mentali, podcast audio, esercizi — tutto basato sui vostri documenti.</div>
+                <div class="tool-usecase"><strong>Condivisione:</strong> L'intero notebook è condivisibile con le colleghe. Uno per le riunioni, uno per italiano, uno per matematica...</div>
+                <div class="tool-usecase"><strong>Video:</strong> Caricate un video YouTube → genera domande di comprensione in 2 secondi. Perfetto per verifiche rapide dopo un filmato in classe.</div>
+                <div class="tool-usecase"><strong>Privacy:</strong> NotebookLM non usa i vostri documenti per addestrare altri modelli. È il più sicuro del gruppo.</div>
+                <a href="https://notebooklm.google.com" target="_blank" class="tool-link">notebooklm.google.com →</a>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-header">
+                    <span class="tool-name">I chatbot: Gemini, ChatGPT, Copilot</span>
+                    <span class="tool-tag tag-google">Stessa bestia</span>
+                </div>
+                <div class="tool-desc">Sono tutti lo stesso tipo di strumento con cappelli diversi: gli scrivi in italiano, rispondono con testi, idee, esercizi, storie. Tutti gratuiti (con limiti). Scegliete quello che vi viene più comodo — il risultato è molto simile.</div>
+                <div class="tool-usecase"><strong>Gemini</strong> — di Google, si integra con Drive e Docs. Genera anche <strong>libri illustrati</strong> stampabili.</div>
+                <div class="tool-usecase"><strong>ChatGPT</strong> — il più famoso, si usa senza account.</div>
+                <div class="tool-usecase"><strong>Copilot</strong> — di Microsoft, genera anche immagini.</div>
+                <div class="tool-usecase"><strong>Esempio:</strong> "Scrivi una filastrocca sulle tabelline del 7 con rime facili e ritmo da rap" — oppure — "Genera un esercizio sulle ore in inglese per una classe terza, con orologi da disegnare"</div>
+                <a href="https://gemini.google.com" target="_blank" class="tool-link">gemini.google.com →</a>
+                <a href="https://chat.openai.com" target="_blank" class="tool-link">chat.openai.com →</a>
+                <a href="https://copilot.microsoft.com" target="_blank" class="tool-link">copilot.microsoft.com →</a>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-header">
+                    <span class="tool-name">Canva for Education</span>
+                    <span class="tool-tag tag-edu">Gratis EDU</span>
+                </div>
+                <div class="tool-desc"><strong>Gratis per i docenti!</strong> (versione Pro completa). Crea presentazioni, poster, schede didattiche. Include "Magic Write" (AI che scrive) e generazione di immagini. Il tool col rapporto praticità/fatica più alto in assoluto.</div>
+                <div class="tool-usecase"><strong>Esempio:</strong> Apri Canva → scegli "Scheda didattica" → scrivi "scheda sugli animali della fattoria per prima elementare" → modifica il risultato in 2 minuti. Fatto.</div>
+                <a href="https://www.canva.com/education/" target="_blank" class="tool-link">canva.com/education →</a>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-header">
+                    <span class="tool-name">Diffit</span>
+                    <span class="tool-tag tag-edu">Per Docenti</span>
+                </div>
+                <div class="tool-desc">Fatto apposta per insegnanti. Gli dai un argomento e il livello della classe → genera testi con vocabolario adatto + domande di comprensione automatiche. Perfetto per l'inclusione (BES, DSA).</div>
+                <div class="tool-usecase"><strong>Esempio:</strong> Argomento "I Romani" → livello "grade 3" → genera testo semplificato + 5 domande V/F + vocabolario chiave</div>
+                <a href="https://diffit.me" target="_blank" class="tool-link">diffit.me →</a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ═══ 4. Prompt ═══ -->
+    <div class="section" id="prompt">
+        <div class="section-label">4. Il segreto: chiedere bene</div>
+        <div class="text-block">
+            <p>L'IA funziona come uno studente: <strong>più siete precise nella domanda, meglio risponde</strong>. Il "prompt refining" è una competenza che si impara e che cambia completamente i risultati.</p>
+        </div>
+        <div class="highlight-box" style="margin-top: 1rem;">
+            <p><strong>Chi sei</strong> (sei un'insegnante di scuola primaria) + <strong>Cosa vuoi</strong> (genera una verifica) + <strong>Per chi</strong> (classe terza, 8 anni) + <strong>Come lo vuoi</strong> (5 domande aperte, linguaggio semplice) + <strong>Vincoli</strong> (massimo 1 pagina A4)</p>
+        </div>
+        <div class="text-block" style="margin-top: 1.5rem;">
+            <p><strong>Prompt scarso:</strong> "Fammi una verifica di scienze"</p>
+            <p><strong>Prompt da pro:</strong> "Sei un'insegnante di scuola primaria. Crea una verifica di scienze sul ciclo dell'acqua per una classe terza (8 anni). 3 domande a risposta multipla + 2 domande aperte brevi. Usa un linguaggio adatto all'età, con un disegno da completare. Deve stare in una pagina A4."</p>
+        </div>
+        <div style="margin-top: 1.5rem;">
+            <div class="success-box">
+                <h3>Il prompt refining: non fermatevi al primo risultato</h3>
+                <div class="text-block" style="margin-top: 0.5rem;">
+                    <p>Il primo output non è mai perfetto — e va bene. La magia sta nel <strong>raffinare</strong>:</p>
+                    <p>"Rileggiti come l'hai scritto e dimmi se secondo te va bene"</p>
+                    <p>"Semplifica il linguaggio, usa frasi più corte"</p>
+                    <p>"Fammi 3 alternative diverse"</p>
+                    <p>"Adesso fai un doppio controllo su tutti i fatti che mi hai scritto"</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══ 5. Operativo vs Tattico ═══ -->
+    <div class="section" id="livelli">
+        <div class="section-label">5. Due livelli di utilizzo</div>
+        <div class="text-block">
+            <p>La maggior parte delle persone usa l'IA al livello <strong>operativo</strong>: "fammi la verifica", "correggi questo testo". Va benissimo per iniziare. Ma quando passate al livello <strong>tattico</strong>, diventa spaventosamente utile.</p>
+        </div>
+        <div class="two-col" style="margin-top: 1rem;">
+            <div class="tool-card" style="border-left: 3px solid var(--blue);">
+                <div class="tool-header">
+                    <span class="tool-name">Livello operativo</span>
+                </div>
+                <div class="tool-desc">
+                    Genera una verifica<br>
+                    Correggi questo testo<br>
+                    Crea una scheda sugli animali<br>
+                    Scrivi il verbale della riunione<br>
+                    Genera esercizi sulle ore in inglese
+                </div>
+            </div>
+            <div class="tool-card" style="border-left: 3px solid var(--accent);">
+                <div class="tool-header">
+                    <span class="tool-name">Livello tattico</span>
+                </div>
+                <div class="tool-desc">
+                    Organizza l'anno scolastico<br>
+                    Crea un piano interdisciplinare<br>
+                    Prepara la classe alla visita al museo<br>
+                    Dammi 3 alternative di programma<br>
+                    Analizza i punti di forza/debolezza della classe
+                </div>
+            </div>
+        </div>
+        <div class="highlight-box" style="margin-top: 1.5rem;">
+            <p>Al livello tattico gli dite: <strong>"Guarda tutto l'anno, abbiamo questa classe, questi obiettivi, queste visite — come organizziamo i programmi?"</strong> E lì il prompt refining la fa da padrone.</p>
+        </div>
+    </div>
+
+    <!-- ═══ 6. Regole ═══ -->
+    <div class="section" id="regole">
+        <div class="section-label">6. Privacy, allucinazioni e regole</div>
+        <div class="warning-box">
+            <h3>Da ricordare sempre</h3>
+            <ul class="warning-list">
+                <li><strong>MAI dati degli alunni nei chatbot</strong> — niente nomi, cognomi, situazioni personali. "Ginevra Giobi Fasoli" in ChatGPT è violazione della privacy. In NotebookLM, che non condivide i dati, il rischio è minore ma prudenza sempre.</li>
+                <li><strong>L'IA inventa cose</strong> — si chiamano "allucinazioni". Dice cavolate con la faccia seria. Il pericolo non è quando è palesemente sbagliato — è quando <em>sembra giusto</em>. Verificate sempre.</li>
+                <li><strong>Non è un sostituto</strong> — è un assistente. L'IA non firma niente e non si prende responsabilità. Voi sapete cosa serve ai vostri bambini, lei no.</li>
+                <li><strong>Il copyright conta</strong> — i testi generati dall'IA vanno sempre rivisti e adattati. Non copiate e incollate alla cieca.</li>
+            </ul>
+        </div>
+        <div style="margin-top: 1rem;">
+            <div class="tool-card">
+                <div class="tool-header">
+                    <span class="tool-name">La questione dei dati e dei server americani</span>
+                </div>
+                <div class="tool-desc">I chatbot (ChatGPT, Gemini, Copilot) vivono su server americani. La GDPR europea ci protegge, ma se arriva un ordine esecutivo USA, i dati sono a rischio. Per questo:</div>
+                <div class="tool-usecase"><strong>Per i dati sensibili:</strong> Usate nomi finti, iniziali, o strumenti che lavorano in locale. NotebookLM è il più sicuro perché non usa i vostri documenti per addestrare modelli.</div>
+                <div class="tool-usecase"><strong>In Europa:</strong> Si lavora per avere alternative europee, ma per ora siamo ancora molto dipendenti dai servizi americani. Tenetelo presente, non fatevi paranoie ma nemmeno fate i finti tonti.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══ 7. E per i bambini? ═══ -->
+    <div class="section" id="bambini">
+        <div class="section-label">7. E per i bambini?</div>
+        <div class="highlight-box">
+            <p>L'UNESCO raccomanda <strong>età minima 13 anni</strong> per l'uso diretto dei chatbot in classe. Ma l'<strong>AI literacy</strong> — capire come ragiona l'IA — si può e si deve fare già alle elementari. Non servono computer: servono <strong>carta, forbici e pennarelli</strong>.</p>
+        </div>
+        <div class="text-block" style="margin-top: 1.5rem;">
+            <p>Il principio è semplice: i bambini <strong>"fanno finta di essere l'IA"</strong> per capire come funziona. Si chiama <strong>AI Unplugged</strong> ed è il metodo più supportato dalla ricerca per questa fascia d'età.</p>
+            <p>C'è un'altra cosa importante: insegnare ai bambini a <strong>strutturare le domande</strong> è già prompt refining. "Scrivi un pensierino" vs "Scrivi una storia su un uccellino che..." — se imparano adesso a chiedere bene, a vent'anni saranno micidiali.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-label">Attività pronte all'uso</div>
+        <div class="tool-grid">
+
+            <div class="tool-card">
+                <div class="tool-header">
+                    <span class="tool-name">Il classificatore (embedding)</span>
+                    <span class="tool-tag tag-edu">Da 6 anni</span>
+                </div>
+                <div class="tool-desc">Date ai bambini un mucchio di oggetti misti (forme, animali, parole). Chiedete: <strong>"Inventate le regole per dividerli in gruppi"</strong>. Poi cambiate le regole e rifate. Ogni volta i gruppi cambiano.</div>
+                <div class="tool-usecase"><strong>Cosa capiscono:</strong> L'IA "classifica" le cose in base a regole (si chiama embedding). Regole diverse = risultati diversi. Non c'è una risposta giusta unica.</div>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-header">
+                    <span class="tool-name">Indovina chi robotico</span>
+                    <span class="tool-tag tag-edu">Da 7 anni</span>
+                </div>
+                <div class="tool-desc">Mostrate immagini di personaggi. I bambini li descrivono con una lista di caratteristiche: <strong>capelli biondi, occhiali, cappello rosso...</strong> Poi date solo la lista a un compagno che deve indovinare chi è.</div>
+                <div class="tool-usecase"><strong>Cosa capiscono:</strong> Il riconoscimento facciale funziona così — una lista di numeri che descrivono un volto. Non è "intelligenza", è confronto di liste.</div>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-header">
+                    <span class="tool-name">Il telefono senza fili dell'IA</span>
+                    <span class="tool-tag tag-edu">Da 8 anni</span>
+                </div>
+                <div class="tool-desc">Un bambino scrive un breve testo. Il secondo lo legge e lo <strong>riscrive a parole sue</strong> (senza copiare). Il terzo fa lo stesso col testo del secondo, e così via. Alla fine confrontate l'originale col risultato.</div>
+                <div class="tool-usecase"><strong>Cosa capiscono:</strong> L'IA non "sa" le cose — riscrive basandosi su quello che ha letto. Per questo a volte dice cose sbagliate con totale sicurezza. Si chiama "AI rotting" e bastano 3-4 iterazioni per perdere il senso originale.</div>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-header">
+                    <span class="tool-name">Il previsore meteo umano</span>
+                    <span class="tool-tag tag-edu">Da 9 anni</span>
+                </div>
+                <div class="tool-desc">Date ai bambini una tabella con 10 giorni di meteo (temperatura, cielo, vento). Chiedete: <strong>"Che tempo farà il giorno 11?"</strong> Devono trovare i pattern nei dati e fare una previsione.</div>
+                <div class="tool-usecase"><strong>Cosa capiscono:</strong> Il "machine learning" è esattamente questo — trovare schemi (trend) nei dati per predire il futuro. Niente di magico.</div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="warning-box">
+            <h3>Le regole d'oro per i bambini</h3>
+            <ul class="warning-list">
+                <li><strong>Non farli usare ChatGPT per i compiti</strong> — distrugge la motivazione a pensare con la propria testa. È già un problema alle superiori e all'università.</li>
+                <li><strong>Non presentare l'IA come "magica"</strong> — crea aspettative sbagliate e dipendenza dallo strumento.</li>
+                <li><strong>L'obiettivo non è usare l'IA</strong> — è capire come funziona, per non farsi fregare da grandi.</li>
+                <li><strong>Leva, non stampella</strong> — la differenza è tra "fammelo tu" e "aiutami a strutturarlo meglio". Se imparano questa distinzione adesso, saranno avanti anni luce.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ═══ 8. Strumenti bonus ═══ -->
+    <div class="section" id="bonus">
+        <div class="section-label">8. Strumenti bonus</div>
+        <div class="text-block">
+            <p>Oltre agli strumenti IA, durante il nostro incontro sono emersi altri tool utili per la vita scolastica quotidiana.</p>
+        </div>
+        <div class="tool-grid" style="margin-top: 1rem;">
+
+            <div class="tool-card">
+                <div class="tool-header">
+                    <span class="tool-name">Read.ai — Trascrizione riunioni</span>
+                    <span class="tool-tag tag-bonus">~€150/anno</span>
+                </div>
+                <div class="tool-desc">Registra e trascrive automaticamente le riunioni. Genera verbali, identifica i partecipanti, crea riassunti e azioni da fare. Cercabile: "Quando abbiamo parlato di X?" e trova tutto.</div>
+                <div class="tool-usecase"><strong>Per la scuola:</strong> Un account condiviso per verbalizzare consigli, interclasse, riunioni. Costa, ma fa risparmiare ore di lavoro manuale.</div>
+                <a href="https://www.read.ai" target="_blank" class="tool-link">read.ai →</a>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-header">
+                    <span class="tool-name">Google Foto — Gestione foto scolastiche</span>
+                    <span class="tool-tag tag-bonus">Gratis</span>
+                </div>
+                <div class="tool-desc">Il modo giusto per gestire le foto di gite, eventi e attività. <strong>Non usate WhatsApp</strong> per scambiarvi foto — intasa lo spazio, perde qualità e i link non si aggiornano.</div>
+                <div class="tool-usecase"><strong>Come:</strong> Create un album condiviso (es. "Anno scolastico 25-26"), generate il link, tutti possono aggiungere foto. Ognuno occupa solo il suo spazio. Le foto restano in qualità originale.</div>
+                <div class="tool-usecase"><strong>Liberare spazio:</strong> Andate su "Gestisci spazio" → "Foto e video grandi" e cancellate i video lunghissimi inutili. Per i video lunghi personali: metteteli su un hard disk esterno o come video privati su YouTube (spazio illimitato).</div>
+                <a href="https://photos.google.com" target="_blank" class="tool-link">photos.google.com →</a>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-header">
+                    <span class="tool-name">Raindrop — Salvare link</span>
+                    <span class="tool-tag tag-bonus">Gratis</span>
+                </div>
+                <div class="tool-desc">Un'app per salvare e organizzare link. Articoli, risorse didattiche, prenotazioni, qualsiasi cosa con un URL. Molto meglio che mandarseli su WhatsApp o salvarli nei preferiti del browser dove non li trovate più.</div>
+                <div class="tool-usecase"><strong>Come:</strong> Installate l'app, quando trovate qualcosa di utile: condividi → Raindrop → salvato. Potete creare cartelle per argomento e cercare tutto.</div>
+                <a href="https://raindrop.io" target="_blank" class="tool-link">raindrop.io →</a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ═══ 9. Fonti ═══ -->
+    <div class="section" id="fonti">
+        <div class="section-label">9. Fonti e approfondimenti</div>
+        <div class="text-block">
+            <p><strong>Ricerca e linee guida:</strong></p>
+            <p><a href="https://www.unesco.org/en/articles/guidance-generative-ai-education-and-research">UNESCO — Guidance for Generative AI in Education and Research</a></p>
+            <p><a href="https://link.springer.com/article/10.1007/s10798-025-09979-w">AI Literacy Education in Primary Schools: A Review</a> — Springer, 2025</p>
+            <p><a href="https://www.tandfonline.com/doi/full/10.1080/15391523.2025.2449942">Students as AI Literate Designers</a> — Journal of Research on Technology in Education, 2025</p>
+            <p><a href="https://www.brookings.edu/articles/ais-future-for-students-is-in-our-hands/">AI's Future for Students Is in Our Hands</a> — Brookings Institution</p>
+            <p style="margin-top: 1rem;"><strong>Attività pronte (AI Unplugged):</strong></p>
+            <p><a href="https://sites.northwestern.edu/aiunplugged/">AI Unplugged — Northwestern University</a> — attività scaricabili con lesson plan</p>
+            <p><a href="https://iste.org/blog/3-unplugged-activities-for-teaching-about-ai">3 Unplugged Activities for Teaching About AI</a> — ISTE</p>
+            <p><a href="https://www.aiunplugged.org/english.pdf">AI Unplugged (PDF)</a> — Lindner &amp; Seegerer</p>
+            <p style="margin-top: 1rem;"><strong>Strumenti:</strong></p>
+            <p><a href="https://notebooklm.google.com">Google NotebookLM</a> · <a href="https://gemini.google.com">Gemini</a> · <a href="https://chat.openai.com">ChatGPT</a> · <a href="https://copilot.microsoft.com">Copilot</a> · <a href="https://www.canva.com/education/">Canva Education</a> · <a href="https://diffit.me">Diffit</a></p>
+        </div>
+    </div>
+
+    <!-- ═══ Quote finale ═══ -->
+    <div class="section">
+        <div class="fun-box">
+            <p>"L'intelligenza artificiale non sostituirà le maestre. Ma le maestre che usano l'IA <strong>avranno più tempo per fare le maestre</strong>."</p>
+            <span class="fun-author">— Giobi (che comunque alle elementari andava malissimo)</span>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="highlight-box">
+            <p>Non usatela come un mezzo indipendente. Usatela come <strong>una leva del vostro lavoro</strong> — per potenziare la vostra testa, non per sostituirla.</p>
+        </div>
+    </div>
+
+    <!-- ═══ Contatto ═══ -->
+    <div class="section">
+        <div class="section-label">Domande? Problemi? Panico?</div>
+        <div class="text-block">
+            <p>Scrivete pure a <a href="mailto:info@giobi.com">info@giobi.com</a> — rispondo volentieri. Se vi bloccate con uno strumento, mandatemi uno screenshot e vi aiuto. Se l'IA vi dice che 2+2=5, mandatelo a me che rido anch'io.</p>
+        </div>
+    </div>
+
+</div>
+</main>
+
+<footer>
+<div class="container">
+    <p>Fatto con cura da Giobi Fasoli &middot; Marzo 2026 &middot; <a href="https://giobi.com">giobi.com</a></p>
+</div>
+</footer>
+
+</body>
+</html>

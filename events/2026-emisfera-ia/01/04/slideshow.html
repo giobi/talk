@@ -1,0 +1,203 @@
+<!doctype html><html lang="it"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>IA — Compliance e uso accettabile</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/theme/white.css">
+<style>
+ :root{--r-main-font:'Inter',sans-serif;--r-heading-font:'Inter',sans-serif}
+ .reveal{font-family:Inter,sans-serif}
+ .reveal h1,.reveal h2,.reveal h3{color:#111827;text-transform:none;font-weight:700}
+ .reveal .accent{color:#d97706}
+ .reveal section{text-align:left}
+ .reveal .center{text-align:center}
+ .reveal .card{background:#f9fafb;border-left:4px solid #d97706;border-radius:6px;padding:.5em .8em;margin-top:.5em}
+ .reveal .ok{background:#f0fdf4;border-left:4px solid #16a34a;border-radius:6px;padding:.45em .8em}
+ .reveal .grey{background:#fffbeb;border-left:4px solid #d97706;border-radius:6px;padding:.45em .8em}
+ .reveal .no{background:#fef2f2;border-left:4px solid #dc2626;border-radius:6px;padding:.45em .8em}
+ .reveal table{font-size:.5em}
+ .reveal td,.reveal th{padding:.22em .5em;vertical-align:top}
+ .reveal .src{color:#9ca3af;font-size:.4em;margin-top:.6em}
+</style></head>
+<body>
+<div class="reveal"><div class="slides">
+
+  <section data-background-image="https://images.unsplash.com/photo-1541695226403-a09aa08e5135?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDE2OTJ8MHwxfHNlYXJjaHwxfHxzaWducG9zdCUyMGRpcmVjdGlvbiUyMHJ1bGVzfGVufDB8MHx8fDE3ODYwMjY1OTl8MA&ixlib=rb-4.1.0&q=80&w=1080" data-background-color="#0b0f19" class="center">
+    <div style="display:inline-block;background:rgba(9,12,20,.8);padding:1em 1.6em;border-radius:16px;box-shadow:0 12px 50px rgba(0,0,0,.5)">
+      <div class="accent" style="font-weight:700;letter-spacing:.15em;font-size:.55em">EMISFERA · FORMAZIONE IA</div>
+      <h1 style="color:#fff;font-size:1.9em;margin:.1em 0">Compliance e uso accettabile</h1>
+      <h3 style="color:#d1d5db;font-weight:400;margin:0">Modulo 1.4 · Corso Foundation · 3 ore</h3>
+    </div>
+    <div style="position:absolute;bottom:8px;right:14px;color:#cbd5e1;font-size:.3em;opacity:.7">Foto: Robert Ruggiero / Unsplash</div>
+  </section>
+
+  <section data-background-color="#ffffff">
+    <h2>Cosa vediamo oggi</h2>
+    <ul><li>Le <strong>regole scritte</strong> che ci riguardano davvero — poche, e in italiano</li><li>Cosa l'azienda <strong>registra</strong> dello strumento interno, e perché ve lo diciamo prima</li><li><strong>La linea</strong>: cosa si può fare, cosa richiede cautela, cosa non si fa mai</li><li>Un <strong>laboratorio</strong>: portate un caso vero del vostro reparto e lo passiamo insieme</li></ul>
+    <p style="color:#6b7280;font-size:.5em;margin-top:1em">Nel modulo scorso: dove ci mettiamo la faccia. Oggi: dove passa il confine, per iscritto.</p>
+  </section>
+
+  <section data-background-image="https://images.unsplash.com/photo-1625440153141-1ae4c27ff33b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDE2OTJ8MHwxfHNlYXJjaHwxfHxldXJvcGVhbiUyMHVuaW9uJTIwYnVpbGRpbmclMjBmbGFnc3xlbnwwfDB8fHwxNzg2MDI2NTk5fDA&ixlib=rb-4.1.0&q=80&w=1080" data-background-color="#0b0f19" class="center">
+    <div style="display:inline-block;background:rgba(9,12,20,.82);padding:.8em 1.4em;border-radius:14px">
+      <div class="accent" style="font-weight:700;letter-spacing:.12em;font-size:.55em">PRIMA PARTE</div>
+      <h2 style="color:#fff;margin:.1em 0">Le regole che ci riguardano</h2>
+    </div>
+    <div style="position:absolute;bottom:8px;right:14px;color:#cbd5e1;font-size:.3em;opacity:.7">Foto: Alexandre Lallemand / Unsplash</div>
+  </section>
+
+  <section data-background-color="#ffffff">
+    <h2>Due leggi, non venti</h2>
+    <p style="font-size:.8em;margin:.4em 0">Di normativa sull'IA se ne parla tantissimo. Per il vostro lavoro quotidiano contano due cose, e sono meno spaventose di come le raccontano.</p>
+    <ul><li>Il <strong>GDPR</strong> — che conoscete già: vale anche quando i dati personali passano da uno strumento di IA</li><li>Il <strong>Regolamento europeo sull'intelligenza artificiale</strong> (AI Act) — che classifica gli usi per rischio e chiede che chi usa questi strumenti sappia cosa sta usando</li></ul>
+    <p class="card" style="font-size:.6em">Nessuna delle due dice «non si può usare». Dicono <strong>a quali condizioni</strong>.</p>
+  </section>
+
+  <section data-background-color="#ffffff">
+    <h2>Il GDPR, ridotto all'osso</h2>
+    <p style="font-size:.78em;margin:.3em 0">Tre principi che bastano a coprire il novanta per cento dei casi che incontrate:</p>
+    <ul><li><strong>Serve un motivo legittimo</strong> per trattare un dato personale. «Mi era comodo» non è un motivo</li><li><strong>Il minimo indispensabile</strong>: si usa solo il dato che serve a quello scopo, non tutto il fascicolo</li><li><strong>Si deve poter ricostruire</strong> chi ha fatto cosa, con quali dati. Per questo lo strumento tiene traccia</li></ul>
+    <p style="color:#6b7280;font-size:.5em;margin-top:.6em">C'è poi una regola specifica sulle decisioni automatiche che incidono su una persona: non possono essere solo automatiche. Ci torniamo tra poco.</p>
+  </section>
+
+  <section data-background-color="#ffffff">
+    <h2>L'AI Act: cosa cambia per voi</h2>
+    <p style="font-size:.78em;margin:.3em 0">Il regolamento europeo divide gli usi per livello di rischio: alcuni sono vietati, altri sono «ad alto rischio» e hanno obblighi pesanti, la gran parte è a rischio limitato.</p>
+    <ul><li>L'uso che facciamo qui — scrivere, riassumere, cercare, farsi aiutare sul codice — sta nella <strong>fascia leggera</strong></li><li>Si entra nell'alto rischio quando lo strumento incide su <strong>selezione, valutazione o gestione del personale</strong></li><li>Il regolamento chiede inoltre che chi lavora con questi strumenti abbia una <strong>formazione adeguata</strong></li></ul>
+    <p class="card" style="font-size:.6em">Quest'ultimo punto ha un effetto pratico immediato: <strong>questo corso è anche un adempimento</strong>, non solo un investimento.</p>
+  </section>
+
+  <section data-background-color="#ffffff">
+    <h2>Il punto che tocca il nostro lavoro</h2>
+    <p style="font-size:.8em;margin:.4em 0">Se una decisione riguarda una persona — assumerla, valutarla, assegnarle un turno, negarle qualcosa — non può essere presa dallo strumento da solo.</p>
+    <ul><li>Deve esserci una <strong>persona che decide</strong> e che può motivare la decisione</li><li>Non basta un timbro formale: chi decide deve poter <strong>discostarsi</strong> dal suggerimento</li><li>Vale anche quando lo strumento «ha solo fatto una scrematura»: la scrematura è già una decisione</li></ul>
+    <p style="color:#6b7280;font-size:.5em;margin-top:.6em">È lo stesso principio visto nel modulo sull'etica, e qui è scritto in una legge.</p>
+  </section>
+
+  <section data-background-color="#0b0f19" class="center">
+    <div class="accent" style="font-weight:700;letter-spacing:.12em;font-size:.55em">SECONDA PARTE</div>
+    <h2 style="color:#fff">Cosa registriamo di voi</h2>
+    <p style="color:#9ca3af;font-size:.55em;margin:0">E perché ve lo diciamo prima di chiedervi di firmare qualcosa</p>
+  </section>
+
+  <section data-background-color="#ffffff">
+    <h2>Trasparenza, non sorveglianza</h2>
+    <p style="font-size:.8em;margin:.4em 0">Lo strumento interno tiene traccia di alcune cose. Non è un dettaglio tecnico da nascondere in fondo a un regolamento: se dobbiamo fidarci, dovete sapere prima cosa viene registrato.</p>
+    <ul><li>Serve a <strong>proteggere l'azienda</strong> in caso di contestazione, e a proteggere voi</li><li>Serve a rispondere alla domanda «da dove viene questo risultato», che prima o poi arriva</li><li>Non serve a misurare quanto lavorate</li></ul>
+  </section>
+
+  <section data-background-color="#ffffff">
+    <h2>Tre piani di controllo</h2>
+    <table>
+      <thead><tr><th>Piano</th><th>Cosa guarda</th><th>Perché</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Infrastruttura</strong></td><td>Il servizio è in piedi, gli accessi, i backup, gli aggiornamenti</td><td>Che funzioni e che non entri chi non deve</td></tr>
+        <tr><td><strong>Dati</strong></td><td>Per quanto tempo restano le conversazioni, che tipo di dati ci finiscono, dove stanno fisicamente</td><td>Poter dimostrare come sono trattati i dati personali</td></tr>
+        <tr><td><strong>Uso</strong></td><td>Segnalazioni automatiche su cose fuori policy (credenziali, dati sensibili), tentativi di aggirare i limiti</td><td>Accorgersi di un problema prima che diventi un danno</td></tr>
+      </tbody>
+    </table>
+    <p style="color:#6b7280;font-size:.5em;margin-top:.7em">Sul terzo piano la revisione umana è <strong>a campione e sulle segnalazioni</strong>, non una lettura sistematica di quello che scrivete.</p>
+  </section>
+
+  <section data-background-color="#ffffff">
+    <h2>Cosa vuol dire in pratica</h2>
+    <ul><li>Le conversazioni <strong>non restano per sempre</strong>: c'è un tempo di conservazione, ed è verificabile</li><li>Se incollate una credenziale, il sistema può <strong>segnalarlo</strong>: è una rete di protezione, non una trappola</li><li>Nessuno legge le vostre conversazioni per curiosità, e chi ha accesso agli strumenti di controllo è un elenco chiuso</li><li>I dati restano <strong>dentro l'infrastruttura aziendale</strong>: è il motivo per cui esiste lo strumento interno</li></ul>
+    <p class="card" style="font-size:.6em">Se qualcosa di tutto questo vi sembra sbagliato o sproporzionato, questo è il momento di dirlo.</p>
+  </section>
+
+  <section data-background-image="https://images.unsplash.com/photo-1582002061204-977683fd8591?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDE2OTJ8MHwxfHNlYXJjaHwxfHxyb2FkJTIwbGluZSUyMG1hcmtpbmclMjBib3VuZGFyeXxlbnwwfDB8fHwxNzg2MDI2NjAwfDA&ixlib=rb-4.1.0&q=80&w=1080" data-background-color="#0b0f19" class="center">
+    <div style="display:inline-block;background:rgba(9,12,20,.82);padding:.8em 1.4em;border-radius:14px">
+      <div class="accent" style="font-weight:700;letter-spacing:.12em;font-size:.55em">TERZA PARTE</div>
+      <h2 style="color:#fff;margin:.1em 0">La linea</h2>
+    </div>
+    <div style="position:absolute;bottom:8px;right:14px;color:#cbd5e1;font-size:.3em;opacity:.7">Foto: Jay Wennington / Unsplash</div>
+  </section>
+
+  <section data-background-color="#ffffff">
+    <h2>Si fa, senza pensarci troppo</h2>
+    <div class="ok" style="font-size:.62em">
+      <ul style="margin:0"><li>Scrivere bozze, riassumere, tradurre <strong>documenti interni</strong></li><li>Analizzare dati di cui l'azienda è titolare, per gli scopi per cui li ha raccolti</li><li>Farsi aiutare su <strong>codice</strong>, configurazioni, ricerca tecnica</li><li>Preparare comunicazioni, con revisione umana prima che escano</li></ul>
+    </div>
+    <p style="color:#6b7280;font-size:.5em;margin-top:.8em">Questa è la stragrande maggioranza di quello che farete. Non serve chiedere il permesso ogni volta.</p>
+  </section>
+
+  <section data-background-color="#ffffff">
+    <h2>Si può, ma con cautela</h2>
+    <div class="grey" style="font-size:.6em">
+      <ul style="margin:0"><li><strong>Dati personali di terzi</strong>: solo se c'è un motivo documentato e solo il minimo necessario</li><li><strong>Dati particolarmente delicati</strong> — salute, convinzioni, appartenenze: di regola no, salvo casi specifici concordati</li><li><strong>Decisioni che riguardano una persona</strong>: sempre con una persona che decide davvero</li><li><strong>Documenti di clienti</strong>: prima si guarda cosa dice il contratto</li></ul>
+    </div>
+    <p class="card" style="font-size:.6em">Zona grigia vuol dire: <strong>non decidete da soli</strong>. Un minuto per chiedere costa meno di una segnalazione al Garante.</p>
+  </section>
+
+  <section data-background-color="#ffffff">
+    <h2>Non si fa. Mai</h2>
+    <div class="no" style="font-size:.6em">
+      <ul style="margin:0"><li><strong>Credenziali, chiavi, password</strong> — di nessuno, in nessun contesto</li><li><strong>Esportazioni intere</strong> di archivi con dati personali</li><li>Tentare di <strong>aggirare i limiti</strong> dello strumento per fargli fare ciò che rifiuta</li><li>Contenuti <strong>illeciti, discriminatori o molesti</strong></li><li>Portare dati aziendali su <strong>strumenti personali</strong> non autorizzati</li><li>Usare un output come <strong>unica base</strong> di una decisione legale o sul personale</li></ul>
+    </div>
+    <p style="color:#6b7280;font-size:.5em;margin-top:.6em">L'ultima riga della lista è quella che nella pratica salta più spesso, ed è anche la più costosa.</p>
+  </section>
+
+  <section data-background-color="#ffffff">
+    <h2>Lo strumento personale</h2>
+    <p style="font-size:.8em;margin:.4em 0">La regola che genera più discussioni: perché non posso usare il servizio pubblico che uso a casa, che magari è pure più bravo?</p>
+    <ul><li>Perché quello che ci scrivete <strong>esce dal perimetro</strong> aziendale e non torna indietro</li><li>Perché in caso di contestazione l'azienda deve poter dimostrare dove sono finiti i dati, e lì non può</li><li>Perché il contratto con alcuni clienti lo <strong>vieta esplicitamente</strong></li></ul>
+    <p class="card" style="font-size:.6em">Per uso personale fate quello che volete. Con roba di lavoro si usa quello aziendale, anche quando è meno comodo.</p>
+  </section>
+
+  <section data-background-color="#ffffff">
+    <h2>Provatelo voi</h2>
+    <p style="font-size:.8em;margin:.4em 0">Sui portatili, quindici minuti: uno strumento in cui incollate un testo e vi mostra cosa non dovrebbe uscire dall'azienda, e da che parte della linea cade il caso.</p>
+    <ul><li>Provate con un testo <strong>vostro</strong> — una mail, una nota, un pezzo di documentazione</li><li>Guardate cosa viene evidenziato e chiedetevi se eravate d'accordo prima di vederlo</li></ul>
+    <p class="card" style="font-size:.6em">Lo strumento resta online anche dopo il corso: quando avete un dubbio su un testo, passatelo di lì prima di incollarlo altrove.</p>
+    <p style="color:#6b7280;font-size:.45em;margin-top:.5em">Link nella pagina dei materiali, in fondo alle slide.</p>
+  </section>
+
+  <section data-background-color="#ffffff">
+    <h2>Quando il dubbio resta</h2>
+    <p style="font-size:.78em;margin:.3em 0">Nessuna lista copre tutti i casi. Quando siete nel mezzo e non sapete:</p>
+    <ul><li>Chiedete <strong>prima</strong>: a chi coordina il vostro reparto, o a chi presidia lo strumento</li><li>Se è successo qualcosa che non doveva succedere, <strong>ditelo subito</strong>. Un errore segnalato in giornata si sistema; scoperto a mesi di distanza, no</li><li>Non esiste una sanzione per chi chiede. Esiste un problema serio per chi nasconde</li></ul>
+  </section>
+
+  <section data-background-image="https://images.unsplash.com/photo-1623652554515-91c833e3080e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDE2OTJ8MHwxfHNlYXJjaHwxfHxncm91cCUyMHdvcmtzaG9wJTIwdGFibGUlMjBkaXNjdXNzaW9ufGVufDB8MHx8fDE3ODYwMjY2MDB8MA&ixlib=rb-4.1.0&q=80&w=1080" data-background-color="#0b0f19">
+    <div style="display:inline-block;max-width:82%;background:rgba(9,12,20,.84);padding:.8em 1.1em;border-radius:12px">
+      <div class="accent" style="font-weight:700;letter-spacing:.12em;font-size:.55em">LABORATORIO · 40 MINUTI</div>
+      <h2 style="color:#fff;margin:.1em 0">Il caso del vostro reparto</h2>
+      <p style="color:#e5e7eb;font-size:.58em;margin-top:.5em">A gruppi: prendete <strong>un caso vero</strong> della vostra settimana in cui avreste usato o avete usato l'IA. Rispondete a tre domande: di chi sono i dati, da che parte della linea cade, cosa serve per portarlo dalla zona grigia a quella verde.</p>
+      <p style="color:#9ca3af;font-size:.5em;margin-top:.5em">Ogni gruppo riporta un caso in plenaria. I casi che restano dubbi diventano la prima versione delle regole scritte.</p>
+    </div>
+    <div style="position:absolute;bottom:8px;right:14px;color:#cbd5e1;font-size:.3em;opacity:.7">Foto: Fortytwo / Unsplash</div>
+  </section>
+
+  <section data-background-color="#ffffff">
+    <h2>Cosa portiamo via da qui</h2>
+    <p style="font-size:.78em;margin:.3em 0">Quello che uscirà dal laboratorio non resta negli appunti di qualcuno:</p>
+    <ul><li>I casi discussi diventano <strong>esempi concreti</strong> nel documento di uso accettabile dell'azienda</li><li>Le regole si aggiornano quando cambia il lavoro: questa è la prima versione, non l'ultima</li><li>Chi trova un caso nuovo lo segnala, e la lista cresce</li></ul>
+    <p style="color:#6b7280;font-size:.5em;margin-top:.6em">Una policy scritta da chi non fa il lavoro invecchia in tre mesi. Questa la state scrivendo voi.</p>
+  </section>
+
+  <section data-background-color="#ffffff">
+    <h2>Tre cose da portare a casa</h2>
+    <ul><li>La legge non vieta: pone <strong>condizioni</strong>. Le due che contano sono un motivo legittimo e il minimo indispensabile</li><li>Il controllo esiste, ve l'abbiamo detto prima e serve a <strong>ricostruire</strong>, non a sorvegliare</li><li>Tre livelli: la gran parte del lavoro è <strong>verde</strong>; nella zona grigia si chiede; il rosso è corto e non si negozia</li></ul>
+    <p style="color:#6b7280;font-size:.5em;margin-top:1em">Con questo modulo il corso Foundation è chiuso. Per chi coordina, per chi sviluppa e per i reparti amministrativo e networking ci sono i percorsi dedicati.</p>
+  </section>
+
+  <section data-background-color="#ffffff">
+    <h2>Il corso in quattro frasi</h2>
+    <ul><li><strong>1.1</strong> — È una macchina che prevede la parola successiva. Non sa, non capisce, e a volte inventa</li><li><strong>1.2</strong> — Serve a togliere attrito da cose che già fate. Il caso d'uso lo trovate voi</li><li><strong>1.3</strong> — Il pregiudizio siamo noi riflessi. La firma resta vostra</li><li><strong>1.4</strong> — La linea è scritta, la parte verde è larga, e la si aggiorna insieme</li></ul>
+  </section>
+
+  <section class="center" data-materials>
+    <h2>Materiali</h2>
+    <p style="color:#6b7280;font-size:.6em">Inquadra il codice, o vai a:</p>
+    <p style="margin:.2em 0"><a class="accent" href="./" style="font-weight:600;font-size:.7em">https://talk.giobi.com/events/2026-emisfera-ia/01/04/</a></p>
+    <img src="qr-hub.svg" alt="QR code verso i materiali del modulo" style="width:220px;height:220px;margin:18px auto 0;display:block;background:#fff;padding:8px;border-radius:8px">
+    <p style="color:#6b7280;font-size:.45em;margin-top:14px">Lì trovi queste slide, lo strumento di controllo dei testi e il documento di uso accettabile.</p>
+  </section>
+
+</div></div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/notes/notes.js"></script>
+<script>
+ Reveal.initialize({hash:true,backgroundTransition:'none',plugins:[RevealNotes]});
+</script>
+</body></html>

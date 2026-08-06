@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GR Work Tech — Brain Protocol</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #0f0f0f;
+            color: #f0ece4;
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            max-width: 640px;
+            width: 100%;
+            padding: 60px 32px;
+        }
+        .eyebrow {
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #c8a96e;
+            margin-bottom: 1.2em;
+        }
+        h1 {
+            font-size: 48px;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.05;
+            margin-bottom: 0.2em;
+        }
+        .subtitle {
+            font-size: 20px;
+            color: #888;
+            margin-bottom: 3em;
+            line-height: 1.5;
+        }
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .links a {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #1e1e1e;
+            border: 1px solid rgba(232, 220, 200, 0.15);
+            border-radius: 10px;
+            padding: 20px 28px;
+            text-decoration: none;
+            color: #f0ece4;
+            transition: border-color 0.2s, background 0.2s;
+        }
+        .links a:hover {
+            border-color: #c8a96e;
+            background: rgba(200, 169, 110, 0.06);
+        }
+        .link-label {
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #c8a96e;
+            display: block;
+            margin-bottom: 4px;
+        }
+        .link-title {
+            font-size: 22px;
+            font-weight: 600;
+        }
+        .arrow {
+            font-size: 24px;
+            color: #c8a96e;
+            opacity: 0.5;
+            transition: opacity 0.2s;
+        }
+        .links a:hover .arrow { opacity: 1; }
+        .footer {
+            margin-top: 3em;
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="eyebrow">GR Work Tech</div>
+        <h1>Brain Protocol</h1>
+        <p class="subtitle">Pitch materials — sustAIn.brussels Session #2<br>April 16, 2026</p>
+        <div class="links">
+            <a href="slides.html">
+                <div>
+                    <span class="link-label">Presentation</span>
+                    <span class="link-title">Pitch Deck Slides</span>
+                </div>
+                <span class="arrow">&rarr;</span>
+            </a>
+            <a href="speaker-notes.html">
+                <div>
+                    <span class="link-label">Internal</span>
+                    <span class="link-title">Speaker Notes</span>
+                </div>
+                <span class="arrow">&rarr;</span>
+            </a>
+            <a href="handout.html">
+                <div>
+                    <span class="link-label">Handout</span>
+                    <span class="link-title">Executive Summary</span>
+                </div>
+                <span class="arrow">&rarr;</span>
+            </a>
+            <a href="https://public.abchat.it/giobi/grworktech/market-research/">
+                <div>
+                    <span class="link-label">Research</span>
+                    <span class="link-title">Market Analysis</span>
+                </div>
+                <span class="arrow">&rarr;</span>
+            </a>
+            <a href="https://public.giobi.com/grworktech/ide-services/" target="_blank" rel="noopener">
+                <div>
+                    <span class="link-label">Services</span>
+                    <span class="link-title">Ide Services Overview</span>
+                </div>
+                <span class="arrow">&rarr;</span>
+            </a>
+        </div>
+        <p class="footer">Yoni Szpiro / David Caggiari / Giobi Fasoli</p>
+    </div>
+</body>
+</html>

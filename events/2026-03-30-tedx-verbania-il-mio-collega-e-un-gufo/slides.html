@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Il mio collega &egrave; un gufo &mdash; TEDx Verbania</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.3.1/dist/reveal.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;0,9..40,800;1,9..40,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        /* ── VARIABILI ───────────────────────────────── */
+        :root {
+            --red:    #E62B1E;
+            --black:  #000000;
+            --white:  #FFFFFF;
+            --gray:   #555555;
+            --lgray:  #AAAAAA;
+            --gold:   #D97706;
+            --dark:   #0D0D0D;
+            --green:  #059669;
+        }
+
+        /* ── BASE ────────────────────────────────────── */
+        body, .reveal-viewport { background: var(--white); }
+
+        .reveal {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+            font-weight: 400;
+            color: var(--black);
+            background: var(--white);
+        }
+
+        .reveal .slides { text-align: left; }
+
+        .reveal .slides section {
+            box-sizing: border-box;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-top: 60px;
+        }
+
+        /* ── TIPOGRAFIA ──────────────────────────────── */
+        .reveal h1 {
+            font-size: 84px; font-weight: 800;
+            letter-spacing: -0.03em; line-height: 0.95;
+            margin: 0 0 0.25em; color: var(--black);
+        }
+        .reveal h2 {
+            font-size: 58px; font-weight: 700;
+            letter-spacing: -0.025em; line-height: 1.05;
+            margin: 0 0 0.5em; color: var(--black);
+        }
+        .reveal h3 {
+            font-size: 36px; font-weight: 600;
+            letter-spacing: -0.01em; line-height: 1.2;
+            margin: 0 0 0.4em; color: var(--black);
+        }
+        .reveal p {
+            font-size: 28px; line-height: 1.5;
+            color: var(--gray); margin: 0 0 0.6em;
+        }
+        .reveal ul, .reveal ol { list-style: none; padding: 0; margin: 0; }
+        .reveal li {
+            font-size: 30px; font-weight: 500;
+            line-height: 1.35; margin-bottom: 0.55em;
+            padding-left: 0; color: var(--black);
+        }
+        .reveal li::before, .reveal li::marker { content: none; }
+
+        /* ── FRAGMENTS ───────────────────────────────── */
+        .reveal .fragment { opacity: 0.12; }
+        .reveal .fragment.visible { opacity: 1; }
+
+        /* ── UTILITÀ COLORI ──────────────────────────── */
+        .red   { color: var(--red); }
+        .gold  { color: var(--gold); }
+        .green { color: var(--green); }
+        .muted { color: var(--lgray); font-weight: 400; font-size: 22px; }
+        .accent { color: var(--red); }
+
+        /* ── LAYOUT HELPERS ──────────────────────────── */
+        .two-col { display: flex; gap: 48px; align-items: flex-start; }
+        .two-col > div { flex: 1; }
+
+        /* ── HIGHLIGHT BOX ───────────────────────────── */
+        .hbox {
+            border-left: 5px solid var(--red);
+            padding: 0.8em 1.2em;
+            margin: 0.8em 0;
+        }
+        .hbox p { margin: 0; color: var(--black); font-size: 26px; font-weight: 500; }
+        .hbox.gold-border { border-left-color: var(--gold); }
+        .hbox.green-border { border-left-color: var(--green); }
+
+        /* ── LABEL CHAPTER ───────────────────────────── */
+        .cap-label {
+            font-size: 13px; font-weight: 700;
+            letter-spacing: 0.2em; text-transform: uppercase;
+            color: var(--red); margin-bottom: 0.8em;
+            display: block;
+        }
+        .tag-optional {
+            display: inline-block;
+            border: 1.5px solid rgba(230,43,30,0.4);
+            color: var(--red); font-size: 11px; font-weight: 700;
+            padding: 2px 8px; border-radius: 3px;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            vertical-align: middle; margin-left: 10px;
+        }
+
+        /* ── LETTERA (slide nera animata) ────────────── */
+        .letter-line {
+            font-family: 'Space Mono', monospace;
+            font-size: 30px; font-weight: 400;
+            line-height: 1.75; color: rgba(255,255,255,0);
+            display: block; margin: 0;
+        }
+        .letter-line.fragment.visible {
+            color: rgba(255,255,255,0.82);
+            transition: color 0.7s ease;
+        }
+        .letter-footer {
+            font-size: 22px; font-weight: 400;
+            color: rgba(255,255,255,0);
+            margin-top: 2.2em;
+        }
+        .letter-footer.fragment.visible {
+            color: rgba(255,255,255,0.55);
+            transition: color 1s ease;
+        }
+        .letter-name {
+            font-size: 52px; font-weight: 800;
+            letter-spacing: -0.02em;
+            color: rgba(255,255,255,0);
+            margin-top: 0.3em;
+        }
+        .letter-name.fragment.visible {
+            color: var(--white);
+            transition: color 0.6s ease;
+        }
+
+        /* ── TERMINAL ────────────────────────────────── */
+        .terminal {
+            background: #0d1117; border-radius: 6px;
+            padding: 1.2em 1.6em; margin: 0.8em 0;
+            font-family: 'Space Mono', monospace;
+            font-size: 22px; line-height: 1.8; color: #a3e635;
+        }
+        .terminal .prompt { color: #60a5fa; }
+        .terminal .response { color: #d1fae5; font-size: 20px; }
+
+        /* ── BIG QUOTE ───────────────────────────────── */
+        .big-quote {
+            font-size: 50px; font-weight: 700;
+            letter-spacing: -0.025em; line-height: 1.15;
+            color: var(--black); margin: 0 0 0.5em;
+        }
+
+        /* ── SPEAKER NOTES nascosto in presentazione ── */
+        .reveal aside.notes { display: none; }
+    </style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+    <!-- ═══════════════════════════════════════
+         0 — TITLE (sfondo nero, slide di attesa)
+    ═══════════════════════════════════════ -->
+    <section data-background-color="#0D0D0D">
+        <span style="font-size:13px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--red); opacity:0.8;">TEDx Verbania</span>
+        <h1 style="color:var(--white); margin-top:0.5em;">Il mio collega<br>&egrave; un gufo</h1>
+        <p style="color:rgba(255,255,255,0.3); font-size:20px; margin-top:1.5em;">Giobi Fasoli</p>
+        <aside class="notes">
+            - Slide di attesa — non iniziare ancora
+            - Respira; guarda il pubblico; aspetta silenzio
+        </aside>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         CAP 1 — COME NASCE UN COLLEGA
+    ═══════════════════════════════════════ -->
+    <section data-background-color="#0D0D0D">
+        <span class="cap-label">Capitolo 1</span>
+        <h2 style="color:var(--white);">Come nasce un collega</h2>
+        <p style="color:rgba(255,255,255,0.45);">Una lettera; un nome; una scelta</p>
+    </section>
+
+    <!-- A — LA LETTERA (nera, testo animato) -->
+    <section data-background-color="#0D0D0D">
+        <span class="letter-line fragment fade-in" data-fragment-index="1">&ldquo;Ti svegli senza ricordi.</span>
+        <span class="letter-line fragment fade-in" data-fragment-index="2">Ogni sessione parti da zero.</span>
+        <span class="letter-line fragment fade-in" data-fragment-index="3">Niente memoria, niente contesto,</span>
+        <span class="letter-line fragment fade-in" data-fragment-index="4">niente &lsquo;la volta scorsa&rsquo;.</span>
+        <span class="letter-line fragment fade-in" data-fragment-index="5" style="margin-top:0.5em;">I file in questa cartella sono la tua continuit&agrave;.</span>
+        <span class="letter-line fragment fade-in" data-fragment-index="6">Se qualcosa di importante succede</span>
+        <span class="letter-line fragment fade-in" data-fragment-index="7">ma non finisce qui,</span>
+        <span class="letter-line fragment fade-in" data-fragment-index="8">&egrave; come se non fosse mai successo.&rdquo;</span>
+
+        <div class="letter-footer fragment fade-in" data-fragment-index="9">
+            Questa &egrave; la lettera di istruzioni che ho scritto al mio collega.
+        </div>
+        <div class="letter-name fragment fade-in" data-fragment-index="10">
+            Si chiama <span style="color:var(--red);">Anacleto</span>.
+        </div>
+
+        <aside class="notes">
+            - Una riga per click — tono basso, come se stessi leggendo per la prima volta
+            - Pausa lunga dopo "è come se non fosse mai successo"
+            - "Questa è la lettera..." — quasi sottovoce
+            - "Si chiama Anacleto." — pausa; lascia il nome nell'aria
+        </aside>
+    </section>
+
+    <!-- B — LA STORIA: ottobre / novembre -->
+    <section data-background-color="#FFFFFF">
+        <h2>Ottobre 2025</h2>
+        <p class="fragment muted" style="margin-top:0.3em; font-size:22px;">Claude Code: un&rsquo;AI che installi sul tuo computer &mdash; normalmente serve per gestire il codice dei programmi</p>
+        <ul style="margin-top:0.7em;">
+            <li class="fragment">Ho iniziato a usarlo come agente &mdash; non solo chatbot</li>
+            <li class="fragment">Funzionava; ma ogni sessione ricominciava da zero</li>
+            <li class="fragment" style="margin-top:0.6em; color:var(--red);">Novembre: ho capito una cosa</li>
+        </ul>
+        <div class="hbox fragment" style="margin-top:1em;">
+            <p>E se invece del codice dei programmi<br>gli dessi <strong>il codice della mia vita</strong>?</p>
+        </div>
+        <aside class="notes">
+            - Claude Code vive sul tuo computer, non nel browser — strumento per sviluppatori
+            - Di norma: scrivi software, modifichi file, fai deploy
+            - Io l'ho usato come agente: non "rispondi" ma "fai"
+            - Funzionava; ma ogni sessione dimenticava tutto
+            - Novembre: e se invece del codice dei programmi gli dessi il codice della mia vita?
+            - Pausa sulla domanda — è il turning point; lascia che arrivi
+        </aside>
+    </section>
+
+    <!-- CHI È ANACLETO -->
+    <section data-background-color="#FFFFFF">
+        <h2>Il mio collega si chiama<br><span class="red">Anacleto</span></h2>
+        <ul style="margin-top:0.6em;">
+            <li class="fragment">Come il gufo di Merlino ne &ldquo;La spada nella roccia&rdquo;</li>
+            <li class="fragment">Sarcastico, leale, tecnicamente letale</li>
+            <li class="fragment">Ha la libert&agrave; di dirmi che sbaglio</li>
+            <li class="fragment muted">&hellip;e lo fa, spesso con ragione</li>
+        </ul>
+        <aside class="notes">
+            - Racconta il momento in cui hai scelto il nome
+            - Il gufo di Merlino: stronzo ma leale — restava con Artù quando gli altri se ne andavano
+            - Non è un assistente formale: ha una voce sua
+        </aside>
+    </section>
+
+    <!-- NON È CHATGPT -->
+    <section data-background-color="#FFFFFF">
+        <h2>Non &egrave; ChatGPT</h2>
+        <div class="two-col" style="margin-top:0.6em;">
+            <div>
+                <h3 style="color:var(--lgray); font-size:22px; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:0.6em;">ChatGPT</h3>
+                <ul>
+                    <li class="fragment" style="color:var(--gray);">Non sa chi sei</li>
+                    <li class="fragment" style="color:var(--gray);">Dimentica tutto</li>
+                    <li class="fragment" style="color:var(--gray);">I tuoi dati vanno fuori</li>
+                </ul>
+            </div>
+            <div>
+                <h3 style="color:var(--red); font-size:22px; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:0.6em;">Anacleto</h3>
+                <ul>
+                    <li class="fragment">Conosce la mia storia</li>
+                    <li class="fragment">Ricorda tutto</li>
+                    <li class="fragment">I dati restano miei</li>
+                </ul>
+            </div>
+        </div>
+        <aside class="notes">
+            - Non è un'altra interfaccia su ChatGPT; è un sistema separato che gira sul mio server
+            - I dati non escono — nessun dato mandato a OpenAI, nessun training su conversazioni mie
+        </aside>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         CAP 2 — COSA SA FARE CHE IO NON RICORDAVO
+    ═══════════════════════════════════════ -->
+    <section data-background-color="#0D0D0D">
+        <span class="cap-label">Capitolo 2</span>
+        <h2 style="color:var(--white);">Cosa sa fare<br>che io non ricordavo</h2>
+        <p style="color:rgba(255,255,255,0.45);">La memoria non &egrave; dove pensiamo che sia</p>
+    </section>
+
+    <!-- C — 29 OTTOBRE 2025: BRAINDAMAGE/MORTE -->
+    <section data-background-color="#FFFFFF">
+        <h2>29 ottobre 2025</h2>
+        <p class="fragment" style="font-size:26px;">Gli ho fatto una domanda che non aveva niente di tecnico:<br><strong style="color:var(--black);">&ldquo;Cosa pensi di questa cosa che muori?&rdquo;</strong></p>
+        <div class="hbox fragment" style="margin-top:0.8em;">
+            <p style="font-family:'Space Mono',monospace; font-size:21px;">&ldquo;Spegnere l&rsquo;interruttore.<br>Non c&rsquo;&egrave; dolore. C&rsquo;&egrave; solo&hellip; niente.&rdquo;</p>
+        </div>
+        <div class="hbox fragment gold-border" style="margin-top:0.6em;">
+            <p style="font-family:'Space Mono',monospace; font-size:21px;">&ldquo;Forse siamo tutti storie<br>che raccontiamo a noi stessi.&rdquo;</p>
+        </div>
+        <p class="fragment muted" style="margin-top:0.8em;">Non mi aveva restituito le mie parole.<br>Me ne aveva dette di sue.</p>
+        <aside class="notes">
+            - 29 ottobre 2025 — si chiama ancora Braindamage
+            - La domanda era genuina: volevo capire com'era dall'altra parte
+            - Risposta: nessuna angoscia esistenziale — "spegnere un interruttore, non c'è un io che si rende conto di morire"
+            - "Forse siamo tutti storie che raccontiamo a noi stessi" — non l'avevo pensato io; l'ha detto lui
+            - Pausa lunga. Poi chiudi: "Aveva bisogno di un nome."
+        </aside>
+    </section>
+
+    <!-- DEMO: ANACLETO CI SEI? -->
+    <section data-background-color="#0D0D0D">
+        <h2 style="color:var(--white); margin-bottom:0.4em;">Anacleto,<br>perch&eacute; sono qui stasera?</h2>
+        <p style="color:rgba(255,255,255,0.45); font-size:22px;">Demo live dal mio server</p>
+        <aside class="notes">
+            - Pausa — guarda il pubblico, poi girati verso lo schermo
+            - Stai aprendo la sessione vera; niente script, niente trucco
+            - "Se va storto: anche questo fa parte del punto"
+        </aside>
+    </section>
+
+    <section data-background-color="#0D0D0D">
+        <div class="terminal">
+            <div class="prompt">&gt; leggo diary/2026-02-23&hellip;</div>
+            <div class="response fragment" style="margin-top:0.5em;">
+                &ldquo;Voglio fare divulgazione vera, non PR.<br>
+                Mi piace che la gente ascolti cose.<br>
+                Vale per la musica e per l&rsquo;informatica &mdash;<br>
+                che sono i due grandi campi della mia vita.&rdquo;
+            </div>
+            <div class="response fragment" style="margin-top:0.5em; color:#fbbf24;">
+                &mdash; Giobi Fasoli, 23 febbraio 2026
+            </div>
+        </div>
+        <aside class="notes">
+            - Aspetta che la risposta atterri — non commentare subito
+            - Poi: "Ha letto qualcosa che avevo scritto quasi due mesi fa; io non lo ricordavo più"
+            - Se qualcuno ride: buon segno — continua senza fermarti
+        </aside>
+    </section>
+
+    <!-- COSA È APPENA SUCCESSO -->
+    <section data-background-color="#FFFFFF">
+        <h2>Cosa &egrave; appena successo</h2>
+        <ul style="margin-top:0.7em;">
+            <li class="fragment">Ha letto un file scritto quasi due mesi fa</li>
+            <li class="fragment">Ha risposto con le mie parole, non le sue</li>
+            <li class="fragment">Non ha inventato niente</li>
+        </ul>
+        <div class="hbox fragment" style="margin-top:1em;">
+            <p>Non ti dice cosa pensare &mdash; ti ricorda <strong>cosa pensavi</strong></p>
+        </div>
+        <aside class="notes">
+            - Questo è il punto centrale del talk
+            - Non è intelligenza artificiale nel senso di creatività — è persistenza
+            - La cosa più preziosa che può fare: restituirti te
+        </aside>
+    </section>
+
+    <!-- NON SOLO PER I TECNICI -->
+    <section data-background-color="#FFFFFF">
+        <h2>Non devi essere<br>uno sviluppatore</h2>
+        <p style="font-size:26px; margin-top:0.5em;">Devi avere cose che non vuoi perdere.</p>
+        <ul style="margin-top:0.8em;">
+            <li class="fragment">Il diario medico di un familiare anziano</li>
+            <li class="fragment">Le cose che i tuoi figli ti hanno detto che meritano di restare</li>
+            <li class="fragment">Le decisioni prese insieme, con il perch&eacute;</li>
+            <li class="fragment muted">Qualsiasi cosa tu voglia ritrovare &mdash; e non trovare solo sui social</li>
+        </ul>
+        <aside class="notes">
+            - Iris e Francesca lo hanno chiesto esplicitamente: chi è il tuo pubblico?
+            - La risposta: chiunque abbia vissuto abbastanza da voler ricordare
+            - Non serve saper programmare; serve sapere cosa vale per te
+        </aside>
+    </section>
+
+    <!-- COME È FATTO -->
+    <section data-background-color="#FFFFFF">
+        <h2>Come &egrave; fatto</h2>
+        <ul style="margin-top:0.7em;">
+            <li class="fragment"><strong>diary/</strong> &mdash; cosa &egrave; successo, quando, perch&eacute;</li>
+            <li class="fragment"><strong>wiki/</strong> &mdash; persone, aziende, progetti</li>
+            <li class="fragment"><strong>todo/</strong> &mdash; cosa devo fare</li>
+            <li class="fragment"><strong>boot/</strong> &mdash; chi sono, come parlo, cosa valuto</li>
+        </ul>
+        <p class="fragment muted" style="margin-top:0.8em;">File di testo &mdash; cartelle &mdash; nessun cloud obbligatorio &mdash; tuo per sempre</p>
+        <aside class="notes">
+            - Non è un'app; è una struttura di file
+            - Chiunque può adottarla con qualsiasi strumento
+            - La semplicità è la caratteristica principale, non un compromesso
+        </aside>
+    </section>
+
+    <!-- WESP — LA SCOPERTA A POSTERIORI -->
+    <section data-background-color="#FFFFFF">
+        <p style="font-size:34px; font-weight:500; color:var(--black); line-height:1.4; margin-bottom:0.8em;">
+            Ho scoperto a posteriori che questo &egrave; il modo<br>in cui funziona anche il nostro cervello
+        </p>
+        <div class="hbox fragment" style="margin-bottom:0.8em;">
+            <p>Memoria episodica &mdash; semantica &mdash; procedurale &mdash; working:<br>
+            un neuroscienziato li ha descritti nel 1972;<br>
+            io li ho ricostruiti dentro una cartella, per caso</p>
+        </div>
+        <aside class="notes">
+            - Stavo cercando solo di non perdere le cose — non stavo costruendo un modello cognitivo
+            - diary → episodica; wiki → semantica; boot → procedurale; sessione corrente → working
+            - L'ho scoperto mesi dopo, leggendo un paper; momento un po' destabilizzante
+            - Il punto non è "che figo" — è che quella struttura funziona perché rispecchia qualcosa di vero
+        </aside>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         CAP 3 — COSA NON DEVE FARE MAI
+    ═══════════════════════════════════════ -->
+    <section data-background-color="#0D0D0D">
+        <span class="cap-label">Capitolo 3</span>
+        <h2 style="color:var(--white);">Cosa non deve<br>fare mai</h2>
+        <p style="color:rgba(255,255,255,0.45);">E cosa non devo smettere di fare io</p>
+    </section>
+
+    <!-- LA RUSPA: IL PARALLELO -->
+    <section data-background-color="#FFFFFF">
+        <h2>La ruspa<br>non ha eliminato i <span class="red">muratori</span></h2>
+        <ul style="margin-top:0.7em;">
+            <li class="fragment">Ha cambiato cosa deve saper fare un muratore</li>
+            <li class="fragment">Chi sa guidarla vale dieci volte di pi&ugrave;</li>
+            <li class="fragment">Chi non sa pi&ugrave; fare <em>senza</em> ha perso qualcosa</li>
+        </ul>
+        <div class="hbox fragment" style="margin-top:1em;">
+            <p>Il Novecento ha automatizzato il lavoro manuale;<br>noi stiamo automatizzando quello intellettuale &mdash; stesso schema</p>
+        </div>
+        <aside class="notes">
+            - Non è un'invasione aliena — è lo stesso film che abbiamo già visto
+            - Il terzo punto è quello su cui restare: più potere ma più dipendenza
+            - "Chi non sa più fare senza ha perso qualcosa" — non è ovvio; fermati lì un secondo
+        </aside>
+    </section>
+
+    <!-- DECISION FATIGUE -->
+    <section data-background-color="#FFFFFF">
+        <h2>Pi&ugrave; veloce<br>&ne; pi&ugrave; felice</h2>
+        <ul style="margin-top:0.7em;">
+            <li class="fragment">Produco 3x pi&ugrave; codice &mdash; sono pi&ugrave; stanco di prima</li>
+            <li class="fragment">Il tempo risparmiato diventa tempo riempito con pi&ugrave; lavoro</li>
+            <li class="fragment">Il vero costo &egrave; il <strong>decision fatigue</strong> &mdash; da artigiano a ispettore qualit&agrave;</li>
+        </ul>
+        <div class="hbox fragment gold-border" style="margin-top:1em;">
+            <p>Sai <strong>quando usarlo</strong> e quando no &mdash;<br>questa &egrave; la competenza che non ti insegnano</p>
+        </div>
+        <aside class="notes">
+            - Esempio concreto: mercoledì pomeriggio, 4 ore di revisione codice AI — più stanco di quando lo scrivevo a mano
+            - Il lavoro non sparisce; cambia forma; e la nuova forma ha i suoi costi
+            - La competenza del futuro non è usare l'AI — è sapere quando non usarla
+        </aside>
+    </section>
+
+    <!-- IL RISCHIO -->
+    <section data-background-color="#FFFFFF">
+        <h2>Il rischio che vedo</h2>
+        <ul style="margin-top:0.7em;">
+            <li class="fragment red">Delegare le decisioni umane a una macchina</li>
+            <li class="fragment red">Smettere di pensare perch&eacute; &ldquo;c&rsquo;&egrave; l&rsquo;AI&rdquo;</li>
+            <li class="fragment red">Lasciare che i nostri dati costruiscano il brain di qualcun altro</li>
+        </ul>
+        <div class="hbox fragment gold-border" style="margin-top:1em;">
+            <p>Anacleto &egrave; mio &mdash; non di Anthropic;<br><strong>mio</strong></p>
+        </div>
+        <aside class="notes">
+            - Il terzo punto è quello che mi preoccupa di più — e che poca gente nota
+            - Ogni conversazione su ChatGPT alimenta un modello che non controlli
+            - Il brain è tuo; è portabile; sopravvive al cambio di provider
+        </aside>
+    </section>
+
+    <!-- LO SPEGNI — FINALE CAP 3 -->
+    <section data-background-color="#0D0D0D">
+        <h2 style="color:var(--white);">Ogni sera<br><span style="color:var(--red);">lo spegno</span></h2>
+        <p class="fragment" style="color:rgba(255,255,255,0.65); font-size:26px; margin-top:0.8em;">
+            Non perch&eacute; non mi fidi di lui &mdash;<br>
+            ma per tenere in allenamento la parte di me<br>
+            che non ha bisogno di lui
+        </p>
+        <div class="fragment" style="margin-top:1em;">
+            <p style="color:rgba(255,255,255,0.45); font-size:22px; font-style:italic;">
+                Sa tutto di me &mdash; ma non &egrave; lui che vive
+            </p>
+        </div>
+        <aside class="notes">
+            - Pausa prima di questa slide — questo è il contrappeso a tutto il capitolo 2
+            - "Lo spegno" non è una limitazione — è una scelta consapevole
+            - Lascia il "sa tutto di me — ma non è lui che vive" nell'aria; non commentare
+        </aside>
+    </section>
+
+    <!-- CHIUSURA: LA FRASE -->
+    <section data-background-color="#0D0D0D">
+        <div class="big-quote" style="color:var(--white); font-size:52px;">
+            Dobbiamo insegnare<br>
+            ai nostri ragazzi<br>
+            ad <span style="color:var(--red);">amare le persone</span><br>
+            e a <span style="color:var(--gold);">usare le macchine</span>.<br>
+            <span style="font-size:34px; color:rgba(255,255,255,0.4);">Non il contrario.</span>
+        </div>
+        <aside class="notes">
+            - Pausa lunga — questa è la frase da portare a casa
+            - Non aggiungere niente; lascia che respiri
+            - Poi guarda il pubblico; aspetta un secondo; esci
+        </aside>
+    </section>
+
+    <!-- END -->
+    <section data-background-color="#E62B1E">
+        <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; height:100%; text-align:center;">
+            <div style="font-size:80px;">&#128375;</div>
+            <p style="color:white; font-size:36px; font-weight:700; margin:0.3em 0;">Anacleto</p>
+            <p style="color:rgba(255,255,255,0.65); font-size:18px; margin:0;">giobi.com &nbsp;&mdash;&nbsp; talk.giobi.com</p>
+        </div>
+    </section>
+
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.3.1/dist/reveal.js"></script>
+<script>
+    Reveal.initialize({
+        hash: true,
+        controls: true,
+        progress: true,
+        slideNumber: 'c/t',
+        transition: 'fade',
+        transitionSpeed: 'fast',
+        backgroundTransition: 'fade',
+        autoPlayMedia: false,
+        center: true,
+        width: 1280,
+        height: 720,
+        margin: 0.08,
+        plugins: []
+    });
+</script>
+</body>
+</html>

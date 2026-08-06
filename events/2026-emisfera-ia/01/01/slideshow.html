@@ -1,0 +1,200 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>IA — Fondamenti</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>tailwind.config={theme:{extend:{fontFamily:{sans:['Inter','sans-serif']},colors:{talk:{50:'#fffbeb',100:'#fef3c7',200:'#fde68a',300:'#fcd34d',400:'#fbbf24',500:'#f59e0b',600:'#d97706',700:'#b45309',800:'#92400e',900:'#78350f'}}}}}</script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/theme/white.css">
+<style>
+ :root{--r-main-font:'Inter',sans-serif;--r-heading-font:'Inter',sans-serif}
+ .reveal{font-family:Inter,sans-serif}
+ .reveal h1,.reveal h2,.reveal h3{color:#111827;text-transform:none;font-weight:700}
+ .reveal .accent{color:#d97706}
+ .reveal section{text-align:left}
+ .reveal .center{text-align:center}
+</style></head>
+<body>
+<div class="reveal"><div class="slides">
+
+  <section data-background-image="https://images.unsplash.com/photo-1674027444485-cec3da58eef4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDE2OTJ8MHwxfHNlYXJjaHwxfHxhcnRpZmljaWFsJTIwaW50ZWxsaWdlbmNlJTIwYWJzdHJhY3QlMjBuZXR3b3JrfGVufDB8MHx8fDE3ODQyMTA0MzR8MA&ixlib=rb-4.1.0&q=80&w=1080&w=1920&q=80" data-background-color="#0b0f19" class="center">
+    <div style="display:inline-block;background:rgba(9,12,20,.8);padding:1em 1.6em;border-radius:16px;box-shadow:0 12px 50px rgba(0,0,0,.5)">
+      <div class="accent" style="font-weight:700;letter-spacing:.15em;font-size:.55em">EMISFERA · FORMAZIONE IA</div>
+      <h1 style="color:#fff;font-size:2.1em;margin:.1em 0">Fondamenti dell'IA</h1>
+      <h3 style="color:#d1d5db;font-weight:400;margin:0">Modulo 1.1 · Corso Foundation · 3 ore</h3>
+    </div>
+    <div style="position:absolute;bottom:8px;right:14px;color:#cbd5e1;font-size:.3em;opacity:.7">Foto: Growtika / Unsplash</div>
+  </section>
+
+  <section data-background-color="#ffffff">
+    <h2>Cosa vediamo oggi</h2>
+    <ul><li><strong>Cosa <span class='accent'>non</span> è</strong> l'IA — sfatiamo tre miti che confondono</li><li><strong>Cosa <span class='accent'>è</span></strong> davvero, e come «ragiona» — senza tecnicismi</li><li><strong>Cosa sa fare bene</strong> e <strong>dove sbaglia</strong> — la parte che conta per il lavoro</li><li>Un esercizio insieme, e la regola d'oro da portare a casa</li></ul>
+    <p style="color:#6b7280;font-size:.5em;margin-top:1em">Nessuna competenza tecnica richiesta. Domande in qualsiasi momento.</p>
+  </section>
+
+  <section data-background-image="https://images.unsplash.com/photo-1737644467636-6b0053476bb2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDE2OTJ8MHwxfHNlYXJjaHwxfHxyb2JvdCUyMGh1bWFub2lkJTIwd2hpdGV8ZW58MHwwfHx8MTc4NDIxMDQzNnww&ixlib=rb-4.1.0&q=80&w=1080&w=1920&q=80" data-background-color="#0b0f19">
+    <div style="display:inline-block;max-width:80%;background:rgba(9,12,20,.82);padding:.7em 1em;border-radius:12px;box-shadow:0 10px 40px rgba(0,0,0,.4)">
+      <div class="accent" style="font-weight:700;letter-spacing:.12em;font-size:.55em">PRIMA PARTE</div>
+      <h2 style="color:#fff;margin:.1em 0 0">Cosa NON è l'IA</h2><p style="color:#e5e7eb;font-size:.62em;margin-top:.5em">Tre idee diffuse, tutte e tre sbagliate.</p>
+    </div>
+    <div style="position:absolute;bottom:8px;right:14px;color:#cbd5e1;font-size:.3em;opacity:.7">Foto: Gabriele Malaspina / Unsplash</div>
+  </section>
+
+  <section data-background-color="#ffffff"><div class="accent" style="font-weight:700;font-size:.5em">MITO 1</div>
+    <h2>Non è coscienza, non «pensa»</h2>
+    <ul><li>Non capisce quello che dice, non ha intenzioni nè opinioni proprie</li><li>Non «sa» di esistere: produce testo, non pensieri</li><li>Sembra intelligente perchè imita benissimo il linguaggio umano — ma resta imitazione</li></ul>
+  </section>
+
+  <section data-background-color="#ffffff"><div class="accent" style="font-weight:700;font-size:.5em">MITO 2</div>
+    <h2>Non è magia, e non è sempre giusta</h2>
+    <ul><li>Risponde con lo stesso tono sicuro sia quando ha ragione sia quando sbaglia</li><li>Non c'è un «cervello che verifica» dietro: nessuno controlla se è vero</li><li>La sicurezza della risposta <strong>non</strong> è una misura della sua correttezza</li></ul>
+  </section>
+
+  <section data-background-color="#ffffff"><div class="accent" style="font-weight:700;font-size:.5em">MITO 3</div>
+    <h2>Non è una banca dati che «sa» le cose</h2>
+    <ul><li>Non consulta un archivio di fatti: <strong>ricostruisce</strong> la risposta parola per parola</li><li>Può mescolare cose vere e cose inventate nella stessa frase</li><li>Non conosce nulla dopo la sua data di addestramento, nè ciò che non ha mai visto</li></ul>
+  </section>
+
+  <section data-background-image="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?fm=jpg&w=1920&q=80" data-background-color="#0b0f19">
+    <div style="display:inline-block;max-width:80%;background:rgba(9,12,20,.82);padding:.7em 1em;border-radius:12px;box-shadow:0 10px 40px rgba(0,0,0,.4)">
+      <div class="accent" style="font-weight:700;letter-spacing:.12em;font-size:.55em">SECONDA PARTE</div>
+      <h2 style="color:#fff;margin:.1em 0 0">Cosa è l'IA</h2><p style="color:#e5e7eb;font-size:.62em;margin-top:.5em">Un'idea semplice, che spiega tutto il resto.</p>
+    </div>
+    <div style="position:absolute;bottom:8px;right:14px;color:#cbd5e1;font-size:.3em;opacity:.7">Foto: Shubham Dhage / Unsplash</div>
+  </section>
+
+  <section data-background-color="#ffffff"><h2>In una frase</h2>
+    <p style="font-size:.78em;line-height:1.5">L'IA di cui parliamo è un sistema che ha <span class="accent">letto enormi quantità di testo</span> e ha imparato a <span class="accent">prevedere la parola più probabile</span> che viene dopo.</p>
+    <ul><li>Niente regole scritte a mano: impara gli schemi dai dati</li><li>Da questa semplice capacità nasce tutto: rispondere, riassumere, tradurre</li><li>È statistica su scala gigantesca, non ragionamento</li></ul>
+  </section>
+  <section data-background-color="#ffffff"><h2>Perché tutti ne parlano dal 2023</h2><div style="display:flex;align-items:stretch;gap:1em;height:300px;padding:0 1em"><div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:.4em;justify-content:flex-end;height:100%">
+          <div style="font-weight:700;font-size:.5em;color:#d97706">2 mesi</div>
+          <div style="width:100%;max-width:80px;height:3%;min-height:6px;background:#d97706;border-radius:6px 6px 0 0"></div>
+          <div style="font-size:.4em;color:#374151;text-align:center;line-height:1.2">ChatGPT</div>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:.4em;justify-content:flex-end;height:100%">
+          <div style="font-weight:700;font-size:.5em;color:#2563eb">9 mesi</div>
+          <div style="width:100%;max-width:80px;height:16%;min-height:6px;background:#2563eb;border-radius:6px 6px 0 0"></div>
+          <div style="font-size:.4em;color:#374151;text-align:center;line-height:1.2">TikTok</div>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:.4em;justify-content:flex-end;height:100%">
+          <div style="font-weight:700;font-size:.5em;color:#9ca3af">30 mesi</div>
+          <div style="width:100%;max-width:80px;height:55%;min-height:6px;background:#9ca3af;border-radius:6px 6px 0 0"></div>
+          <div style="font-size:.4em;color:#374151;text-align:center;line-height:1.2">Instagram</div>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:.4em;justify-content:flex-end;height:100%">
+          <div style="font-weight:700;font-size:.5em;color:#9ca3af">54 mesi</div>
+          <div style="width:100%;max-width:80px;height:100%;min-height:6px;background:#9ca3af;border-radius:6px 6px 0 0"></div>
+          <div style="font-size:.4em;color:#374151;text-align:center;line-height:1.2">Facebook</div>
+        </div></div>
+      <p style="font-size:.4em;color:#6b7280;margin-top:.3em">Mesi per raggiungere 100 milioni di utenti.</p><p style="font-size:.38em;color:#9ca3af;margin-top:.5em">Fonte: UBS / Time, 2023</p></section>
+  <section data-background-color="#ffffff"><h2>E perché le aziende la stanno adottando</h2><div style="display:flex;align-items:stretch;gap:1em;height:300px;padding:0 1em"><div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:.4em;justify-content:flex-end;height:100%">
+          <div style="font-weight:700;font-size:.5em;color:#9ca3af">33%</div>
+          <div style="width:100%;max-width:80px;height:41%;min-height:6px;background:#9ca3af;border-radius:6px 6px 0 0"></div>
+          <div style="font-size:.4em;color:#374151;text-align:center;line-height:1.2">2023</div>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:.4em;justify-content:flex-end;height:100%">
+          <div style="font-weight:700;font-size:.5em;color:#2563eb">71%</div>
+          <div style="width:100%;max-width:80px;height:89%;min-height:6px;background:#2563eb;border-radius:6px 6px 0 0"></div>
+          <div style="font-size:.4em;color:#374151;text-align:center;line-height:1.2">2024</div>
+        </div><div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:.4em;justify-content:flex-end;height:100%">
+          <div style="font-weight:700;font-size:.5em;color:#d97706">79%</div>
+          <div style="width:100%;max-width:80px;height:100%;min-height:6px;background:#d97706;border-radius:6px 6px 0 0"></div>
+          <div style="font-size:.4em;color:#374151;text-align:center;line-height:1.2">2025</div>
+        </div></div>
+      <p style="font-size:.4em;color:#6b7280;margin-top:.3em">Aziende che usano l'IA generativa in almeno una funzione. Ma solo il 7% l'ha integrata su larga scala.</p><p style="font-size:.38em;color:#9ca3af;margin-top:.5em">Fonte: McKinsey, The State of AI 2025</p></section>
+
+  <section data-background-color="#ffffff"><h2>Come «ragiona»: una parola alla volta</h2>
+    <ul><li>Prende quello che ha letto finora e sceglie la continuazione più probabile</li><li>Ripete, aggiungendo una parola per volta, fino alla risposta</li><li>Come il correttore automatico del telefono — ma molto, molto più potente</li><li>Non pianifica la risposta: la costruisce mentre la scrive</li></ul>
+  </section>
+
+  <section data-background-color="#ffffff"><h2>Non parole, ma pezzi di parola</h2>
+    <ul><li>Il testo viene spezzato in frammenti chiamati <strong>«token»</strong></li><li>In una frase «cane» è un pezzo solo; un codice come <em>PRT-90412</em> si spacca in cinque: <em>PR·T·-·904·12</em></li><li>Ecco perché sbaglia a contare i caratteri, storpia i codici e perde le cifre</li></ul>
+    <p style="font-size:.5em;margin-top:.9em;padding:.5em .8em;background:#fffbeb;border-left:4px solid #d97706;border-radius:4px">
+      <strong>Proviamolo insieme →</strong> <a class="accent" href="/artifact/tokenizzatore/" target="_blank" rel="noopener" style="font-weight:600">talk.giobi.com/artifact/tokenizzatore</a>
+    </p>
+  </section>
+
+  <section data-background-color="#ffffff"><h2>Cosa vuol dire «addestrato»</h2>
+    <ul><li>Ha visto miliardi di frasi e ha regolato milioni di «manopole» interne</li><li>L'obiettivo dell'allenamento era uno solo: indovinare la parola dopo</li><li>Non gli è stato insegnato cosa è <em>vero</em> — solo cosa è <em>probabile</em></li><li>Ecco perché è bravissimo con la lingua e fragile con i fatti</li></ul>
+  </section>
+
+  <section data-background-image="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDE2OTJ8MHwxfHNlYXJjaHwxfHxwZXJzb24lMjB3b3JraW5nJTIwbGFwdG9wJTIwZm9jdXNlZHxlbnwwfDB8fHwxNzg0MjEwNDQwfDA&ixlib=rb-4.1.0&q=80&w=1080&w=1920&q=80" data-background-color="#0b0f19">
+    <div style="display:inline-block;max-width:80%;background:rgba(9,12,20,.82);padding:.7em 1em;border-radius:12px;box-shadow:0 10px 40px rgba(0,0,0,.4)">
+      <div class="accent" style="font-weight:700;letter-spacing:.12em;font-size:.55em">TERZA PARTE</div>
+      <h2 style="color:#fff;margin:.1em 0 0">Cosa sa fare, e dove sbaglia</h2><p style="color:#e5e7eb;font-size:.62em;margin-top:.5em">La parte che cambia il tuo lavoro di domani.</p>
+    </div>
+    <div style="position:absolute;bottom:8px;right:14px;color:#cbd5e1;font-size:.3em;opacity:.7">Foto: Glenn Carstens-Peters / Unsplash</div>
+  </section>
+
+  <section data-background-color="#ffffff"><h2>Dove è forte</h2>
+    <ul><li><strong>Scrivere e riformulare</strong>: bozze di mail, testi, riassunti</li><li><strong>Sintetizzare</strong>: prendere dieci pagine e darne mezza</li><li><strong>Tradurre</strong> e cambiare registro (formale / informale)</li><li><strong>Sbloccare</strong>: idee di partenza, spunti, brainstorming</li></ul>
+    <p style="color:#059669;font-size:.5em;margin-top:.6em">Il filo comune: compiti di <strong>linguaggio</strong> dove tu resti il giudice finale.</p>
+  </section>
+  <section data-background-color="#ffffff"><h2>Dove sbaglia: le «allucinazioni»</h2><div style="margin-top:.6em"><div style="display:flex;align-items:center;gap:.7em;margin-bottom:.55em">
+          <div style="width:11em;font-size:.42em;color:#374151;text-align:right">Sintesi di un testo dato</div>
+          <div style="flex:1;background:#f3f4f6;border-radius:5px;height:1.5em">
+            <div style="width:1%;height:100%;background:#059669;border-radius:5px"></div>
+          </div>
+          <div style="width:3em;font-weight:700;font-size:.46em;color:#059669">1%</div>
+        </div><div style="display:flex;align-items:center;gap:.7em;margin-bottom:.55em">
+          <div style="width:11em;font-size:.42em;color:#374151;text-align:right">Cultura generale</div>
+          <div style="flex:1;background:#f3f4f6;border-radius:5px;height:1.5em">
+            <div style="width:11%;height:100%;background:#d97706;border-radius:5px"></div>
+          </div>
+          <div style="width:3em;font-weight:700;font-size:.46em;color:#d97706">9%</div>
+        </div><div style="display:flex;align-items:center;gap:.7em;margin-bottom:.55em">
+          <div style="width:11em;font-size:.42em;color:#374151;text-align:right">Ragionamento aperto</div>
+          <div style="flex:1;background:#f3f4f6;border-radius:5px;height:1.5em">
+            <div style="width:42%;height:100%;background:#dc2626;border-radius:5px"></div>
+          </div>
+          <div style="width:3em;font-weight:700;font-size:.46em;color:#dc2626">33%</div>
+        </div><div style="display:flex;align-items:center;gap:.7em;margin-bottom:.55em">
+          <div style="width:11em;font-size:.42em;color:#374151;text-align:right">Ricerca giuridica</div>
+          <div style="flex:1;background:#f3f4f6;border-radius:5px;height:1.5em">
+            <div style="width:100%;height:100%;background:#dc2626;border-radius:5px"></div>
+          </div>
+          <div style="width:3em;font-weight:700;font-size:.46em;color:#dc2626">78%</div>
+        </div></div><p style="font-size:.4em;color:#6b7280;margin-top:.5em">Risposte con contenuti inventati, per tipo di compito. Più il compito è aperto, più sbaglia.</p><p style="font-size:.38em;color:#9ca3af;margin-top:.4em">Fonte: Vectara Leaderboard 2025 · Stanford RegLab</p></section>
+
+  <section data-background-color="#ffffff"><div class="accent" style="font-weight:700;font-size:.5em">STORIA VERA · NEW YORK, 2023</div>
+    <h2>L'avvocato e le sentenze inventate</h2>
+    <ul><li>Due avvocati usano ChatGPT per preparare un atto legale</li><li>Il modello cita sei sentenze perfette a sostegno della tesi — <strong>tutte inventate</strong></li><li>Interrogato, «conferma» che sono reali e ne produce persino gli estratti falsi</li><li>Il giudice scopre tutto: causa persa e <strong>5.000 dollari di multa</strong></li></ul>
+    <p style="font-size:.4em;color:#9ca3af;margin-top:.4em">Fonte: Mata v. Avianca, Tribunale distrettuale di New York, 2023</p>
+  </section>
+
+  <section data-background-image="https://images.unsplash.com/photo-1623652554515-91c833e3080e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDE2OTJ8MHwxfHNlYXJjaHwxfHxwZW9wbGUlMjBkaXNjdXNzaW9uJTIwd29ya3Nob3AlMjBvZmZpY2V8ZW58MHwwfHx8MTc4NDIxMDQ0MXww&ixlib=rb-4.1.0&q=80&w=1080&w=1920&q=80" data-background-color="#0b0f19">
+    <div style="display:inline-block;max-width:80%;background:rgba(9,12,20,.82);padding:.7em 1em;border-radius:12px;box-shadow:0 10px 40px rgba(0,0,0,.4)">
+      <div class="accent" style="font-weight:700;letter-spacing:.12em;font-size:.55em">ESERCIZIO</div>
+      <h2 style="color:#fff;margin:.1em 0 0">Vero o inventato?</h2><p style="color:#e5e7eb;font-size:.62em;margin-top:.5em">A gruppi: tre risposte dell'IA. Quali vi fidereste a usare così come sono?</p>
+    </div>
+    <div style="position:absolute;bottom:8px;right:14px;color:#cbd5e1;font-size:.3em;opacity:.7">Foto: FORTYTWO / Unsplash</div>
+  </section>
+
+  <section data-background-color="#ffffff"><h2>Perché conta per il tuo lavoro</h2>
+    <ul><li>È un <strong>collaboratore veloce e sicuro di sè, ma da verificare sempre</strong></li><li>Ottimo per partire, pessimo come ultima parola su fatti, numeri, nomi, date</li><li>Il valore lo aggiungi <strong>tu</strong>: dai il compito giusto e controlli l'output</li></ul>
+    <p style="font-size:.6em;margin-top:.8em;padding:.5em .8em;background:#fffbeb;border-left:4px solid #d97706;border-radius:4px"><strong>Regola d'oro:</strong> usala per <em>lavorare più in fretta</em>, mai per <em>sapere la verità</em> al posto tuo.</p>
+  </section>
+
+  <section data-background-color="#ffffff"><h2>Tre cose da portare a casa</h2>
+    <ul><li>L'IA <strong>prevede il linguaggio</strong>, non conosce i fatti</li><li>È <strong>sicura anche quando sbaglia</strong>: la fiducia va guadagnata, non regalata</li><li><strong>Verifica sempre</strong> ciò che conta — tu resti responsabile del risultato</li></ul>
+    <p style="color:#6b7280;font-size:.5em;margin-top:1em">Nel prossimo modulo: perché Emisfera ci investe e come usarla nel concreto.</p>
+  </section>
+
+  <!-- LAST SLIDE: materials — RELATIVE link (robust to domain/path), absolute URL shown -->
+  <section class="center" data-materials>
+    <h2>Materiali</h2>
+    <p style="color:#6b7280;font-size:.6em">Inquadra il codice, o vai a:</p>
+    <p style="margin:.2em 0"><a class="accent" href="./" style="font-weight:600;font-size:.7em">https://talk.giobi.com/events/2026-emisfera-ia/01/01/</a></p>
+    <img src="qr-hub.svg" alt="QR code verso i materiali del corso" style="width:220px;height:220px;margin:18px auto 0;display:block;background:#fff;padding:8px;border-radius:8px">
+    <p style="color:#6b7280;font-size:.45em;margin-top:14px">Lì trovi: queste slide, la dispensa e il <strong>tokenizzatore</strong> con cui abbiamo giocato.</p>
+  </section>
+
+</div></div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/notes/notes.js"></script>
+
+<script>
+ Reveal.initialize({hash:true,backgroundTransition:'none',plugins:[RevealNotes]});
+ if(window.lucide)lucide.createIcons();
+</script>
+</body></html>

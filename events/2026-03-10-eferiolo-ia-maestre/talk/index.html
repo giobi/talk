@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>L'IA entra in classe — Strumenti gratuiti per la scuola primaria</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.3.1/dist/reveal.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --color-bg: #f5f0e8;
+            --color-bg-alt: #e8e0d5;
+            --color-text: #1a1a1a;
+            --color-text-muted: #666666;
+            --color-accent: #2d2d2d;
+            --color-orange: #e87b35;
+            --color-green: #3da06d;
+            --color-blue: #3b82c4;
+            --color-purple: #7c5cbf;
+            --color-red: #d94040;
+        }
+
+        body { background: var(--color-bg) !important; }
+        .reveal-viewport { background: var(--color-bg) !important; }
+        .reveal { background: var(--color-bg) !important; font-family: 'Inter', -apple-system, sans-serif; font-weight: 400; color: var(--color-text); }
+        .reveal .slides { text-align: left; }
+        .reveal .slides section { padding: 0 80px; box-sizing: border-box; }
+
+        .reveal h1 { font-size: 72px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.0; margin: 0 0 0.3em 0; }
+        .reveal h2 { font-size: 56px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin: 0 0 0.8em 0; }
+        .reveal h3 { font-size: 36px; font-weight: 600; letter-spacing: -0.01em; margin: 0 0 0.5em 0; }
+        .reveal p { font-size: 28px; line-height: 1.6; color: var(--color-text-muted); margin: 0 0 1em 0; }
+
+        .reveal ul, .reveal ol { list-style: none !important; padding: 0 !important; margin: 0 !important; }
+        .reveal li { font-size: 32px; font-weight: 500; line-height: 1.4; margin-bottom: 0.6em; padding-left: 0 !important; list-style-type: none !important; }
+        .reveal li::before, .reveal li::marker { content: none !important; display: none !important; }
+
+        .reveal .fragment.visible { opacity: 1; }
+        .reveal .fragment { opacity: 0.3; }
+
+        /* Title slide */
+        .title-slide { display: flex !important; flex-direction: column; justify-content: center; align-items: flex-start; }
+        .title-slide h1 { font-size: 96px; margin-bottom: 0.2em; }
+        .title-slide .subtitle { font-size: 36px; font-weight: 400; color: var(--color-text-muted); margin-bottom: 2em; }
+        .title-slide .date { font-size: 24px; font-weight: 500; color: var(--color-text-muted); letter-spacing: 0.1em; text-transform: uppercase; }
+
+        /* Chapter slide (dark) */
+        .chapter-slide { display: flex !important; flex-direction: column; justify-content: center; background: var(--color-accent) !important; }
+        .chapter-slide h2 { color: white !important; font-size: 64px; margin-bottom: 0.3em; }
+        .chapter-slide p { color: rgba(255,255,255,0.7) !important; font-size: 32px; }
+
+        /* Orange chapter */
+        .chapter-orange { display: flex !important; flex-direction: column; justify-content: center; background: var(--color-orange) !important; }
+        .chapter-orange h2 { color: white !important; font-size: 64px; margin-bottom: 0.3em; }
+        .chapter-orange p { color: rgba(255,255,255,0.85) !important; font-size: 32px; }
+
+        /* Green chapter */
+        .chapter-green { display: flex !important; flex-direction: column; justify-content: center; background: var(--color-green) !important; }
+        .chapter-green h2 { color: white !important; font-size: 64px; margin-bottom: 0.3em; }
+        .chapter-green p { color: rgba(255,255,255,0.85) !important; font-size: 32px; }
+
+        /* Tool boxes */
+        .tool-row { display: flex; gap: 20px; margin: 0.5em 0; }
+        .tool-box { background: white; padding: 1.2em 1.8em; border-radius: 8px; flex: 1; }
+        .tool-box strong { font-size: 28px; font-weight: 600; display: block; margin-bottom: 0.3em; }
+        .tool-box span { font-size: 20px; color: var(--color-text-muted); }
+
+        /* Schema box */
+        .schema-box { background: var(--color-accent); color: white; padding: 1.5em 2em; border-radius: 8px; font-size: 28px; font-weight: 500; text-align: center; margin: 1em 0; }
+
+        /* Highlight box */
+        .highlight-box { background: white; padding: 1.5em 2em; border-radius: 8px; margin: 1.5em 0; border-left: 4px solid var(--color-accent); }
+        .highlight-box p { margin: 0; font-size: 26px; font-weight: 500; color: var(--color-text); }
+
+        /* Quote slide */
+        .quote-slide { display: flex !important; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+        .quote-slide .quote-text { font-size: 44px; font-weight: 300; line-height: 1.4; max-width: 1200px; color: var(--color-text); margin-bottom: 0.5em; }
+        .quote-slide .quote-text em { font-style: italic; color: var(--color-orange); font-weight: 500; }
+        .quote-slide .quote-author { font-size: 24px; color: var(--color-text-muted); font-weight: 400; }
+
+        /* Big number */
+        .big-number { font-size: 160px; font-weight: 900; color: var(--color-orange); line-height: 1; margin-bottom: 0.2em; }
+
+        /* Versus */
+        .vs-container { display: flex; gap: 40px; align-items: stretch; }
+        .vs-box { flex: 1; background: white; padding: 1.5em 2em; border-radius: 8px; }
+        .vs-box.bad { border-left: 4px solid var(--color-red); }
+        .vs-box.good { border-left: 4px solid var(--color-green); }
+        .vs-label { font-size: 18px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.6em; }
+        .vs-label.red { color: var(--color-red); }
+        .vs-label.green { color: var(--color-green); }
+        .vs-box p { font-size: 24px; line-height: 1.5; color: var(--color-text); margin: 0; }
+
+        /* Warning box */
+        .warning-box { background: #fff5f5; padding: 1.5em 2em; border-radius: 8px; border-left: 4px solid var(--color-red); margin: 0.8em 0; }
+        .warning-box p { margin: 0; font-size: 28px; font-weight: 500; color: var(--color-text); }
+
+        /* Success box */
+        .success-box { background: #f0faf4; padding: 1.5em 2em; border-radius: 8px; border-left: 4px solid var(--color-green); margin: 0.8em 0; }
+        .success-box p { margin: 0; font-size: 26px; font-weight: 500; color: var(--color-text); }
+
+        /* End slide */
+        .end-slide { display: flex !important; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+        .end-slide h1 { font-size: 96px; }
+        .end-slide p { font-size: 28px; }
+        .end-slide .contact { font-size: 24px; color: var(--color-orange); margin-top: 1em; }
+
+        .reveal .progress { color: var(--color-orange); height: 4px; }
+        .reveal .controls { color: var(--color-accent); }
+
+        /* Orange text helper */
+        .orange { color: var(--color-orange); }
+    </style>
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- ═══════════════════════════════════════ -->
+            <!-- TITOLO -->
+            <!-- ═══════════════════════════════════════ -->
+            <section class="title-slide">
+                <h1>L'IA entra<br>in <span class="orange">classe</span></h1>
+                <p class="subtitle">Strumenti gratuiti di intelligenza artificiale<br>per la scuola primaria</p>
+                <p class="date">Scuola Primaria Eferiolo &middot; Marzo 2026</p>
+            </section>
+
+            <!-- ═══════════════════════════════════════ -->
+            <!-- CHI SONO -->
+            <!-- ═══════════════════════════════════════ -->
+            <section>
+                <h2>Chi sono</h2>
+                <ul>
+                    <li class="fragment">Giobi Fasoli — sviluppatore web</li>
+                    <li class="fragment">Lavoro con l'IA tutti i giorni, da 2 anni</li>
+                    <li class="fragment">Alle elementari andavo malissimo</li>
+                    <li class="fragment">Oggi vi faccio vedere cose che avrebbero aiutato <em>anche me</em></li>
+                </ul>
+            </section>
+
+            <!-- ═══════════════════════════════════════ -->
+            <!-- CITAZIONE -->
+            <!-- ═══════════════════════════════════════ -->
+            <section class="quote-slide">
+                <p class="quote-text">"Qualsiasi tecnologia sufficientemente<br>avanzata è <em>indistinguibile dalla magia</em>."</p>
+                <p class="quote-author">— Arthur C. Clarke</p>
+            </section>
+
+            <!-- ═══════════════════════════════════════ -->
+            <!-- MA COS'È -->
+            <!-- ═══════════════════════════════════════ -->
+            <section class="chapter-slide">
+                <h2>Ma cos'è l'IA?</h2>
+                <p>Spoiler: non è Terminator</p>
+            </section>
+
+            <section>
+                <h2>In parole semplici</h2>
+                <ul>
+                    <li class="fragment">Un software che <strong>capisce cosa gli chiedete</strong></li>
+                    <li class="fragment">In italiano, tranquille</li>
+                    <li class="fragment">E produce testo, immagini, riassunti al volo</li>
+                </ul>
+            </section>
+
+            <section class="quote-slide">
+                <p class="quote-text">È tipo un <em>tirocinante molto veloce</em><br>che non si lamenta mai</p>
+                <p class="quote-author">...ma ogni tanto dice cose sbagliate con una sicurezza imbarazzante</p>
+            </section>
+
+            <!-- ═══════════════════════════════════════ -->
+            <!-- I NUMERI -->
+            <!-- ═══════════════════════════════════════ -->
+            <section>
+                <h2>La buona notizia</h2>
+                <div class="tool-row fragment">
+                    <div class="tool-box"><strong>€0</strong><span>Costo licenze</span></div>
+                    <div class="tool-box"><strong>4 categorie</strong><span>Tutti gratuiti</span></div>
+                    <div class="tool-box"><strong>-80%</strong><span>Tempo burocrazia</span></div>
+                </div>
+                <div class="schema-box fragment">Account Google della scuola → basta quello</div>
+            </section>
+
+            <!-- ═══════════════════════════════════════ -->
+            <!-- I VOSTRI BISOGNI -->
+            <!-- ═══════════════════════════════════════ -->
+            <section class="chapter-orange">
+                <h2>Prima di tutto: voi</h2>
+                <p>Cosa vi ruba più tempo?</p>
+            </section>
+
+            <section>
+                <h2>I vostri bisogni reali</h2>
+                <ul>
+                    <li class="fragment"><strong>Verbalizzazione</strong> — riunioni, consigli, interclasse</li>
+                    <li class="fragment"><strong>Sostituzioni</strong> — organizzare la timetable al volo</li>
+                    <li class="fragment"><strong>Creazione attività</strong> — schede, verifiche, esercizi</li>
+                    <li class="fragment"><strong>Correzione</strong> — con verifica umana sempre</li>
+                    <li class="fragment"><strong>Materiali inclusivi</strong> — BES, DSA, CAA</li>
+                </ul>
+            </section>
+
+            <!-- ═══════════════════════════════════════ -->
+            <!-- GLI STRUMENTI -->
+            <!-- ═══════════════════════════════════════ -->
+            <section class="chapter-slide">
+                <h2>Gli strumenti</h2>
+                <p>Tutti gratuiti, tutti usabili domani mattina</p>
+            </section>
+
+            <!-- NOTEBOOKLM -->
+            <section>
+                <h2>Google NotebookLM</h2>
+                <ul>
+                    <li class="fragment">Carichi i tuoi documenti (PTOF, Indicazioni Nazionali...)</li>
+                    <li class="fragment">Gli fai domande → risponde <strong>citando le fonti</strong></li>
+                    <li class="fragment">Non può inventare: si basa <strong>solo</strong> sui documenti che gli dai</li>
+                </ul>
+                <div class="highlight-box fragment">
+                    <p>"Genera 5 attività sul ciclo dell'acqua per una terza, allineate alle competenze del PTOF"</p>
+                </div>
+            </section>
+
+            <section>
+                <h2>NotebookLM: come funziona</h2>
+                <ul>
+                    <li class="fragment">Tre pannelli: <strong>fonti</strong> a sinistra, <strong>chat</strong> al centro, <strong>note</strong> a destra</li>
+                    <li class="fragment">Carichi PDF, siti web, video YouTube, appunti</li>
+                    <li class="fragment">Genera: quiz, flash card, mappe mentali, podcast audio</li>
+                    <li class="fragment">L'intero notebook è <strong>condivisibile</strong> con i colleghi</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>NotebookLM: casi d'uso scuola</h2>
+                <div class="tool-row fragment">
+                    <div class="tool-box"><strong>Repository riunioni</strong><span>Carichi i verbali → chiedi "Cos'è stato deciso su X?"</span></div>
+                    <div class="tool-box"><strong>Quiz da video</strong><span>Carichi un video YouTube → genera domande di comprensione</span></div>
+                </div>
+                <div class="tool-row fragment">
+                    <div class="tool-box"><strong>Studio condiviso</strong><span>Un notebook per materia, condiviso tra colleghe</span></div>
+                    <div class="tool-box"><strong>Flash card e mappe</strong><span>Per preparare le lezioni o per lo studio in classe</span></div>
+                </div>
+            </section>
+
+            <!-- CHATBOT -->
+            <section>
+                <h2>I chatbot</h2>
+                <ul>
+                    <li class="fragment">Gemini, ChatGPT, Copilot — <strong>stessa bestia, cappelli diversi</strong></li>
+                    <li class="fragment">Gli scrivi in italiano, rispondono con testi, idee, esercizi</li>
+                    <li class="fragment">Tutti gratuiti (con limiti), tutti usabili subito</li>
+                </ul>
+                <div class="tool-row fragment">
+                    <div class="tool-box"><strong>Gemini</strong><span>Di Google — si integra con Drive e Docs</span></div>
+                    <div class="tool-box"><strong>ChatGPT</strong><span>Il più famoso — si usa senza account</span></div>
+                    <div class="tool-box"><strong>Copilot</strong><span>Di Microsoft — genera anche immagini</span></div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Cosa ci faccio?</h2>
+                <div class="highlight-box fragment">
+                    <p>"Scrivi una filastrocca sulle tabelline del 7 con rime facili e ritmo da rap"</p>
+                </div>
+                <div class="highlight-box fragment">
+                    <p>"Spiega la fotosintesi come se fossi un girasole che racconta la sua giornata a un bambino di 7 anni"</p>
+                </div>
+                <div class="highlight-box fragment">
+                    <p>"Genera un esercizio sulle ore in inglese per una classe terza, con orologi da disegnare"</p>
+                </div>
+            </section>
+
+            <!-- CAA -->
+            <section>
+                <h2>Caso speciale: la CAA</h2>
+                <ul>
+                    <li class="fragment"><strong>Comunicazione Alternativa Aumentativa</strong></li>
+                    <li class="fragment">L'IA può trasformare testi in linguaggio CAA</li>
+                    <li class="fragment">Prompt: "Trasforma questo testo in simboli CAA con immagini e testo semplificato"</li>
+                </ul>
+                <div class="success-box fragment">
+                    <p>Per l'inclusione, l'IA non è un lusso — è una leva fondamentale. Materiali personalizzati in minuti invece che ore.</p>
+                </div>
+            </section>
+
+            <!-- CANVA -->
+            <section>
+                <h2>Canva for Education</h2>
+                <ul>
+                    <li class="fragment"><strong>Gratis per i docenti!</strong> (versione Pro completa)</li>
+                    <li class="fragment">Presentazioni, poster, schede didattiche</li>
+                    <li class="fragment">IA integrata: Magic Write + generazione immagini</li>
+                    <li class="fragment">Libri illustrati stampabili con Gemini</li>
+                </ul>
+                <div class="highlight-box fragment">
+                    <p>Apri Canva → "Scheda didattica" → "animali della fattoria, prima elementare" → 2 minuti. Fatto.</p>
+                </div>
+            </section>
+
+            <!-- DIFFIT -->
+            <section>
+                <h2>Diffit</h2>
+                <ul>
+                    <li class="fragment">Fatto <strong>apposta per insegnanti</strong></li>
+                    <li class="fragment">Genera testi adatti al livello della classe</li>
+                    <li class="fragment">+ domande di comprensione automatiche</li>
+                    <li class="fragment">Perfetto per l'inclusione (BES, DSA)</li>
+                </ul>
+                <div class="highlight-box fragment">
+                    <p>Argomento "I Romani" → livello "grade 3" → testo semplificato + 5 domande V/F + vocabolario chiave</p>
+                </div>
+            </section>
+
+            <!-- ═══════════════════════════════════════ -->
+            <!-- IL SEGRETO -->
+            <!-- ═══════════════════════════════════════ -->
+            <section class="chapter-orange">
+                <h2>Il segreto</h2>
+                <p>Come chiedere le cose giuste</p>
+            </section>
+
+            <section class="quote-slide">
+                <p class="quote-text">L'IA funziona come uno studente:<br><em>più siete precise nella domanda,<br>meglio risponde</em></p>
+            </section>
+
+            <section>
+                <h2>La formula magica</h2>
+                <ul>
+                    <li class="fragment"><strong>Chi sei</strong> → "Sei un'insegnante di scuola primaria"</li>
+                    <li class="fragment"><strong>Cosa vuoi</strong> → "Genera una verifica"</li>
+                    <li class="fragment"><strong>Per chi</strong> → "Classe terza, 8 anni"</li>
+                    <li class="fragment"><strong>Come</strong> → "5 domande aperte, linguaggio semplice"</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Esempio pratico</h2>
+                <div class="vs-container">
+                    <div class="vs-box bad fragment">
+                        <p class="vs-label red">Prompt scarso</p>
+                        <p>"Fammi una verifica di scienze"</p>
+                    </div>
+                    <div class="vs-box good fragment">
+                        <p class="vs-label green">Prompt da pro</p>
+                        <p>"Sei un'insegnante di primaria. Crea una verifica sul ciclo dell'acqua per una terza. 3 domande a risposta multipla + 2 aperte brevi. Linguaggio adatto a 8 anni. Una pagina A4."</p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Prompt refining</h2>
+                <ul>
+                    <li class="fragment">Il primo risultato non è mai perfetto — e va bene</li>
+                    <li class="fragment">"Rileggiti come l'hai scritto e dimmi se secondo te va bene"</li>
+                    <li class="fragment">"Semplifica il linguaggio, usa frasi più corte"</li>
+                    <li class="fragment">"Dammi 3 alternative diverse"</li>
+                </ul>
+                <div class="highlight-box fragment">
+                    <p>Non è una domanda secca — è una conversazione. Raffinate, correggete, guidate.</p>
+                </div>
+            </section>
+
+            <!-- ═══════════════════════════════════════ -->
+            <!-- OPERATIVO vs TATTICO -->
+            <!-- ═══════════════════════════════════════ -->
+            <section class="chapter-green">
+                <h2>Due livelli di utilizzo</h2>
+                <p>Da "fammi la verifica" a "organizzami l'anno"</p>
+            </section>
+
+            <section>
+                <h2>Operativo vs tattico</h2>
+                <div class="vs-container">
+                    <div class="vs-box fragment" style="border-left: 4px solid var(--color-blue);">
+                        <p class="vs-label" style="color: var(--color-blue);">Livello operativo</p>
+                        <p>Genera una verifica<br>Correggi questo testo<br>Crea una scheda sugli animali<br>Scrivi il verbale della riunione</p>
+                    </div>
+                    <div class="vs-box fragment" style="border-left: 4px solid var(--color-orange);">
+                        <p class="vs-label" style="color: var(--color-orange);">Livello tattico</p>
+                        <p>Organizza l'anno scolastico<br>Crea un piano interdisciplinare<br>Prepara la classe alla visita al museo<br>Dammi 3 alternative di programma</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="quote-slide">
+                <p class="quote-text">Quando passate dall'uso operativo a quello tattico,<br>l'IA diventa <em>spaventosamente utile</em></p>
+                <p class="quote-author">Non è solo un assistente — diventa un partner di pianificazione</p>
+            </section>
+
+            <!-- ═══════════════════════════════════════ -->
+            <!-- ATTENZIONE -->
+            <!-- ═══════════════════════════════════════ -->
+            <section class="chapter-slide">
+                <h2>Le regole del gioco</h2>
+                <p>5 minuti onesti</p>
+            </section>
+
+            <section>
+                <h2>Da ricordare sempre</h2>
+                <div class="warning-box fragment">
+                    <p><strong>MAI dati degli alunni nell'IA</strong><br>Niente nomi, cognomi, situazioni personali nei chatbot.</p>
+                </div>
+                <div class="warning-box fragment">
+                    <p><strong>L'IA inventa cose</strong><br>Si chiamano "allucinazioni". Dice cavolate con la faccia seria. Verificate sempre.</p>
+                </div>
+                <div class="warning-box fragment">
+                    <p><strong>Non è un sostituto</strong><br>L'IA non firma e non si prende responsabilità. Voi sì.</p>
+                </div>
+            </section>
+
+            <section>
+                <h2>La questione privacy</h2>
+                <ul>
+                    <li class="fragment">I dati dei chatbot vanno su server <strong>americani</strong></li>
+                    <li class="fragment">La GDPR europea non basta se arriva un ordine esecutivo USA</li>
+                    <li class="fragment">Per i dati sensibili: <strong>nomi finti</strong> o strumenti che girano in locale</li>
+                </ul>
+                <div class="highlight-box fragment">
+                    <p>NotebookLM è il più sicuro del gruppo: lavora solo sui documenti che caricate e non li usa per addestrare altri modelli.</p>
+                </div>
+            </section>
+
+            <!-- ═══════════════════════════════════════ -->
+            <!-- ORA PROVATE VOI -->
+            <!-- ═══════════════════════════════════════ -->
+            <section class="chapter-orange">
+                <h2>Ora provate voi!</h2>
+                <p>Telefono o computer, aprite uno strumento e provate</p>
+            </section>
+
+            <section>
+                <h2>Da dove partire</h2>
+                <div class="tool-row fragment">
+                    <div class="tool-box"><strong>NotebookLM</strong><span>notebooklm.google.com</span></div>
+                    <div class="tool-box"><strong>Chatbot</strong><span>Gemini / ChatGPT / Copilot</span></div>
+                </div>
+                <div class="tool-row fragment">
+                    <div class="tool-box"><strong>Canva Edu</strong><span>canva.com/education</span></div>
+                    <div class="tool-box"><strong>Diffit</strong><span>diffit.me</span></div>
+                </div>
+            </section>
+
+            <!-- ═══════════════════════════════════════ -->
+            <!-- E PER I BAMBINI? -->
+            <!-- ═══════════════════════════════════════ -->
+            <section class="chapter-slide">
+                <h2>E per i bambini?</h2>
+                <p>Alle elementari l'IA si capisce, non si usa</p>
+            </section>
+
+            <section>
+                <h2>Il principio</h2>
+                <ul>
+                    <li class="fragment">L'UNESCO raccomanda <strong>età minima 13 anni</strong> per l'uso diretto dei chatbot</li>
+                    <li class="fragment">I bambini confondono l'algoritmo con una persona vera</li>
+                    <li class="fragment">Ma se capiscono <strong>come ragiona</strong> l'IA adesso, saranno adulti più consapevoli</li>
+                </ul>
+                <div class="highlight-box fragment">
+                    <p>Non servono computer. Servono carta, forbici e pennarelli.</p>
+                </div>
+            </section>
+
+            <section class="chapter-orange">
+                <h2>AI Unplugged</h2>
+                <p>Attività senza computer dove i bambini "fanno finta di essere l'IA"</p>
+            </section>
+
+            <section>
+                <h2>Il classificatore</h2>
+                <ul>
+                    <li class="fragment">Date ai bambini un mucchio di oggetti misti</li>
+                    <li class="fragment">Chiedete: "Inventate le regole per dividerli in gruppi"</li>
+                    <li class="fragment">Poi cambiate le regole e rifate</li>
+                </ul>
+                <div class="highlight-box fragment">
+                    <p>"Avete appena fatto quello che fa un'IA quando impara a riconoscere le cose" — si chiama embedding</p>
+                </div>
+            </section>
+
+            <section>
+                <h2>Indovina chi robotico</h2>
+                <ul>
+                    <li class="fragment">Mostrate immagini di personaggi</li>
+                    <li class="fragment">I bambini li descrivono con una lista di caratteristiche:<br><strong>capelli biondi, occhiali, cappello rosso...</strong></li>
+                    <li class="fragment">Poi date solo la lista e devono indovinare chi è</li>
+                </ul>
+                <div class="highlight-box fragment">
+                    <p>"Avete appena costruito un sistema di riconoscimento facciale"</p>
+                </div>
+            </section>
+
+            <section>
+                <h2>Il telefono senza fili dell'IA</h2>
+                <ul>
+                    <li class="fragment">Un bambino scrive un breve testo</li>
+                    <li class="fragment">Il secondo legge e lo riscrive <strong>a parole sue</strong>, senza copiare</li>
+                    <li class="fragment">Il terzo fa lo stesso col testo del secondo, e così via</li>
+                    <li class="fragment">Confrontate il testo finale con l'originale</li>
+                </ul>
+                <div class="highlight-box fragment">
+                    <p>"Ecco perché l'IA a volte dice cose sbagliate — ha riscritto troppe volte"</p>
+                </div>
+            </section>
+
+            <section>
+                <h2>Il previsore meteo umano</h2>
+                <ul>
+                    <li class="fragment">Date ai bambini una tabella con 10 giorni di meteo:<br><strong>temperatura, cielo, vento</strong></li>
+                    <li class="fragment">Chiedete: "Che tempo farà il giorno 11?"</li>
+                    <li class="fragment">Devono trovare i pattern nei dati e fare una previsione</li>
+                </ul>
+                <div class="highlight-box fragment">
+                    <p>"Avete appena fatto machine learning — trovare schemi nei dati per predire il futuro"</p>
+                </div>
+            </section>
+
+            <section>
+                <h2>Le regole d'oro</h2>
+                <div class="warning-box fragment">
+                    <p><strong>Non farli usare ChatGPT per i compiti</strong><br>Distrugge la motivazione a pensare con la propria testa.</p>
+                </div>
+                <div class="warning-box fragment">
+                    <p><strong>Non presentare l'IA come "magica"</strong><br>Crea aspettative sbagliate e dipendenza dallo strumento.</p>
+                </div>
+                <div class="highlight-box fragment">
+                    <p>L'obiettivo non è usare l'IA — è <strong>capire come funziona</strong> per non farsi fregare da grandi.</p>
+                </div>
+            </section>
+
+            <!-- ═══════════════════════════════════════ -->
+            <!-- PROMPT REFINING COI BAMBINI -->
+            <!-- ═══════════════════════════════════════ -->
+            <section>
+                <h2>Il prompt refining coi bambini</h2>
+                <ul>
+                    <li class="fragment">Insegnare a <strong>strutturare una domanda</strong> è già prompt refining</li>
+                    <li class="fragment">"Scrivi un pensierino" vs "Scrivi una storia su un uccellino che..."</li>
+                    <li class="fragment">Se imparano adesso a chiedere bene, a 20 anni saranno micidiali</li>
+                </ul>
+                <div class="highlight-box fragment">
+                    <p>Non serve il computer: "Come formuleresti la domanda per avere la risposta migliore?"</p>
+                </div>
+            </section>
+
+            <!-- ═══════════════════════════════════════ -->
+            <!-- QUOTE FINALE -->
+            <!-- ═══════════════════════════════════════ -->
+            <section class="quote-slide">
+                <p class="quote-text">L'IA non sostituirà le maestre.<br>Ma le maestre che usano l'IA<br><em>avranno più tempo per fare le maestre.</em></p>
+            </section>
+
+            <section class="quote-slide">
+                <p class="quote-text">Non usatela come un mezzo indipendente.<br>Usatela come <em>una leva del vostro lavoro</em>.</p>
+                <p class="quote-author">Per potenziare la vostra testa, non per sostituirla.</p>
+            </section>
+
+            <!-- ═══════════════════════════════════════ -->
+            <!-- RECAP LINK -->
+            <!-- ═══════════════════════════════════════ -->
+            <section>
+                <h2>Tutti i link</h2>
+                <div class="highlight-box">
+                    <p>Questa presentazione + tutti i link + la dispensa completa:<br><br><strong style="font-size: 32px; color: var(--color-orange);">talk.giobi.com/events/2026-03-10-eferiolo-ia-maestre</strong></p>
+                </div>
+            </section>
+
+            <!-- ═══════════════════════════════════════ -->
+            <!-- FINE -->
+            <!-- ═══════════════════════════════════════ -->
+            <section class="end-slide">
+                <h1>Domande?</h1>
+                <p>Se vi bloccate con uno strumento,<br>mandatemi uno screenshot e vi aiuto.</p>
+                <p class="contact">info@giobi.com</p>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.3.1/dist/reveal.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            controls: true,
+            progress: true,
+            center: true,
+            transition: 'fade',
+            transitionSpeed: 'slow',
+            width: 1920,
+            height: 1080,
+            margin: 0.04,
+            minScale: 0.2,
+            maxScale: 2.0
+        });
+    </script>
+</body>
+</html>

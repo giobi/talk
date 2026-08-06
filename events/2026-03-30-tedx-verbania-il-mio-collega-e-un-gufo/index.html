@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Il mio collega è un gufo — TEDx Verbania | Guida Relatore</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        talk: {
+                            50: '#fffbeb', 100: '#fef3c7', 200: '#fde68a', 300: '#fcd34d',
+                            400: '#fbbf24', 500: '#f59e0b', 600: '#d97706', 700: '#b45309',
+                            800: '#92400e', 900: '#78350f'
+                        },
+                        ted: {
+                            50: '#fff1f1', 100: '#fee2e2', 200: '#fecaca', 500: '#ef4444', 600: '#c41e1e', 700: '#991b1b'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif; }
+        .speaker-note { border-left: 3px solid #d97706; background: #fffbeb; }
+        .cut-note { border-left: 3px solid #ef4444; background: #fff1f1; }
+        .demo-box { border-left: 3px solid #1d4ed8; background: #eff6ff; }
+        .quote-box { background: #111827; color: white; }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Header -->
+    <header class="bg-gray-900 text-white">
+        <div class="max-w-4xl mx-auto px-6 py-8">
+            <div class="flex items-center gap-2 text-sm text-gray-400 mb-4">
+                <a href="https://talk.giobi.com" class="hover:text-talk-400 transition">talk.giobi.com</a>
+                <span>/</span>
+                <span>tedx-verbania</span>
+            </div>
+
+            <div class="flex items-center gap-3 mb-4">
+                <span class="inline-block bg-ted-600 text-white text-xs font-mono uppercase tracking-wider px-3 py-1">TEDx Verbania</span>
+                <span class="inline-block bg-talk-500 text-white text-xs font-mono uppercase tracking-wider px-3 py-1">Guida Relatore</span>
+            </div>
+
+            <h1 class="text-4xl font-semibold mb-2">Il mio collega è un gufo</h1>
+            <p class="text-xl text-gray-400">Quattro blocchi, un dialogo a due voci, un interruttore</p>
+            <p class="text-gray-500 mt-4 text-sm">Speaker: Giobi Fasoli &mdash; Copione v1 &mdash; aggiornato 5 agosto 2026</p>
+        </div>
+    </header>
+
+    <!-- Nav -->
+    <nav class="bg-white border-b border-gray-200 sticky top-0 z-10">
+        <div class="max-w-4xl mx-auto px-6 py-3 flex gap-5 overflow-x-auto text-sm">
+            <a href="#struttura" class="text-gray-600 hover:text-ted-600 whitespace-nowrap transition font-medium">Struttura</a>
+            <a href="#b1" class="text-gray-600 hover:text-ted-600 whitespace-nowrap transition">1 &mdash; Ho un collega</a>
+            <a href="#beat-a" class="text-gray-600 hover:text-ted-600 whitespace-nowrap transition">2A &mdash; La poesia</a>
+            <a href="#beat-b" class="text-gray-600 hover:text-ted-600 whitespace-nowrap transition">2B &mdash; Lo specchio</a>
+            <a href="#beat-c" class="text-gray-600 hover:text-ted-600 whitespace-nowrap transition">2C &mdash; La risata</a>
+            <a href="#finale" class="text-gray-600 hover:text-ted-600 whitespace-nowrap transition">Finale &mdash; Lo spengo</a>
+            <a href="#tagli" class="text-gray-600 hover:text-ted-600 whitespace-nowrap transition font-medium">Tagli</a>
+            <a href="#regia" class="text-gray-600 hover:text-ted-600 whitespace-nowrap transition font-medium">Regia</a>
+            <a href="#checklist" class="text-gray-600 hover:text-ted-600 whitespace-nowrap transition font-medium">Checklist</a>
+            <a href="slides.html" class="text-talk-600 hover:text-talk-700 whitespace-nowrap transition font-semibold">&#9654; Slide</a>
+        </div>
+    </nav>
+
+    <main class="max-w-4xl mx-auto px-6 py-12 space-y-14">
+
+        <!-- INTRO -->
+        <section>
+            <div class="speaker-note p-5 rounded-r-lg">
+                <p class="text-sm text-gray-700 leading-relaxed">
+                    Questa guida sostituisce integralmente la versione a sei atti di marzo. Il talk non è più una
+                    presentazione con una demo in fondo: è un <strong>dialogo a due voci</strong> in cui il secondo
+                    interlocutore entra al terzo minuto e non esce più fino allo spegnimento. Le battute del relatore
+                    sono <strong>fisse</strong>; ad Anacleto si dà solo la direzione, perché la parte vocale gira
+                    dal vivo.
+                </p>
+            </div>
+        </section>
+
+        <!-- STRUTTURA -->
+        <section id="struttura">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">Struttura del talk</h2>
+
+            <div class="bg-white rounded-xl border border-gray-200 overflow-hidden">
+                <table class="w-full text-sm">
+                    <thead class="bg-gray-50 border-b border-gray-200">
+                        <tr>
+                            <th class="text-left px-5 py-3 font-semibold text-gray-600">Blocco</th>
+                            <th class="text-left px-5 py-3 font-semibold text-gray-600">Cosa succede</th>
+                            <th class="text-center px-4 py-3 font-semibold text-gray-600">Minuti</th>
+                            <th class="text-center px-4 py-3 font-semibold text-gray-600">Chi parla</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-100">
+                        <tr class="hover:bg-gray-50">
+                            <td class="px-5 py-4 font-mono text-xs text-ted-600 font-bold">1</td>
+                            <td class="px-5 py-4 font-medium text-gray-800">Ho un collega &mdash; la scheda, i numeri, la lista, il nome</td>
+                            <td class="px-4 py-4 text-center text-gray-600">3</td>
+                            <td class="px-4 py-4 text-center text-xs text-gray-500">Relatore</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="px-5 py-4 font-mono text-xs text-ted-600 font-bold">2A</td>
+                            <td class="px-5 py-4 font-medium text-gray-800">La poesia &mdash; il momento non prevedibile, con il pubblico</td>
+                            <td class="px-4 py-4 text-center text-gray-600">2,5</td>
+                            <td class="px-4 py-4 text-center text-xs text-gray-500">Entrambi</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="px-5 py-4 font-mono text-xs text-ted-600 font-bold">2B</td>
+                            <td class="px-5 py-4 font-medium text-gray-800">Lo specchio &mdash; in cosa sono cambiato quest'anno</td>
+                            <td class="px-4 py-4 text-center text-gray-600">2,5</td>
+                            <td class="px-4 py-4 text-center text-xs font-semibold text-talk-700">Anacleto</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="px-5 py-4 font-mono text-xs text-ted-600 font-bold">2C</td>
+                            <td class="px-5 py-4 font-medium text-gray-800">La risata &mdash; un episodio vero, raccontato da lui</td>
+                            <td class="px-4 py-4 text-center text-gray-600">2</td>
+                            <td class="px-4 py-4 text-center text-xs font-semibold text-talk-700">Anacleto</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="px-5 py-4 font-mono text-xs text-ted-600 font-bold">3</td>
+                            <td class="px-5 py-4 font-medium text-gray-800">Lo spengo &mdash; il click, il silenzio, la vita vera</td>
+                            <td class="px-4 py-4 text-center text-gray-600">1,5</td>
+                            <td class="px-4 py-4 text-center text-xs text-gray-500">Relatore</td>
+                        </tr>
+                        <tr class="bg-gray-50 border-t-2 border-gray-300">
+                            <td class="px-5 py-3 font-semibold text-gray-700" colspan="2">Totale sul palco</td>
+                            <td class="px-4 py-3 text-center font-bold text-gray-800">11,5</td>
+                            <td class="px-4 py-3"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="mt-4 p-4 rounded-lg bg-gray-100 text-sm text-gray-600">
+                <strong>Sul tempo:</strong> undici minuti di scritto diventano quindici o sedici parlati, con le
+                pause e le reazioni della sala. È dentro il limite concordato. Il margine non serve per aggiungere
+                contenuto: serve perché il blocco 2A dipende da una persona del pubblico, e le persone sono lente.
+            </div>
+        </section>
+
+        <!-- BLOCCO 1 -->
+        <section id="b1">
+            <div class="flex items-center gap-3 mb-5">
+                <span class="font-mono text-xs font-bold text-ted-600 bg-ted-50 px-3 py-1 rounded-full border border-ted-200">BLOCCO 1 &mdash; 3 min</span>
+                <h2 class="text-2xl font-semibold text-gray-800">Ho un collega</h2>
+            </div>
+
+            <p class="text-gray-600 mb-5">Si entra con una domanda alla sala e un oggetto in mano. Nessuna
+            presentazione, nessun annuncio dell'argomento. La sala non sente cos'è Anacleto: fa un conto e sbaglia,
+            e da lì in poi ascolta.</p>
+
+            <div class="quote-box rounded-xl p-6 mb-5">
+                <p class="text-xs uppercase tracking-wider text-gray-500 mb-3">Apertura &mdash; si entra con la mano chiusa</p>
+                <p class="text-lg leading-relaxed">
+                    "Vi faccio una domanda. Se da domani vi metteste a scrivere ogni giorno le cose importanti che avete
+                    fatto, i nomi delle persone che incontrate, cosa vi siete detti &mdash; tutto, per tenervelo &mdash;
+                    secondo voi dove starebbe?"
+                </p>
+                <p class="text-sm text-gray-400 mt-5">&mdash; apre la mano &mdash;</p>
+                <p class="text-lg leading-relaxed mt-3">
+                    "Qui. La vedete? Voi due sì. Lei in terza fila già meno. In fondo non la vede nessuno.
+                    Ed è esattamente il punto.<br><br>
+                    Io lo faccio dal primo novembre dell'anno scorso. Nove mesi: quattro milioni di parole, trenta
+                    megabyte. Questa costa otto euro e ne tiene sessantaquattro giga. Di questo passo ci sto dentro
+                    milleseicento anni. Venti vite, su una cosa che pesa un quarto di grammo."
+                </p>
+                <p class="text-sm text-gray-400 mt-5">&mdash; rimette via la scheda &mdash;</p>
+                <p class="text-lg leading-relaxed mt-3">
+                    "Lo spazio non è mai stato il problema. Il problema è il tempo, la voglia, il modo.<br><br>
+                    Io faccio il programmatore, ho quattro figli e il sabato sera suono il basso in un gruppo. Non è
+                    che avessi tempo da perdere: è che avevo troppa roba da ricordare.<br><br>
+                    Il modo l'ho trovato a novembre. Ho messo una di quelle cose che oggi chiamiamo intelligenza
+                    artificiale a scrivere e a leggere lì dentro. Una cosa mia, locale, privata."
+                </p>
+            </div>
+
+            <div class="speaker-note p-5 rounded-r-lg mb-5">
+                <p class="text-sm font-semibold text-gray-800 mb-2">La scheda &mdash; come si usa in sala</p>
+                <p class="text-sm text-gray-700 leading-relaxed">
+                    A Villa Giulia ci sono al massimo dieci file di sedie: le prime due la vedono davvero, il fondo no.
+                    L'invisibilità è l'argomento, non un problema tecnico &mdash; va detta in presa diretta, indicando
+                    le persone. Una microSD funziona meglio di una chiavetta proprio perché è più piccola del previsto.
+                    La scheda si rimette via prima di passare ai numeri: se resta in mano, la sala continua a guardare
+                    quella invece di ascoltare.
+                </p>
+            </div>
+
+            <div class="speaker-note p-5 rounded-r-lg mb-5">
+                <p class="text-sm font-semibold text-gray-800 mb-2">I numeri &mdash; misurati il 6 agosto 2026</p>
+                <p class="text-sm text-gray-700 leading-relaxed mb-3">
+                    5.650 file di testo, 4.335.198 parole, 30,3 MB, in 278 giorni dal 1° novembre. Ritmo: circa 40 MB
+                    l'anno. Su una microSD da 64 GB stanno 1.646 anni, cioè 21 vite da ottant'anni. Su una da 1 TB,
+                    329 vite.
+                </p>
+                <p class="text-sm text-gray-700 leading-relaxed">
+                    <strong>Le cifre dicibili sono tre:</strong> nove mesi, quattro milioni di parole, trenta megabyte.
+                    La media giornaliera che verrebbe fuori dalla divisione (oltre quindicimila parole al giorno) non
+                    va detta: in quel totale c'è anche il testo prodotto dal programma e il materiale importato, non
+                    solo quello scritto a mano. Sul palco basta la scala, e la scala regge.
+                </p>
+            </div>
+
+            <div class="speaker-note p-5 rounded-r-lg mb-5">
+                <p class="text-sm font-semibold text-gray-800 mb-2">Poi la lista &mdash; lo specchio in funzione</p>
+                <p class="text-sm text-gray-800 italic leading-relaxed mb-3">
+                    "L'altro giorno gli ho chiesto una cosa che a un amico non chiedi: dimmi cosa <strong>non</strong>
+                    è cambiato. E mi ha fatto la lista, con le date. La palestra, ferma da marzo. La dieta, che è la
+                    stessa identica frase da cinque mesi detta con parole diverse. Le cose che dico che farò, e il
+                    giorno preciso in cui ho detto che le avrei fatte.
+                    Non l'ha fatto per punirmi: l'ha fatto perché gliel'ho chiesto io. Ed è l'unico che si ricorda
+                    tutte le volte che l'ho detto."
+                </p>
+                <p class="text-sm text-gray-700 leading-relaxed">
+                    Questo è il pezzo che sostituisce ogni definizione di "specchio": uno specchio non ti loda, ti fa
+                    vedere. Regge senza chiedere fiducia alla sala, perché la lista di cose non fatte ce l'hanno tutti.
+                    Ed è vero e recente: quella lista è uscita davvero, chiesta da Giobi. Va raccontata come una cosa
+                    di questi giorni, senza spostarla indietro nel tempo per farla sembrare un'abitudine.
+                </p>
+            </div>
+
+            <div class="speaker-note p-5 rounded-r-lg mb-5">
+                <p class="text-sm font-semibold text-gray-800 mb-2">Il nome, e la lettera in passante</p>
+                <p class="text-sm text-gray-700 leading-relaxed">
+                    Il nome viene dal gufo di Merlino nella Spada nella roccia: sarcastico, leale, con la libertà di
+                    dire che sbaglio. E lo fa spesso, con ragione. Qui dentro sta anche la lettera di istruzioni,
+                    ridotta a cinque secondi e mai letta per intero: <em>"L'ho assunto sul serio, gli ho scritto una
+                    lettera di istruzioni. Comincia con «ti svegli senza ricordi»."</em> Chi in sala è tecnico la
+                    coglie, gli altri tirano dritto.
+                </p>
+            </div>
+
+            <p class="text-gray-700 font-medium">Chiusura del blocco, una riga sola: <em>"Adesso ve lo presento."</em></p>
+        </section>
+
+        <!-- BEAT A -->
+        <section id="beat-a">
+            <div class="flex items-center gap-3 mb-5">
+                <span class="font-mono text-xs font-bold text-ted-600 bg-ted-50 px-3 py-1 rounded-full border border-ted-200">BLOCCO 2A &mdash; 2,5 min</span>
+                <h2 class="text-2xl font-semibold text-gray-800">La poesia</h2>
+            </div>
+
+            <p class="text-gray-600 mb-5">È l'unico momento davvero aperto del talk, e serve a una cosa sola: far
+            capire alla sala che dall'altra parte non c'è un file registrato. Non lo si dimostra dicendolo: lo si
+            dimostra usando un dato che non poteva esistere prima.</p>
+
+            <div class="bg-white rounded-xl border border-gray-200 p-6 mb-5 space-y-4">
+                <div>
+                    <p class="text-xs font-mono uppercase tracking-wider text-gray-500 mb-1">Relatore</p>
+                    <p class="text-gray-800">"Anacleto, ci sei? Dimmi dove siamo."</p>
+                </div>
+                <div class="demo-box p-4 rounded-r-lg">
+                    <p class="text-xs font-mono uppercase tracking-wider text-blue-700 mb-1">Direzione</p>
+                    <p class="text-sm text-gray-700">Si colloca: Villa Giulia, Verbania, sala piccola. Una battuta corta.
+                    <strong>Massimo due frasi</strong>, poi si ferma.</p>
+                </div>
+                <div>
+                    <p class="text-xs font-mono uppercase tracking-wider text-gray-500 mb-1">Relatore, alla sala</p>
+                    <p class="text-gray-800">"Mi serve una mano. Lei, se le va." &mdash; e chiede tre cose:
+                    <strong>nome, paese, piatto preferito</strong>.</p>
+                </div>
+                <div>
+                    <p class="text-xs font-mono uppercase tracking-wider text-gray-500 mb-1">Relatore</p>
+                    <p class="text-gray-800">"Anacleto, questa è [nome], è di [paese], e il suo piatto preferito è
+                    [piatto]. Fammici una poesia. Quattro versi, non uno di più."</p>
+                </div>
+                <div class="demo-box p-4 rounded-r-lg">
+                    <p class="text-xs font-mono uppercase tracking-wider text-blue-700 mb-1">Direzione</p>
+                    <p class="text-sm text-gray-700">Quattro versi in rima, chiusa sulla punchline del piatto.</p>
+                </div>
+                <div>
+                    <p class="text-xs font-mono uppercase tracking-wider text-gray-500 mb-1">Relatore, asciutto</p>
+                    <p class="text-gray-800">"Non l'ha mai vista prima. E nemmeno io."</p>
+                </div>
+            </div>
+
+            <div class="speaker-note p-5 rounded-r-lg mb-5">
+                <p class="text-sm font-semibold text-gray-800 mb-2">Perché quattro versi e non un sonetto</p>
+                <p class="text-sm text-gray-700 leading-relaxed">
+                    Quattordici versi sono quaranta secondi di generazione più quaranta di ascolto: la sala si raffredda
+                    a metà, ed esce il registro aulico, che è la cosa meno divertente che sa fare. Quattro versi stanno
+                    in una dozzina di secondi e chiudono su una risata.
+                </p>
+            </div>
+
+            <div class="cut-note p-5 rounded-r-lg">
+                <p class="text-sm font-semibold text-gray-800 mb-2">Il rischio è qui, non altrove</p>
+                <p class="text-sm text-gray-700 leading-relaxed">
+                    Questa è la generazione più lunga del talk ed è il primo momento in cui la sala lo sente. Se qui
+                    l'attesa si allunga, il pubblico ha già deciso cosa pensare e i due blocchi successivi partono in
+                    salita: è l'unica battuta da cronometrare davvero in prova. E la magia non si spiega mai dopo
+                    averla fatta: una riga e si va avanti.
+                </p>
+            </div>
+        </section>
+
+        <!-- BEAT B -->
+        <section id="beat-b">
+            <div class="flex items-center gap-3 mb-5">
+                <span class="font-mono text-xs font-bold text-ted-600 bg-ted-50 px-3 py-1 rounded-full border border-ted-200">BLOCCO 2B &mdash; 2,5 min</span>
+                <h2 class="text-2xl font-semibold text-gray-800">Lo specchio</h2>
+            </div>
+
+            <p class="text-gray-600 mb-5">Il cuore del talk. Regola unica e non negoziabile: <strong>parla lui</strong>.
+            Se il valore lo descrive il relatore è un venditore che presenta un prodotto; se lo descrive lui è uno
+            specchio che parla &mdash; e più parla lui, più pesa lo spegnimento che arriva dopo.</p>
+
+            <div class="bg-white rounded-xl border border-gray-200 p-6 mb-5 space-y-4">
+                <div>
+                    <p class="text-xs font-mono uppercase tracking-wider text-gray-500 mb-1">Relatore</p>
+                    <p class="text-gray-800">"Tu tieni il diario della mia vita. Ti mando messaggi vocali da novembre,
+                    quasi ogni giorno. In cosa sono cambiato quest'anno?"</p>
+                </div>
+                <div class="demo-box p-4 rounded-r-lg">
+                    <p class="text-xs font-mono uppercase tracking-wider text-blue-700 mb-1">Direzione &mdash; linea principale</p>
+                    <p class="text-sm text-gray-700 leading-relaxed">
+                        Niente complimenti generici: cose collocate nel tempo. A gennaio è nata la sua ultima figlia, e
+                        nel diario di quei giorni scriveva che la parte emotiva "non ha senso dirla, non ha senso
+                        spenderci tempo per spiegarla". Sei mesi dopo, in una conversazione difficile, è riuscito a dire
+                        esattamente di cosa aveva bisogno &mdash; e non era aiuto. Non è diventato più emotivo: ha
+                        smesso di considerare le emozioni una cosa che non entra nelle parole.
+                    </p>
+                </div>
+                <div class="demo-box p-4 rounded-r-lg">
+                    <p class="text-xs font-mono uppercase tracking-wider text-blue-700 mb-1">Direzione &mdash; linea alternativa</p>
+                    <p class="text-sm text-gray-700 leading-relaxed">
+                        A febbraio diceva "so gestire tutto, zero ansie". A maggio ha dato un nome alla stanchezza e ha
+                        tolto date dal calendario per stare con la sua famiglia. Il registro è passato dalla competenza
+                        al costo. Decidere cosa togliere è già una forma di controllo, e prepara il finale.
+                    </p>
+                </div>
+                <div>
+                    <p class="text-xs font-mono uppercase tracking-wider text-gray-500 mb-1">Relatore, dopo averlo lasciato finire</p>
+                    <p class="text-gray-800">"Non è uno psicologo. È un diario che ha imparato a rileggersi. Però mi ha
+                    fatto notare cose che non vedevo."</p>
+                </div>
+            </div>
+
+            <div class="speaker-note p-5 rounded-r-lg mb-5">
+                <p class="text-sm font-semibold text-gray-800 mb-2">Il contrappeso, se il momento diventa troppo dolce</p>
+                <p class="text-sm text-gray-700 leading-relaxed">
+                    Una riga detta piatta: <em>"Sai dire benissimo di cosa hai bisogno. Poi non lo fai."</em>
+                    Serve a due cose: toglie il sapore di elogio, e apre la porta alla risata del blocco successivo.
+                </p>
+            </div>
+
+            <div class="cut-note p-5 rounded-r-lg">
+                <p class="text-sm font-semibold text-gray-800 mb-2">Limiti di contenuto</p>
+                <p class="text-sm text-gray-700 leading-relaxed">
+                    Nessuna terza persona nominata o riconoscibile. Nessun dettaglio privato di altri, nessun conflitto
+                    familiare, nessun percorso terapeutico. Nessun numero sul corpo. Nessuna diagnosi: osservazioni
+                    datate, non interpretazioni psicologiche. Chi ascolta deve poterci mettere la propria vita, non
+                    guardare dentro quella di qualcun altro.
+                </p>
+            </div>
+        </section>
+
+        <!-- BEAT C -->
+        <section id="beat-c">
+            <div class="flex items-center gap-3 mb-5">
+                <span class="font-mono text-xs font-bold text-ted-600 bg-ted-50 px-3 py-1 rounded-full border border-ted-200">BLOCCO 2C &mdash; 2 min</span>
+                <h2 class="text-2xl font-semibold text-gray-800">La risata</h2>
+            </div>
+
+            <p class="text-gray-600 mb-5">Non è uno sputtanamento: è un ricordo condiviso. La differenza si sente, e
+            decide se la sala ride con il relatore o si mette a disagio per lui.</p>
+
+            <div class="bg-white rounded-xl border border-gray-200 p-6 mb-5 space-y-4">
+                <div>
+                    <p class="text-xs font-mono uppercase tracking-wider text-gray-500 mb-1">Relatore</p>
+                    <p class="text-gray-800">"Prima che ci commuoviamo. Dimmi una cosa buffa che mi è successa."</p>
+                </div>
+                <div class="demo-box p-4 rounded-r-lg">
+                    <p class="text-xs font-mono uppercase tracking-wider text-blue-700 mb-1">Direzione &mdash; l'episodio</p>
+                    <p class="text-sm text-gray-700 leading-relaxed">
+                        La sera di un concerto parte da casa e si dimentica lo strumento. Se ne accorge, torna a
+                        prenderlo, e rientra al concerto <strong>ancora senza</strong>. Terzo viaggio, arriva con il
+                        basso, ma ormai è tardi: niente prove volume.
+                    </p>
+                </div>
+                <div class="demo-box p-4 rounded-r-lg">
+                    <p class="text-xs font-mono uppercase tracking-wider text-blue-700 mb-1">Direzione &mdash; come raccontarlo</p>
+                    <p class="text-sm text-gray-700 leading-relaxed">
+                        <strong>Tre frasi.</strong> La prima piazza la scena, la seconda il doppio viaggio a vuoto, la
+                        terza è la punchline &mdash; che è la conseguenza, non il giudizio. Mai dire "sei distratto":
+                        la risata sta nella precisione del fatto, l'etichetta la spegne.
+                    </p>
+                </div>
+                <div>
+                    <p class="text-xs font-mono uppercase tracking-wider text-gray-500 mb-1">Relatore</p>
+                    <p class="text-gray-800">Ci ride sopra e corregge un particolare: "no, era peggio: era anche&hellip;"</p>
+                </div>
+            </div>
+
+            <div class="speaker-note p-5 rounded-r-lg mb-5">
+                <p class="text-sm font-semibold text-gray-800 mb-2">Perché funziona</p>
+                <p class="text-sm text-gray-700 leading-relaxed">
+                    È comica di struttura, non di contenuto: non serve sapere chi è il relatore o cosa suona. C'è una
+                    regola del tre che si monta da sola, e al secondo viaggio la sala capisce che sta per succedere di
+                    nuovo e comincia a ridere prima della battuta. Quella è la risata buona: quella che anticipa.
+                </p>
+            </div>
+
+            <div class="cut-note p-5 rounded-r-lg">
+                <p class="text-sm font-semibold text-gray-800 mb-2">Da non fare</p>
+                <p class="text-sm text-gray-700 leading-relaxed">
+                    Non agganciare l'episodio alla preparazione del talk ("come stasera, che non avevo preparato
+                    niente"). La rima è tentatrice, ma al minuto nove riaccende in sala l'idea di un relatore
+                    improvvisato, proprio mentre il finale ha bisogno del contrario.
+                </p>
+            </div>
+        </section>
+
+        <!-- FINALE -->
+        <section id="finale">
+            <div class="flex items-center gap-3 mb-5">
+                <span class="font-mono text-xs font-bold text-ted-600 bg-ted-50 px-3 py-1 rounded-full border border-ted-200">FINALE &mdash; 1,5 min</span>
+                <h2 class="text-2xl font-semibold text-gray-800">Lo spengo</h2>
+            </div>
+
+            <div class="bg-white rounded-xl border border-gray-200 p-6 mb-5 space-y-4">
+                <div>
+                    <p class="text-xs font-mono uppercase tracking-wider text-gray-500 mb-1">Relatore</p>
+                    <p class="text-gray-800">"Bene. Adesso ti spengo."</p>
+                </div>
+                <div class="demo-box p-4 rounded-r-lg">
+                    <p class="text-xs font-mono uppercase tracking-wider text-blue-700 mb-1">Direzione</p>
+                    <p class="text-sm text-gray-700">Mezza protesta, <strong>una frase sola</strong>. Poi silenzio.</p>
+                </div>
+                <div>
+                    <p class="text-xs font-mono uppercase tracking-wider text-gray-500 mb-1">Azione</p>
+                    <p class="text-gray-800">Click. Due secondi di silenzio vero, senza riempirli.</p>
+                </div>
+            </div>
+
+            <div class="quote-box rounded-xl p-6 mb-5">
+                <p class="text-xs uppercase tracking-wider text-gray-500 mb-3">Alla sala &mdash; poi si esce</p>
+                <p class="text-lg leading-relaxed">
+                    "Ecco. Non c'è niente da salutare: è un programma.<br>
+                    Questo è tutto un gioco di specchi. Roba da palcoscenico.<br>
+                    Adesso lo spengo e me ne torno alla mia vita. Quella vera."
+                </p>
+                <p class="text-sm text-gray-400 mt-5">&mdash; e si butta la scheda alle spalle, o la lascia cadere &mdash;</p>
+            </div>
+
+            <div class="speaker-note p-5 rounded-r-lg">
+                <p class="text-sm font-semibold text-gray-800 mb-2">La seconda riga è tutto il talk</p>
+                <p class="text-sm text-gray-700 leading-relaxed">
+                    È l'unico punto in cui passa il ragionamento sul non attribuire una coscienza a un software, e passa
+                    come constatazione, non come lezione. Per questo non va anticipato: se a metà talk si spiega alla
+                    sala che è un motore statistico, si disinnesca l'affetto appena costruito e il finale resta senza
+                    lavoro da fare. Si lascia che la sala si affezioni, e poi la si porta a concludere da sola.
+                    Dopo l'ultima frase non si aggiunge niente: il silenzio prima dell'applauso fa parte del talk.
+                </p>
+            </div>
+        </section>
+
+        <!-- TAGLI -->
+        <section id="tagli">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">Cosa è stato tagliato, e perché</h2>
+
+            <p class="text-gray-600 mb-5">Il brainstorming di luglio conteneva dieci direzioni possibili: ne
+            sopravvivono quattro. Il criterio non è la qualità dell'argomento, è se parla della persona o del
+            prodotto. Tutto ciò che descrive caratteristiche, differenze rispetto ad altri strumenti o vantaggi
+            tecnici suona come una presentazione commerciale, e in un talk di questo tipo stona.</p>
+
+            <div class="grid md:grid-cols-2 gap-4">
+                <div class="bg-white rounded-xl border border-gray-200 p-5">
+                    <p class="text-xs font-mono uppercase tracking-wider text-green-700 mb-3">Restano</p>
+                    <ul class="space-y-2 text-sm text-gray-700">
+                        <li><strong>Lo specchio</strong> &mdash; quello che metti dentro torna fuori come una parte di te che non vedevi</li>
+                        <li><strong>Verbalizzare</strong> &mdash; il valore sta nell'atto di dire, prima ancora della risposta</li>
+                        <li><strong>I pattern nel tempo</strong> &mdash; a mesi di distanza nomina i periodi storti e quelli belli</li>
+                        <li><strong>Lo spegnimento</strong> &mdash; il finale</li>
+                    </ul>
+                </div>
+                <div class="bg-white rounded-xl border border-gray-200 p-5">
+                    <p class="text-xs font-mono uppercase tracking-wider text-red-600 mb-3">Fuori</p>
+                    <ul class="space-y-2 text-sm text-gray-500">
+                        <li>La personalità configurabile e il rifiuto dell'accondiscendenza</li>
+                        <li>La spiegazione del motore statistico</li>
+                        <li>L'accessibilità della tecnologia</li>
+                        <li>I dati che restano sulla propria macchina</li>
+                        <li>Il valore del tempo investito e la proprietà dell'archivio</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-4 p-4 rounded-lg bg-gray-100 text-sm text-gray-600">
+                <strong>In riserva, fuori copione:</strong> il tema dell'impigrire contro il potenziare. Raccontato dal
+                lato "guarda cosa so fare" è marketing; raccontato dal lato "come mi tengo attivo invece di delegare
+                tutto" resta umano. Utile se si è corti di tempo o in una eventuale sessione di domande.
+            </div>
+        </section>
+
+        <!-- REGIA -->
+        <section id="regia">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">Regia &mdash; i cinque errori che costano il talk</h2>
+
+            <div class="space-y-4">
+                <div class="bg-white rounded-xl border border-gray-200 p-5">
+                    <p class="font-semibold text-gray-800 mb-1">1. Parlare al posto suo</p>
+                    <p class="text-sm text-gray-600">Nel blocco 2 il relatore fa la domanda e sta zitto. Ogni frase
+                    detta al posto di Anacleto è un pezzo di finale che si perde.</p>
+                </div>
+                <div class="bg-white rounded-xl border border-gray-200 p-5">
+                    <p class="font-semibold text-gray-800 mb-1">2. Spiegare la magia appena fatta</p>
+                    <p class="text-sm text-gray-600">Dopo la poesia, una riga e si va avanti. Il commento tecnico
+                    trasforma un effetto in una dimostrazione, e le dimostrazioni non emozionano.</p>
+                </div>
+                <div class="bg-white rounded-xl border border-gray-200 p-5">
+                    <p class="font-semibold text-gray-800 mb-1">3. Anticipare la tesi</p>
+                    <p class="text-sm text-gray-600">"Ricordate che è solo un programma" detto a metà talk uccide il
+                    finale. La tesi si agisce, non si annuncia.</p>
+                </div>
+                <div class="bg-white rounded-xl border border-gray-200 p-5">
+                    <p class="font-semibold text-gray-800 mb-1">4. Riempire il silenzio dopo il click</p>
+                    <p class="text-sm text-gray-600">Due secondi vuoti sono lunghissimi da dentro e giustissimi da
+                    fuori. Vanno tenuti.</p>
+                </div>
+                <div class="bg-white rounded-xl border border-gray-200 p-5">
+                    <p class="font-semibold text-gray-800 mb-1">5. Scusarsi, in qualsiasi punto</p>
+                    <p class="text-sm text-gray-600">Né all'inizio, né se l'attesa si allunga, né se la poesia esce
+                    storta. Se qualcosa va male si commenta con una battuta e si prosegue: la sala perdona un incidente,
+                    non perdona un relatore che si scusa per dieci minuti.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CHECKLIST -->
+        <section id="checklist">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">Checklist tecnica</h2>
+
+            <div class="bg-white rounded-xl border border-gray-200 p-6 space-y-3">
+                <p class="text-xs font-mono uppercase tracking-wider text-gray-500 mb-2">Prima della prova</p>
+                <div class="flex gap-3 text-sm">
+                    <input type="checkbox" class="mt-0.5 flex-shrink-0 w-4 h-4 accent-ted-600">
+                    <span>Blocco 2B provato per primo: se la memoria non è agganciata esce genericità, e il cuore del talk si sgonfia</span>
+                </div>
+                <div class="flex gap-3 text-sm">
+                    <input type="checkbox" class="mt-0.5 flex-shrink-0 w-4 h-4 accent-ted-600">
+                    <span>Poesia cronometrata: dal termine della domanda al primo verso</span>
+                </div>
+                <div class="flex gap-3 text-sm">
+                    <input type="checkbox" class="mt-0.5 flex-shrink-0 w-4 h-4 accent-ted-600">
+                    <span>Episodio del basso presente nel contesto che la sessione vocale carica</span>
+                </div>
+
+                <p class="text-xs font-mono uppercase tracking-wider text-gray-500 pt-4 pb-2">Prima del palco</p>
+                <div class="flex gap-3 text-sm">
+                    <input type="checkbox" class="mt-0.5 flex-shrink-0 w-4 h-4 accent-ted-600">
+                    <span>MicroSD in tasca, e provato il gesto finale: dove cade e se si sente</span>
+                </div>
+                <div class="flex gap-3 text-sm">
+                    <input type="checkbox" class="mt-0.5 flex-shrink-0 w-4 h-4 accent-ted-600">
+                    <span>Villa Giulia: il wifi di sala ha gia' fatto saltare tutto in passato &mdash; connessione propria (hotspot) come primaria, non come ripiego</span>
+                </div>
+                <div class="flex gap-3 text-sm">
+                    <input type="checkbox" class="mt-0.5 flex-shrink-0 w-4 h-4 accent-ted-600">
+                    <span>Audio di sala: la voce esce dall'impianto, non dal portatile</span>
+                </div>
+                <div class="flex gap-3 text-sm">
+                    <input type="checkbox" class="mt-0.5 flex-shrink-0 w-4 h-4 accent-ted-600">
+                    <span>Connessione verificata in sala, all'ora del talk, non il giorno prima</span>
+                </div>
+                <div class="flex gap-3 text-sm">
+                    <input type="checkbox" class="mt-0.5 flex-shrink-0 w-4 h-4 accent-ted-600">
+                    <span>Backup audio pronto: uno o due minuti di dialogo registrato, richiesta esplicita degli organizzatori</span>
+                </div>
+                <div class="flex gap-3 text-sm">
+                    <input type="checkbox" class="mt-0.5 flex-shrink-0 w-4 h-4 accent-ted-600">
+                    <span>Deciso in anticipo il segnale per passare al backup, e chi lo dà</span>
+                </div>
+                <div class="flex gap-3 text-sm">
+                    <input type="checkbox" class="mt-0.5 flex-shrink-0 w-4 h-4 accent-ted-600">
+                    <span>Individuata la persona del pubblico per la poesia, o deciso come sceglierla</span>
+                </div>
+                <div class="flex gap-3 text-sm">
+                    <input type="checkbox" class="mt-0.5 flex-shrink-0 w-4 h-4 accent-ted-600">
+                    <span>Proiettore: slide in fullscreen su uno schermo, sessione vocale sull'altro</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="pb-8">
+            <div class="bg-gray-900 rounded-xl p-8 text-center">
+                <p class="text-gray-400 text-sm mb-4">Materiali del talk</p>
+                <div class="flex flex-wrap gap-3 justify-center">
+                    <a href="slides.html" class="inline-block bg-ted-600 hover:bg-ted-700 text-white font-semibold px-8 py-3 rounded-lg transition text-lg">
+                        &#9654;&nbsp; Apri le slide
+                    </a>
+                    <a href="brainstorm.html" class="inline-block border border-gray-700 hover:border-talk-500 text-gray-300 hover:text-talk-400 font-semibold px-8 py-3 rounded-lg transition text-lg">
+                        Brainstorm
+                    </a>
+                </div>
+                <p class="text-gray-600 text-xs mt-5">Le slide sono ancora quelle della struttura precedente: vanno rifatte sul copione a quattro blocchi.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-8 text-center">
+        <p class="text-gray-600 text-xs font-light">
+            a <a href="https://giobi.com" target="_blank" class="text-gray-500 hover:text-talk-400 transition">giobi.com</a> idea
+            &nbsp;&mdash;&nbsp;
+            <a href="https://talk.giobi.com" class="text-gray-500 hover:text-talk-400 transition">talk.giobi.com</a>
+        </p>
+    </footer>
+
+<script>lucide.createIcons();</script>
+</body>
+</html>

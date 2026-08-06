@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GR Work Tech — Market Research Report</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* === Reset & Base === */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+        body {
+            background: #0f0f0f;
+            color: #f0ece4;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 16px;
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* === Layout === */
+        .page-wrapper {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* === Sidebar Nav === */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 260px;
+            height: 100vh;
+            background: #0a0a0a;
+            border-right: 1px solid rgba(200, 169, 110, 0.12);
+            padding: 32px 0;
+            overflow-y: auto;
+            z-index: 100;
+        }
+        .sidebar-brand {
+            padding: 0 24px 24px;
+            border-bottom: 1px solid rgba(200, 169, 110, 0.08);
+            margin-bottom: 16px;
+        }
+        .sidebar-brand .eyebrow {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #c8a96e;
+            margin-bottom: 4px;
+        }
+        .sidebar-brand .title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #f0ece4;
+            line-height: 1.3;
+        }
+        .sidebar nav {
+            padding: 0 12px;
+        }
+        .sidebar nav a {
+            display: block;
+            padding: 8px 12px;
+            font-size: 13px;
+            font-weight: 500;
+            color: #888;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: color 0.2s, background 0.2s;
+            line-height: 1.4;
+        }
+        .sidebar nav a:hover,
+        .sidebar nav a.active {
+            color: #f0ece4;
+            background: rgba(200, 169, 110, 0.08);
+        }
+        .sidebar nav a .nav-num {
+            color: #c8a96e;
+            font-weight: 700;
+            font-size: 11px;
+            margin-right: 6px;
+        }
+
+        /* === Main Content === */
+        .main {
+            margin-left: 260px;
+            flex: 1;
+            max-width: 960px;
+            padding: 48px 56px 96px;
+        }
+
+        /* === Header === */
+        .report-header {
+            margin-bottom: 56px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(200, 169, 110, 0.15);
+        }
+        .report-header .eyebrow {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #c8a96e;
+            margin-bottom: 16px;
+        }
+        .report-header h1 {
+            font-size: 40px;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 12px;
+        }
+        .report-header .subtitle {
+            font-size: 18px;
+            color: #888;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+        .report-header .date {
+            font-size: 13px;
+            color: #666;
+            margin-top: 12px;
+            font-weight: 500;
+        }
+
+        /* === Sections === */
+        section {
+            margin-bottom: 64px;
+        }
+        section h2 {
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+            color: #f0ece4;
+        }
+        section h2 .section-num {
+            color: #c8a96e;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            display: block;
+            margin-bottom: 6px;
+        }
+        section h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #c8a96e;
+            margin-top: 36px;
+            margin-bottom: 16px;
+        }
+        section p {
+            color: #ccc;
+            margin-bottom: 16px;
+            max-width: 680px;
+        }
+        .section-divider {
+            height: 1px;
+            background: rgba(200, 169, 110, 0.1);
+            margin-bottom: 12px;
+            margin-top: -4px;
+        }
+
+        /* === Tables === */
+        .table-wrap {
+            overflow-x: auto;
+            margin: 20px 0 28px;
+            border-radius: 10px;
+            border: 1px solid rgba(200, 169, 110, 0.12);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+            line-height: 1.5;
+            min-width: 700px;
+        }
+        thead th {
+            background: rgba(200, 169, 110, 0.08);
+            color: #c8a96e;
+            font-weight: 700;
+            font-size: 11px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 12px 14px;
+            text-align: left;
+            border-bottom: 1px solid rgba(200, 169, 110, 0.15);
+            white-space: nowrap;
+        }
+        tbody td {
+            padding: 10px 14px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            color: #ccc;
+            vertical-align: top;
+        }
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+        tbody tr:hover {
+            background: rgba(200, 169, 110, 0.03);
+        }
+        tbody tr.highlight-row {
+            background: rgba(200, 169, 110, 0.06);
+        }
+        tbody tr.highlight-row td {
+            color: #f0ece4;
+            font-weight: 500;
+        }
+        .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+        }
+        .badge-yes {
+            background: rgba(76, 175, 80, 0.15);
+            color: #6fcf74;
+        }
+        .badge-no {
+            background: rgba(244, 67, 54, 0.12);
+            color: #e57373;
+        }
+        .badge-partial {
+            background: rgba(255, 193, 7, 0.12);
+            color: #ffd54f;
+        }
+
+        /* === Highlight Box === */
+        .highlight-box {
+            background: rgba(200, 169, 110, 0.06);
+            border: 1px solid rgba(200, 169, 110, 0.2);
+            border-left: 3px solid #c8a96e;
+            border-radius: 8px;
+            padding: 24px 28px;
+            margin: 24px 0;
+        }
+        .highlight-box h4 {
+            font-size: 16px;
+            font-weight: 700;
+            color: #c8a96e;
+            margin-bottom: 12px;
+        }
+        .highlight-box p {
+            color: #ddd;
+            margin-bottom: 10px;
+        }
+        .highlight-box p:last-child {
+            margin-bottom: 0;
+        }
+        .highlight-box .stat-callout {
+            font-size: 14px;
+            font-weight: 500;
+            color: #c8a96e;
+            font-style: italic;
+            margin-top: 8px;
+        }
+
+        /* === Stat Cards === */
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin: 24px 0;
+        }
+        .stat-card {
+            background: #1e1e1e;
+            border: 1px solid rgba(200, 169, 110, 0.12);
+            border-radius: 10px;
+            padding: 24px;
+        }
+        .stat-card .stat-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #c8a96e;
+            margin-bottom: 8px;
+        }
+        .stat-card .stat-value {
+            font-size: 32px;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            color: #f0ece4;
+            line-height: 1.1;
+            margin-bottom: 6px;
+        }
+        .stat-card .stat-desc {
+            font-size: 13px;
+            color: #888;
+            line-height: 1.4;
+        }
+        .stat-grid-small {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin: 16px 0 28px;
+        }
+        .stat-card-sm {
+            background: #1a1a1a;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 8px;
+            padding: 18px 20px;
+        }
+        .stat-card-sm .stat-value {
+            font-size: 20px;
+            font-weight: 700;
+            color: #f0ece4;
+            margin-bottom: 4px;
+        }
+        .stat-card-sm .stat-desc {
+            font-size: 12px;
+            color: #888;
+            line-height: 1.4;
+        }
+
+        /* === Audience Cards === */
+        .audience-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin: 24px 0;
+        }
+        .audience-card {
+            background: #1e1e1e;
+            border: 1px solid rgba(200, 169, 110, 0.12);
+            border-radius: 10px;
+            padding: 28px;
+        }
+        .audience-card .card-tier {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #c8a96e;
+            margin-bottom: 4px;
+        }
+        .audience-card .card-role {
+            font-size: 18px;
+            font-weight: 700;
+            color: #f0ece4;
+            margin-bottom: 16px;
+        }
+        .audience-card .card-section-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #666;
+            margin-bottom: 6px;
+            margin-top: 16px;
+        }
+        .audience-card .card-section-label:first-of-type {
+            margin-top: 0;
+        }
+        .audience-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        .audience-card ul li {
+            font-size: 13px;
+            color: #aaa;
+            padding: 3px 0;
+            padding-left: 14px;
+            position: relative;
+            line-height: 1.5;
+        }
+        .audience-card ul li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: #555;
+        }
+        .audience-card .key-stat {
+            font-size: 13px;
+            color: #c8a96e;
+            font-style: italic;
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        .audience-card .card-section-label.delivers {
+            color: #6fcf74;
+        }
+        .audience-card .delivers-list li::before {
+            background: #6fcf74;
+        }
+        .audience-card .delivers-list li {
+            color: #bbb;
+        }
+
+        /* === Pricing Section === */
+        .pricing-position {
+            background: rgba(200, 169, 110, 0.06);
+            border: 1px solid rgba(200, 169, 110, 0.2);
+            border-radius: 10px;
+            padding: 28px 32px;
+            margin: 24px 0;
+        }
+        .pricing-position h4 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #c8a96e;
+            margin-bottom: 16px;
+        }
+        .pricing-items {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        .pricing-item {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 16px;
+        }
+        .pricing-item .pi-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #888;
+            margin-bottom: 4px;
+        }
+        .pricing-item .pi-value {
+            font-size: 18px;
+            font-weight: 700;
+            color: #f0ece4;
+            margin-bottom: 4px;
+        }
+        .pricing-item .pi-desc {
+            font-size: 12px;
+            color: #888;
+            line-height: 1.4;
+        }
+        .pricing-note {
+            font-size: 13px;
+            color: #aaa;
+            font-style: italic;
+            margin-top: 8px;
+        }
+
+        /* === Sources === */
+        .sources-list {
+            list-style: none;
+            padding: 0;
+        }
+        .sources-list li {
+            font-size: 13px;
+            color: #888;
+            padding: 6px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            line-height: 1.5;
+        }
+        .sources-list li:last-child {
+            border-bottom: none;
+        }
+        .sources-list a {
+            color: #c8a96e;
+            text-decoration: none;
+        }
+        .sources-list a:hover {
+            text-decoration: underline;
+        }
+
+        /* === Footer === */
+        .report-footer {
+            margin-top: 64px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(200, 169, 110, 0.12);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .report-footer span {
+            font-size: 13px;
+            color: #555;
+        }
+        .report-footer a {
+            font-size: 13px;
+            color: #c8a96e;
+            text-decoration: none;
+        }
+        .report-footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* === Mobile Nav === */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #0a0a0a;
+            border-bottom: 1px solid rgba(200, 169, 110, 0.12);
+            z-index: 200;
+            padding: 12px 20px;
+        }
+        .mobile-nav-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .mobile-nav-brand {
+            font-size: 13px;
+            font-weight: 700;
+            color: #c8a96e;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        .mobile-nav-toggle {
+            background: none;
+            border: 1px solid rgba(200, 169, 110, 0.3);
+            color: #c8a96e;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        .mobile-nav-links {
+            display: none;
+            padding: 12px 0 4px;
+        }
+        .mobile-nav-links.open {
+            display: block;
+        }
+        .mobile-nav-links a {
+            display: block;
+            padding: 8px 0;
+            font-size: 14px;
+            color: #888;
+            text-decoration: none;
+        }
+        .mobile-nav-links a:hover {
+            color: #f0ece4;
+        }
+        .mobile-nav-links a .nav-num {
+            color: #c8a96e;
+            font-weight: 700;
+            font-size: 12px;
+            margin-right: 6px;
+        }
+
+        /* === Responsive === */
+        @media (max-width: 1024px) {
+            .sidebar { width: 220px; }
+            .main { margin-left: 220px; padding: 40px 36px 80px; }
+        }
+        @media (max-width: 768px) {
+            .sidebar { display: none; }
+            .mobile-nav { display: block; }
+            .main {
+                margin-left: 0;
+                padding: 80px 20px 64px;
+            }
+            .stat-grid {
+                grid-template-columns: 1fr;
+            }
+            .stat-grid-small {
+                grid-template-columns: 1fr;
+            }
+            .audience-grid {
+                grid-template-columns: 1fr;
+            }
+            .pricing-items {
+                grid-template-columns: 1fr;
+            }
+            .report-header h1 {
+                font-size: 28px;
+            }
+            .stat-card .stat-value {
+                font-size: 26px;
+            }
+            .report-footer {
+                flex-direction: column;
+                gap: 8px;
+                text-align: center;
+            }
+            table {
+                font-size: 12px;
+            }
+        }
+
+        /* === Print === */
+        @media print {
+            body {
+                background: #fff;
+                color: #111;
+                font-size: 11pt;
+            }
+            .sidebar, .mobile-nav {
+                display: none !important;
+            }
+            .main {
+                margin-left: 0;
+                padding: 0;
+                max-width: 100%;
+            }
+            .report-header h1 { color: #111; font-size: 28pt; }
+            .report-header .subtitle { color: #444; }
+            .report-header .eyebrow { color: #8a7040; }
+            section h2 { color: #111; page-break-after: avoid; }
+            section h2 .section-num { color: #8a7040; }
+            section h3 { color: #8a7040; }
+            section p { color: #333; }
+            .stat-card, .audience-card, .stat-card-sm {
+                background: #f9f9f9;
+                border-color: #ddd;
+                break-inside: avoid;
+            }
+            .stat-card .stat-value, .stat-card-sm .stat-value { color: #111; }
+            .stat-card .stat-label, .audience-card .card-tier { color: #8a7040; }
+            .stat-card .stat-desc, .stat-card-sm .stat-desc { color: #555; }
+            .audience-card .card-role { color: #111; }
+            .audience-card ul li { color: #444; }
+            .audience-card .key-stat { color: #8a7040; }
+            .highlight-box {
+                background: #f5f2ec;
+                border-color: #c8a96e;
+            }
+            .highlight-box h4 { color: #8a7040; }
+            .highlight-box p { color: #333; }
+            .pricing-position {
+                background: #f5f2ec;
+                border-color: #c8a96e;
+            }
+            .pricing-position h4 { color: #8a7040; }
+            .pricing-item { background: #fff; }
+            .pricing-item .pi-value { color: #111; }
+            table { min-width: unset; }
+            thead th {
+                background: #f0ece4;
+                color: #8a7040;
+                border-bottom-color: #ccc;
+            }
+            tbody td { color: #333; border-bottom-color: #eee; }
+            tbody tr.highlight-row { background: #f5f2ec; }
+            tbody tr.highlight-row td { color: #111; }
+            .badge-yes { background: #e8f5e9; color: #2e7d32; }
+            .badge-no { background: #ffebee; color: #c62828; }
+            .badge-partial { background: #fff8e1; color: #f57f17; }
+            .sources-list li { color: #555; }
+            .sources-list a { color: #8a7040; }
+            .report-footer span { color: #888; }
+            .report-footer a { color: #8a7040; }
+            .table-wrap { border-color: #ddd; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Sidebar Navigation -->
+<aside class="sidebar">
+    <div class="sidebar-brand">
+        <div class="eyebrow">GR Work Tech</div>
+        <div class="title">Market Research Report</div>
+    </div>
+    <nav>
+        <a href="#executive-summary"><span class="nav-num">01</span> Executive Summary</a>
+        <a href="#competitor-matrix"><span class="nav-num">02</span> Competitor Matrix</a>
+        <a href="#structural-gap"><span class="nav-num">03</span> The Structural Gap</a>
+        <a href="#market-sizing"><span class="nav-num">04</span> TAM / SAM / SOM</a>
+        <a href="#target-audience"><span class="nav-num">05</span> Target Audience</a>
+        <a href="#pricing"><span class="nav-num">06</span> Pricing Landscape</a>
+        <a href="#sources"><span class="nav-num">07</span> Sources</a>
+    </nav>
+</aside>
+
+<!-- Mobile Navigation -->
+<div class="mobile-nav">
+    <div class="mobile-nav-header">
+        <span class="mobile-nav-brand">GR Work Tech</span>
+        <button class="mobile-nav-toggle" onclick="document.querySelector('.mobile-nav-links').classList.toggle('open')">Sections</button>
+    </div>
+    <div class="mobile-nav-links">
+        <a href="#executive-summary" onclick="document.querySelector('.mobile-nav-links').classList.remove('open')"><span class="nav-num">01</span> Executive Summary</a>
+        <a href="#competitor-matrix" onclick="document.querySelector('.mobile-nav-links').classList.remove('open')"><span class="nav-num">02</span> Competitor Matrix</a>
+        <a href="#structural-gap" onclick="document.querySelector('.mobile-nav-links').classList.remove('open')"><span class="nav-num">03</span> The Structural Gap</a>
+        <a href="#market-sizing" onclick="document.querySelector('.mobile-nav-links').classList.remove('open')"><span class="nav-num">04</span> TAM / SAM / SOM</a>
+        <a href="#target-audience" onclick="document.querySelector('.mobile-nav-links').classList.remove('open')"><span class="nav-num">05</span> Target Audience</a>
+        <a href="#pricing" onclick="document.querySelector('.mobile-nav-links').classList.remove('open')"><span class="nav-num">06</span> Pricing Landscape</a>
+        <a href="#sources" onclick="document.querySelector('.mobile-nav-links').classList.remove('open')"><span class="nav-num">07</span> Sources</a>
+    </div>
+</div>
+
+<!-- Main Content -->
+<div class="page-wrapper">
+    <div class="main">
+
+        <!-- Header -->
+        <header class="report-header">
+            <div class="eyebrow">GR Work Tech</div>
+            <h1>Market Research Report</h1>
+            <p class="subtitle">Brain Protocol &mdash; Competitive Landscape &amp; Market Sizing</p>
+            <div class="date">April 2026</div>
+        </header>
+
+        <!-- Section 1: Executive Summary -->
+        <section id="executive-summary">
+            <h2><span class="section-num">01</span>Executive Summary</h2>
+            <div class="section-divider"></div>
+            <p>
+                GR Work Tech deploys persistent AI workspaces for knowledge-intensive companies, starting with HR/Recruitment. The market is massive &mdash; &euro;45&ndash;50B global AI agents and knowledge management (TAM), &euro;5&ndash;7B in European knowledge-intensive business services (SAM), with a realistic &euro;1&ndash;3M capture over 3 years through direct network (SOM) &mdash; growing fast at 10&ndash;14% CAGR, and fragmented across point solutions. No competitor combines persistent memory, agentic capability, custom deployment, and LLM-agnosticism. The gap is structural: every existing tool resets to zero between sessions. Brain Protocol fills that gap. Value compounds over time, creating a moat that deepens with every client engagement, every methodology captured, and every insight retained.
+            </p>
+        </section>
+
+        <!-- Section 2: Competitor Matrix -->
+        <section id="competitor-matrix">
+            <h2><span class="section-num">02</span>Competitor Matrix</h2>
+            <div class="section-divider"></div>
+
+            <h3>2a. Horizontal AI Workspace Competitors</h3>
+            <p>General-purpose AI tools that companies use for knowledge work, none of which deliver the full Brain Protocol stack.</p>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Competitor</th>
+                            <th>Funding / Valuation</th>
+                            <th>Pricing</th>
+                            <th>Persistent Memory</th>
+                            <th>Agentic</th>
+                            <th>Custom Deploy</th>
+                            <th>LLM-Agnostic</th>
+                            <th>Data Owned</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="highlight-row">
+                            <td><strong>Brain Protocol</strong></td>
+                            <td>&mdash;</td>
+                            <td>Premium (audit + deploy + retainer)</td>
+                            <td><span class="badge badge-yes">Yes</span></td>
+                            <td><span class="badge badge-yes">Yes</span></td>
+                            <td><span class="badge badge-yes">Yes</span></td>
+                            <td><span class="badge badge-yes">Yes</span></td>
+                            <td><span class="badge badge-yes">Yes</span></td>
+                        </tr>
+                        <tr>
+                            <td>Dust.tt</td>
+                            <td>$6M ARR</td>
+                            <td>&euro;29/user/mo</td>
+                            <td><span class="badge badge-no">No</span></td>
+                            <td><span class="badge badge-partial">Partial</span></td>
+                            <td><span class="badge badge-no">No</span></td>
+                            <td><span class="badge badge-partial">Partial</span></td>
+                            <td><span class="badge badge-no">No</span></td>
+                        </tr>
+                        <tr>
+                            <td>Glean</td>
+                            <td>$200M ARR / $7.2B val</td>
+                            <td>~$50/user/mo</td>
+                            <td><span class="badge badge-no">No</span></td>
+                            <td><span class="badge badge-no">No</span></td>
+                            <td><span class="badge badge-no">No</span></td>
+                            <td><span class="badge badge-no">No</span></td>
+                            <td><span class="badge badge-no">No</span></td>
+                        </tr>
+                        <tr>
+                            <td>Notion AI</td>
+                            <td>$10B+ val</td>
+                            <td>$10&ndash;24/user/mo</td>
+                            <td><span class="badge badge-partial">Partial</span></td>
+                            <td><span class="badge badge-partial">Partial</span></td>
+                            <td><span class="badge badge-no">No</span></td>
+                            <td><span class="badge badge-no">No</span></td>
+                            <td><span class="badge badge-no">No</span></td>
+                        </tr>
+                        <tr>
+                            <td>Lindy.ai</td>
+                            <td>VC-backed</td>
+                            <td>$20&ndash;50/mo</td>
+                            <td><span class="badge badge-no">No</span></td>
+                            <td><span class="badge badge-yes">Yes</span></td>
+                            <td><span class="badge badge-no">No</span></td>
+                            <td><span class="badge badge-partial">Partial</span></td>
+                            <td><span class="badge badge-no">No</span></td>
+                        </tr>
+                        <tr>
+                            <td>Personal.ai</td>
+                            <td>$23.8M raised</td>
+                            <td>~$10&ndash;15/mo</td>
+                            <td><span class="badge badge-partial">Partial</span></td>
+                            <td><span class="badge badge-no">No</span></td>
+                            <td><span class="badge badge-no">No</span></td>
+                            <td><span class="badge badge-no">No</span></td>
+                            <td><span class="badge badge-partial">Partial</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>2b. HR-Specific AI Competitors</h3>
+            <p>Vertical HR tech solutions &mdash; well-funded, enterprise-focused, but all point solutions without institutional memory.</p>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Competitor</th>
+                            <th>What</th>
+                            <th>Funding / Valuation</th>
+                            <th>Pricing</th>
+                            <th>Target</th>
+                            <th>Gap vs Brain Protocol</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Beamery</td>
+                            <td>Talent lifecycle</td>
+                            <td>$228M / $1B</td>
+                            <td>~$75/user/mo</td>
+                            <td>Enterprise</td>
+                            <td>No institutional memory</td>
+                        </tr>
+                        <tr>
+                            <td>Eightfold AI</td>
+                            <td>Talent intelligence</td>
+                            <td>$410M / $2.1B</td>
+                            <td>Enterprise custom</td>
+                            <td>Large enterprise</td>
+                            <td>No methodology capture</td>
+                        </tr>
+                        <tr>
+                            <td>HireVue</td>
+                            <td>Video interviewing</td>
+                            <td>Carlyle-owned</td>
+                            <td>$35&ndash;145K/yr</td>
+                            <td>Enterprise</td>
+                            <td>Single-purpose</td>
+                        </tr>
+                        <tr>
+                            <td>Paradox</td>
+                            <td>Conversational AI</td>
+                            <td>Acquired by Workday ($1B)</td>
+                            <td>$1K&ndash;5K/mo</td>
+                            <td>High-volume</td>
+                            <td>Locked in Workday ecosystem</td>
+                        </tr>
+                        <tr>
+                            <td>Phenom</td>
+                            <td>Talent experience</td>
+                            <td>$169M / $1.3B</td>
+                            <td>~$10K/mo</td>
+                            <td>Mid-large enterprise</td>
+                            <td>SaaS, not workspace</td>
+                        </tr>
+                        <tr>
+                            <td>SeekOut</td>
+                            <td>Talent sourcing</td>
+                            <td>$189M / $1.2B</td>
+                            <td>$830&ndash;2.5K/mo</td>
+                            <td>Mid-large</td>
+                            <td>Sourcing only</td>
+                        </tr>
+                        <tr>
+                            <td>Gem</td>
+                            <td>Recruiting CRM</td>
+                            <td>$148M / $1.2B</td>
+                            <td>$270&ndash;300/mo</td>
+                            <td>SMB to enterprise</td>
+                            <td>CRM only</td>
+                        </tr>
+                        <tr>
+                            <td>hireEZ</td>
+                            <td>AI sourcing</td>
+                            <td>$76M</td>
+                            <td>$169&ndash;250/user/mo</td>
+                            <td>All sizes</td>
+                            <td>Credit-based sourcing only</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Section 3: The Structural Gap -->
+        <section id="structural-gap">
+            <h2><span class="section-num">03</span>The Structural Gap</h2>
+            <div class="section-divider"></div>
+
+            <div class="highlight-box">
+                <h4>What No Competitor Does</h4>
+                <p>
+                    No existing product combines persistent institutional memory, methodology capture, cross-client intelligence, and knowledge that compounds over time. Every tool on the market resets to zero between sessions. Recruitment firms rebuild context manually, lose expertise when consultants leave, and cannot leverage patterns across placements.
+                </p>
+                <p>
+                    Brain Protocol is the only product that becomes more valuable the longer you use it. Each placement, each candidate interaction, each market insight is retained, structured, and available to the entire team &mdash; permanently.
+                </p>
+                <p class="stat-callout">
+                    "Firms using AI at any stage are 3.5&ndash;4.5x more likely to have grown revenue" &mdash; Bullhorn GRID 2026. Yet only 10% have AI embedded throughout their workflow. The opportunity sits in the gap between awareness and adoption.
+                </p>
+            </div>
+        </section>
+
+        <!-- Section 4: TAM / SAM / SOM -->
+        <section id="market-sizing">
+            <h2><span class="section-num">04</span>TAM / SAM / SOM</h2>
+            <div class="section-divider"></div>
+
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <div class="stat-label">TAM &mdash; Total Addressable Market</div>
+                    <div class="stat-value">&euro;45&ndash;50B</div>
+                    <div class="stat-desc">Global AI Agents + AI Knowledge Management market (2025). Total demand if every potential customer bought the product. Growing to &euro;95B+ by 2030 at 45% CAGR.</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">SAM &mdash; Serviceable Addressable Market</div>
+                    <div class="stat-value">&euro;5&ndash;7B</div>
+                    <div class="stat-desc">The portion of TAM within our reach &mdash; European knowledge-intensive business services (KIBS) AI adoption spend. 15M employees, 7.6% of EU GDP. Focus: firms 10&ndash;500 headcount with C-level buyer.</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">SOM &mdash; Serviceable Obtainable Market</div>
+                    <div class="stat-value">&euro;1&ndash;3M</div>
+                    <div class="stat-desc">The share of SAM we can realistically capture &mdash; 10&ndash;20 high-value contracts over 3 years via direct network, at &euro;100&ndash;150K average (audit + deploy + retainer).</div>
+                </div>
+            </div>
+
+            <div class="stat-grid-small">
+                <div class="stat-card-sm">
+                    <div class="stat-value">&euro;550&ndash;650M</div>
+                    <div class="stat-desc">AI in Recruitment (2025), projected to reach &euro;1B by 2030</div>
+                </div>
+                <div class="stat-card-sm">
+                    <div class="stat-value">&euro;65.4B</div>
+                    <div class="stat-desc">EU Staffing market size</div>
+                </div>
+                <div class="stat-card-sm">
+                    <div class="stat-value">7.6%</div>
+                    <div class="stat-desc">KIBS share of EU economic output (Knowledge-Intensive Business Services), 15M employees</div>
+                </div>
+                <div class="stat-card-sm">
+                    <div class="stat-value">31&ndash;50%</div>
+                    <div class="stat-desc">Budget allocation to technology by fast-growth recruitment firms</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Target Audience -->
+        <section id="target-audience">
+            <h2><span class="section-num">05</span>Target Audience</h2>
+            <div class="section-divider"></div>
+            <p>Four decision layers within knowledge-intensive firms, each with distinct pain points and value propositions.</p>
+
+            <div class="audience-grid">
+                <!-- Card 1: C-Level -->
+                <div class="audience-card">
+                    <div class="card-tier">Decision Maker</div>
+                    <div class="card-role">C-Level</div>
+                    <div class="card-section-label">Pain Points</div>
+                    <ul>
+                        <li>Revenue growth stalled despite growing demand</li>
+                        <li>Institutional knowledge lost on staff turnover</li>
+                        <li>45% spend more than 50% of time on operational overhead</li>
+                        <li>Tech stack ROI difficult to measure</li>
+                    </ul>
+                    <p class="key-stat">Only 13% achieved &gt;25% revenue growth. Firms using AI at any stage are 3.5&ndash;4.5x more likely to have grown revenue.</p>
+                    <div class="card-section-label delivers">Brain Protocol Delivers</div>
+                    <ul class="delivers-list">
+                        <li>Personal agentic layer that handles operational noise</li>
+                        <li>Institutional knowledge that survives turnover</li>
+                        <li>Competitive differentiation that compounds over time</li>
+                    </ul>
+                </div>
+
+                <!-- Card 2: Directors -->
+                <div class="audience-card">
+                    <div class="card-tier">Influencer</div>
+                    <div class="card-role">Directors</div>
+                    <div class="card-section-label">Pain Points</div>
+                    <ul>
+                        <li>Domain expertise siloed in individuals</li>
+                        <li>Need to diversify into new verticals</li>
+                        <li>65% cite ineffective use of technology and analytics</li>
+                        <li>Competition from AI-first firms accelerating</li>
+                    </ul>
+                    <p class="key-stat">87% of companies will experience skills gaps in key areas. Knowledge walks out the door with every departure.</p>
+                    <div class="card-section-label delivers">Brain Protocol Delivers</div>
+                    <ul class="delivers-list">
+                        <li>Methodology standardization across teams</li>
+                        <li>Domain intelligence that accumulates and persists</li>
+                        <li>Vertical-specific competitive insight</li>
+                    </ul>
+                </div>
+
+                <!-- Card 3: Managers -->
+                <div class="audience-card">
+                    <div class="card-tier">Operational</div>
+                    <div class="card-role">Managers</div>
+                    <div class="card-section-label">Pain Points</div>
+                    <ul>
+                        <li>Delivery timelines increasing across engagements</li>
+                        <li>60% report longer cycle times vs prior year</li>
+                        <li>Fragmented tool stack (avg 5&ndash;8 tools)</li>
+                        <li>Onboarding new team members is slow and ad-hoc</li>
+                    </ul>
+                    <p class="key-stat">Data quality is the #1 obstacle to AI adoption. Tools don't talk to each other &mdash; "well tooled but insufficiently coordinated."</p>
+                    <div class="card-section-label delivers">Brain Protocol Delivers</div>
+                    <ul class="delivers-list">
+                        <li>Unified workspace replacing fragmented stack</li>
+                        <li>Onboarding acceleration through captured knowledge</li>
+                        <li>Consistent methodology enforcement</li>
+                    </ul>
+                </div>
+
+                <!-- Card 4: Operators -->
+                <div class="audience-card">
+                    <div class="card-tier">End User</div>
+                    <div class="card-role">Operators</div>
+                    <div class="card-section-label">Pain Points</div>
+                    <ul>
+                        <li>Majority of time spent on search and context-gathering</li>
+                        <li>Information overload across platforms</li>
+                        <li>Tool fatigue and constant context-switching</li>
+                        <li>Repetitive tasks that should be automated</li>
+                    </ul>
+                    <p class="key-stat">66% say finding quality information got harder. Every session starts from zero &mdash; no memory of past work.</p>
+                    <div class="card-section-label delivers">Brain Protocol Delivers</div>
+                    <ul class="delivers-list">
+                        <li>Single workspace eliminating context-switching</li>
+                        <li>AI that learns individual working patterns</li>
+                        <li>Persistent memory of all past interactions</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Pricing Landscape -->
+        <section id="pricing">
+            <h2><span class="section-num">06</span>Pricing Landscape</h2>
+            <div class="section-divider"></div>
+
+            <h3>Market Pricing by Tier</h3>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tier</th>
+                            <th>Typical Range</th>
+                            <th>Examples</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>SMB / Entry</td>
+                            <td>$10&ndash;30K/year</td>
+                            <td>Gem ($3.6K/user/yr), hireEZ ($2K/user/yr), SeekOut ($10&ndash;27K/yr)</td>
+                        </tr>
+                        <tr>
+                            <td>Mid-Market</td>
+                            <td>$30&ndash;100K/year</td>
+                            <td>HireVue ($35&ndash;50K), Paradox ($25&ndash;60K), SeekOut ($30&ndash;90K)</td>
+                        </tr>
+                        <tr>
+                            <td>Enterprise</td>
+                            <td>$100&ndash;500K+/year</td>
+                            <td>Beamery, Eightfold, Phenom, Paradox ($75&ndash;150K+)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+
+        <!-- Section 7: Sources -->
+        <section id="sources">
+            <h2><span class="section-num">07</span>Sources</h2>
+            <div class="section-divider"></div>
+
+            <ul class="sources-list">
+                <li><a href="https://www.bullhorn.com/grid/" target="_blank" rel="noopener">Bullhorn GRID 2026</a> &mdash; Global Recruitment Insights and Data, industry trends and AI adoption benchmarks</li>
+                <li><a href="https://www.grandviewresearch.com/industry-analysis/human-resource-technology-market" target="_blank" rel="noopener">Grand View Research</a> &mdash; Human Resource Technology Market Size &amp; Share Report (2025&ndash;2030)</li>
+                <li><a href="https://www.statista.com/outlook/tmo/software/enterprise-software/hr-software/europe" target="_blank" rel="noopener">Statista</a> &mdash; HR Software Market Revenue in Europe (2025&ndash;2033)</li>
+                <li><a href="https://www.linkedin.com/business/talent/blog/talent-acquisition" target="_blank" rel="noopener">LinkedIn Global Talent Trends 2025&ndash;2026</a> &mdash; Recruiter efficiency, application volume, and sourcing data</li>
+                <li><a href="https://www.mckinsey.com/capabilities/people-and-organizational-performance/our-insights" target="_blank" rel="noopener">McKinsey &amp; Company</a> &mdash; Skills gap projections and knowledge-intensive business services analysis</li>
+                <li><a href="https://wecglobal.org/world-employment-confederation/economic-report/" target="_blank" rel="noopener">World Employment Confederation</a> &mdash; EU Staffing market size (&euro;65.4B) and industry structure</li>
+                <li><a href="https://www.staffingindustry.com/" target="_blank" rel="noopener">Staffing Industry Analysts (SIA)</a> &mdash; Recruitment firm demographics, headcount distribution, technology adoption rates</li>
+                <li><a href="https://www.crunchbase.com/" target="_blank" rel="noopener">Crunchbase</a> &mdash; Funding data for Beamery, Eightfold AI, Phenom, SeekOut, Gem, hireEZ, Personal.ai</li>
+                <li><a href="https://pitchbook.com/" target="_blank" rel="noopener">PitchBook</a> &mdash; Valuation data and deal history for HR tech competitors</li>
+                <li><a href="https://www.eurostat.ec.europa.eu/" target="_blank" rel="noopener">Eurostat</a> &mdash; KIBS (Knowledge-Intensive Business Services) economic contribution data</li>
+                <li><a href="https://dust.tt" target="_blank" rel="noopener">Dust.tt</a>, <a href="https://glean.com" target="_blank" rel="noopener">Glean</a>, <a href="https://notion.so" target="_blank" rel="noopener">Notion AI</a>, <a href="https://lindy.ai" target="_blank" rel="noopener">Lindy.ai</a> &mdash; Product pages and publicly available pricing (as of Q1 2026)</li>
+                <li><a href="https://www.gartner.com/en/human-resources" target="_blank" rel="noopener">Gartner HR Research</a> &mdash; Technology adoption rates and budget allocation benchmarks</li>
+            </ul>
+        </section>
+
+        <!-- Footer -->
+        <footer class="report-footer">
+            <span>GR Work Tech &mdash; April 2026 | brainprotocol.it</span>
+            <a href="../pitch-deck/">Back to Pitch Deck &rarr;</a>
+        </footer>
+
+    </div>
+</div>
+
+<script>
+// Highlight active nav link on scroll
+(function() {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.sidebar nav a');
+
+    function onScroll() {
+        let current = '';
+        sections.forEach(function(section) {
+            const top = section.offsetTop - 120;
+            if (window.scrollY >= top) {
+                current = section.getAttribute('id');
+            }
+        });
+        navLinks.forEach(function(link) {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + current) {
+                link.classList.add('active');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+})();
+</script>
+
+</body>
+</html>
