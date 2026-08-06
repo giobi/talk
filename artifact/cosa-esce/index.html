@@ -1,0 +1,185 @@
+<!doctype html><html lang="it"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cosa esce dall'azienda — controlla un testo prima di incollarlo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+ *{box-sizing:border-box}
+ body{font-family:Inter,system-ui,sans-serif;margin:0;background:#f9fafb;color:#111827;line-height:1.55}
+ .wrap{max-width:960px;margin:0 auto;padding:28px 20px 80px}
+ header{background:#0b0f19;color:#fff;margin:-28px -20px 26px;padding:34px 20px}
+ header .eyebrow{color:#d97706;font-weight:700;letter-spacing:.14em;font-size:.72rem}
+ header h1{margin:.25rem 0 .3rem;font-size:1.9rem}
+ header p{margin:0;color:#9ca3af;font-size:.95rem;max-width:64ch}
+ .privacy{display:inline-block;margin-top:.9rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);color:#e5e7eb;font-size:.8rem;padding:.35rem .7rem;border-radius:999px}
+ .panel{background:#fff;border-radius:12px;padding:20px 22px;margin-bottom:18px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+ .panel h2{margin:0 0 .2rem;font-size:1.1rem}
+ .panel .sub{color:#6b7280;font-size:.87rem;margin:0 0 .9rem}
+ textarea{width:100%;min-height:170px;font-family:inherit;font-size:.92rem;line-height:1.6;padding:12px 14px;border:1px solid #d1d5db;border-radius:10px;resize:vertical}
+ textarea:focus{outline:none;border-color:#d97706;box-shadow:0 0 0 3px rgba(217,119,6,.12)}
+ .row{display:flex;flex-wrap:wrap;gap:9px;align-items:center;margin-top:.8rem}
+ button{font-family:inherit;font-size:.88rem;padding:.55rem .95rem;border-radius:8px;border:1px solid #d1d5db;background:#fff;cursor:pointer;transition:.15s}
+ button:hover{border-color:#d97706;color:#b45309}
+ button.primary{background:#d97706;border-color:#d97706;color:#fff;font-weight:600}
+ button.primary:hover{background:#b45309;color:#fff}
+ .esempi{font-size:.82rem;color:#6b7280;margin-right:.2rem}
+ .verdict{display:none;margin-top:1rem;border-radius:10px;padding:14px 16px}
+ .verdict.show{display:block}
+ .verdict.v{background:#f0fdf4;border-left:4px solid #16a34a}
+ .verdict.g{background:#fffbeb;border-left:4px solid #d97706}
+ .verdict.r{background:#fef2f2;border-left:4px solid #dc2626}
+ .verdict h3{margin:0 0 .3rem;font-size:1.05rem}
+ .verdict .why{font-size:.9rem;color:#374151;margin:.3rem 0 0}
+ .hits{margin:.8rem 0 0;padding:0;list-style:none;font-size:.88rem}
+ .hits li{padding:.3rem 0;border-bottom:1px solid rgba(0,0,0,.05);display:flex;gap:.6rem;align-items:baseline}
+ .tag{flex:none;font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:.12rem .45rem;border-radius:5px}
+ .tag.r{background:#fee2e2;color:#991b1b}
+ .tag.g{background:#fef3c7;color:#92400e}
+ .frag{font-family:ui-monospace,Menlo,Consolas,monospace;background:#f3f4f6;padding:.05rem .3rem;border-radius:4px;word-break:break-all}
+ .preview{margin-top:1rem;background:#0b0f19;color:#e5e7eb;border-radius:10px;padding:14px 16px;font-size:.88rem;white-space:pre-wrap;word-break:break-word;display:none}
+ .preview.show{display:block}
+ .preview .ph{background:rgba(217,119,6,.25);color:#fbbf24;border-radius:4px;padding:0 .25rem}
+ .legenda{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));margin-top:.4rem}
+ .lg{border-radius:10px;padding:12px 14px;font-size:.85rem}
+ .lg.v{background:#f0fdf4;border-left:4px solid #16a34a}
+ .lg.g{background:#fffbeb;border-left:4px solid #d97706}
+ .lg.r{background:#fef2f2;border-left:4px solid #dc2626}
+ .lg strong{display:block;margin-bottom:.2rem}
+ .disclaimer{margin-top:26px;font-size:.78rem;color:#9ca3af;border-top:1px solid #e5e7eb;padding-top:14px}
+</style></head>
+<body>
+<div class="wrap">
+<header>
+  <div class="eyebrow">MODULO 1.4 · COMPLIANCE E USO ACCETTABILE</div>
+  <h1>Cosa esce dall'azienda</h1>
+  <p>Incollate un testo che stavate per dare in pasto a uno strumento di IA. Vi dice cosa dentro non dovrebbe uscire, e da che parte della linea cade il caso.</p>
+  <div class="privacy">Gira tutto dentro il vostro browser. Il testo non viene inviato da nessuna parte — sarebbe buffo il contrario.</div>
+</header>
+
+<div class="panel">
+  <h2>Il testo</h2>
+  <p class="sub">Il vostro, oppure uno degli esempi.</p>
+  <textarea id="txt" placeholder="Incolla qui il testo che stavi per usare…"></textarea>
+  <div class="row">
+    <button class="primary" id="run">Controlla</button>
+    <span class="esempi">Esempi:</span>
+    <button data-ex="ticket">Un ticket cliente</button>
+    <button data-ex="cv">Un curriculum</button>
+    <button data-ex="log">Un log di produzione</button>
+    <button data-ex="ok">Una nota interna</button>
+  </div>
+  <div class="verdict" id="verdict"></div>
+  <div class="preview" id="preview"></div>
+</div>
+
+<div class="panel">
+  <h2>La linea, in tre righe</h2>
+  <div class="legenda">
+    <div class="lg v"><strong>Verde</strong>Documenti interni, testi vostri, codice, ricerca tecnica. La gran parte del lavoro sta qui: si fa senza chiedere.</div>
+    <div class="lg g"><strong>Grigio</strong>Dati personali di terzi, documenti di clienti, decisioni che riguardano una persona. Si può, con un motivo e il minimo indispensabile. Non si decide da soli.</div>
+    <div class="lg r"><strong>Rosso</strong>Credenziali, chiavi, esportazioni intere di archivi, dati sanitari o giudiziari. Non si fa, e non c'è una versione ripulita che lo salvi.</div>
+  </div>
+</div>
+
+<p class="disclaimer">
+  Strumento didattico: riconosce schemi ricorrenti (indirizzi, codici, chiavi), non capisce il significato del testo.
+  Un esito verde non è un'autorizzazione — nel dubbio si chiede a chi presidia lo strumento.
+  <br>Modulo 1.4 del corso IA Foundation — <a href="/events/2026-emisfera-ia/01/04/" style="color:#b45309">torna ai materiali</a>
+</p>
+</div>
+
+<script>
+const REGOLE = [
+  // livello r = rosso (blocca), g = grigio (attenzione)
+  {liv:'r', tipo:'Credenziale', re:/(?:password|passwd|pwd|token|api[_-]?key|secret|chiave privata|credenziali)\s*[:=]\s*\S+/gi},
+  {liv:'r', tipo:'Chiave privata', re:/-----BEGIN [A-Z ]*PRIVATE KEY-----/g},
+  {liv:'g', tipo:'IBAN', re:/\bIT\d{2}[A-Z]\d{10}[0-9A-Z]{12}\b/gi},
+  {liv:'g', tipo:'Codice fiscale', re:/\b[A-Z]{6}\d{2}[A-EHLMPR-T]\d{2}[A-Z]\d{3}[A-Z]\b/gi},
+  {liv:'g', tipo:'Email', re:/\b[\w.+-]+@[\w-]+\.[\w.]{2,}\b/gi},
+  {liv:'g', tipo:'Telefono', re:/(?:\+39[\s.]?)?\b3\d{2}[\s.]?\d{6,7}\b/g},
+  {liv:'g', tipo:'Partita IVA', re:/\b(?:IT)?\d{11}\b/gi},
+  {liv:'g', tipo:'Indirizzo IP', re:/\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b/g},
+  {liv:'g', tipo:'Data di nascita', re:/\b(?:nat[oa] il|data di nascita)\s*:?\s*\d{1,2}[\/.-]\d{1,2}[\/.-]\d{2,4}/gi},
+  {liv:'r', tipo:'Dato sanitario o giudiziario', re:/\b(?:diagnosi|certificato medico|invalidità|malattia|procedimento penale|precedenti penali)\b/gi},
+];
+
+const ESEMPI = {
+ticket:`Ciao, ti giro il ticket di Marco Bianchi: il cliente Rossi Impianti srl lamenta che l'utente
+paola.verdi@rossimpianti.it non riesce ad accedere al gestionale. La password temporanea che
+gli avevamo dato era password: Estate2026! e il suo numero diretto è 347 1122334.
+Puoi chiedere all'IA di scrivermi una risposta gentile?`,
+cv:`Candidato: Luca Ferrari, nato il 12/03/1988, CF FRRLCU88C12L746Y.
+Email luca.ferrari@gmail.com, cellulare 348 9988776.
+Esperienza: 6 anni come sistemista. Nel 2021 periodo di malattia lungo per un intervento.
+Vorrei farmi fare un riassunto e un giudizio di idoneità per la posizione.`,
+log:`Errore ricorrente sul server del cliente, mi faccio spiegare cosa significa:
+
+[2026-08-06 09:14:22] ERROR auth.failed user=g.moretti@studiomoretti.it ip=192.168.4.31
+[2026-08-06 09:14:25] ERROR auth.failed user=g.moretti@studiomoretti.it ip=192.168.4.31
+[2026-08-06 09:15:02] WARN  session.expired token=eyJhbGciOiJIUzI1NiJ9`,
+ok:`Devo scrivere la nota interna per il passaggio alla nuova procedura di backup.
+Punti da coprire: perché cambiamo, cosa cambia per chi lavora in filiale, da quando parte,
+a chi ci si rivolge se qualcosa non torna. Tono asciutto, mezza pagina.`
+};
+
+const esc = s => s.replace(/[&<>]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+
+function analizza(testo){
+  const hits=[];
+  REGOLE.forEach(r=>{
+    const m = testo.match(r.re);
+    if(m) [...new Set(m)].forEach(f=>hits.push({liv:r.liv, tipo:r.tipo, frag:f.trim()}));
+  });
+  return hits;
+}
+
+function rendi(){
+  const testo = document.getElementById('txt').value.trim();
+  const vBox = document.getElementById('verdict');
+  const pBox = document.getElementById('preview');
+  if(!testo){ vBox.className='verdict'; pBox.className='preview'; return; }
+
+  const hits = analizza(testo);
+  const rossi = hits.filter(h=>h.liv==='r');
+  const grigi = hits.filter(h=>h.liv==='g');
+  let cls, titolo, why;
+
+  if(rossi.length){
+    cls='r'; titolo='Rosso — non esce così';
+    why="C'è dentro qualcosa che non deve uscire in nessun caso. Non è questione di come lo chiedete: va tolto, e se una credenziale è già circolata va cambiata.";
+  } else if(grigi.length){
+    cls='g'; titolo='Grigio — si può, ma non così';
+    why="Ci sono dati che riguardano persone. Serve un motivo per usarli e va incollato solo il minimo necessario: quasi sempre il testo funziona lo stesso senza.";
+  } else {
+    cls='v'; titolo='Verde — nessuna segnalazione';
+    why="Non ho trovato schemi riconoscibili di dati personali o credenziali. Resta a voi la parte che io non vedo: se il contenuto è riservato per contratto, il colore lo decide il contratto.";
+  }
+
+  vBox.className='verdict show '+cls;
+  vBox.innerHTML = `<h3>${titolo}</h3><p class="why">${why}</p>`+
+    (hits.length ? '<ul class="hits">'+hits.map(h=>
+      `<li><span class="tag ${h.liv}">${h.liv==='r'?'rosso':'grigio'}</span><span><strong>${h.tipo}</strong> — <span class="frag">${esc(h.frag.length>70?h.frag.slice(0,70)+'…':h.frag)}</span></span></li>`).join('')+'</ul>' : '')+
+    (hits.length ? `<p class="why" style="margin-top:.8rem"><strong>Provate a togliere quello che è evidenziato:</strong> se la domanda regge lo stesso, quei dati non servivano.</p>` : '');
+
+  if(hits.length){
+    let out = esc(testo);
+    hits.forEach(h=>{
+      const f = esc(h.frag);
+      out = out.split(f).join(`<span class="ph">[${h.tipo.toLowerCase()}]</span>`);
+    });
+    pBox.className='preview show';
+    pBox.innerHTML = `<strong style="color:#fbbf24">Come sarebbe senza:</strong>\n\n`+out;
+  } else {
+    pBox.className='preview';
+  }
+}
+
+document.getElementById('run').onclick = rendi;
+document.getElementById('txt').addEventListener('input', ()=>{
+  if(document.getElementById('verdict').classList.contains('show')) rendi();
+});
+document.querySelectorAll('[data-ex]').forEach(b=>{
+  b.onclick = ()=>{ document.getElementById('txt').value = ESEMPI[b.dataset.ex]; rendi(); window.scrollTo({top:0,behavior:'smooth'}); };
+});
+</script>
+</body></html>
